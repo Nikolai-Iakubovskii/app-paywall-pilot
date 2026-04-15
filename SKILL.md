@@ -1,5 +1,5 @@
 ---
-name: app-paywall-pilot
+name: paywall-upgrade-cro
 description: Design and implement App Store-compliant, testable in-app paywalls, upgrade screens, subscription flows, trial screens, pricing screens, and feature gates for mobile apps. Use proactively whenever the user creates, reviews, modifies, or debugs a paywall or subscription flow. Prefer Apple docs for compliance, store/provider docs for implementation, and benchmark reports only as directional input.
 user-invocable: true
 ---
@@ -483,6 +483,76 @@ Special offer: XX% off annual plan
 ```
 
 **Rule:** Use Apple's native win-back offer type (iOS 18+) where possible — Apple surfaces these automatically.
+
+---
+
+## DISCOUNT & PROMOTIONAL OFFERS
+
+Discount offers are a distinct paywall type with their own rules. Do not conflate them with the main paywall.
+
+### When to use discount offers
+
+| Trigger | When | Who sees it |
+|---------|------|-------------|
+| **Post-close welcome offer** | After user dismisses main paywall | Non-converters only |
+| **Session-start offer** | Returning user who hasn't converted | Non-converters, N+1 session |
+| **Transaction abandon** | User cancelled payment sheet | High-intent non-converters |
+| **Win-back** | Lapsed subscriber returns | Former subscribers |
+| **Seasonal/holiday** | Black Friday, New Year, etc. | All or segmented |
+| **Push marketing** | Push notification deep-link | Targeted segment |
+
+### Trial vs no-trial on discount offers
+
+**Key insight:** "Try for free" and "Get X% off" target different psychology.
+
+- **"Try for free"** — removes risk. Best for new users with low product awareness (onboarding).
+- **"Get X% off"** — creates urgency, anchors value. Best for users who already know the product but hesitated on price (post-close, returning users, win-back).
+
+**Data:**
+- Trial subscribers retain **1.4–1.7x better** than direct buyers (Adapty, Mar 2026). **Pattern.**
+- In Productivity and Lifestyle, direct buyers have higher 12-month LTV than trial users. **Pattern — category-dependent.**
+- Combining trial + discount ("3-day free trial, then 60% off first year") can work but requires careful compliance with Apple's Introductory Offer system. **Hypothesis to test.**
+- Removing trial from a discount offer removes friction-reduction. Only do this when the user already demonstrated high intent (e.g., returned after dismissal, power user). **Pattern.**
+
+### Discount depth
+
+| Depth | Use case | Risk |
+|-------|----------|------|
+| 20–30% | Seasonal, re-engagement | Low LTV risk |
+| 30–40% | Standard post-close, holiday | Moderate |
+| 50–60% | Annual welcome offer, win-back | Watch LTV erosion |
+| 60%+ | Aggressive win-back | High conversion but churn risk |
+
+**Rule:** 90% of subscriptions sell at full price (Adapty, Mar 2026). Discounts work when timed to catch non-converters — not broadcast to everyone.
+
+### Compliance for discount offers
+
+**"X% OFF" with only one plan** — Apple doesn't explicitly forbid it, but the discount needs a **legitimate reference price**. If there's no higher-priced plan to compare against, "63% OFF" has no honest basis. Safer approaches:
+- Compare to a second plan you actually sell (monthly vs annual savings)
+- Use Apple's Introductory Offer system (handles original vs offer price natively)
+- Tie discount to a specific event ("Holiday offer: first year at $X")
+
+**"LOWEST PRICE" / "LIMITED TIME"** — if the price never changes, this is fake urgency. Apple can flag under misleading marketing. Say "best value" when comparing plans, not absolute price claims. **Rule.**
+
+**Savings math** — must be verifiable. If showing "Save 63%", the math must work: `(reference_price - offer_price) / reference_price = 63%`. Both prices must be real, current, and visible. **Rule.**
+
+### Post-close welcome offer implementation
+
+**Pattern** — standard across every major category in 2026 (Adapty). Expected impact: 10–15% ARPU lift.
+
+Structure:
+1. User dismisses main paywall → log `paywall_dismissed`
+2. Show banner/toast with time-limited discount (24h typical)
+3. Banner links to a separate discount paywall placement
+4. Do NOT put the discount on the main paywall — this trains all users to expect lower price
+
+### Win-back offers on iOS 18+
+
+**Rule:** Use Apple's native Win-Back Offer type where possible.
+- Displayed automatically in Settings > Subscriptions, App Store, and in-app
+- Built-in eligibility rules (unlike Promotional Offers where you build targeting logic)
+- "Wait Between Offers" setting controls frequency
+- StoreKit Message API (`.winBackOffer`) is the fastest implementation path
 
 ---
 
