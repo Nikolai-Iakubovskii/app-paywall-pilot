@@ -1,8 +1,10 @@
-# App Paywall Pilot — Claude Code Skill
+# App Paywall Pilot
 
 > Your AI copilot for designing, auditing, and implementing App Store-compliant in-app paywalls — with verified 2026 benchmark data.
 
-A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skill that turns your AI coding assistant into a mobile subscription paywall expert. It guides you through the full paywall lifecycle — from strategy and compliance audit to screen design, A/B testing, and implementation — grounded in real data from Adapty, RevenueCat, Superwall, and Apple guidelines.
+An AI prompt / instruction file that turns any LLM into a mobile subscription paywall expert. Works with **Claude Code**, **Codex**, **ChatGPT**, **Cursor**, **Windsurf**, **Gemini**, or any AI coding assistant that supports custom instructions or system prompts.
+
+It guides you through the full paywall lifecycle — from strategy and compliance audit to screen design, A/B testing, and implementation — grounded in real data from Adapty, RevenueCat, Superwall, and Apple guidelines.
 
 ## Why this exists
 
@@ -11,7 +13,7 @@ Most paywall advice online is either:
 - **Hype-driven** ("this one trick 10x'd our revenue!" — from a single app, no methodology)
 - **Outdated** (tactics that worked in 2024 now get you rejected by Apple)
 
-This skill fixes that by:
+This project fixes that by:
 1. **Putting Apple compliance first** — every recommendation is checked against App Store Review Guidelines
 2. **Labeling confidence levels** — each recommendation is marked as **Rule** (compliance), **Pattern** (observed across datasets), or **Hypothesis** (test it yourself)
 3. **Citing sources with dates** — every benchmark number includes its source and publication date so you know if it's still current
@@ -60,49 +62,44 @@ All data from published reports with source and date columns:
 - Apple Offer Types reference table (Introductory, Promotional, Offer Codes, Win-Back)
 - WWDC 2025 StoreKit 2 updates
 
-## Installation
+## How to use
 
-### Option 1: Copy directly
+### With Claude Code (as a skill)
 ```bash
-mkdir -p ~/.claude/skills/paywall-upgrade-cro
-curl -o ~/.claude/skills/paywall-upgrade-cro/SKILL.md \
+mkdir -p ~/.claude/skills/app-paywall-pilot
+curl -o ~/.claude/skills/app-paywall-pilot/SKILL.md \
   https://raw.githubusercontent.com/Nikolai-Iakubovskii/app-paywall-pilot/main/SKILL.md
 ```
+Then invoke: `/app-paywall-pilot`
 
-### Option 2: Clone and symlink
-```bash
-git clone https://github.com/Nikolai-Iakubovskii/app-paywall-pilot.git
-ln -s "$(pwd)/paywall-upgrade-cro" ~/.claude/skills/paywall-upgrade-cro
-```
+### With Codex CLI
+Copy `SKILL.md` content into your project's `AGENTS.md` or reference it as a custom instruction file.
 
-### Verify
-Start Claude Code and run:
-```
-/paywall-upgrade-cro
-```
+### With ChatGPT / GPT-4 / GPT-5
+Paste `SKILL.md` content as a system prompt or custom instruction, then ask: "Audit my paywall" with a screenshot.
 
-## Usage
+### With Cursor / Windsurf / any AI IDE
+Add `SKILL.md` to your project root or reference it in your AI rules/instructions config.
 
-### Full audit
-```
-/paywall-upgrade-cro
-```
-Runs the complete 6-phase process starting with Discovery.
+### As a standalone reference
+Read `SKILL.md` directly — it's a structured knowledge base with benchmarks, templates, and checklists that works without any AI tool.
 
-### Targeted tasks
-```
-/paywall-upgrade-cro audit my paywall screenshot
-/paywall-upgrade-cro design a trial-focused paywall for a fitness app
-/paywall-upgrade-cro check compliance before App Store submission
-/paywall-upgrade-cro what should I test next on my paywall?
-```
+## Usage examples
 
-### Auto-trigger
-The skill activates automatically when Claude Code detects paywall-related work — files referencing Adapty, RevenueCat, StoreKit, purchase flows, or subscription UI.
+```
+# Full 6-phase audit
+Audit my paywall and tell me what to fix
+
+# Targeted tasks
+Design a trial-focused paywall for a fitness app
+Check my paywall for App Store compliance before submission
+What should I test next on my paywall?
+Is my savings badge math correct?
+```
 
 ## Example output
 
-When you run an audit, the skill produces a structured report:
+When you run an audit, the AI produces a structured report:
 
 ```
 1. Current state — what the app is doing now
@@ -131,7 +128,7 @@ Each finding is labeled: **Rule** (fix or risk rejection), **Pattern** (likely i
 
 - **Not a landing page optimizer** — this is for in-app subscription flows, not web pricing pages
 - **Not a guarantee** — benchmarks are directional, results vary by category and audience
-- **Not a dark patterns toolkit** — the skill flags anti-patterns and prioritizes user trust
+- **Not a dark patterns toolkit** — it flags anti-patterns and prioritizes user trust
 - **Not affiliated** with Adapty, RevenueCat, Superwall, Apphud, or Apple
 
 ## Contributing
@@ -141,16 +138,8 @@ PRs welcome. Rules:
 1. **Every benchmark must have a source and date.** No unsourced numbers.
 2. **Label every recommendation** as Rule, Pattern, or Hypothesis.
 3. **Check against App Store guidelines** before adding UI patterns.
-4. **Keep SKILL.md lean.** Every line costs tokens in Claude Code's context window.
+4. **Keep SKILL.md lean.** Every line costs tokens in AI context windows.
 5. **Open an issue first** for major structural changes.
-
-## Related skills
-
-If you build Claude Code skills for mobile development, these pair well:
-- **app-onboarding-questionnaire** — design the onboarding quiz that feeds data into personalized paywalls
-- **ab-test-setup** — plan and implement A/B tests for paywall variants
-- **ios-monetization-expert** — subscription pricing strategy and LTV optimization
-- **analytics-tracking** — set up the funnel events your paywall needs
 
 ## License
 

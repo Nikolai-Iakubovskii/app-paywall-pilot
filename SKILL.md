@@ -1,5 +1,5 @@
 ---
-name: paywall-upgrade-cro
+name: app-paywall-pilot
 description: Design and implement App Store-compliant, testable in-app paywalls, upgrade screens, subscription flows, trial screens, pricing screens, and feature gates for mobile apps. Use proactively whenever the user creates, reviews, modifies, or debugs a paywall or subscription flow. Prefer Apple docs for compliance, store/provider docs for implementation, and benchmark reports only as directional input.
 user-invocable: true
 ---
