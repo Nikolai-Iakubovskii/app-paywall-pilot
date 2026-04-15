@@ -1,145 +1,219 @@
-# App Paywall Pilot
+<p align="center">
+  <h1 align="center">App Paywall Pilot</h1>
+  <p align="center">
+    <strong>Your AI copilot for designing, auditing, and shipping<br>App Store-compliant in-app paywalls.</strong>
+  </p>
+  <p align="center">
+    <a href="#how-to-use">Get Started</a> &bull;
+    <a href="#whats-inside">What's Inside</a> &bull;
+    <a href="#data-sources">Data Sources</a> &bull;
+    <a href="#contributing">Contributing</a>
+  </p>
+  <p align="center">
+    <img src="https://img.shields.io/badge/Platform-iOS_%7C_Android-blue?style=flat-square" alt="Platform">
+    <img src="https://img.shields.io/badge/Benchmarks-April_2026-green?style=flat-square" alt="Benchmarks">
+    <img src="https://img.shields.io/badge/License-MIT-yellow?style=flat-square" alt="License">
+    <img src="https://img.shields.io/github/stars/Nikolai-Iakubovskii/app-paywall-pilot?style=flat-square" alt="Stars">
+  </p>
+</p>
 
-> Your AI copilot for designing, auditing, and implementing App Store-compliant in-app paywalls — with verified 2026 benchmark data.
+---
 
-An AI prompt / instruction file that turns any LLM into a mobile subscription paywall expert. Works with **Claude Code**, **Codex**, **ChatGPT**, **Cursor**, **Windsurf**, **Gemini**, or any AI coding assistant that supports custom instructions or system prompts.
+An AI instruction file (`SKILL.md`) that turns any LLM into a mobile subscription paywall expert.
 
-It guides you through the full paywall lifecycle — from strategy and compliance audit to screen design, A/B testing, and implementation — grounded in real data from Adapty, RevenueCat, Superwall, and Apple guidelines.
+Works with **Claude Code** &bull; **Codex** &bull; **ChatGPT** &bull; **Cursor** &bull; **Windsurf** &bull; **Gemini** — or any AI tool that supports custom instructions.
 
-## Why this exists
+---
 
-Most paywall advice online is either:
-- **Generic web CRO** repackaged for mobile (doesn't account for App Store rules)
-- **Hype-driven** ("this one trick 10x'd our revenue!" — from a single app, no methodology)
-- **Outdated** (tactics that worked in 2024 now get you rejected by Apple)
+## The Problem
 
-This project fixes that by:
-1. **Putting Apple compliance first** — every recommendation is checked against App Store Review Guidelines
-2. **Labeling confidence levels** — each recommendation is marked as **Rule** (compliance), **Pattern** (observed across datasets), or **Hypothesis** (test it yourself)
-3. **Citing sources with dates** — every benchmark number includes its source and publication date so you know if it's still current
-4. **Covering the full system** — not just "make the button bigger" but placement, pricing architecture, trial structure, personalization, analytics, and implementation
+Most paywall advice is either **generic web CRO** that ignores App Store rules, **hype-driven** single-app case studies with no methodology, or **outdated** tactics that get your app rejected by Apple in 2026.
 
-## What's inside
+## The Fix
+
+App Paywall Pilot gives your AI assistant real-world paywall expertise:
+
+| Principle | How |
+|-----------|-----|
+| **Compliance first** | Every recommendation checked against Apple App Store Review Guidelines |
+| **Labeled confidence** | Each finding marked as **Rule**, **Pattern**, or **Hypothesis** |
+| **Sourced data** | Every benchmark carries its source + date — no unsourced claims |
+| **Full lifecycle** | Placement, pricing, trials, personalization, analytics, implementation |
+
+---
+
+## What's Inside
 
 ### 6-Phase Process
-1. **Discovery & Audit** — understand the app, audit existing paywall against rules and patterns
-2. **Paywall Strategy** — choose access model, map trigger points, define plan architecture
-3. **Screen Design** — design the paywall screen with value block, pricing block, CTA, trust/legal
-4. **Testing Plan** — prioritize what to test (structure before polish)
-5. **Implementation** — build it using Adapty, RevenueCat, StoreKit 2, or Google Billing
-6. **iOS Compliance Checklist** — verify before shipping
+
+```
+Discovery & Audit ──> Paywall Strategy ──> Screen Design
+        │                                        │
+        v                                        v
+iOS Compliance  <── Implementation  <── Testing Plan
+```
+
+1. **Discovery & Audit** — understand the app, audit existing paywall
+2. **Paywall Strategy** — access model, trigger points, plan architecture
+3. **Screen Design** — value block, pricing, CTA, trust/legal
+4. **Testing Plan** — what to test first (structure > polish)
+5. **Implementation** — Adapty, RevenueCat, StoreKit 2, Google Billing
+6. **iOS Compliance** — pre-ship checklist
 
 ### 6 Screen Templates
-- Post-Onboarding Hard Paywall
-- Feature Gate (Contextual Modal)
-- Usage Limit Paywall
-- Transaction Abandon Recovery
-- Post-Close Welcome Offer
-- Win-Back Paywall (Lapsed Subscribers)
 
-### Verified Benchmark Tables (April 2026)
-All data from published reports with source and date columns:
-- **Conversion rates** — install-to-trial, trial-to-paid, hard paywall vs freemium (Adapty/RevenueCat, Mar 2026)
-- **Trial length impact** — short vs long trial conversion rates (RevenueCat, Mar 2026)
-- **Revenue per install** — hard paywall vs freemium at Day 14/60 (RevenueCat, Mar 2026)
-- **Pricing medians** — weekly/monthly/annual by region (Adapty/RevenueCat, Mar 2026)
-- **Plan architecture by category** — which plan type dominates in Gaming, H&F, Productivity, AI (RevenueCat, Mar 2026)
-- **A/B test win rates** — localization > trial structure > plan duration > price > copy (Adapty, Mar 2026)
-- **Superwall aggregate data** — transaction abandon, product count impact (Superwall, 2024-2026)
-- **Regional data** — conversion and RPI by geography (RevenueCat, Mar 2026)
+| Template | When to use |
+|----------|-------------|
+| **Post-Onboarding** | Hard paywall after onboarding quiz |
+| **Feature Gate** | User taps a locked premium feature |
+| **Usage Limit** | Free tier cap reached |
+| **Transaction Abandon** | User cancelled payment sheet |
+| **Post-Close Offer** | Dismissed main paywall — show banner |
+| **Win-Back** | Lapsed subscriber returns |
 
-### Design Patterns with Evidence Labels
-- Trial Timeline / "Honest Paywall" — **Proven** (Blinkist: +23% conversion, -55% complaints)
-- Personalized Headline from Quiz — **Proven** (15%+ lift, Adapty 2026)
-- Multi-Page Paywall — **Hypothesis** (conflicting results across apps)
-- "Design Your Trial" — **Hypothesis** (Superwall claim, methodology unpublished)
-- And more...
+### Benchmark Tables (April 2026)
 
-### Apple Compliance (Updated for 2026)
+<details>
+<summary><strong>Conversion Rates</strong> — Adapty/RevenueCat, Mar 2026</summary>
+
+| Metric | Value | Source |
+|--------|-------|--------|
+| Install → Trial (global) | 10.9–11.2% | Adapty |
+| Trial → Paid (global) | 25.6–27.8% | Adapty/RC |
+| Trial → Paid (Health & Fitness) | 35.0–39.9% | Adapty/RC |
+| Hard paywall D35 conversion | 10.7% | RevenueCat |
+| Freemium D35 conversion | 2.1% | RevenueCat |
+| Hard paywall vs freemium | ~5x | Both |
+
+</details>
+
+<details>
+<summary><strong>A/B Test Win Rates</strong> — Adapty, Mar 2026</summary>
+
+| Experiment Type | LTV Win Rate |
+|----------------|-------------|
+| Localization | 62.3% |
+| Trial structure | 59.6% |
+| Plan duration | 58.7% |
+| Number of plans | 57.1% |
+| Price changes | 45.5% |
+| Visual/copy | 34.6% |
+
+**Key insight:** Structure tests beat copy tests. Don't start with polish.
+
+</details>
+
+<details>
+<summary><strong>Pricing Medians</strong> — Global, 2025 data</summary>
+
+| Period | Median | Range |
+|--------|--------|-------|
+| Weekly | $5.99–$7.48 | $4.99–$6.99 |
+| Monthly | $10.00–$12.99 | $7.99–$9.99 |
+| Annual | $34.80–$38.42 | $29.99–$39.99 |
+
+</details>
+
+<details>
+<summary><strong>+ More tables inside SKILL.md</strong></summary>
+
+Trial length impact, Revenue per install, Plan architecture by category, Revenue share by plan type, 12-month retention, LTV data, Superwall aggregate data (32M views), Regional conversion data.
+
+</details>
+
+### Design Patterns with Evidence
+
+| Pattern | Evidence | Source |
+|---------|----------|--------|
+| Trial Timeline ("Honest Paywall") | **Proven** — +23% conversion, -55% complaints | Blinkist |
+| Personalized Headline from Quiz | **Proven** — 15%+ lift | Adapty 2026 |
+| Animated Paywall | **Proven** — 2.9x vs static | Adapty 2026 |
+| 3 Products vs 1 | **Proven** — +105% conversion | Superwall, 32M views |
+| Multi-Page Paywall | **Hypothesis** — conflicting results | Superwall |
+| "Design Your Trial" | **Hypothesis** — methodology unpublished | Superwall |
+
+### Apple Compliance (2026)
+
 - Toggle paywall ban (killed Jan 2026, Guideline 3.1.2)
-- Pricing prominence rules
-- Trial terms requirements
-- Apple Offer Types reference table (Introductory, Promotional, Offer Codes, Win-Back)
-- WWDC 2025 StoreKit 2 updates
+- Billed amount must be most prominent pricing element
+- Trial duration + post-trial price required if trial offered
+- Restore Purchases, Terms, Privacy links required
+- Full "Must Have" + "Must NOT Have" checklists inside
 
-## How to use
+---
 
-### With Claude Code (as a skill)
+## How to Use
+
+### Claude Code
 ```bash
 mkdir -p ~/.claude/skills/app-paywall-pilot
 curl -o ~/.claude/skills/app-paywall-pilot/SKILL.md \
   https://raw.githubusercontent.com/Nikolai-Iakubovskii/app-paywall-pilot/main/SKILL.md
 ```
-Then invoke: `/app-paywall-pilot`
+Then run `/app-paywall-pilot` in your project.
 
-### With Codex CLI
-Copy `SKILL.md` content into your project's `AGENTS.md` or reference it as a custom instruction file.
+### Codex CLI
+Add `SKILL.md` content to your project's `AGENTS.md` or custom instructions.
 
-### With ChatGPT / GPT-4 / GPT-5
-Paste `SKILL.md` content as a system prompt or custom instruction, then ask: "Audit my paywall" with a screenshot.
+### ChatGPT / GPT-4 / GPT-5
+Paste `SKILL.md` as a system prompt, then ask: *"Audit my paywall"* with a screenshot.
 
-### With Cursor / Windsurf / any AI IDE
-Add `SKILL.md` to your project root or reference it in your AI rules/instructions config.
+### Cursor / Windsurf / AI IDEs
+Add `SKILL.md` to your project root or AI rules config.
 
-### As a standalone reference
-Read `SKILL.md` directly — it's a structured knowledge base with benchmarks, templates, and checklists that works without any AI tool.
+### Standalone
+Read `SKILL.md` directly — it's a structured knowledge base that works without any AI tool.
 
-## Usage examples
+---
 
-```
-# Full 6-phase audit
-Audit my paywall and tell me what to fix
+## Example
 
-# Targeted tasks
-Design a trial-focused paywall for a fitness app
-Check my paywall for App Store compliance before submission
-What should I test next on my paywall?
-Is my savings badge math correct?
-```
-
-## Example output
-
-When you run an audit, the AI produces a structured report:
+Ask your AI: *"Audit my paywall"* with a screenshot. You get:
 
 ```
-1. Current state — what the app is doing now
-2. Main problem or opportunity — plain language
-3. Compliance audit — rules checked, flags raised
-4. Value communication — copy and messaging quality
-5. Strategy observations — plan architecture, triggers
-6. Tests to run next — prioritized by impact
-7. Immediate actions — what to fix now vs next sprint
+1. Current state      — app context, placement, plan config
+2. Compliance audit   — rules checked, flags raised (Rule/Pattern/Hypothesis)
+3. Value communication — copy quality, personalization gaps
+4. Strategy           — plan architecture, trigger timing
+5. Tests to run       — prioritized by expected impact
+6. Actions            — fix now vs next sprint
 ```
 
-Each finding is labeled: **Rule** (fix or risk rejection), **Pattern** (likely improvement), or **Hypothesis** (test it).
+---
 
-## Data sources
+## Data Sources
 
 | Source | Dataset | Date |
 |--------|---------|------|
 | [Adapty](https://adapty.io/state-of-in-app-subscriptions/) | 16,000+ apps, $3B revenue | Mar 2026 |
 | [RevenueCat](https://www.revenuecat.com/state-of-subscription-apps/) | 115,000+ apps, $16B revenue | Mar 2026 |
-| [Superwall](https://superwall.com/) | 100M+ monthly paywall views | 2024-2026 |
-| [Apphud](https://apphud.com/) | Subscription analytics | 2025-2026 |
+| [Superwall](https://superwall.com/) | 100M+ monthly paywall views | 2024–2026 |
+| [Apphud](https://apphud.com/) | Subscription analytics | 2025–2026 |
 | [Apple](https://developer.apple.com/app-store/review/guidelines/) | App Store Review Guidelines | Current |
-| [Sensor Tower](https://sensortower.com/) | State of Mobile reports | 2025-2026 |
+| [Sensor Tower](https://sensortower.com/) | State of Mobile reports | 2025–2026 |
 
-## What this is NOT
+---
 
-- **Not a landing page optimizer** — this is for in-app subscription flows, not web pricing pages
-- **Not a guarantee** — benchmarks are directional, results vary by category and audience
-- **Not a dark patterns toolkit** — it flags anti-patterns and prioritizes user trust
+## What This Is NOT
+
+- **Not a web pricing page optimizer** — in-app subscription flows only
+- **Not a guarantee** — benchmarks are directional, test with your own data
+- **Not a dark patterns toolkit** — flags anti-patterns, prioritizes user trust
 - **Not affiliated** with Adapty, RevenueCat, Superwall, Apphud, or Apple
+
+---
 
 ## Contributing
 
-PRs welcome. Rules:
+PRs welcome. Ground rules:
 
-1. **Every benchmark must have a source and date.** No unsourced numbers.
-2. **Label every recommendation** as Rule, Pattern, or Hypothesis.
+1. **Every benchmark needs a source and date.** No unsourced numbers.
+2. **Label every recommendation** — Rule, Pattern, or Hypothesis.
 3. **Check against App Store guidelines** before adding UI patterns.
-4. **Keep SKILL.md lean.** Every line costs tokens in AI context windows.
-5. **Open an issue first** for major structural changes.
+4. **Keep SKILL.md lean.** Every line costs tokens.
+5. **Open an issue first** for structural changes.
+
+---
 
 ## License
 
@@ -147,4 +221,9 @@ PRs welcome. Rules:
 
 ---
 
-Built by [Nikolai Iakubovskii](https://github.com/Nikolai-Iakubovskii) — indie developer shipping iOS/Android subscription apps with [MistyWay](https://apps.apple.com/app/id6499194956) and [AuroraMe](https://apps.apple.com/app/id6738029498).
+<p align="center">
+  Built by <a href="https://github.com/Nikolai-Iakubovskii">Nikolai Iakubovskii</a><br>
+  Indie developer shipping
+  <a href="https://apps.apple.com/us/app/mistyway-walking-quest-game/id6730126556">MistyWay</a> &bull;
+  <a href="https://apps.apple.com/us/app/aurora-forecast-map-aurorame/id6749782053">AuroraMe</a>
+</p>
