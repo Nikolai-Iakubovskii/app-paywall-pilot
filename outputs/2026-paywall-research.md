@@ -369,11 +369,9 @@ Sourced from independent operator analyses, screenshot libraries, and case studi
 
 ### ChatGPT (OpenAI) [Sources: 42, 43]
 
-- 6 tiers as of March 2026: Free, Go ($8 emerging-markets price), Plus ($20), Business, Enterprise, Edu
-- $20/mo anchor normalized industry pricing for AI apps
-- Geo-tier (Go) launched India first then global expansion
-- Plus offers: priority access, GPT-5.3, image gen, deep research
-- **Takeaway:** ChatGPT made $20/mo the AI baseline. Other AI apps inherit this ceiling whether they like it or not. Geo-tier pricing for emerging markets = growing pattern.
+- 6-tier ladder (April 2026): Free, Go ($8), Plus ($20), Pro ($200), Business, Enterprise
+- Geo-tier (Go) launched India first
+- **Takeaway:** ChatGPT set $20/mo as the AI baseline AND $200/mo as the new ceiling (10x Plus). Other AI apps inherit both anchors. Geo-tier pricing for emerging markets = growing pattern. Model-version detail intentionally omitted — paywall design lessons are tier structure, not which model is shipped.
 
 ### Replika / similar AI companion (industry pattern)
 

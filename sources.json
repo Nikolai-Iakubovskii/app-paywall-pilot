@@ -445,10 +445,10 @@
       "evidence_class": "field_observation"
     },
     {
-      "claim": "ChatGPT pricing tiers (March 2026): Free, Go ($8 emerging-markets), Plus ($20), Business, Enterprise, Edu",
+      "claim": "ChatGPT pricing tiers (April 2026): Free, Go ($8 emerging-markets), Plus ($20, GPT-5.4), Pro ($200, GPT-5.4 Pro + Sora 2 Pro), Business, Enterprise",
       "source": "OpenAI public pricing page",
-      "url": "https://openai.com/business/chatgpt-pricing/",
-      "date": "2026-03",
+      "url": "https://chatgpt.com/pricing/",
+      "date": "2026-04",
       "scope": "Official OpenAI disclosure",
       "evidence_class": "platform_capability"
     },

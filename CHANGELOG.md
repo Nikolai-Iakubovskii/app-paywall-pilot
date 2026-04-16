@@ -1,5 +1,18 @@
 # Changelog
 
+## [3.6.0] -- 2026-04-16
+
+Data refresh + README redesign.
+
+### Changed
+- **README header redesigned** with jobs-to-be-done framing. New "Use this when…" table maps 10 concrete user situations to "what to ask your AI" + "which modules activate". New "What you get" table maps 6 outputs to deliverables + powered-by modules. Hero badges upgraded to for-the-badge style. Anchor links + table-of-contents added.
+- **ChatGPT teardown trimmed** to remove model-version trivia (GPT-5.x specifics change every quarter and are not paywall-design relevant). Now focuses on the durable lessons: $20/mo consumer baseline, $200/mo premium ceiling (10x Plus), $8/mo geo-tier for emerging markets. Added explicit note: "don't put model version names in your paywall copy unless you commit to updating it every quarter."
+- ChatGPT pricing-tier source updated: was "Free/Go/Plus/Business/Enterprise/Edu" (outdated), now "Free/Go/Plus/Pro/Business/Enterprise" (April 2026 verified via OpenAI public pricing page).
+- ChatGPT pricing source URL updated to https://chatgpt.com/pricing/
+
+### Note
+The skill is for **all subscription apps**, not just AI. ChatGPT is one of 11 teardowns and AI is one of 10 categories. Treat AI examples as comparable references, not as the focus.
+
 ## [3.5.0] -- 2026-04-16
 
 Phase 3 of follow-up improvements. Adds polish modules (refund management, cohort analysis), worked-audit examples, audit checklist, migration playbook, and CI validation.
