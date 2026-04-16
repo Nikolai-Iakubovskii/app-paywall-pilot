@@ -18,7 +18,8 @@ Every recommendation must carry one of these labels. Higher = more reliable.
 
 | Level | Label | Meaning | Example |
 |-------|-------|---------|---------|
-| 1 | **Apple Rule** | Published in App Store Review Guidelines or Apple documentation | Guideline 3.1.2 subscription requirements |
+| 1 | **Apple Rule** | Published in App Store Review Guidelines, hard review requirement | Guideline 3.1.2(a), 3.1.2(c) subscription requirements |
+| 1b | **Apple Guidance** | Documented recommendation in Apple docs, not a hard rejection trigger | "One subscription group" recommendation, freemium/metered as valid models |
 | 2 | **Platform Capability** | Feature documented in StoreKit, App Store Connect, or Google Play Billing | Win-back offers (iOS 18+), offer codes |
 | 3 | **Vendor Aggregate Data** | Large-scale report from SDK provider (10K+ apps or $1B+ tracked) | Adapty 16K apps report, RevenueCat 115K apps report |
 | 4 | **Vendor Case Study** | Published result from a single app or small group, via vendor blog | Blinkist +23% via Purchasely, Superwall 18-company abandon study |
@@ -81,8 +82,9 @@ The paywall system has three independent axes. Separate them when analyzing or r
 | Model | Description | When to use | Evidence |
 |-------|------------|-------------|----------|
 | **Hard paywall** | Must subscribe to access core features | Value proposition clear before use, strong onboarding | Vendor Aggregate Data: 5x conversion vs freemium (RC 2026) |
-| **Freemium / soft paywall** | Free core + premium upgrades | Value builds with usage, virality matters | Apple Rule: documented as valid acquisition model |
-| **Metered paywall** | N free actions per period, then gated | News, learning, AI tools, utilities | Apple Rule: documented as valid acquisition model |
+| **Freemium / soft paywall** | Free core + premium upgrades | Value builds with usage, virality matters | Apple Guidance: documented as valid acquisition model |
+| **Metered paywall** | N free actions per period, then gated | News, learning, AI tools, utilities | Apple Guidance: documented as valid acquisition model |
+| **Credits / usage packs** | Consumable IAP for variable-cost actions | AI tools, export actions, per-query pricing | Platform Capability: Apple consumable IAP; Operator Insight: RC monetization guide for AI apps |
 | **Reverse trial** | Full premium access first, then revert to free | Low-intent users, skeptical audiences | Operator Insight: RevenueCat recommends for low-intent users |
 | **Hybrid (subscription + one-time)** | Subscription for core + one-time unlocks for extras | Low-intent users, export/report actions | Operator Insight: 35% of subscription apps now use hybrid (RC 2026) |
 | **Multi-tier** | Pro vs Max / Solo vs Team | B2C→B2B crossover, power users | Platform Capability: subscription groups support this natively |
@@ -93,8 +95,10 @@ The paywall system has three independent axes. Separate them when analyzing or r
 |-----------|---------|----------|
 | **Onboarding** | After onboarding quiz/flow completes | Vendor Aggregate Data: 80-90% of trials start Day 0 (Adapty/RC 2026) |
 | **Post-aha** | Right after first value moment | Operator Insight: 5-10% better conversion with timing (Superwall) |
-| **Feature gate** | User taps a locked premium feature | Apple Rule: valid acquisition model |
-| **Usage limit** | Free tier cap reached | Apple Rule: metered paywall is documented model |
+| **Feature gate** | User taps a locked premium feature | Apple Guidance: valid acquisition model |
+| **Usage limit** | Free tier cap reached | Apple Guidance: metered paywall is documented model |
+| **Plan upgrade** | Existing subscriber eligible for upgrade (weekly→annual, basic→pro) | Platform Capability: subscription groups support upgrade/downgrade/crossgrade paths |
+| **Value primer / bridge** | Pre-paywall screen building desire before showing price | Operator Insight: "framing before paywall > paywall itself" (Gauchet); Superwall: "design paywalls as content, not interruptions" |
 | **Post-close offer** | After dismissing main paywall | Vendor Aggregate Data: 10-15% ARPU lift (Adapty 2026) |
 | **Transaction abandon** | User cancelled payment sheet | Vendor Case Study: 17% revenue from abandon paywalls (Superwall, 18 companies) |
 | **Session-start** | Returning non-converted user | Operator Insight: moment > discount size (Adapty 2026) |
@@ -119,6 +123,21 @@ The paywall system has three independent axes. Separate them when analyzing or r
 
 ---
 
+### Axis 4: SURFACE — Who renders the UI
+
+| Surface | What it is | When to use | Evidence |
+|---------|-----------|-------------|----------|
+| **Custom in-app paywall** | App-built UI (Flutter/SwiftUI/UIKit) with Adapty/RC product data | Full design control, custom branding, A/B testing | Standard approach |
+| **Adapty/RC Paywall Builder** | Remote-configured paywall rendered by SDK | Quick iteration without app update, localization | Platform Capability |
+| **StoreKit views** | `SubscriptionStoreView`, `StoreView`, `ProductView` (SwiftUI) | Fast localized merchandising, Apple-native look | Platform Capability (iOS 17+) |
+| **System sheets/messages** | Billing problem sheet, price increase consent, offer sheet | Failed renewal recovery, required consent flows | Platform Capability |
+| **App Store surfaces** | Win-back offers on product page, subscription settings | Off-app reactivation, zero code for display | Platform Capability (iOS 18+) |
+| **Web paywall** | External web checkout (post Epic v. Apple ruling, US only) | Avoid 30% commission (but lower conversion) | Platform Capability (US, May 2025+) |
+
+Choose the right surface for each placement. Not everything needs a custom-built screen.
+
+---
+
 ## PHASE 1: DISCOVERY AND AUDIT
 
 Understand the app before changing the paywall.
@@ -134,6 +153,8 @@ Build a mental model of: what the app does, who it's for, what's free vs paid, c
 - **Verify trial status per-placement.** Not every placement uses trials even if the product has one configured.
 - **Adapty preview screenshots** show custom tags as raw placeholders. Only flag in production screenshots.
 - **Adapty preview prices** may be placeholders. Verify savings math against real App Store Connect prices.
+- **Apple Analytics first:** Check App Analytics peer group benchmarks, subscription-state data, and offer performance metrics if available. These are Apple-first data, independent of vendor reports. **Platform Capability.**
+- **Family Sharing:** If the subscription supports Family Sharing, highlight it on the paywall as a trust/value lever. Apple recommends mentioning it in the subscription display name. **Apple Guidance.**
 
 ### 3. Audit against Apple Rules (official)
 
@@ -146,7 +167,7 @@ These are published in App Store Review Guidelines and Apple subscription docume
 - [ ] Trial duration and post-trial price shown (if trial offered) — **Apple Rule** (3.1.2(a))
 - [ ] Restore purchases / sign-in path exists — **Apple Rule**
 - [ ] Terms of Use and Privacy Policy accessible in-app — **Apple Rule**
-- [ ] One subscription group for mutually exclusive plans — **Apple Rule** (recommended)
+- [ ] One subscription group for mutually exclusive plans — **Apple Guidance** (recommended, not a hard rejection trigger)
 
 ### 4. Check for high review risk (field observations)
 
@@ -334,6 +355,7 @@ A paywall system doesn't end at first purchase. Cover the full subscription life
 | **Billing issue** | Failed payment | Grace period UX + retry | Platform Capability: Billing Grace Period |
 | **Price increase** | Price change pushed | Consent flow | Platform Capability: price increase consent sheet |
 | **Win-back** | Lapsed subscriber returns | Win-back offer | Platform Capability: Apple Win-Back (iOS 18+) |
+| **Plan upgrade** | Existing subscriber on lower tier | Upgrade prompt (weekly→annual, basic→pro) | Platform Capability: subscription groups support upgrade/downgrade/crossgrade |
 | **Refund/support** | Refund request or complaint | Support surface, consumption data | Platform Capability: consumption API, refund feedback |
 
 ---
@@ -471,7 +493,7 @@ All benchmarks are directional. Each carries source, date, and evidence level. F
 | Monthly | $10.00-$12.99 | $7.99-$9.99 | Adapty/RC | Mar 2026 |
 | Annual | $34.80-$38.42 | $29.99-$39.99 | Adapty/RC | Mar 2026 |
 
-### A/B Test Win Rates — Vendor Aggregate Data
+### A/B Test Win Rates — Operator Insight (Adapty platform experiments, methodology not open)
 
 | Experiment | LTV Win Rate | Source | Date |
 |-----------|-------------|--------|------|
@@ -523,7 +545,7 @@ Repeating patterns from top apps, per Adapty/RevenueCat/Superwall 2026 data. All
 - Weekly plans = 55.5% of all app revenue (up from 43.3% in 2023). H&F exception: annual 60.6%.
 - Hard paywalls: ~5x conversion vs freemium, ~8x RPI. Same long-term retention.
 - 90% of subscriptions sell at full price. Discounts work for recovery, not as default.
-- Apps running 50+ experiments earn 18.7x more revenue (Adapty platform data — **Vendor Aggregate Data**, interpret with caution: correlation, not causation).
+- Apps running 50+ experiments earn 18.7x more revenue (Adapty platform data — **Operator Insight**, interpret with caution: correlation not causation, methodology not open).
 - Top 10% of apps capture 94.5% of revenue.
 - European apps charge 29-39% more than North American. European subscribers stay longer.
 
