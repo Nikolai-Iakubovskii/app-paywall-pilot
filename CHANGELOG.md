@@ -1,5 +1,39 @@
 # Changelog
 
+## [3.7.0] -- 2026-04-16
+
+Major expansion of Kahneman behavioral foundations. Now functions as the trusted base of all paywall design recommendations.
+
+### Added
+- **`pricing-psychology.md` — 11-concept Kahneman foundation section.** Each concept gets: full citation (paper, journal, year), the empirical finding, mobile paywall application with concrete examples, and a design rule. Concepts:
+  1. **Prospect Theory & Loss Aversion** (Kahneman & Tversky 1979, Econometrica, 65K+ citations, 2002 Nobel)
+  2. **Anchoring** (Tversky & Kahneman 1974, Science)
+  3. **System 1 / System 2** (Kahneman 2011, *Thinking, Fast and Slow*)
+  4. **Endowment Effect** (Kahneman, Knetsch & Thaler 1990, Journal of Political Economy)
+  5. **Peak-End Rule** (Kahneman et al 1993, Psychological Science)
+  6. **Default Effect / Status Quo Bias** (Kahneman, Knetsch, Thaler 1991, Journal of Economic Perspectives)
+  7. **Mental Accounting** (Thaler 1980-1999, built on Kahneman)
+  8. **WYSIATI** (Kahneman 2011, *Thinking, Fast and Slow* Ch. 7)
+  9. **Substitution Heuristic** (Kahneman 2011, Ch. 9)
+  10. **Planning Fallacy** (Kahneman & Tversky 1979)
+  11. **Hedonic Adaptation** (Kahneman, Diener, Schwarz 1999)
+- Summary table: Kahneman concept → direct paywall design lever.
+- **`sources.json` — 11 new academic entries** with full citations, journal, sample size where applicable.
+- **`glossary.md` — new "Behavioral / Cognitive Concepts" section** with quick definitions for all 11 Kahneman concepts plus Decoy Effect and Cialdini, each linking source and paywall use.
+
+### Changed
+- **`copy-library.md`** — headline formulas behavioral lens upgraded:
+  - Loss-frame headline (#7) now cites Kahneman & Tversky 1979 Prospect Theory directly with "recommended default for trial expiry" guidance
+  - All headlines linked to System 1 requirement (3-second comprehension)
+  - Social Proof Templates section now opens with Substitution Heuristic explanation: why social proof beats feature lists scientifically (brain swaps "is this worth $X?" for "do I trust this?")
+- **`decision-trees.md` Tree 4 (plan architecture)** — added Default Effect citation as the scientific backing for "always pre-select a plan." Added WYSIATI rule: "anything below scroll fold doesn't exist for the decision."
+- **`screen-anatomy.md`** — 3-second rule now scientifically grounded as System 1 decision window. Above-fold rules now grounded in WYSIATI as the strongest argument for Apple "billed amount most prominent" rule.
+- **SKILL.md DATA SOURCES table** — added 7 Kahneman papers explicitly (Prospect Theory promoted to bold), Mental Accounting (Thaler), and the consolidated Kahneman 2011 reference covering System 1/2 + WYSIATI + Substitution.
+- **SKILL.md MODULES table** — pricing-psychology description updated to reflect 11-concept Kahneman foundation.
+
+### Note on attribution
+This is a **trusted base** layer. Where Adapty/RC/Superwall vendor data exists, it's directional. Where Kahneman is cited, it's foundational behavioral science. Design choices grounded in Kahneman should be considered durable; vendor-data-only choices should be treated as Operator Insight or Hypothesis until the underlying mechanism is also explained.
+
 ## [3.6.0] -- 2026-04-16
 
 Data refresh + README redesign.

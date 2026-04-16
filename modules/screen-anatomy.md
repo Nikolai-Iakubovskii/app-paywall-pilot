@@ -19,6 +19,8 @@ Don't use Z-pattern (designed for landscape web, doesn't apply on portrait mobil
 
 ### The 3-second rule
 
+**Why 3 seconds:** This is the System-1 decision window (Kahneman 2011, *Thinking, Fast and Slow*). System 1 — fast, intuitive, automatic — makes the dismiss/engage call in this window before System 2 (slow, deliberate) engages. If your paywall requires System-2 thinking (math, fine print, choice paralysis) in those 3 seconds, you've already lost most users. See [pricing-psychology.md](pricing-psychology.md) Kahneman concept #3.
+
 User must understand in 3 seconds:
 - What you offer (headline)
 - That a free trial exists (if applicable)
@@ -32,6 +34,8 @@ If any of these takes longer than 3 seconds, the paywall fails before it starts.
 
 ### Above the fold (visible without scroll)
 
+**Why above-fold matters scientifically:** Kahneman's **WYSIATI principle** (*Thinking, Fast and Slow* Ch. 7) — System 1 makes confident judgments based **only on visible information**. Unseen ≠ uncertain to the brain; unseen = doesn't exist. The brain doesn't compute "what am I missing?" — it acts on what's in front of it. This is the strongest scientific argument for Apple Rule "billed amount must be most prominent" — what's visible IS the entire decision input. See [pricing-psychology.md](pricing-psychology.md) Kahneman concept #8.
+
 Must include:
 1. Close X (top-left or top-right)
 2. Hero / headline
@@ -41,7 +45,9 @@ Must include:
 
 ### Below the fold (requires scroll)
 
-Acceptable:
+By WYSIATI: anything below the scroll is functionally invisible for the conversion decision. Treat below-fold as "acceptable for users who actively engage" but never as required for the System-1 decision.
+
+Acceptable below-fold:
 - Extended benefit list (>5 items)
 - Comparison table (Free vs Pro)
 - FAQ

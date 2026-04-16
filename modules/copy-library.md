@@ -39,7 +39,12 @@ Three rungs. Always climb the ladder before writing copy.
 | 11 | **Time-to-value** | "First insight in 60 seconds" | AI tools, productivity |
 | 12 | **Reverse trial sealed** | "Keep your premium experience" | Reverse trial expiry |
 
-**Cialdini lens:** #5, #9, #10 = Authority/Social Proof. #6 = Commitment/Consistency. #7 = Loss aversion (Tversky-Kahneman 1981). #11 = Reciprocity (give value first).
+**Behavioral lens:**
+- #5, #9, #10 = Authority / Social Proof (Cialdini; most-influential principle in mobile per Springer 2024)
+- #6 = Commitment & Consistency (Cialdini); also Endowment Effect (Kahneman, Knetsch & Thaler 1990) when paired with onboarding-built ownership
+- **#7 = Loss Aversion (Kahneman & Tversky 1979 *Prospect Theory*, Econometrica, 65K+ citations)** — losses felt ~2x more than equivalent gains. Strongest pattern for renewal-risk, win-back, trial-end. **Recommended default for trial expiry copy.** See [pricing-psychology.md](pricing-psychology.md) Kahneman concept #1.
+- #11 = Reciprocity (Cialdini); also Mental Accounting (Thaler) — "60 seconds" lands in the daily-time mental account, not the project-time account
+- **All headlines must work for System 1** (Kahneman 2011, *Thinking, Fast and Slow*) — fast, intuitive read in under 3 seconds. If reading the headline requires conscious parsing, you've failed the System-1 test.
 
 ---
 
@@ -108,6 +113,8 @@ Three rungs. Always climb the ladder before writing copy.
 ## Social Proof Templates
 
 (Cialdini: most-influential principle in 2024 mobile-app studies — Springer 2024)
+
+**Why this works (Kahneman lens):** When the user sees your paywall, the hard question is "Will this app deliver $X of value to me over 12 months?" — a System-2 question they won't actually do. By the **Substitution Heuristic** (Kahneman 2011, *Thinking Fast and Slow* Ch. 9), the brain unconsciously swaps in an easier question: **"Do I trust this app right now?"** Social proof + authority answer that easier question instantly. This is why feature lists underperform trust signals on conversion. See [pricing-psychology.md](pricing-psychology.md) Kahneman concept #9.
 
 ### By format
 

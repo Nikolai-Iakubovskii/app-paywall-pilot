@@ -486,6 +486,94 @@
       "date": "2024-2025",
       "scope": "Operator disclosure on podcast",
       "evidence_class": "field_observation"
+    },
+    {
+      "claim": "Kahneman & Tversky Prospect Theory — losses felt approximately 2x more painful than equivalent gains; foundational paper that won 2002 Nobel Memorial Prize in Economics",
+      "source": "Kahneman, D., & Tversky, A. (1979). Prospect Theory: An Analysis of Decision under Risk. Econometrica, 47(2), 263-291",
+      "url": "https://www.jstor.org/stable/1914185",
+      "date": "1979",
+      "scope": "Foundational behavioral economics paper, 65,000+ citations",
+      "evidence_class": "academic"
+    },
+    {
+      "claim": "Anchoring effect — even arbitrary numbers anchor subsequent estimates (spinner experiment: random number influenced estimates of unrelated facts)",
+      "source": "Tversky, A., & Kahneman, D. (1974). Judgment under Uncertainty: Heuristics and Biases. Science, 185(4157), 1124-1131",
+      "url": "https://www.science.org/doi/10.1126/science.185.4157.1124",
+      "date": "1974",
+      "scope": "Foundational paper introducing the heuristics and biases program",
+      "evidence_class": "academic"
+    },
+    {
+      "claim": "System 1 / System 2 — fast intuitive decisions vs slow deliberate reasoning; 95%+ of decisions made by System 1 in under a few seconds",
+      "source": "Kahneman, D. (2011). Thinking, Fast and Slow. Farrar, Straus and Giroux",
+      "url": "https://us.macmillan.com/books/9780374533557/thinkingfastandslow/",
+      "date": "2011",
+      "scope": "Best-selling synthesis of 40 years of Kahneman's research",
+      "evidence_class": "academic"
+    },
+    {
+      "claim": "Endowment Effect — once people own something, they value it ~2x more than before they owned it (coffee mug experiment: $5 mug demanded $7 to sell, only $3 to buy)",
+      "source": "Kahneman, D., Knetsch, J. L., & Thaler, R. H. (1990). Experimental Tests of the Endowment Effect and the Coase Theorem. Journal of Political Economy, 98(6), 1325-1348",
+      "url": "https://www.jstor.org/stable/2937761",
+      "date": "1990",
+      "scope": "Multiple controlled lab experiments",
+      "evidence_class": "academic"
+    },
+    {
+      "claim": "Peak-End Rule — people judge experiences by emotional peak + ending, not by average intensity (colonoscopy study: longer mild-pain ending rated less painful than shorter sharp-pain)",
+      "source": "Kahneman, D., Fredrickson, B. L., Schreiber, C. A., & Redelmeier, D. A. (1993). When More Pain Is Preferred to Less: Adding a Better End. Psychological Science, 4(6), 401-405",
+      "url": "https://journals.sagepub.com/doi/10.1111/j.1467-9280.1993.tb00589.x",
+      "date": "1993",
+      "scope": "Lab + clinical studies on retrospective experience evaluation",
+      "evidence_class": "academic"
+    },
+    {
+      "claim": "Default Effect / Status Quo Bias — organ donation rates 86% in opt-out countries vs 4% in opt-in countries (same population, only default flipped)",
+      "source": "Kahneman, D., Knetsch, J. L., & Thaler, R. H. (1991). Anomalies: The Endowment Effect, Loss Aversion, and Status Quo Bias. Journal of Economic Perspectives, 5(1), 193-206",
+      "url": "https://www.aeaweb.org/articles?id=10.1257/jep.5.1.193",
+      "date": "1991",
+      "scope": "Foundational paper on default-driven decision-making",
+      "evidence_class": "academic"
+    },
+    {
+      "claim": "Mental Accounting — people categorize money into mental accounts (daily expenses vs entertainment vs investment); same dollar feels different by account assignment",
+      "source": "Thaler, R. H. (1980, 1985, 1999). Toward a Positive Theory of Consumer Choice and subsequent papers. Built on Kahneman prospect theory foundation",
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/0167268180900517",
+      "date": "1980-1999",
+      "scope": "Foundational behavioral economics; explains per-day vs per-year framing differences",
+      "evidence_class": "academic"
+    },
+    {
+      "claim": "WYSIATI (What You See Is All There Is) — System 1 makes confident judgments based only on visible information; unseen does not register as uncertain, registers as nonexistent",
+      "source": "Kahneman, D. (2011). Thinking, Fast and Slow, Chapter 7",
+      "url": "https://us.macmillan.com/books/9780374533557/thinkingfastandslow/",
+      "date": "2011",
+      "scope": "Synthesis of decades of cognitive research",
+      "evidence_class": "academic"
+    },
+    {
+      "claim": "Substitution Heuristic — when asked a hard question, the brain unconsciously substitutes an easier question and answers that instead",
+      "source": "Kahneman, D. (2011). Thinking, Fast and Slow, Chapter 9",
+      "url": "https://us.macmillan.com/books/9780374533557/thinkingfastandslow/",
+      "date": "2011",
+      "scope": "Explains why social proof beats feature lists in conversion contexts",
+      "evidence_class": "academic"
+    },
+    {
+      "claim": "Planning Fallacy — people consistently underestimate how long tasks will take and how hard they will be; best-case scenarios feel more likely than they are",
+      "source": "Kahneman, D., & Tversky, A. (1979). Intuitive Prediction: Biases and Corrective Procedures. TIMS Studies in Management Science, 12, 313-327",
+      "url": "https://www.dtic.mil/sti/citations/ADA047747",
+      "date": "1979",
+      "scope": "Foundational paper on prediction biases; explains why trial users overestimate their cancellation discipline",
+      "evidence_class": "academic"
+    },
+    {
+      "claim": "Hedonic Adaptation — people adapt to new conditions (positive or negative) faster than they expect; lottery winners and accident victims return toward baseline within months",
+      "source": "Kahneman, D., Diener, E., & Schwarz, N. (Eds.) (1999). Well-Being: The Foundations of Hedonic Psychology. Russell Sage Foundation",
+      "url": "https://www.russellsage.org/publications/well-being-1",
+      "date": "1999",
+      "scope": "Edited volume synthesizing well-being research; explains reverse trial mechanics + habit-forming feature design",
+      "evidence_class": "academic"
     }
   ]
 }

@@ -97,8 +97,8 @@ Q: Do users get reminder before billing?
 Q: Does your value differ meaningfully across tiers?
 ├── NO → SINGLE PLAN (Calm pattern)
 │        Source: Calm operator analysis
-│        Pros: no choice paralysis
-│        Cons: no decoy / anchor effect
+│        Pros: no choice paralysis (System 1 wins; Kahneman 2011)
+│        Cons: no decoy / anchor effect (Kahneman 1974 anchoring not leveraged)
 │
 └── YES → Q: How many MEANINGFULLY different tiers?
           ├── 2 tiers → 2-PLAN PAYWALL (41–60% of apps per RC 2026)
@@ -107,10 +107,21 @@ Q: Does your value differ meaningfully across tiers?
           │
           ├── 3 tiers → 3-PLAN PAYWALL (Travel: 27% of apps; Productivity: ~10%)
           │             Source: Superwall — 3 vs 2 = +44% conversion
+          │             Anchoring + Decoy effect both leveraged (Kahneman 1974, Ariely 2008)
           │             Caveat: ensure equal LTV across plans
           │
           └── 4+ tiers → Hide behind "More Plans"; surface 3 by default
                           Source: ChatGPT 6-tier with disclosure pattern
+
+WHICHEVER you pick:
+- Always pre-select a plan as DEFAULT
+  Source: Default Effect (Kahneman, Knetsch, Thaler 1991)
+  Organ-donation rates 86% opt-out vs 4% opt-in — same population, default flipped
+  → Pre-selecting annual is the single highest-leverage UX choice
+  → Mark with checkmark + border + "Most popular" badge to reinforce
+- WYSIATI rule: anything below scroll fold doesn't exist for the decision
+  Source: Kahneman 2011, Thinking Fast and Slow Ch. 7
+  → Plan card must be above-fold; trial terms must be above-fold
 ```
 
 ---

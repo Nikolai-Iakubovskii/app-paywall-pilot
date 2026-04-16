@@ -20,7 +20,7 @@ This skill is split into a core file (this) plus deep-dive modules. Load on dema
 |--------|---------|
 | [modules/copy-library.md](modules/copy-library.md) | Headline formulas, benefit patterns, CTA templates, banned words, locale-specific copy notes |
 | [modules/teardowns.md](modules/teardowns.md) | Annotated paywall analyses for Calm, Duolingo, Noom, Cal AI, Tinder, Strava, Headspace, Blinkist, Flo, ChatGPT, AI companion apps |
-| [modules/pricing-psychology.md](modules/pricing-psychology.md) | Tversky-Kahneman framing, Anderson-Simester $9 endings, Ariely decoy, Cialdini 7 principles — all mapped to mobile paywall context |
+| [modules/pricing-psychology.md](modules/pricing-psychology.md) | **11-concept Kahneman foundation** (Prospect Theory, Anchoring, System 1/2, Endowment Effect, Peak-End, Default Effect, Mental Accounting, WYSIATI, Substitution, Planning Fallacy, Hedonic Adaptation), each mapped to a paywall design choice. Plus Anderson-Simester $9 endings, Ariely decoy, Cialdini 7 principles. |
 | [modules/decision-trees.md](modules/decision-trees.md) | Diagnostic flowcharts for low conversion, refunds, plan choice, surface choice, compliance triage |
 | [modules/category-deep-dives.md](modules/category-deep-dives.md) | Per-category economics: H&F, Gaming, AI, Education, Productivity, Photo & Video, Travel, B2B |
 | [modules/screen-anatomy.md](modules/screen-anatomy.md) | Visual hierarchy, layout, typography, accessibility, dark mode, safe areas |
@@ -785,9 +785,17 @@ Each finding must carry its evidence level. Do not repeat findings across sectio
 | Apphud Subscription Guide | Apphud platform (no public sample size) | 2025 | vendor_blog |
 | RevenueFlo iOS Rejections | Developer rejection reports | 2026 | field_observation |
 | Apple App Store Review Guidelines | Official | Current | apple_docs |
+| **Kahneman & Tversky 1979 — Prospect Theory** | **Econometrica, 65K+ citations, 2002 Nobel** | **1979** | **academic** |
+| Tversky & Kahneman 1974 — Heuristics & Biases (Anchoring) | Science | 1974 | academic |
 | Tversky & Kahneman 1981 — Framing | Science (17K+ citations) | 1981 | academic |
+| Kahneman, Knetsch, Thaler 1990 — Endowment Effect | Journal of Political Economy | 1990 | academic |
+| Kahneman, Knetsch, Thaler 1991 — Default / Status Quo Bias | Journal of Economic Perspectives | 1991 | academic |
+| Kahneman et al 1993 — Peak-End Rule | Psychological Science | 1993 | academic |
+| Kahneman, Diener, Schwarz 1999 — Hedonic Adaptation | Russell Sage volume | 1999 | academic |
+| Kahneman 2011 — Thinking, Fast and Slow (System 1/2, WYSIATI, Substitution) | FSG, synthesis of 40 years of research | 2011 | academic |
 | Anderson & Simester 2003 — $9 Endings | Quantitative Marketing and Economics field experiment | 2003 | academic |
 | Thomas & Morwitz 2005 — Left-Digit | Journal of Consumer Research | 2005 | academic |
+| Thaler 1980-1999 — Mental Accounting | Built on Kahneman foundation | 1980-1999 | academic |
 | Cialdini Influence + Pre-Suasion | Foundational persuasion text | 1984 / 2016 | academic |
 | Springer 2024 — Mobile Persuasion Study | Cialdini principles on app contexts | 2024 | academic |
 
