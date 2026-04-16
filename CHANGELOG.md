@@ -1,5 +1,34 @@
 # Changelog
 
+## [3.8.0] -- 2026-04-16
+
+Layer 2 of academic foundations beyond v3.7.0 Kahneman base. Adds 9 rigorous behavioral-science concepts plus explicit replication-failure warning for ego depletion.
+
+### Added
+- **`outputs/2026-paywall-research-v2.md`** -- Layer 2 research brief with 12 concepts verified for primary citation, replication evidence, and paywall design rule. Includes provenance sidecar.
+- **`pricing-psychology.md`** -- new Layer 2 section with 9 academic-strong concepts:
+  12. **Fogg Behavior Model B = M × A × T** (Fogg 2009, Persuasive Tech proceedings, 1,900+ pubs ref) -- when motivation is borderline, reduce ability friction
+  13. **Choice Overload** (Iyengar & Lepper 2000, JPSP) -- 6-jam vs 24-jam study (10x conv difference); 2-3 plans is the sweet spot. Includes Scheibehenne 2010 meta-analysis caveat.
+  14. **IKEA Effect** (Norton, Mochon, Ariely 2012, JCP) -- self-made products valued as much as expert-made; explains long-onboarding paywalls (Noom, Flo, Cal AI). Completion required.
+  15. **Hyperbolic Discounting** (Laibson 1997, QJE) -- present bias; explains weekly-plan dominance and per-day framing
+  16. **Goal-Gradient Effect** (Kivetz, Urminsky, Zheng 2006, JMR) -- effort accelerates near reward; bonus head-start works (12-stamp card with 2 free completes faster than regular 10-stamp)
+  17. **Negativity Bias** (Baumeister et al 2001, RGP, 10K+ citations) -- bad outweighs good across all domains; refund rate matters more than conversion rate
+  18. **Costly Signaling** (Spence 1973, QJE, Nobel 2001) -- premium pricing signals quality; explains 3x LTV uplift of high-priced apps
+  19. **Reactance Theory** (Brehm 1966) -- threatened freedom triggers opposite behavior; fake urgency backfires
+  20. **Sunk Cost Fallacy** (Arkes & Blumer 1985, OBHDP) -- past investment commits future behavior; combines with IKEA Effect + Goal-Gradient in long onboarding
+- **Explicit ego-depletion replication-failure warning** in pricing-psychology.md: Hagger 2016 (24 labs, 2,141 participants) + Vohs 2016 (36 labs, 3,531 participants) both found no effect. Do NOT cite as mechanism.
+- **Practitioner frameworks section** clearly labeled as Operator Insight (not academic): Hooked Model (Eyal 2014) and Atomic Habits identity (Clear 2018), with underlying academic basis cited (Skinner / IKEA / Sunk Cost for Hooked; Bem 1972 + Cialdini for identity habits).
+- **`glossary.md`** -- 12 new behavioral concept definitions (9 Layer 2 + ego depletion warning + 2 practitioner frameworks).
+- **`sources.json`** -- 11 new academic entries with full citations, journals, sample sizes where applicable.
+
+### Changed
+- **SKILL.md MODULES table** -- pricing-psychology description updated to "20-concept academic foundation" with full breakdown.
+- **SKILL.md DATA SOURCES table** -- 9 new bold rows for Layer 2 academic foundations + ⚠️ ego depletion entry.
+- **README.md** -- badge "Kahneman 11 concepts" -> "Academic 20 concepts"; sources count 69 -> 80.
+
+### Critical correction
+The skill no longer attributes "keep paywalls simple" to ego depletion / decision fatigue. The mechanism is now correctly cited as **Choice Overload (Iyengar & Lepper 2000) + System 1 (Kahneman 2011) + WYSIATI (Kahneman 2011)**. The practical UX rule is unchanged; the underlying science is upgraded.
+
 ## [3.7.0] -- 2026-04-16
 
 Major expansion of Kahneman behavioral foundations. Now functions as the trusted base of all paywall design recommendations.

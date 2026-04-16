@@ -342,6 +342,42 @@ Adding a clearly inferior option shifts preference toward the target. **Source:*
 ### Cialdini's 7 Principles
 Reciprocity, Commitment & Consistency, Social Proof, Authority, Liking, Scarcity, Unity. **Source:** Cialdini 1984 + 2016. **Paywall use:** Social Proof + Authority test as most-influential in mobile (Springer 2024).
 
+### Fogg Behavior Model (B = M × A × T)
+Behavior = Motivation × Ability × Trigger; all three must converge. **Source:** Fogg 2009 (Persuasive Tech, 1,900+ pubs ref). **Paywall use:** when motivation is borderline, reduce ability friction (pre-select default, 1-tap purchase) instead of adding more copy.
+
+### Choice Overload (Iyengar Jam Study)
+6-jam display sold 10x better than 24-jam display in real-supermarket experiment. **Source:** Iyengar & Lepper 2000, JPSP. **Paywall use:** 2–3 plans is the sweet spot. **Caveat:** Scheibehenne 2010 meta-analysis shows context-dependent magnitude.
+
+### IKEA Effect
+People value self-made products as much as expert-made; effect requires successful completion. **Source:** Norton, Mochon, Ariely 2012, JCP. **Paywall use:** long onboarding + "your plan reserved" completion moment = scientifically grounded ownership lever.
+
+### Hyperbolic Discounting / Present Bias
+Disproportionately steep discount on future rewards; "I want it now" beats "I want more later." **Source:** Laibson 1997, QJE. **Paywall use:** weekly plans win on present bias; per-day framing exploits it positively; annual default must work harder against it.
+
+### Goal-Gradient Effect
+Effort accelerates as users approach reward; bonus head-start works (12-stamp card with 2 free completes faster than regular 10-stamp). **Source:** Kivetz, Urminsky, Zheng 2006, JMR. **Paywall use:** progress bars in onboarding; bonus head-start framing; streak counters in retention.
+
+### Negativity Bias
+Bad weighs more than good across all domains; "1-star weighs ~5x 5-star" (rule of thumb). **Source:** Baumeister et al 2001, RGP, 10K+ citations. **Paywall use:** refund rate matters more than conversion uplift; treat refund flow as marketing; under-promise on paywall.
+
+### Costly Signaling
+Premium pricing signals quality when quality cannot be directly verified. **Source:** Spence 1973, QJE, Nobel 2001. **Paywall use:** don't undercharge in your category; price at category median or above; brand investment signals durability.
+
+### Psychological Reactance
+When freedom is threatened, people restore it by opposing the push. **Source:** Brehm 1966. **Paywall use:** fake urgency backfires; aggressive re-prompting triggers reactance; always offer dignified opt-out.
+
+### Sunk Cost Fallacy
+Continued commitment based on past investment, even when irrational. **Source:** Arkes & Blumer 1985, OBHDP. **Paywall use:** long onboarding flows commit user to completion; combine with goal-gradient (#16) and IKEA Effect (#14) for full effect.
+
+### Ego Depletion / Decision Fatigue (REPLICATION FAILED)
+Original 1998 claim: self-control depletes like fuel. **Hagger 2016 (2,141 participants, 24 labs) and Vohs 2016 (3,531 participants, 36 labs) both failed to find the effect.** **Do NOT cite as mechanism.** The practical "keep paywalls simple" rule is correct; the mechanism is **Choice Overload + System 1**, not ego depletion.
+
+### Hooked Model (practitioner framework)
+Trigger → Action → Variable Reward → Investment loop. **Source:** Eyal 2014 (book, not peer-reviewed). Underlying academic basis: Skinner variable reward + IKEA Effect + Sunk Cost. Useful as operational framework; cite underlying acads for grounding.
+
+### Identity-Based Habits (practitioner framework)
+"I am the type of person who…" framing for behavior change. **Source:** Clear 2018, *Atomic Habits* (book, not peer-reviewed). Underlying academic basis: Bem 1972 self-perception + Cialdini commitment & consistency. Useful for identity-led headline copy.
+
 ---
 
 ## Quick Reference: Acronyms

@@ -209,6 +209,188 @@ These 8 concepts from Kahneman's body of work are the most-applicable to subscri
 
 ---
 
+## Layer 2 — Additional Academic Foundations (Beyond Kahneman)
+
+These 9 concepts complement the Kahneman base. Each verified in the v3.8.0 research pass ([outputs/2026-paywall-research-v2.md](../outputs/2026-paywall-research-v2.md)).
+
+### 12. Fogg Behavior Model (B = M × A × T)
+
+**Citation:** Fogg, B. J. (2009). A behavior model for persuasive design. *Proceedings of the 4th International Conference on Persuasive Technology.* ACM. 1,900+ academic publications reference the model.
+
+**Finding:** For a behavior to occur, three elements must converge **simultaneously**: Motivation, Ability, and Trigger. If any is at zero, the behavior doesn't happen — but you can compensate for low motivation by **reducing ability friction**.
+
+**Mobile paywall application:**
+- **Motivation = your copy + onboarding affect** (outcome-led headlines, real social proof)
+- **Ability = paywall friction** (pre-selected default, 1-tap purchase via Apple Pay / Google Pay, no scroll, no math)
+- **Trigger = placement** (post-aha moment, contextual feature gate, transaction abandon)
+
+**Design rule:** When motivation is borderline, don't add more copy — **reduce ability friction.** Pre-select annual + 1-tap purchase + no signup.
+
+---
+
+### 13. Choice Overload — Iyengar & Lepper Jam Study
+
+**Citation:** Iyengar, S. S., & Lepper, M. R. (2000). When choice is demotivating: Can one desire too much of a good thing? *Journal of Personality and Social Psychology*, 79(6), 995–1006.
+
+**Finding:** Real-supermarket jam display experiment:
+- 24-jam display: 60% stopped, **3% bought**
+- 6-jam display: 40% stopped, **30% bought**
+- → Smaller assortment generated **~10x the purchase conversion**
+
+**Mobile paywall application:**
+- **2–3 plans is the sweet spot.** Matches RC 2026 vendor data (41–60% of apps use 2 plans).
+- Beyond 3 plans, hide behind "More plans" disclosure (ChatGPT 6-tier pattern).
+- Single-plan paywall (Calm) eliminates choice entirely → also valid.
+
+**Design rule:** Default to 2–3 plans. If you need a 4th, hide it behind disclosure.
+
+**Caveat:** Scheibehenne, Greifeneder & Todd (2010) meta-analysis of 50+ studies found near-zero average effect — choice overload is **context-dependent**. Don't expect Iyengar's 10x in your A/B; expect a directional benefit at most.
+
+---
+
+### 14. IKEA Effect — Norton, Mochon & Ariely
+
+**Citation:** Norton, M. I., Mochon, D., & Ariely, D. (2012). The IKEA effect: When labor leads to love. *Journal of Consumer Psychology*, 22(3), 453–460. Replicated.
+
+**Finding:** People value self-made products **as much as expert-made products**. Effect dissipates if labor fails (incomplete tasks) or product is destroyed — **completion matters**.
+
+**Mobile paywall application:**
+- **Long onboarding = labor = ownership = higher willingness to pay.** Scientifically explains why Noom (77 screens), Flo (70 screens), Cal AI all out-monetize their categories.
+- **The plan must "complete"** for the effect to land — that's what "Your personalized plan reserved" intermediate screen does. Without that completion moment, the labor was wasted.
+
+**Design rule:** Don't ship a long onboarding without a labor-payoff moment. 70-screen quiz → generic paywall = trust break. Must end with "your X is ready" reveal.
+
+---
+
+### 15. Hyperbolic Discounting — Laibson
+
+**Citation:** Laibson, D. (1997). Golden Eggs and Hyperbolic Discounting. *The Quarterly Journal of Economics*, 112(2), 443–478.
+
+**Finding:** People apply a **disproportionately steep discount to future rewards**, especially for short delays — "I want it now" beats "I want more later" even when math favors waiting.
+
+**Mobile paywall application:**
+- **Weekly plans win on present bias.** "$5/week today" feels less than "$59/year now" even when annual is mathematically better. Adapty 2026: weekly = 55.5% of all subscription revenue.
+- **Trial conversions exploit present bias.** "Free now, charged in 7 days" — future cost is hyperbolically discounted at signup.
+- **Per-day framing exploits present bias positively** ("$0.16/day" lands in immediate-cost mental account).
+
+**Design rule:** Annual default + savings callout must work HARDER than weekly equivalent because you're fighting hyperbolic discounting. Use anchor pricing (concept #2) and loss frame (concept #1) to compensate.
+
+---
+
+### 16. Goal-Gradient Effect — Kivetz, Urminsky & Zheng
+
+**Citation:** Kivetz, R., Urminsky, O., & Zheng, Y. (2006). The goal-gradient hypothesis resurrected: Purchase acceleration, illusionary goal progress, and customer retention. *Journal of Marketing Research*, 43(1), 39–58.
+
+**Finding (multi-method field experiments):**
+- Café customers buy coffee more frequently as they near free-coffee threshold
+- **"Bonus" head-start works:** customers given 12-stamp card with 2 free "bonus" stamps complete the 10 required purchases **faster** than customers given regular 10-stamp card
+
+**Mobile paywall application:**
+- **Show progress in onboarding.** "Step 5 of 10" beats no indicator. User accelerates toward completion.
+- **"Bonus" head-start framing:** "We've already done X for you — finish in just N steps" outperforms equivalent N-step quiz with no bonus framing.
+- **Trial Timeline (Blinkist pattern) is a goal-gradient device** — visualizes path from now to billing.
+- **Streak mechanics** (Duolingo Day 6 of 7) tap goal-gradient for retention.
+
+**Design rule:** Progress bars + bonus head-start framing in onboarding. Streak counters in retention.
+
+---
+
+### 17. Negativity Bias — Baumeister et al. "Bad is Stronger than Good"
+
+**Citation:** Baumeister, R. F., Bratslavsky, E., Finkenauer, C., & Vohs, K. D. (2001). Bad is stronger than good. *Review of General Psychology*, 5(4), 323–370. **10,000+ citations.**
+
+**Finding:** When equal measures of good and bad are present, **the psychological impact of the bad outweighs the good**. Bad emotions, bad parents, bad feedback all weigh more than equivalent good. The self is more motivated to avoid bad self-definitions than to pursue good.
+
+**Mobile paywall application:**
+- **A 1-star review weighs ~5x a 5-star review** in a prospective user's decision (rule-of-thumb derived from negativity literature). Reply to bad reviews; refund cleanly to prevent them.
+- **Refund rate matters more than conversion rate.** A 7% refund rate damages brand and ASO more than a 30% conversion uplift compensates.
+- **Aggressive monetization triggers disproportionate backlash.** Strava 2025 Year-in-Sport paywalling = brand damage > revenue captured.
+- **End-of-experience matters disproportionately.** Smooth refund/cancellation = neutral memory; aggressive exit = lasting bad memory + bad reviews.
+
+**Design rule:** Always under-promise on paywall, over-deliver in product. Treat refund flow as marketing — graceful exit prevents the negative-bias-amplified bad review.
+
+---
+
+### 18. Costly Signaling — Spence Job Market Signaling
+
+**Citation:** Spence, M. (1973). Job Market Signaling. *The Quarterly Journal of Economics*, 87(3), 355–374. **Nobel Memorial Prize in Economics (2001).**
+
+**Finding:** When buyers can't directly verify quality, they use **costly signals** — observable attributes that cost the seller something to provide and which would not be worth providing if quality were low.
+
+**Mobile paywall application:**
+- **Premium pricing IS a quality signal.** Adapty 2026: high-priced apps earn 3x the LTV of low-priced apps. Some of that effect is genuine quality inference: "if it costs more, it must be better."
+- **Don't undercharge in your category.** A meditation app at $1.99/mo signals low quality vs Calm's $69.99/yr — even with identical features.
+- **Brand investment signals durability.** Polished design, real testimonials, professional copy → user infers "this company can afford to invest, will be around next year."
+- **Hollow Middle problem (Kahneman section, concept #11)** is partly a signaling failure: $5–10/mo apps signal neither "value deal" nor "premium quality."
+
+**Design rule:** Price at category median or above. Sub-category-median pricing signals weakness AND captures lower LTV.
+
+---
+
+### 19. Reactance Theory — Brehm
+
+**Citation:** Brehm, J. W. (1966). *A Theory of Psychological Reactance.* Academic Press. 50+ years of replication across health, marketing, politics, education.
+
+**Finding:** When people perceive their **freedom to choose** is being threatened or removed, they become motivated to **restore that freedom** — often by doing the opposite of what's being pushed.
+
+**Mobile paywall application:**
+- **Fake urgency backfires.** Countdown timers that aren't real, "limited time" that isn't, "last chance" repeated weekly → user dismisses paywall AND doesn't return.
+- **Hard paywalls before value is established trigger reactance.** Hard paywall works WHEN value is established (post-aha placement); fails when applied too early.
+- **Always offer a dignified way out.** "Maybe later" > guilt-trip "Continue with limits."
+- **Don't show same paywall 3 times in a session** → triggers reactance + Apple compliance flag for "aggressive monetization."
+- **Apple's toggle paywall ban (Jan 2026)** can be partly explained as Apple protecting users from reactance accumulation toward the App Store ecosystem.
+
+**Design rule:** Treat user dismissal as final. Don't re-prompt aggressively. Honest scarcity only.
+
+---
+
+### 20. Sunk Cost in Onboarding — Arkes & Blumer
+
+**Citation:** Arkes, H. R., & Blumer, C. (1985). The psychology of sunk cost. *Organizational Behavior and Human Decision Processes*, 35(1), 124–140. Foundational paper.
+
+**Finding:** People irrationally continue commitments based on past investment — even when continuing is no longer rational. Strongest when investment is recent and visible.
+
+**Mobile paywall application:**
+- **Long onboarding creates sunk-cost commitment** that flows into paywall conversion. After 7 minutes of quiz, abandoning at the paywall feels like wasting that time.
+- **Compounds with IKEA Effect (#14):** labor + ownership + sunk cost stack to maximize willingness to pay.
+- **Visible progress bar amplifies sunk cost** — user sees how much they've already invested.
+- **But: combine with Goal-Gradient (#16)** — make completion feel close while investment piles up. Otherwise the user gives up before reaching paywall.
+
+**Design rule:** Long onboarding works only when paired with progress visualization (goal-gradient acceleration) AND a payoff moment (IKEA completion). All three together.
+
+---
+
+## Caution: Ego Depletion Has Failed Replication
+
+You will see "decision fatigue" cited often as justification for "keep paywalls simple." **Don't use it.**
+
+**Original:** Baumeister, R. F., Bratslavsky, E., Muraven, M., & Tice, D. M. (1998). Ego Depletion. *JPSP* 74(5).
+
+**Replication failures:**
+- Hagger et al. (2016): 24 labs, 2,141 participants worldwide. **No effect found.**
+- Vohs et al. (2016): 36 labs, 3,531 participants. **No effect found.**
+
+The "willpower depletes like fuel" model is no longer scientifically tenable.
+
+**The practical UX rule "keep paywalls simple" is correct.** Just cite the right mechanism:
+- ✅ Choice Overload (Iyengar & Lepper 2000) — concept #13
+- ✅ System 1 (Kahneman 2011) — concept #3
+- ❌ NOT ego depletion / decision fatigue
+
+---
+
+## Practitioner Frameworks (Operator Insight, Not Academic)
+
+These are useful operational frameworks but lack peer-reviewed empirical foundations comparable to the academic concepts above. **Cite the underlying academic source when you want grounding.**
+
+### Hooked Model (Eyal 2014)
+Trigger → Action → Variable Reward → Investment loop. Practitioner synthesis. Underlying academic basis: variable reward = Skinner; investment = IKEA Effect (#14) + Sunk Cost (#20). Useful as operational framework; **not a peer-reviewed theory**.
+
+### Identity-Based Habits (Clear 2018, Atomic Habits)
+"I am the type of person who…" framing. Operational synthesis. Underlying academic basis: Bem self-perception theory (1972) + Cialdini commitment & consistency. **Not peer-reviewed in the framework form**, but the underlying mechanisms are. Useful for headline copy ("Become the runner you want to be" — outcome-led identity formula in [copy-library.md](copy-library.md) #2).
+
+---
+
 ## Other Academic Foundations
 
 ### Tversky & Kahneman (1981) — Framing Effect (Specific Paper)

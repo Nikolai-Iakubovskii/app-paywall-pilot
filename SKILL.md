@@ -20,7 +20,7 @@ This skill is split into a core file (this) plus deep-dive modules. Load on dema
 |--------|---------|
 | [modules/copy-library.md](modules/copy-library.md) | Headline formulas, benefit patterns, CTA templates, banned words, locale-specific copy notes |
 | [modules/teardowns.md](modules/teardowns.md) | Annotated paywall analyses for Calm, Duolingo, Noom, Cal AI, Tinder, Strava, Headspace, Blinkist, Flo, ChatGPT, AI companion apps |
-| [modules/pricing-psychology.md](modules/pricing-psychology.md) | **11-concept Kahneman foundation** (Prospect Theory, Anchoring, System 1/2, Endowment Effect, Peak-End, Default Effect, Mental Accounting, WYSIATI, Substitution, Planning Fallacy, Hedonic Adaptation), each mapped to a paywall design choice. Plus Anderson-Simester $9 endings, Ariely decoy, Cialdini 7 principles. |
+| [modules/pricing-psychology.md](modules/pricing-psychology.md) | **20-concept academic foundation.** Kahneman base (11): Prospect Theory, Anchoring, System 1/2, Endowment, Peak-End, Default Effect, Mental Accounting, WYSIATI, Substitution, Planning Fallacy, Hedonic Adaptation. Layer 2 (9): Fogg B=MAT, Choice Overload (Iyengar jam study), IKEA Effect, Hyperbolic Discounting, Goal-Gradient, Negativity Bias, Costly Signaling (Spence/Nobel), Reactance Theory, Sunk Cost. Plus Cialdini 7, Ariely decoy, Anderson-Simester. **Includes ego-depletion replication-failure warning.** |
 | [modules/decision-trees.md](modules/decision-trees.md) | Diagnostic flowcharts for low conversion, refunds, plan choice, surface choice, compliance triage |
 | [modules/category-deep-dives.md](modules/category-deep-dives.md) | Per-category economics: H&F, Gaming, AI, Education, Productivity, Photo & Video, Travel, B2B |
 | [modules/screen-anatomy.md](modules/screen-anatomy.md) | Visual hierarchy, layout, typography, accessibility, dark mode, safe areas |
@@ -798,6 +798,16 @@ Each finding must carry its evidence level. Do not repeat findings across sectio
 | Thaler 1980-1999 — Mental Accounting | Built on Kahneman foundation | 1980-1999 | academic |
 | Cialdini Influence + Pre-Suasion | Foundational persuasion text | 1984 / 2016 | academic |
 | Springer 2024 — Mobile Persuasion Study | Cialdini principles on app contexts | 2024 | academic |
+| **Fogg 2009 — Behavior Model B=MAT** | Persuasive Tech proceedings, 1,900+ pubs ref | 2009 | academic |
+| **Iyengar & Lepper 2000 — Choice Overload (Jam Study)** | JPSP, 6 vs 24 jams (~10x conv difference) | 2000 | academic |
+| **Norton, Mochon, Ariely 2012 — IKEA Effect** | JCP, 4 studies (IKEA / origami / Lego), replicated | 2012 | academic |
+| **Laibson 1997 — Hyperbolic Discounting** | QJE, present bias formalization | 1997 | academic |
+| **Kivetz, Urminsky, Zheng 2006 — Goal-Gradient** | JMR, café field experiments + bonus stamps | 2006 | academic |
+| **Baumeister et al 2001 — Negativity Bias ("Bad is Stronger than Good")** | RGP, 10K+ citations | 2001 | academic |
+| **Spence 1973 — Job Market Signaling** | QJE, Nobel 2001, 14K+ citations | 1973 | academic |
+| **Brehm 1966 — Psychological Reactance** | Foundational theory, 50+ years replication | 1966 | academic |
+| **Arkes & Blumer 1985 — Sunk Cost Fallacy** | OBHDP, foundational concept | 1985 | academic |
+| ⚠️ Baumeister 1998 — Ego Depletion (FAILED replication) | Hagger 2016 + Vohs 2016 multi-lab failures | 1998 / 2016 | academic — DO NOT cite as mechanism |
 
 Full source manifest with every numeric claim: [sources.json](sources.json)
 Full research brief with methodology check: [outputs/2026-paywall-research.md](outputs/2026-paywall-research.md)
