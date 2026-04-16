@@ -322,24 +322,28 @@ Reported design uses a toggle for the 14-day trial. **Toggle paywalls are subjec
 
 ### Structure
 - 6 tiers: Free, Go ($8), Plus ($20), Business, Enterprise, Edu
-- Geo-tier (Go) launched India first then global expansion
-- Plus is the consumer mass-market tier
+- Geo-tier (Go) launched India first
+- Plus = consumer mass-market tier
+- Pro = premium tier (10x Plus, proves AI ceiling has moved)
 - Enterprise = sales-led
 
 ### Copy
-- Tier names communicate scope (Free / Go / Plus / Business / Enterprise)
-- Plus benefits: priority access, GPT-5.3, image gen, deep research
+- Tier names communicate scope, not model version
 - Minimalist — feature-led for technical audience
+- Specific model names (GPT-5.x) intentionally absent from tier copy — would obsolete the paywall every quarter
 
 ### Pricing pattern
 - $20/mo became the AI consumer baseline
-- $8/mo geo-tier for emerging markets
+- 10x premium tier proves AI has higher ceiling than other categories
+- $8/mo geo-tier for emerging markets (India-first launch)
 - Annual discount available
 
 ### Key takeaway
 **ChatGPT made $20/mo the AI baseline.** Other AI apps inherit this ceiling whether they like it or not. Pricing above $20 requires demonstrably more value (Adapty 2026: 59.8% of AI apps use monthly billing — short purchase cycle, high price tolerance).
 
 **Geo-tier pricing for emerging markets** (Go @ $8) = increasingly important pattern. Adapty 2026 H&F data: 4.4x pricing variance across markets. EU/US/AU at top, IN/TR/ID at bottom.
+
+> **Note on model versions:** ChatGPT updates its underlying model frequently. The takeaway is the **pricing structure** (free / consumer / premium / geo-tier / sales-led), not the specific model shipped. Don't put model version names in your own paywall copy unless you commit to updating it every quarter.
 
 ### Apple compliance notes
 ✅ Compliant.
