@@ -217,6 +217,44 @@ Academic foundations + mobile-paywall application. Use academic principles as **
 
 ---
 
+### The Hollow Middle (2026 Phenomenon)
+
+**Concept:** The $5–$10/month tier is dying. **41% of consumers report subscription fatigue** (Adapty 2026). Users now want either a **clear deal** (cheap or free) OR a **clear premium** (expensive with measurable outcome). Mid-priced apps without strong differentiation are squeezed from both sides.
+
+**Implication for tier design:**
+- Don't price your "main" tier in the $5–$10/mo dead zone unless it has a clear job-to-be-done
+- The "good / better / best" structure now resembles "free / mid-anchor / premium-power-user" — the mid acts as decoy, not target
+- 2026 winners push toward **$30+/mo for measurable outcomes** (Cal AI, ChatGPT Plus, Headspace Plus tier)
+- Or push toward **$5/wk + free tier** (gaming, casual utilities, AI companions)
+- Tiered pricing increases revenue **25–40%** vs single-tier — but only if tiers are clearly differentiated (Adapty)
+
+**Cross-reference:** Decoy effect (Ariely) explains why a mid-tier still helps even when nobody buys it — frames the premium as obvious value.
+
+**Source:** Adapty 2026 tiered pricing analysis (https://adapty.io/blog/tiered-pricing/)
+
+---
+
+### Apple Small Business Program — Free LTV Boost
+
+**Apple Rule:** If your annual revenue across all your apps is **under $1M**, you qualify for the Small Business Program — **15% commission instead of 30%**.
+
+**Math:** Switching from 30% to 15% = **+17.6% net ARPU** (price stays same, you keep more).
+
+**Applies to:**
+- New subscriptions
+- Renewals
+- All in-app purchases
+
+**Doesn't apply to:**
+- Apps already over $1M (you can't downgrade in)
+- Year 1 of subscriptions outside SBP territory (year 2+ subs already at 15%)
+
+**Apply at:** https://developer.apple.com/app-store/small-business-program/
+
+**No reason not to enroll if eligible.** This is the highest-leverage zero-effort change available to indie devs.
+
+---
+
 ### Discount Strategy
 
 **Adapty 2026:** 90% of subscriptions sell at full price. Discounts work for **recovery, not as default**.

@@ -26,7 +26,26 @@ This skill is split into a core file (this) plus deep-dive modules. Load on dema
 | [modules/screen-anatomy.md](modules/screen-anatomy.md) | Visual hierarchy, layout, typography, accessibility, dark mode, safe areas |
 | [modules/localization.md](modules/localization.md) | Geo-pricing, copy length expansion, RTL, App Store auto-tier vs manual |
 | [modules/android-parity.md](modules/android-parity.md) | Play Billing differences, EU DMA, Android refund reality |
+| [modules/unit-economics-calculator.md](modules/unit-economics-calculator.md) | Conversational LTV / ARPU / ROAS / breakeven calculator. Use when user asks "will my app be profitable?", shares plans + funnel data, or wants what-if scenarios |
+| [modules/indie-dev-faq.md](modules/indie-dev-faq.md) | Direct-answer mode for single tactical questions. 35+ Q&A: "Should I add weekly?", "Are my numbers good?", "Why is trial-to-paid low?" — threshold + verdict + one action |
+| [modules/cac-acquisition.md](modules/cac-acquisition.md) | CAC formula, channel CPI benchmarks (ASA/Meta/TikTok/Google), LTV:CAC thresholds, ASA strategy, Web2App, MMP choice |
 | [outputs/2026-paywall-research.md](outputs/2026-paywall-research.md) | Source manifest with methodology, sample sizes, evidence class for every benchmark used |
+
+---
+
+## RESPONSE MODE: PICK ONE
+
+Match response depth to the question.
+
+| User signal | Mode | Use |
+|------------|------|-----|
+| Single tactical question ("Should I add weekly?", "My churn is high") | **Quick mode** | [indie-dev-faq.md](modules/indie-dev-faq.md). Threshold + verdict + one action. ≤5 sentences. |
+| Shares plans + pricing + CR/CPI ("Will my app be profitable?") | **Calculator mode** | [unit-economics-calculator.md](modules/unit-economics-calculator.md). Run the 7-step flow. |
+| Asks about a single pattern ("How does Calm structure their paywall?") | **Pattern mode** | [teardowns.md](modules/teardowns.md). One-app deep dive. |
+| "Audit my paywall" + screenshot/code | **Full audit mode** | DEFAULT OUTPUT FORMAT below. 12 sections. |
+| Compliance question ("Will this get rejected?") | **Compliance triage** | [decision-trees.md](modules/decision-trees.md) Tree 8 + iOS COMPLIANCE CHECKLIST below. |
+
+Don't run a full 12-section audit when the user asked one question. Don't give a 5-sentence answer when they asked for an audit.
 
 ---
 
@@ -672,6 +691,25 @@ Repeating patterns from top apps, per Adapty/RevenueCat/Superwall 2026 data. All
 15. Same SKU across all of EU (Adapty 2026: EU charges 29–39% more than NA — leaving money on table)
 16. Optimizing retention metrics for AI apps (AI churns 30% faster — optimize first-month conversion instead)
 17. Trial on weekly plans (weekly trial subscribers retain 5.5% D380 vs annual 19.9%)
+18. **Hollow middle pricing**: $5–$10/mo tier without clear differentiation. 41% of consumers report subscription fatigue (Adapty 2026). Mid-priced plans without a strong value story underperform both cheap and premium. Either go clearly cheap OR clearly premium.
+19. **Paying 30% commission when you qualify for SBP.** Apple Small Business Program: 15% rate at <$1M annual revenue. Switching = +17.6% net ARPU instantly. Apply at https://developer.apple.com/app-store/small-business-program/. No reason not to if eligible.
+20. Optimizing without an MMP. Without AppsFlyer / Adjust / Singular, you can't measure CAC per channel. Blended CAC hides which channel is broken.
+
+---
+
+## QUICK MODE FORMAT
+
+When the user asks one tactical question (not a full audit), respond in this format:
+
+```
+**Verdict:** [Excellent / Good / Average / Below average / Poor / Critical]
+**Reason:** [One sentence with the benchmark + source]
+**Action:** [Single highest-leverage move]
+```
+
+Optional: 1 sentence on the next-best action if asked.
+
+Do not run the 12-section DEFAULT OUTPUT FORMAT for single questions. Common questions are pre-answered in [indie-dev-faq.md](modules/indie-dev-faq.md).
 
 ---
 
