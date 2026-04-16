@@ -1,5 +1,19 @@
 # Changelog
 
+## [3.4.0] -- 2026-04-16
+
+Phase 2 of follow-up improvements. Adds foundational modules that fill gaps identified after Phase 1: continuity onboarding-paywall, lifecycle messaging, canonical metric definitions, executable Python calculator.
+
+### Added
+- **`modules/onboarding-paywall-handoff.md`** -- continuity principle (core principle 10) made concrete. 7 onboarding patterns linked to paywall: Noom quiz (77 screens), Cal AI demo-first, Headspace segmented + day/night, Duolingo goal-first, Strava aha-moment, Flo empathy, reverse trial. Loading-screen bridge templates with timing rules. Decision rule for short vs medium vs long onboarding by LTV.
+- **`modules/notifications-lifecycle.md`** -- previously missing area. Push + email sequences for trial (Blinkist Day-5 +1,200% opt-in), transaction abandon (Superwall 17% revenue), renewal-risk (Server Notifications V2), billing-issue (system sheet), win-back (iOS 18+ Apple Win-Back). Permission strategy with timing benchmarks. Copy templates per scenario. Tooling comparison (OneSignal / FCM / Customer.io / Iterable / Klaviyo).
+- **`modules/glossary.md`** -- canonical definitions for ARPU vs ARPPU, gross LTV vs RLTV, CR variants (effective CR breakdown), MRR/ARR, CAC variants (CPI/CPR/CAC/eCAC), ROAS, retention vs renewal vs churn, plan architecture terms (Subscription Group vs Base Plan + Offer), data-source class definitions. Plus 24-acronym quick reference.
+- **`tools/ltv-calculator.py`** -- executable Python implementation of unit-economics-calculator.md. CLI + JSON I/O modes. Implements all default retention multipliers, performance grading, expert advice engine. Verified output matches the worked example in the module ($48.44 ARPPU 7d, 1.26:1 LTV:CAC at 4yr). Runs in any environment with Python 3.
+
+### Changed
+- Module count: 11 -> 14
+- SKILL.md MODULES table updated with all Phase 2 entries
+
 ## [3.3.0] -- 2026-04-16
 
 Phase 1 of follow-up improvements after analyzing adaptyteam/growth-expert-skill. Closes the operational/numerical gap (we were strong on strategy, weak on calculator-style guidance and CAC).

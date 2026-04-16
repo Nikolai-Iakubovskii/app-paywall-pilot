@@ -11,10 +11,10 @@
     <a href="#contributing">Contributing</a>
   </p>
   <p align="center">
-    <img src="https://img.shields.io/badge/Version-3.3.0-brightgreen?style=flat-square" alt="Version">
+    <img src="https://img.shields.io/badge/Version-3.4.0-brightgreen?style=flat-square" alt="Version">
     <img src="https://img.shields.io/badge/Platform-iOS_%7C_Android-blue?style=flat-square" alt="Platform">
     <img src="https://img.shields.io/badge/Benchmarks-April_2026-green?style=flat-square" alt="Benchmarks">
-    <img src="https://img.shields.io/badge/Modules-11-purple?style=flat-square" alt="Modules">
+    <img src="https://img.shields.io/badge/Modules-14-purple?style=flat-square" alt="Modules">
     <img src="https://img.shields.io/badge/Sources-50%2B-orange?style=flat-square" alt="Sources">
     <img src="https://img.shields.io/badge/License-MIT-yellow?style=flat-square" alt="License">
     <img src="https://img.shields.io/github/stars/Nikolai-Iakubovskii/app-paywall-pilot?style=flat-square" alt="Stars">
@@ -58,7 +58,7 @@ App Paywall Pilot grounds every recommendation in published evidence and labels 
 
 ## Modules
 
-The skill is split into a core [SKILL.md](SKILL.md) plus 11 deep-dive modules under [`modules/`](modules/). Load on demand based on the task.
+The skill is split into a core [SKILL.md](SKILL.md) plus 14 deep-dive modules under [`modules/`](modules/) and an executable Python calculator. Load on demand based on the task.
 
 | Module | What's inside |
 |--------|---------------|
@@ -73,8 +73,12 @@ The skill is split into a core [SKILL.md](SKILL.md) plus 11 deep-dive modules un
 | [unit-economics-calculator.md](modules/unit-economics-calculator.md) | Conversational LTV / ARPU / ROAS / breakeven calculator with default retention multipliers, performance grading thresholds, expert advice engine with 11 conditional recommendations, scenario modeling, full worked example |
 | [indie-dev-faq.md](modules/indie-dev-faq.md) | 35+ direct-answer Q&A: "Should I add weekly?", "Are my numbers good?", "Why is trial-to-paid low?", "What's a healthy LTV:CAC?" -- threshold + verdict + one action with cited source |
 | [cac-acquisition.md](modules/cac-acquisition.md) | CAC formula and variants, 2026 mobile CAC benchmarks (iOS / Android, premium and emerging markets), channel CPI table (ASA / Meta / TikTok / Google / Snap / Reddit), LTV:CAC thresholds, channel mix strategy by stage, MMP comparison (AppsFlyer / Adjust / Singular / RevenueCat), Apple Search Ads tactics, Web2App economics, common CAC mistakes |
+| [onboarding-paywall-handoff.md](modules/onboarding-paywall-handoff.md) | Continuity principle made concrete. 7 onboarding patterns linked to paywall (Noom quiz, Cal AI demo, Headspace segmented, Duolingo goal-first, Strava aha, Flo empathy, reverse trial). Loading-screen bridge templates. Decision rule for onboarding length by LTV. |
+| [notifications-lifecycle.md](modules/notifications-lifecycle.md) | Push + email sequences for trial (Blinkist Day-5 +1,200% opt-in), abandon recovery (Superwall 17% revenue), renewal-risk, billing-issue, win-back. Permission strategy, copy templates, tooling choice. |
+| [glossary.md](modules/glossary.md) | Canonical definitions: ARPU vs ARPPU, gross vs RLTV, CR variants, MRR/ARR, CAC variants (CPI/CPR/CAC/eCAC), ROAS, retention vs renewal vs churn. Plus 24-acronym quick reference. |
 
-Plus a research brief:
+Plus an executable tool and research brief:
+- **[tools/ltv-calculator.py](tools/ltv-calculator.py)** -- Python implementation of the unit-economics calculator. CLI + JSON I/O. Run from Bash to get LTV / ARPU / ROAS / breakeven / grading instantly. Output verified against worked example.
 - [outputs/2026-paywall-research.md](outputs/2026-paywall-research.md) -- full source manifest with methodology, sample sizes, evidence class for every benchmark used
 - [outputs/2026-paywall-research.provenance.md](outputs/2026-paywall-research.provenance.md) -- sources consulted vs accepted vs rejected, cross-references, weak-signal flags
 
