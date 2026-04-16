@@ -3,11 +3,13 @@
     "description": "Source manifest for every numeric claim in SKILL.md. Each entry maps a claim to its source URL, publication date, dataset scope, and evidence class.",
     "evidence_classes": {
       "apple_docs": "Official Apple documentation or App Review Guidelines",
-      "large_scale_report": "Published report from SDK provider covering 10K+ apps or $1B+ revenue",
+      "large_scale_report": "Published report from SDK provider or measurement platform covering 10K+ apps or $1B+ revenue",
       "vendor_blog": "Blog post from SDK provider, may reference internal data without open methodology",
       "case_study": "Single company result, not independently verified",
-      "field_observation": "Rejection patterns reported by developers/providers, not official Apple rule",
-      "aggregate_study": "Multi-company study with published methodology"
+      "field_observation": "Rejection patterns or production observations reported by developers/providers, not official Apple rule",
+      "aggregate_study": "Multi-company study with published methodology and sample size",
+      "academic": "Peer-reviewed academic paper or established behavioral economics finding",
+      "platform_capability": "Documented feature in StoreKit, App Store Connect, Google Play Billing, or third-party platform"
     },
     "last_updated": "2026-04-16"
   },
@@ -277,6 +279,213 @@
       "date": "2026-03-14",
       "scope": "16,000+ apps, regional pricing comparison",
       "evidence_class": "large_scale_report"
+    },
+    {
+      "claim": "Subscription UA spend grew 24% YoY; Android growing 4x faster than iOS",
+      "source": "AppsFlyer State of Subscriptions 2026",
+      "url": "https://www.appsflyer.com/resources/reports/subscription-marketing/",
+      "date": "2026",
+      "scope": "1.7B paid installs, 2,900 subscription apps, 13 categories, $2.1B UA spend",
+      "evidence_class": "large_scale_report"
+    },
+    {
+      "claim": "Indian Subcontinent: 49% of net Android paid install growth; LATAM: 18%",
+      "source": "AppsFlyer State of Subscriptions 2026",
+      "url": "https://www.appsflyer.com/resources/reports/subscription-marketing/",
+      "date": "2026",
+      "scope": "Geographic cut from 1.7B installs",
+      "evidence_class": "large_scale_report"
+    },
+    {
+      "claim": "Short Drama category YoY paid installs: +155%",
+      "source": "AppsFlyer State of Subscriptions 2026",
+      "url": "https://www.appsflyer.com/resources/reports/subscription-marketing/",
+      "date": "2026",
+      "scope": "Category-level data from 13 categories tracked",
+      "evidence_class": "large_scale_report"
+    },
+    {
+      "claim": "Top 5 apps per category control >90% of UA spend",
+      "source": "AppsFlyer State of Subscriptions 2026",
+      "url": "https://www.appsflyer.com/resources/reports/subscription-marketing/",
+      "date": "2026",
+      "scope": "13 categories tracked",
+      "evidence_class": "large_scale_report"
+    },
+    {
+      "claim": "Google Play involuntary billing failures: ~31% of cancellations vs App Store 14%",
+      "source": "RevenueCat State of Subscription Apps 2026",
+      "url": "https://www.revenuecat.com/state-of-subscription-apps/",
+      "date": "2026-03",
+      "scope": "115K+ apps cross-platform billing data",
+      "evidence_class": "large_scale_report"
+    },
+    {
+      "claim": "3-day trials: 55.4% cancel Day 0; 7-day trials: 39.8% cancel Day 0",
+      "source": "RevenueCat State of Subscription Apps 2026",
+      "url": "https://www.revenuecat.com/state-of-subscription-apps/",
+      "date": "2026-03",
+      "scope": "115,000+ apps trial-cancellation analysis",
+      "evidence_class": "large_scale_report"
+    },
+    {
+      "claim": "12-mo RLTV by region: NA $32, WE $25, IN/SEA $14",
+      "source": "RevenueCat State of Subscription Apps 2026",
+      "url": "https://www.revenuecat.com/state-of-subscription-apps/",
+      "date": "2026-03",
+      "scope": "115K+ apps regional cut",
+      "evidence_class": "large_scale_report"
+    },
+    {
+      "claim": "12-mo RLTV by tier: High $62.19, Mid $28.75, Low $10.69",
+      "source": "RevenueCat State of Subscription Apps 2026",
+      "url": "https://www.revenuecat.com/state-of-subscription-apps/",
+      "date": "2026-03",
+      "scope": "115K+ apps pricing-tier cut",
+      "evidence_class": "large_scale_report"
+    },
+    {
+      "claim": "H&F: 4.4x pricing variance across markets; install LTV $1.21 (highest of any category)",
+      "source": "Adapty Health & Fitness Benchmarks 2026",
+      "url": "https://adapty.io/blog/health-fitness-app-subscription-benchmarks/",
+      "date": "2026",
+      "scope": "Category cut from 16K-app dataset",
+      "evidence_class": "large_scale_report"
+    },
+    {
+      "claim": "H&F first renewal rate 67.7%; 86.1% Day 0 conversion; secondary peak Days 4-7",
+      "source": "Adapty Health & Fitness Benchmarks 2026",
+      "url": "https://adapty.io/blog/health-fitness-app-subscription-benchmarks/",
+      "date": "2026",
+      "scope": "H&F category cut",
+      "evidence_class": "large_scale_report"
+    },
+    {
+      "claim": "Apple Guideline 3.1.2 toggle paywall reason: 'This design is confusing and may prevent users from understanding that they are committing to an auto-renewing subscription'",
+      "source": "Apple App Store Review Guidelines + RevenueCat / Adapty rejection reports",
+      "url": "https://www.revenuecat.com/blog/growth/r-i-p-toggle-paywall-we-hardly-knew-ye/",
+      "url_alt": "https://developer.apple.com/app-store/review/guidelines/",
+      "date": "2026-02",
+      "scope": "Apple-cited rejection reason, multiple developer reports",
+      "evidence_class": "apple_docs"
+    },
+    {
+      "claim": "Tversky & Kahneman framing effect — same problem framed gain vs loss produces preference reversal",
+      "source": "Tversky, A., & Kahneman, D. (1981). The framing of decisions and the psychology of choice. Science, 211(4481), 453-458",
+      "url": "https://www.science.org/doi/10.1126/science.7455683",
+      "date": "1981-01-30",
+      "scope": "Foundational behavioral economics paper, 17,000+ citations",
+      "evidence_class": "academic"
+    },
+    {
+      "claim": "Anderson & Simester $9 endings — same shirt at $39 outsold same shirt at $34 in catalog field experiment",
+      "source": "Anderson, E. T., & Simester, D. I. (2003). Effects of $9 price endings on retail sales: Evidence from field experiments. Quantitative Marketing and Economics, 1, 93-110",
+      "url": "https://link.springer.com/article/10.1023/A:1023581927405",
+      "date": "2003",
+      "scope": "Field experiment in mail-order catalog",
+      "evidence_class": "academic"
+    },
+    {
+      "claim": "Thomas & Morwitz left-digit effect — consumers anchor on leftmost digit ($9.99 reads as 'nine-something' not '~$10')",
+      "source": "Thomas, M., & Morwitz, V. (2005). Penny wise and pound foolish: The left-digit effect in price cognition. Journal of Consumer Research, 32(1), 54-64",
+      "url": "https://academic.oup.com/jcr/article/32/1/54/1791749",
+      "date": "2005",
+      "scope": "Multiple cognition experiments",
+      "evidence_class": "academic"
+    },
+    {
+      "claim": "Ariely decoy effect — adding inferior $125 print-only option shifted preference toward $125 combo by 52pp (16% to 84%)",
+      "source": "Ariely, D. (2008). Predictably Irrational, Ch. 1 — The Economist subscription experiment",
+      "url": "https://thestrategystory.com/2020/10/02/economist-magazine-a-story-of-clever-decoy-pricing/",
+      "date": "2008",
+      "scope": "n=100 MIT students, hypothetical purchase",
+      "evidence_class": "academic",
+      "caveat": "Replication studies with real (non-hypothetical) money show weaker effect; treat as Operator Insight in mobile context"
+    },
+    {
+      "claim": "Cialdini 7 principles — Social Proof and Authority test as most influential persuaders in mobile app contexts",
+      "source": "Springer 2024 — Cialdini persuasion principles in mobile app contexts",
+      "url": "https://link.springer.com/chapter/10.1007/978-3-031-59465-6_17",
+      "date": "2024",
+      "scope": "Multi-cultural study on mobile app installation/risk-taking",
+      "evidence_class": "academic"
+    },
+    {
+      "claim": "Blinkist Trial Timeline paywall: +23% trial signups, -55% complaints, +4% trial retention, +1,200% notification opt-in (6%->74%)",
+      "source": "Blinkist via Purchasely case study",
+      "url": "https://www.purchasely.com/blog/blinkist-paywall-transformation-revolutionizes-app-user-engagement",
+      "url_alt": "https://growth.design/case-studies/trial-paywall-challenge",
+      "date": "2025",
+      "scope": "Single company (Blinkist) before/after measurement",
+      "evidence_class": "case_study"
+    },
+    {
+      "claim": "Calm uses single-plan paywall: annual at £39.99, family at £40.99 for 6 accounts, monthly anchor strikethrough",
+      "source": "Calm operator analysis (Kristen Berman) + Adapty Paywall Library + ScreensDesign",
+      "url": "https://kristenberman.substack.com/p/how-calm-uses-premium-to-motivate",
+      "date": "2024-2026",
+      "scope": "Production paywall observation",
+      "evidence_class": "field_observation"
+    },
+    {
+      "claim": "Cal AI: $1.4M/month gross profit on 30M+ downloads, hard paywall + obsessive personalization model",
+      "source": "CNBC + Adapty Paywall Newsletter #22",
+      "url": "https://adapty.io/blog/paywall-newsletter-22/",
+      "date": "2025",
+      "scope": "Public revenue disclosure + paywall observation",
+      "evidence_class": "case_study"
+    },
+    {
+      "claim": "Tinder blur-to-reveal paywall: ~8% upgrade conversion specifically to unblur 'who liked you'",
+      "source": "StartupSpells Tinder Gold conversion analysis + Sub Club Podcast (Shawn Gong, Tinder)",
+      "url": "https://startupspells.com/p/tinder-gold-conversion-strategy-blur-to-reveal-paywall-ux",
+      "url_alt": "https://subclub.com/episode/dynamic-paywalls-that-drove-millions-in-new-revenue-shawn-gong-tinder",
+      "date": "2024-2025",
+      "scope": "Operator disclosure on podcast + independent analysis",
+      "evidence_class": "field_observation"
+    },
+    {
+      "claim": "ChatGPT pricing tiers (March 2026): Free, Go ($8 emerging-markets), Plus ($20), Business, Enterprise, Edu",
+      "source": "OpenAI public pricing page",
+      "url": "https://openai.com/business/chatgpt-pricing/",
+      "date": "2026-03",
+      "scope": "Official OpenAI disclosure",
+      "evidence_class": "platform_capability"
+    },
+    {
+      "claim": "Flo: 70-screen onboarding, $6M/month subscription revenue from ~1M downloads/month, 60-80% purchases at first app use",
+      "source": "ScreensDesign + paywallpro effective H&F examples",
+      "url": "https://screensdesign.com/showcase/flo-period-pregnancy-tracker",
+      "url_alt": "https://dev.to/paywallpro/effective-paywall-examples-in-health-fitness-apps-2025-3op9",
+      "date": "2025",
+      "scope": "Production paywall observation",
+      "evidence_class": "field_observation"
+    },
+    {
+      "claim": "Noom: 77-step onboarding (~7 min), 'personalized plan reserved' framing, 15-min countdown, 7-day trial on 2-month plan",
+      "source": "Paddle Fix That Funnel + Retention.blog + ScreensDesign",
+      "url": "https://www.paddle.com/studios/shows/fix-that-funnel/noom",
+      "url_alt": "https://www.retention.blog/p/the-longest-onboarding-ever",
+      "date": "2025",
+      "scope": "Production paywall observation",
+      "evidence_class": "field_observation"
+    },
+    {
+      "claim": "Strava: 30-day full-access trial without credit card; monthly $11.99 vs annual $79.99 anchoring",
+      "source": "Top Fitness Paywalls + gadgetsandwearables coverage of 2025 Year-in-Sport paywalling",
+      "url": "https://gadgetsandwearables.com/2025/12/20/strava-year-in-sport/",
+      "url_alt": "https://dev.to/paywallpro/top-fitness-app-paywalls-ux-patterns-pricing-insights-2868",
+      "date": "2025",
+      "scope": "Production paywall observation",
+      "evidence_class": "field_observation"
+    },
+    {
+      "claim": "Headspace: equal-prominence monthly and annual plans; 100% locked content with 1-2 free items per category retained as hook",
+      "source": "Sub Club Podcast (Shreya Oswal & Keya Patel) + NamiML",
+      "url": "https://subclub.com/episode/how-headspace-optimized-revenue-by-gating-content-shreya-oswal-and-keya-patel-headspace",
+      "date": "2024-2025",
+      "scope": "Operator disclosure on podcast",
+      "evidence_class": "field_observation"
     }
   ]
 }
