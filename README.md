@@ -527,9 +527,23 @@ PRs welcome. Ground rules:
 
 ---
 
-<p align="center">
-  Built by <a href="https://github.com/Nikolai-Iakubovskii">Nikolai Iakubovskii</a><br>
-  Indie developer shipping
-  <a href="https://apps.apple.com/us/app/mistyway-walking-quest-game/id6730126556">MistyWay</a> &bull;
-  <a href="https://apps.apple.com/us/app/aurora-forecast-map-aurorame/id6749782053">AuroraMe</a>
-</p>
+<div align="center">
+
+### Built by <a href="https://github.com/Nikolai-Iakubovskii">Nikolai Iakubovskii</a>
+
+Indie developer shipping
+<a href="https://apps.apple.com/us/app/mistyway-walking-quest-game/id6730126556">MistyWay</a> &bull;
+<a href="https://apps.apple.com/us/app/aurora-forecast-map-aurorame/id6749782053">AuroraMe</a>
+
+<br>
+
+**Follow / DM / argue with me:**
+
+[![X / Twitter](https://img.shields.io/badge/X-yak__niko-black?style=for-the-badge&logo=x&logoColor=white)](https://x.com/yak_niko)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Nikolai_Iakubovskii-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/nikolai-iakubovskii/)
+[![Threads](https://img.shields.io/badge/Threads-@yak.nikolay-000000?style=for-the-badge&logo=threads&logoColor=white)](https://www.threads.com/@yak.nikolay)
+[![Telegram](https://img.shields.io/badge/Telegram-sexyllm-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/sexyllm)
+
+<sub>Open an issue or DM me on any of the above with feedback, missing benchmarks, or app teardown requests.</sub>
+
+</div>
