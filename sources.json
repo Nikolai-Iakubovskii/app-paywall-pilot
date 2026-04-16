@@ -574,6 +574,88 @@
       "date": "1999",
       "scope": "Edited volume synthesizing well-being research; explains reverse trial mechanics + habit-forming feature design",
       "evidence_class": "academic"
+    },
+    {
+      "claim": "Fogg Behavior Model — Behavior = Motivation × Ability × Trigger; all three must converge for behavior to occur; reduce ability friction to compensate for low motivation",
+      "source": "Fogg, B. J. (2009). A behavior model for persuasive design. Proceedings of the 4th International Conference on Persuasive Technology, Article 40, 1-7. ACM",
+      "url": "https://behaviordesign.stanford.edu/resources/fogg-behavior-model",
+      "date": "2009",
+      "scope": "1,900+ academic publications reference the Fogg model; widely operationalized in product design",
+      "evidence_class": "academic"
+    },
+    {
+      "claim": "Choice Overload — 6-jam supermarket display generated 30% purchase rate vs 24-jam display 3% (~10x conversion advantage); 3 experimental studies showing fewer choices increase satisfaction and conversion",
+      "source": "Iyengar, S. S., & Lepper, M. R. (2000). When choice is demotivating: Can one desire too much of a good thing? Journal of Personality and Social Psychology, 79(6), 995-1006",
+      "url": "https://faculty.washington.edu/jdb/345/345%20Articles/Iyengar%20&%20Lepper%20(2000).pdf",
+      "date": "2000",
+      "scope": "Foundational JPSP paper; effect direction validated; magnitude challenged in Scheibehenne et al 2010 meta-analysis (50+ studies)",
+      "evidence_class": "academic",
+      "caveat": "Effect is context-dependent; meta-analysis found near-zero average. Direction valid; do not bank on 10x lift in mobile A/B."
+    },
+    {
+      "claim": "IKEA Effect — people value self-made products as much as expert-made products; effect dissipates if labor fails or product is destroyed (completion matters); 4 studies (IKEA boxes, origami, Lego)",
+      "source": "Norton, M. I., Mochon, D., & Ariely, D. (2012). The IKEA effect: When labor leads to love. Journal of Consumer Psychology, 22(3), 453-460",
+      "url": "https://myscp.onlinelibrary.wiley.com/doi/abs/10.1016/j.jcps.2011.08.002",
+      "date": "2012",
+      "scope": "Replicated in conceptual replication studies; psychological ownership identified as mediator. Explains long-onboarding paywalls (Noom, Flo, Cal AI).",
+      "evidence_class": "academic"
+    },
+    {
+      "claim": "Hyperbolic Discounting — people apply disproportionately steep discount to future rewards (present bias); creates dynamically inconsistent preferences; explains why weekly plans dominate over annual in mobile subscriptions",
+      "source": "Laibson, D. (1997). Golden Eggs and Hyperbolic Discounting. The Quarterly Journal of Economics, 112(2), 443-478",
+      "url": "https://academic.oup.com/qje/article-abstract/112/2/443/1870925",
+      "date": "1997",
+      "scope": "Foundational behavioral-economics paper; decades of replication across savings, addiction, health behavior",
+      "evidence_class": "academic"
+    },
+    {
+      "claim": "Goal-Gradient Effect — effort accelerates as users approach reward; café customers buy coffee more frequently near free-coffee threshold; bonus head-start (12-stamp card with 2 free) leads to faster completion than equivalent regular card",
+      "source": "Kivetz, R., Urminsky, O., & Zheng, Y. (2006). The goal-gradient hypothesis resurrected: Purchase acceleration, illusionary goal progress, and customer retention. Journal of Marketing Research, 43(1), 39-58",
+      "url": "https://journals.sagepub.com/doi/abs/10.1509/jmkr.43.1.39",
+      "date": "2006",
+      "scope": "Multi-method field experiments + lab studies; robust replication base. Explains progress bars + bonus framing in onboarding.",
+      "evidence_class": "academic"
+    },
+    {
+      "claim": "Negativity Bias — psychological impact of bad events outweighs equivalent good events across all domains (everyday events, major life events, relationships, social networks, learning, feedback); the self is more motivated to avoid bad self-definitions than to pursue good",
+      "source": "Baumeister, R. F., Bratslavsky, E., Finkenauer, C., & Vohs, K. D. (2001). Bad is stronger than good. Review of General Psychology, 5(4), 323-370",
+      "url": "https://journals.sagepub.com/doi/abs/10.1037/1089-2680.5.4.323",
+      "date": "2001",
+      "scope": "Comprehensive review; 10,000+ citations; most-cited paper in negativity bias literature",
+      "evidence_class": "academic"
+    },
+    {
+      "claim": "Costly Signaling — buyers infer quality from observable costly signals; premium pricing signals quality when quality cannot be directly verified; foundational microeconomics",
+      "source": "Spence, M. (1973). Job Market Signaling. The Quarterly Journal of Economics, 87(3), 355-374",
+      "url": "https://academic.oup.com/qje/article-abstract/87/3/355/1909092",
+      "date": "1973",
+      "scope": "Nobel Memorial Prize in Economics (2001); 14,759+ citations per Semantic Scholar. Explains 3x LTV uplift of high-priced apps (Adapty 2026)",
+      "evidence_class": "academic"
+    },
+    {
+      "claim": "Psychological Reactance — when freedom to choose is threatened, people are motivated to restore freedom by doing the opposite; explains why fake urgency, hard re-prompting, and forced defaults backfire",
+      "source": "Brehm, J. W. (1966). A Theory of Psychological Reactance. Academic Press",
+      "url": "https://psycnet.apa.org/record/1967-08061-000",
+      "date": "1966",
+      "scope": "50+ years of replication across health, marketing, politics, education domains; reviewed in Steindl et al 2015 Springer Nature",
+      "evidence_class": "academic"
+    },
+    {
+      "claim": "Sunk Cost Fallacy — people irrationally continue commitments based on past investment of time/money/effort even when continuing is no longer rational; strongest when investment is recent and visible",
+      "source": "Arkes, H. R., & Blumer, C. (1985). The psychology of sunk cost. Organizational Behavior and Human Decision Processes, 35(1), 124-140",
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/0749597885900494",
+      "date": "1985",
+      "scope": "Foundational paper on sunk cost; widely accepted in academic literature. Explains commitment effect of long onboarding flows.",
+      "evidence_class": "academic"
+    },
+    {
+      "claim": "Ego Depletion / Decision Fatigue — REPLICATION FAILED. Original 1998 study claimed self-control is a limited resource that depletes with use. Hagger et al 2016 (24 labs, 2,141 participants) and Vohs et al 2016 (36 labs, 3,531 participants) both found no effect. The simple resource-based model is no longer scientifically tenable.",
+      "source": "Original: Baumeister, R. F., Bratslavsky, E., Muraven, M., & Tice, D. M. (1998). Ego Depletion: Is the Active Self a Limited Resource? Journal of Personality and Social Psychology, 74(5), 1252-1265. Replication failures: Hagger et al 2016 + Vohs et al 2016 multi-lab studies.",
+      "url": "https://en.wikipedia.org/wiki/Ego_depletion",
+      "date": "1998 (original) / 2016 (replication failures)",
+      "scope": "Cautionary tale: do NOT cite as mechanism for design rules. Use Choice Overload (Iyengar 2000) + System 1 (Kahneman 2011) instead.",
+      "evidence_class": "academic",
+      "caveat": "REPLICATION FAILED. Include only as cautionary tale; do not use as design justification."
     }
   ]
 }
