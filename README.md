@@ -125,10 +125,10 @@ Trial length impact, Revenue per install, Plan architecture by category, Revenue
 
 | Pattern | Evidence | Source |
 |---------|----------|--------|
-| Trial Timeline ("Honest Paywall") | **Proven** — +23% conversion, -55% complaints | Blinkist |
-| Personalized Headline from Quiz | **Proven** — 15%+ lift | Adapty 2026 |
-| Animated Paywall | **Proven** — 2.9x vs static | Adapty 2026 |
-| 3 Products vs 1 | **Proven** — +105% conversion | Superwall, 32M views |
+| Trial Timeline ("Honest Paywall") | **Pattern** — single company case study (+23%) | Blinkist via Purchasely |
+| Personalized Headline from Quiz | **Pattern** — vendor data (15%+ lift) | Adapty 2026 report |
+| Animated Paywall | **Pattern** — vendor data (2.9x vs static) | Adapty 2026 report |
+| 3 Products vs 1 | **Pattern** — large-scale vendor data (+105%, 32M views) | Superwall |
 | Multi-Page Paywall | **Hypothesis** — conflicting results | Superwall |
 | "Design Your Trial" | **Hypothesis** — methodology unpublished | Superwall |
 

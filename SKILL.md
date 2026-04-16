@@ -344,7 +344,7 @@ Critical rules for iOS:
 - show **what the user gets**
 - if there is a trial, show **trial length** and **price after trial** clearly
 - if you show an equivalent weekly/monthly price for an annual plan, keep it **subordinate** in size and position to the actual billed amount
-- minimum ~16pt font for price/billing (Apple reviewers enforce this)
+- minimum ~16pt font for price/billing *(field observation — not an official Apple rule, but apps with smaller pricing text see higher rejection rates per RevenueCat/RevenueFlo reports)*
 
 ### 3. CTA block
 Guidelines:
@@ -455,11 +455,11 @@ Free: [limit] | Pro: Unlimited
 [No thanks]
 ```
 
-**Caution — Apple restrictions on transaction abandon:**
-- Apple prohibits showing two paywalls back-to-back. You **must** insert an intermediate screen (e.g., a "still thinking?" message, a single-CTA banner, or a brief content screen) between the dismissed payment sheet and the recovery offer.
-- Do not auto-present another full paywall immediately after the user cancels — this risks rejection for aggressive monetization.
+**Caution — transaction abandon review risk:**
+*(Field observation, not an official Apple rule. Based on rejection reports from RevenueCat, Superwall, and developer communities.)*
+- Showing two full paywalls back-to-back has led to rejections for aggressive monetization. Use an intermediate screen (banner, toast, half-sheet) rather than a second full-screen paywall.
 - Keep the experience respectful, do not show repeatedly.
-- This pattern requires careful implementation. Most apps that do it well use a soft prompt (banner, toast, or half-sheet) rather than a second full-screen paywall.
+- Most apps that do this successfully use a soft prompt, not a full paywall.
 
 ### Template E: Post-Close Welcome Offer (Banner/Toast)
 ```
@@ -715,7 +715,7 @@ Before shipping, verify all of this:
 - [ ] Fake scarcity ("Only 2 spots left!" when false)
 - [ ] Misleading savings math
 - [ ] Weekly/monthly equivalent price shown larger than actual billed amount
-- [ ] Hidden or delayed close button (>5s delay is high risk)
+- [ ] Hidden or delayed close button *(field observation: >5s delay correlates with higher rejection rates per RevenueCat/RevenueFlo reports, not an official Apple threshold)*
 - [ ] Guilt-trip decline copy ("No, I don't want to be healthy")
 - [ ] Fake reviews, fake ratings, fake user counts
 - [ ] Preselecting the expensive plan deceptively
@@ -856,11 +856,11 @@ These patterns are documented from top-performing apps. Each is labeled by evide
 ### "Building Your Plan" Loading Screen — Pattern
 After onboarding quiz, show 3–5s loading/analysis screen with social proof before paywall. Makes personalization feel earned. Used by Noom, Flo, BoldVoice.
 
-### Trial Timeline / "Honest Paywall" — Proven
-Show step-by-step visual timeline: "Today: Full Access → Day 5: Reminder → Day 7: You're Charged." Blinkist: +23% conversion, -55% complaints.
+### Trial Timeline / "Honest Paywall" — Pattern
+Show step-by-step visual timeline: "Today: Full Access → Day 5: Reminder → Day 7: You're Charged." Blinkist reported +23% conversion, -55% complaints (single company case study via Purchasely blog, not independently verified).
 
-### Personalized Headline from Quiz Data — Proven
-Use onboarding answers to set headline and benefit order. Personalized paywalls outperform generic by 15%+ (Adapty 2026). Used by Headspace, Flo, Noom.
+### Personalized Headline from Quiz Data — Pattern
+Use onboarding answers to set headline and benefit order. Adapty 2026 report claims 15%+ lift (vendor data from their own app base, not open methodology). Used by Headspace, Flo, Noom.
 
 ### Contextual Feature Gate — Pattern
 Short modal per gated feature with 1–3 value bullets and one CTA. Different copy per feature. Strava does this extensively.

@@ -1,0 +1,282 @@
+{
+  "_meta": {
+    "description": "Source manifest for every numeric claim in SKILL.md. Each entry maps a claim to its source URL, publication date, dataset scope, and evidence class.",
+    "evidence_classes": {
+      "apple_docs": "Official Apple documentation or App Review Guidelines",
+      "large_scale_report": "Published report from SDK provider covering 10K+ apps or $1B+ revenue",
+      "vendor_blog": "Blog post from SDK provider, may reference internal data without open methodology",
+      "case_study": "Single company result, not independently verified",
+      "field_observation": "Rejection patterns reported by developers/providers, not official Apple rule",
+      "aggregate_study": "Multi-company study with published methodology"
+    },
+    "last_updated": "2026-04-16"
+  },
+  "benchmarks": [
+    {
+      "claim": "Install → Trial global average: 10.9–11.2%",
+      "source": "Adapty State of In-App Subscriptions 2026",
+      "url": "https://adapty.io/state-of-in-app-subscriptions/",
+      "date": "2026-03-14",
+      "scope": "16,000+ apps, $3B gross subscription revenue, 500M transactions",
+      "evidence_class": "large_scale_report"
+    },
+    {
+      "claim": "Install → Trial North America: 14.5%",
+      "source": "Adapty State of In-App Subscriptions 2026",
+      "url": "https://adapty.io/state-of-in-app-subscriptions/",
+      "date": "2026-03-14",
+      "scope": "Regional cut from 16K+ apps",
+      "evidence_class": "large_scale_report"
+    },
+    {
+      "claim": "Trial → Paid global: 25.6–27.8%",
+      "source": "Adapty + RevenueCat 2026 reports",
+      "url": "https://adapty.io/state-of-in-app-subscriptions/",
+      "url_alt": "https://www.revenuecat.com/state-of-subscription-apps/",
+      "date": "2026-03",
+      "scope": "Cross-referenced: Adapty 16K apps + RevenueCat 115K apps",
+      "evidence_class": "large_scale_report"
+    },
+    {
+      "claim": "Trial → Paid Health & Fitness: 35.0–39.9%",
+      "source": "Adapty + RevenueCat 2026 reports",
+      "url": "https://adapty.io/blog/health-fitness-app-subscription-benchmarks/",
+      "date": "2026-03",
+      "scope": "Category-specific cut",
+      "evidence_class": "large_scale_report"
+    },
+    {
+      "claim": "Hard paywall D35 download-to-paid: 10.7%",
+      "source": "RevenueCat State of Subscription Apps 2026",
+      "url": "https://www.revenuecat.com/state-of-subscription-apps/",
+      "date": "2026-03",
+      "scope": "115,000+ apps, $16B tracked revenue",
+      "evidence_class": "large_scale_report"
+    },
+    {
+      "claim": "Freemium D35 download-to-paid: 2.1%",
+      "source": "RevenueCat State of Subscription Apps 2026",
+      "url": "https://www.revenuecat.com/state-of-subscription-apps/",
+      "date": "2026-03",
+      "scope": "115,000+ apps",
+      "evidence_class": "large_scale_report"
+    },
+    {
+      "claim": "Day 0 share of trial starts: 80–90%",
+      "source": "Adapty + RevenueCat 2026 reports",
+      "url": "https://adapty.io/state-of-in-app-subscriptions/",
+      "date": "2026-03",
+      "scope": "Cross-referenced from two independent platforms",
+      "evidence_class": "large_scale_report"
+    },
+    {
+      "claim": "Trial <4 days: 25.5% median conversion",
+      "source": "RevenueCat State of Subscription Apps 2026",
+      "url": "https://www.revenuecat.com/state-of-subscription-apps/",
+      "date": "2026-03",
+      "scope": "115,000+ apps",
+      "evidence_class": "large_scale_report"
+    },
+    {
+      "claim": "Trial 5–9 days: 37.4% median conversion",
+      "source": "RevenueCat State of Subscription Apps 2026",
+      "url": "https://www.revenuecat.com/state-of-subscription-apps/",
+      "date": "2026-03",
+      "scope": "115,000+ apps",
+      "evidence_class": "large_scale_report"
+    },
+    {
+      "claim": "Trial 17–32 days: 42.5% median conversion",
+      "source": "RevenueCat State of Subscription Apps 2026",
+      "url": "https://www.revenuecat.com/state-of-subscription-apps/",
+      "date": "2026-03",
+      "scope": "115,000+ apps",
+      "evidence_class": "large_scale_report"
+    },
+    {
+      "claim": "Hard paywall RPI Day 14: $2.32",
+      "source": "RevenueCat State of Subscription Apps 2026",
+      "url": "https://www.revenuecat.com/state-of-subscription-apps/",
+      "date": "2026-03",
+      "scope": "115,000+ apps",
+      "evidence_class": "large_scale_report"
+    },
+    {
+      "claim": "Hard paywall RPI Day 60: $3.09",
+      "source": "RevenueCat State of Subscription Apps 2026",
+      "url": "https://www.revenuecat.com/state-of-subscription-apps/",
+      "date": "2026-03",
+      "scope": "115,000+ apps",
+      "evidence_class": "large_scale_report"
+    },
+    {
+      "claim": "Weekly plans: 55.5% of all revenue",
+      "source": "Adapty State of In-App Subscriptions 2026",
+      "url": "https://adapty.io/state-of-in-app-subscriptions/",
+      "date": "2026-03-14",
+      "scope": "16,000+ apps",
+      "evidence_class": "large_scale_report"
+    },
+    {
+      "claim": "H&F annual plans: 60.6% of revenue",
+      "source": "Adapty Health & Fitness Benchmarks 2026",
+      "url": "https://adapty.io/blog/health-fitness-app-subscription-benchmarks/",
+      "date": "2026",
+      "scope": "Category-specific cut from $3B dataset",
+      "evidence_class": "large_scale_report"
+    },
+    {
+      "claim": "Weekly + trial 12-month LTV: $49–$54",
+      "source": "Adapty State of In-App Subscriptions 2026",
+      "url": "https://adapty.io/state-of-in-app-subscriptions/",
+      "date": "2026-03-14",
+      "scope": "16,000+ apps",
+      "evidence_class": "large_scale_report"
+    },
+    {
+      "claim": "A/B test win rate — Localization: 62.3%",
+      "source": "Adapty Paywall Experiments Playbook",
+      "url": "https://adapty.io/blog/paywall-experiments-playbook/",
+      "date": "2026",
+      "scope": "Adapty platform experiments",
+      "evidence_class": "vendor_blog"
+    },
+    {
+      "claim": "A/B test win rate — Visual/copy: 34.6%",
+      "source": "Adapty Paywall Experiments Playbook",
+      "url": "https://adapty.io/blog/paywall-experiments-playbook/",
+      "date": "2026",
+      "scope": "Adapty platform experiments",
+      "evidence_class": "vendor_blog"
+    },
+    {
+      "claim": "Transaction abandon: 17% of total revenue (18 companies)",
+      "source": "Superwall case study",
+      "url": "https://superwall.com/blog/17-revenue-boost-with-transaction-abandon-paywalls-a-case-study/",
+      "date": "2024-08",
+      "scope": "18 companies, 438K control + 87K variant users",
+      "evidence_class": "aggregate_study"
+    },
+    {
+      "claim": "2 products vs 1: +61% conversion",
+      "source": "Superwall product count study",
+      "url": "https://superwall.com/blog/how-many-products-should-you-offer-on-your-paywall",
+      "date": "2025",
+      "scope": "32.3M paywall opens, 15 largest apps, 383K conversions",
+      "evidence_class": "aggregate_study"
+    },
+    {
+      "claim": "3 products vs 2: +44% conversion",
+      "source": "Superwall product count study",
+      "url": "https://superwall.com/blog/how-many-products-should-you-offer-on-your-paywall",
+      "date": "2025",
+      "scope": "32.3M paywall opens, 15 largest apps",
+      "evidence_class": "aggregate_study"
+    },
+    {
+      "claim": "Top 10% apps capture 94.5% of revenue",
+      "source": "Adapty State of In-App Subscriptions 2026",
+      "url": "https://adapty.io/state-of-in-app-subscriptions/",
+      "date": "2026-03-14",
+      "scope": "16,000+ apps",
+      "evidence_class": "large_scale_report"
+    },
+    {
+      "claim": "Apps with 50+ experiments: 18.7x more revenue",
+      "source": "Adapty State of In-App Subscriptions 2026",
+      "url": "https://adapty.io/state-of-in-app-subscriptions/",
+      "date": "2026-03-14",
+      "scope": "Adapty platform",
+      "evidence_class": "vendor_blog"
+    },
+    {
+      "claim": "Animated vs static paywalls: 2.9x conversion",
+      "source": "Adapty High-Performing Paywall 2026",
+      "url": "https://adapty.io/blog/high-performing-paywall-2026/",
+      "date": "2026",
+      "scope": "Adapty platform, methodology not published",
+      "evidence_class": "vendor_blog"
+    },
+    {
+      "claim": "Trial Timeline: +23% conversion, -55% complaints",
+      "source": "Blinkist via Purchasely blog",
+      "url": "https://www.purchasely.com/blog/blinkist-paywall-transformation-revolutionizes-app-user-engagement",
+      "date": "2025",
+      "scope": "Single company (Blinkist)",
+      "evidence_class": "case_study"
+    },
+    {
+      "claim": "Personalized paywalls: 15%+ lift",
+      "source": "Adapty High-Performing Paywall 2026",
+      "url": "https://adapty.io/blog/high-performing-paywall-2026/",
+      "date": "2026",
+      "scope": "Adapty platform, methodology not published",
+      "evidence_class": "vendor_blog"
+    },
+    {
+      "claim": "Toggle paywall rejections started mid-January 2026",
+      "source": "Adapty + RevenueCat",
+      "url": "https://adapty.io/blog/your-toggle-paywall-is-about-to-get-rejected/",
+      "url_alt": "https://www.revenuecat.com/blog/growth/r-i-p-toggle-paywall-we-hardly-knew-ye/",
+      "date": "2026-02",
+      "scope": "Confirmed App Store rejections, multiple independent reports",
+      "evidence_class": "field_observation"
+    },
+    {
+      "claim": "~16pt minimum font for pricing",
+      "source": "RevenueFlo rejection analysis",
+      "url": "https://revenueflo.com/blog/common-ios-paywall-rejections-and-the-fixes-that-work",
+      "date": "2026",
+      "scope": "Developer rejection reports, not official Apple rule",
+      "evidence_class": "field_observation"
+    },
+    {
+      "claim": ">5s delayed close button = high rejection risk",
+      "source": "RevenueCat + RevenueFlo",
+      "url": "https://revenueflo.com/blog/common-ios-paywall-rejections-and-the-fixes-that-work",
+      "date": "2026",
+      "scope": "Developer rejection reports, not official Apple rule",
+      "evidence_class": "field_observation"
+    },
+    {
+      "claim": "90% of subscriptions sell at full price",
+      "source": "Adapty State of In-App Subscriptions 2026",
+      "url": "https://adapty.io/state-of-in-app-subscriptions/",
+      "date": "2026-03-14",
+      "scope": "16,000+ apps",
+      "evidence_class": "large_scale_report"
+    },
+    {
+      "claim": "Trial subscribers retain 1.4–1.7x better than direct buyers",
+      "source": "Adapty Free Trial vs Direct Purchase",
+      "url": "https://adapty.io/blog/free-trial-vs-direct-purchase-subscription-apps/",
+      "date": "2026",
+      "scope": "Adapty platform",
+      "evidence_class": "vendor_blog"
+    },
+    {
+      "claim": "Post-close welcome offers: 10–15% ARPU lift",
+      "source": "Adapty High-Performing Paywall 2026",
+      "url": "https://adapty.io/blog/high-performing-paywall-2026/",
+      "date": "2026",
+      "scope": "Adapty platform, directional",
+      "evidence_class": "vendor_blog"
+    },
+    {
+      "claim": "12-month retention — Annual: 44.1%, Monthly: 17.0%, Weekly: 3.4%",
+      "source": "RevenueCat State of Subscription Apps 2026",
+      "url": "https://www.revenuecat.com/state-of-subscription-apps/",
+      "date": "2026-03",
+      "scope": "115,000+ apps",
+      "evidence_class": "large_scale_report"
+    },
+    {
+      "claim": "European apps charge 29–39% more than North American",
+      "source": "Adapty State of In-App Subscriptions 2026",
+      "url": "https://adapty.io/state-of-in-app-subscriptions/",
+      "date": "2026-03-14",
+      "scope": "16,000+ apps, regional pricing comparison",
+      "evidence_class": "large_scale_report"
+    }
+  ]
+}
