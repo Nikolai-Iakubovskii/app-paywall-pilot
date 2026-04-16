@@ -4,15 +4,16 @@
 
 ### **The AI copilot indie devs use to ship subscription paywalls<br>that don't get rejected and actually convert.**
 
-<sub>For iOS + Android. Built on 58 sourced 2026 benchmarks (Adapty 16K apps · RevenueCat 115K apps · AppsFlyer 1.7B installs · Superwall 32M paywall views) plus academic foundations (Kahneman, Ariely, Cialdini).</sub>
+<sub>For iOS + Android. Built on 69 sourced 2026 benchmarks (Adapty 16K apps · RevenueCat 115K apps · AppsFlyer 1.7B installs · Superwall 32M paywall views) plus an 11-concept Kahneman foundation (Prospect Theory, Anchoring, System 1/2, Endowment Effect, Peak-End, Default Effect, Mental Accounting, WYSIATI, Substitution, Planning Fallacy, Hedonic Adaptation) and Ariely + Cialdini.</sub>
 
 <br>
 
-[![Version](https://img.shields.io/badge/Version-3.6.0-brightgreen?style=for-the-badge)](https://github.com/Nikolai-Iakubovskii/app-paywall-pilot/releases)
+[![Version](https://img.shields.io/badge/Version-3.7.0-brightgreen?style=for-the-badge)](https://github.com/Nikolai-Iakubovskii/app-paywall-pilot/releases)
 [![Platform](https://img.shields.io/badge/Platform-iOS_%7C_Android-blue?style=for-the-badge)](#)
 [![Benchmarks](https://img.shields.io/badge/Benchmarks-April_2026-green?style=for-the-badge)](outputs/2026-paywall-research.md)
 [![Modules](https://img.shields.io/badge/Modules-16-purple?style=for-the-badge)](modules/)
-[![Sources](https://img.shields.io/badge/Sources-58-orange?style=for-the-badge)](sources.json)
+[![Sources](https://img.shields.io/badge/Sources-69-orange?style=for-the-badge)](sources.json)
+[![Kahneman](https://img.shields.io/badge/Kahneman-11_concepts-darkblue?style=for-the-badge)](modules/pricing-psychology.md)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
 
 [![Validate](https://github.com/Nikolai-Iakubovskii/app-paywall-pilot/actions/workflows/validate.yml/badge.svg)](https://github.com/Nikolai-Iakubovskii/app-paywall-pilot/actions/workflows/validate.yml)
@@ -499,7 +500,8 @@ Independent paywall screenshot libraries used for teardowns:
 
 ## What's New
 
-- **v3.6.0** (current): Data refresh — ChatGPT teardown updated to current 6-tier pricing structure (Free/Go/Plus/Pro/Business/Enterprise) without model-version trivia. Redesigned README header with concrete jobs-to-be-done table.
+- **v3.7.0** (current): **Kahneman foundation expansion.** Added 11 Kahneman concepts to pricing-psychology.md, each mapped to a specific paywall design choice: Prospect Theory & Loss Aversion, Anchoring (1974), System 1/2, Endowment Effect, Peak-End Rule, Default Effect, Mental Accounting, WYSIATI, Substitution Heuristic, Planning Fallacy, Hedonic Adaptation. Cross-referenced from copy-library, decision-trees, screen-anatomy, glossary. 11 new sources.json entries (academic class).
+- **v3.6.0**: Data refresh — ChatGPT teardown updated to current 6-tier pricing structure (Free/Go/Plus/Pro/Business/Enterprise) without model-version trivia. Redesigned README header with concrete jobs-to-be-done table.
 - **v3.5.0**: Phase 3 — refund management, cohort analysis, audit checklist, migration playbooks, worked examples (3 categories), CI validation.
 - **v3.4.0**: Phase 2 — onboarding-paywall handoff, lifecycle messaging, glossary, executable Python LTV calculator.
 - **v3.3.0**: Phase 1 — unit-economics calculator, indie dev FAQ, CAC + acquisition module, response modes.

@@ -299,6 +299,51 @@ See SKILL.md EVIDENCE LADDER for full hierarchy.
 
 ---
 
+## Behavioral / Cognitive Concepts
+
+These come from Kahneman's body of work and are foundational to paywall design. Full treatment in [pricing-psychology.md](pricing-psychology.md). Quick definitions here.
+
+### Loss Aversion
+Losses felt ~2x more painful than equivalent gains. **Source:** Kahneman & Tversky 1979 (Prospect Theory). **Paywall use:** loss-frame trial expiry copy ("don't lose your progress") beats gain-frame.
+
+### Anchoring
+Even arbitrary numbers bias subsequent estimates. **Source:** Tversky & Kahneman 1974. **Paywall use:** strikethrough monthly price anchors annual; show premium tier first.
+
+### System 1 / System 2
+S1 = fast intuitive (95%+ of decisions); S2 = slow deliberate. **Source:** Kahneman 2011. **Paywall use:** above-fold = S1 zone; pre-selected default routes user through S1; cognitive load triggers S2 = abandonment.
+
+### Endowment Effect
+People value what they own ~2x more than the same thing before owning. **Source:** Kahneman, Knetsch, Thaler 1990. **Paywall use:** reverse trial mechanics; trial timeline transparency builds endowment.
+
+### Peak-End Rule
+Experiences judged by emotional peak + ending, not average. **Source:** Kahneman et al 1993. **Paywall use:** engineer a positive onboarding peak (personalized plan reveal) + positive paywall ending.
+
+### Default Effect / Status Quo Bias
+People stick with defaults. Organ-donation: 86% opt-out vs 4% opt-in (same population, different default). **Source:** Kahneman, Knetsch, Thaler 1991. **Paywall use:** pre-select annual; "Most popular" badge.
+
+### Mental Accounting
+People categorize money into mental accounts; same dollar feels different by category. **Source:** Thaler 1980/1985/1999, built on Kahneman foundation. **Paywall use:** "$0.16/day" = daily-expense account (low friction); "$59/year" = annual-investment account (higher friction).
+
+### WYSIATI (What You See Is All There Is)
+S1 makes confident judgments based only on visible info; unseen = nonexistent. **Source:** Kahneman 2011 Ch. 7. **Paywall use:** above-fold rules; trial terms must be visible; strongest argument for Apple "billed amount most prominent" rule.
+
+### Substitution Heuristic
+Brain swaps hard questions for easier ones unconsciously. **Source:** Kahneman 2011 Ch. 9. **Paywall use:** user can't answer "is this worth $X for 12 months?" so they answer "do I trust this app?" → social proof + authority beat feature lists.
+
+### Planning Fallacy
+People underestimate time/effort of tasks. **Source:** Kahneman & Tversky 1979 (Intuitive Prediction). **Paywall use:** users overestimate their cancellation discipline → trials work even with high "forgot to cancel" rates → transparency (Trial Timeline) doesn't kill conversion.
+
+### Hedonic Adaptation
+People adapt to new conditions faster than expected. **Source:** Kahneman, Diener, Schwarz 1999. **Paywall use:** reverse trial works because user adapts to premium → losing it triggers loss aversion; build habit-forming features in week 1.
+
+### Decoy Effect (Asymmetric Dominance)
+Adding a clearly inferior option shifts preference toward the target. **Source:** Ariely 2008 (Economist subscription experiment). **Paywall use:** Tinder's 7-day Passport priced equal to 7-day Plus makes Plus look like obvious value.
+
+### Cialdini's 7 Principles
+Reciprocity, Commitment & Consistency, Social Proof, Authority, Liking, Scarcity, Unity. **Source:** Cialdini 1984 + 2016. **Paywall use:** Social Proof + Authority test as most-influential in mobile (Springer 2024).
+
+---
+
 ## Quick Reference: Acronyms
 
 | Acronym | Full | Use |

@@ -2,20 +2,225 @@
 
 Academic foundations + mobile-paywall application. Use academic principles as **Operator Insight** when applied to mobile (academic studies on physical/web purchase don't always transfer cleanly to mobile in-app subscriptions).
 
+**Daniel Kahneman is the foundational source.** His work (often co-authored with Tversky) won the 2002 Nobel Memorial Prize in Economics. Most of what we now call "behavioral pricing" derives from his findings. This module treats his concepts as the trusted base for paywall design decisions.
+
 ---
 
-## Academic Foundations
+## Kahneman Foundations (Trusted Base)
 
-### Tversky & Kahneman (1981) — Framing Effect
+These 8 concepts from Kahneman's body of work are the most-applicable to subscription paywall design. Each links a specific paper / book chapter to a concrete paywall design choice.
+
+### 1. Prospect Theory & Loss Aversion (Kahneman & Tversky 1979)
+
+**Citation:** Kahneman, D., & Tversky, A. (1979). Prospect Theory: An Analysis of Decision under Risk. *Econometrica*, 47(2), 263–291. **65,000+ citations.** Foundational paper that won the 2002 Nobel.
+
+**Finding:** Losses are felt approximately **2x as painful** as equivalent gains. People are not rational utility-maximizers; they're loss-avoiders.
+
+**Mobile paywall application:**
+- **Trial-end framing:** "Don't lose your streak / progress / personalized plan" beats "Keep your access"
+- **Renewal-risk push:** "Lose access in 2 days" beats "$X to renew"
+- **Win-back:** "You're missing out on [feature]" beats "Come back for $X"
+- **Free-tier limit hit:** "You've used 3 of 3" beats "Upgrade for unlimited"
+
+**Design rule:** Frame the cost of NOT subscribing as a loss the user already has, not as a gain they could acquire. The free trial is a loss aversion machine — user takes possession, then losing it hurts.
+
+---
+
+### 2. Anchoring (Tversky & Kahneman 1974)
+
+**Citation:** Tversky, A., & Kahneman, D. (1974). Judgment under Uncertainty: Heuristics and Biases. *Science*, 185(4157), 1124–1131.
+
+**Finding:** Even **arbitrary numbers** anchor subsequent estimates. Famous spinner experiment: spin landing on 65 → estimates of African nations in UN higher; spin 10 → estimates lower. The anchor doesn't have to be relevant to bias judgment.
+
+**Mobile paywall application:**
+- **Strikethrough monthly price** anchors the annual as a deal (Calm's £14.99 → £39.99/yr pattern)
+- **Show $200 Pro tier first** anchors $20 Plus as "reasonable" (ChatGPT pattern)
+- **"Save $40/year"** needs the $40 reference to work — without anchor, savings don't compute
+- **Comparison table** with Free column anchors what user is "missing"
+- **First plan card seen** influences the perceived value of all others (default to highest tier visible first when you want premium-anchor)
+
+**Design rule:** Always set an anchor before showing your target price. Apple Rule: the anchor must be a real reference price, not fictional.
+
+---
+
+### 3. System 1 / System 2 (Thinking, Fast and Slow, 2011)
+
+**Citation:** Kahneman, D. (2011). *Thinking, Fast and Slow.* Farrar, Straus and Giroux. **Best-selling book that synthesizes 40 years of his research.**
+
+**Finding:** Decisions split between two systems:
+- **System 1:** fast, intuitive, automatic, emotional. Handles 95%+ of decisions.
+- **System 2:** slow, deliberate, effortful, rational. Engaged only when System 1 hits friction.
+
+**Mobile paywall application:**
+- **Above-fold = System 1 decision zone.** User decides to subscribe / dismiss in 3 seconds, before System 2 engages.
+- **Cognitive load = abandonment.** Anything that forces System 2 (math, fine print, choice paralysis) raises bounce rate.
+- **Pre-selected default** routes user to the System 1 path (no choice = no thinking)
+- **Visual pricing hierarchy** (one big number, others subordinate) lets System 1 grab the answer
+
+**Design rule:** Design for System 1. If your paywall requires the user to think, you've lost most of them. Our SKILL.md core principle "Clarity beats cleverness" derives directly from this.
+
+---
+
+### 4. Endowment Effect (Kahneman, Knetsch & Thaler 1990)
+
+**Citation:** Kahneman, D., Knetsch, J. L., & Thaler, R. H. (1990). Experimental Tests of the Endowment Effect and the Coase Theorem. *Journal of Political Economy*, 98(6), 1325–1348.
+
+**Finding:** Once people "own" something, they value it ~**2x more** than before they owned it. Coffee mug experiment: students given a $5 mug demanded ~$7 to sell it; students who didn't have one would only pay ~$3. Pure ownership doubled valuation.
+
+**Mobile paywall application:**
+- **Reverse trial mechanics scientifically explained.** User "owns" premium for 7 days. Refusing to subscribe = giving it up = endowment loss = 2x more painful than not having had it.
+- **Trial Timeline transparency** (Blinkist pattern) deliberately builds endowment: "You ALREADY have access; here's when it ends."
+- **Free preview content** creates partial endowment — once user has used the feature, locking it triggers loss aversion
+- **"Your personalized plan reserved"** (Noom pattern) — endowment is virtual but feels real
+
+**Design rule:** Whenever possible, give the user partial ownership before asking them to pay. Reverse trial > regular trial > direct paywall on this lever.
+
+---
+
+### 5. Peak-End Rule (Kahneman, Fredrickson, Schreiber, Redelmeier 1993)
+
+**Citation:** Kahneman, D., Fredrickson, B. L., Schreiber, C. A., & Redelmeier, D. A. (1993). When More Pain Is Preferred to Less: Adding a Better End. *Psychological Science*, 4(6), 401–405.
+
+**Finding:** People judge experiences by the **emotional peak** + the **ending**, not by average intensity. Famous colonoscopy study: a longer procedure with mild ending was rated less painful than a shorter procedure with sharp ending.
+
+**Mobile paywall application:**
+- **Onboarding peak** = "Your personalized plan is ready" reveal moment (Noom, Flo, Cal AI all engineer this)
+- **Onboarding end** = paywall hit. If end is positive (continuity, trust, transparency), the entire onboarding is remembered positively → higher conversion
+- **Loading screen bridge** between quiz and paywall converts a transition into a positive peak ("Building YOUR plan…")
+- **Mid-trial value summary push** ("You've used X today") creates a positive peak before charge
+- **Refund flow ending matters** — graceful refund creates a positive end → user may return later; aggressive refund denial = negative end → bad reviews
+
+**Design rule:** Engineer at least one positive peak in onboarding (the personalized plan reveal works) AND make sure the paywall end is positive (trust, transparency, dignity). See [onboarding-paywall-handoff.md](onboarding-paywall-handoff.md).
+
+---
+
+### 6. Default Effect / Status Quo Bias (Kahneman, Knetsch, Thaler 1991)
+
+**Citation:** Kahneman, D., Knetsch, J. L., & Thaler, R. H. (1991). Anomalies: The Endowment Effect, Loss Aversion, and Status Quo Bias. *Journal of Economic Perspectives*, 5(1), 193–206.
+
+**Finding:** People disproportionately stick with whatever the default is. Organ donation rate by country: ~**86% in opt-out countries** vs. **~4% in opt-in countries** — same population, only the default flipped.
+
+**Mobile paywall application:**
+- **Pre-selected annual plan** is the single highest-leverage UX choice on a multi-plan paywall
+- **"Most popular" badge** biases toward that tier (default by social signal)
+- **Auto-renewal as default** (Apple defaults this) — must be transparent, but the bias works for you
+- **Family plan as default** for Family-eligible products
+- **Annual auto-renewal** vs monthly auto-renewal — anchor LTV-positive plan as default
+
+**Design rule:** Always have a default selected. The default is what 50%+ of System-1 users will accept without thinking. Choose it deliberately for LTV.
+
+---
+
+### 7. Mental Accounting (Thaler 1980, building on Kahneman)
+
+**Citation:** Thaler, R. H. (1980). Toward a Positive Theory of Consumer Choice. *Journal of Economic Behavior & Organization*, 1(1), 39–60. Then formalized in Thaler (1985, 1999). Built on Kahneman's prospect theory foundation.
+
+**Finding:** People categorize money into mental "accounts" — daily expenses, monthly bills, entertainment, savings, "found money." The **same dollar feels different depending on which account** the brain assigns it to.
+
+**Mobile paywall application:**
+- **"$0.16/day"** = daily-expense account → low friction (compares to coffee, snack)
+- **"$59/year"** = annual-investment account → high friction (compares to gym membership, insurance)
+- Same total cost, different mental account = different decision
+- **Per-week framing** ("$1.15/week") for annual sits between — easier than yearly, more committal than daily
+
+**Design rule:** Choose your subordinate framing based on which mental account you want the price to land in. Apple Rule: actual billed amount must dominate visually, but the subordinate per-day or per-week framing is psychologically loaded.
+
+---
+
+### 8. WYSIATI — What You See Is All There Is (Thinking, Fast and Slow, 2011)
+
+**Citation:** Kahneman (2011), *Thinking, Fast and Slow*, Ch. 7.
+
+**Finding:** System 1 makes confident judgments based **only on visible information**. Unseen ≠ uncertain to the brain; unseen = doesn't exist. The brain doesn't compute "what am I missing?" — it acts on what's in front of it.
+
+**Mobile paywall application:**
+- **Above-fold rules become scientifically grounded.** Anything below the scroll fold effectively doesn't exist for the conversion decision.
+- **Hidden trial terms = surprise charge = refund.** User did not process them, so they "didn't exist" until billing hit.
+- **Hidden Restore Purchase = duplicate charges + 1-star reviews.** Same logic.
+- **The strongest argument for Apple Rule "billed amount most prominent"** — what's visible IS the entire decision input.
+
+**Design rule:** Treat anything below the fold as nonexistent for the conversion decision. If it must exist, surface it above. If it can't be above, it shouldn't gate the decision.
+
+---
+
+### 9. Substitution Heuristic (Thinking, Fast and Slow, 2011)
+
+**Citation:** Kahneman (2011), *Thinking, Fast and Slow*, Ch. 9.
+
+**Finding:** When asked a hard question, the brain unconsciously **substitutes an easier question** and answers that instead — without noticing the substitution.
+
+**Mobile paywall application:**
+- **Hard question:** "Will this app deliver $59/yr of value to me over 12 months?"
+- **Brain substitutes:** "Do I trust this app right now?"
+- → **Social proof, brand consistency, authority signals matter MORE than feature lists**
+- → Explains why Cialdini's Social Proof + Authority test as the most-influential principles in mobile commerce (Springer 2024)
+- → Explains why brand-consistent paywalls (Duolingo) outperform off-brand ones
+
+**Design rule:** Don't try to convince the user that your feature list is worth the price (System 2 task they won't do). Instead, build trust signals that answer the substituted question (System 1 task they will do automatically).
+
+---
+
+### 10. Planning Fallacy (Kahneman & Tversky 1979)
+
+**Citation:** Kahneman, D., & Tversky, A. (1979). Intuitive Prediction: Biases and Corrective Procedures. *TIMS Studies in Management Science*, 12, 313–327.
+
+**Finding:** People consistently underestimate how long tasks will take and how hard they'll be. Best-case scenarios feel more likely than they are.
+
+**Mobile paywall application:**
+- **"7-day trial" feels like ample time** to evaluate → user signs up confident they'll cancel if not satisfied → many forget
+- **"Cancel anytime"** overpromises future self-discipline
+- This is WHY trials work even though many users forget to cancel — they sign up underestimating the friction of remembering to cancel
+- **Trial Timeline (Blinkist)** addresses planning fallacy honestly: shows the calendar, builds trust, paradoxically increases trial signups (+23%)
+
+**Design rule:** Honest disclosure (Trial Timeline) reduces refunds without reducing signups, because planning fallacy still works in your favor. Don't fight the bias; just be transparent about it.
+
+---
+
+### 11. Hedonic Adaptation (Kahneman, Diener & Schwarz 1999)
+
+**Citation:** Kahneman, D., Diener, E., & Schwarz, N. (Eds.) (1999). *Well-Being: The Foundations of Hedonic Psychology.* Russell Sage Foundation.
+
+**Finding:** People adapt to new conditions (positive or negative) faster than they expect. Lottery winners and accident victims both return toward baseline happiness within months.
+
+**Mobile paywall application:**
+- **Reverse trial works because user adapts to premium quickly** — the premium becomes their new baseline → losing it triggers loss aversion (concept #1)
+- **Don't promise lasting happiness in copy** — "you'll be transformed" overpromises and triggers refund disappointment
+- **Habit-forming features** anchor the new baseline (streak counters, daily reminders) — habit becomes the thing they can't lose
+
+**Design rule:** Build features that become user habits in the first week. The faster the habit forms, the harder the loss aversion hits at trial end.
+
+---
+
+## Summary Table: Kahneman Concept → Paywall Design Choice
+
+| Kahneman concept | Direct paywall lever |
+|------------------|---------------------|
+| Prospect Theory / Loss Aversion | Loss-frame trial expiry, "don't lose your progress" |
+| Anchoring | Strikethrough higher price; show premium tier first |
+| System 1 / System 2 | Above-fold simplicity; pre-selected default |
+| Endowment Effect | Reverse trial; free preview before paywall |
+| Peak-End Rule | Personalized-plan reveal moment; positive paywall ending |
+| Default Effect | Pre-select annual plan; "Most popular" badge |
+| Mental Accounting | Per-day framing for annuals (low-friction account) |
+| WYSIATI | Above-fold rules; trial terms must be visible |
+| Substitution Heuristic | Trust signals beat feature lists |
+| Planning Fallacy | Trial Timeline (transparency without losing conversion) |
+| Hedonic Adaptation | Habit-forming features in week 1 of trial |
+
+---
+
+## Other Academic Foundations
+
+### Tversky & Kahneman (1981) — Framing Effect (Specific Paper)
 **Citation:** Tversky, A., & Kahneman, D. (1981). The framing of decisions and the psychology of choice. *Science*, 211(4481), 453–458. **17,000+ citations.**
 **URL:** https://www.science.org/doi/10.1126/science.7455683
 
-**Finding:** The same factual problem produces different choices when framed as gain vs. loss. Loss aversion typically wins ~2:1 in laboratory choices.
+**Finding:** The same factual problem produces different choices when framed as gain vs. loss. (Specific empirical paper that operationalized prospect theory's loss aversion.)
 
-**Mobile paywall application (Operator Insight):**
+**Mobile paywall application:**
 - "Save $40/year by going annual" (gain frame) vs. "Lose $40 if you stay monthly" (loss frame)
 - Trial-end framing: "Don't lose your progress" (loss) vs. "Keep your progress" (gain)
-- **Caveat:** Direct mobile A/B data on gain vs. loss frames in paywalls is limited. Lab effect doesn't always transfer to mobile context. Test in your own app.
+- **Caveat:** Direct mobile A/B data on gain vs. loss frames in paywalls is limited. Lab effect doesn't always transfer cleanly to mobile context. Test in your own app.
 
 ---
 
