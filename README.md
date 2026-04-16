@@ -11,10 +11,10 @@
     <a href="#contributing">Contributing</a>
   </p>
   <p align="center">
-    <img src="https://img.shields.io/badge/Version-3.2.0-brightgreen?style=flat-square" alt="Version">
+    <img src="https://img.shields.io/badge/Version-3.3.0-brightgreen?style=flat-square" alt="Version">
     <img src="https://img.shields.io/badge/Platform-iOS_%7C_Android-blue?style=flat-square" alt="Platform">
     <img src="https://img.shields.io/badge/Benchmarks-April_2026-green?style=flat-square" alt="Benchmarks">
-    <img src="https://img.shields.io/badge/Modules-8-purple?style=flat-square" alt="Modules">
+    <img src="https://img.shields.io/badge/Modules-11-purple?style=flat-square" alt="Modules">
     <img src="https://img.shields.io/badge/Sources-50%2B-orange?style=flat-square" alt="Sources">
     <img src="https://img.shields.io/badge/License-MIT-yellow?style=flat-square" alt="License">
     <img src="https://img.shields.io/github/stars/Nikolai-Iakubovskii/app-paywall-pilot?style=flat-square" alt="Stars">
@@ -58,18 +58,21 @@ App Paywall Pilot grounds every recommendation in published evidence and labels 
 
 ## Modules
 
-The skill is split into a core [SKILL.md](SKILL.md) plus 8 deep-dive modules under [`modules/`](modules/). Load on demand based on the task.
+The skill is split into a core [SKILL.md](SKILL.md) plus 11 deep-dive modules under [`modules/`](modules/). Load on demand based on the task.
 
 | Module | What's inside |
 |--------|---------------|
 | [copy-library.md](modules/copy-library.md) | The Copy Ladder (Outcome > Benefit > Feature), 12 headline formulas, benefit-bullet patterns, CTA templates with action+benefit pattern, banned words list, length expansion factors and formality cheatsheet for 12+ locales, loading-screen copy, pricing-block templates |
 | [teardowns.md](modules/teardowns.md) | Annotated paywall breakdowns for **Calm, Duolingo, Noom, Cal AI, Tinder, Strava, Headspace, Blinkist, Flo, ChatGPT, AI companions** -- structure, copy, pricing, takeaway, source for each |
-| [pricing-psychology.md](modules/pricing-psychology.md) | Tversky & Kahneman 1981 (framing, *Science*), Anderson & Simester 2003 ($9 endings, field experiment), Thomas & Morwitz 2005 (left-digit), Ariely 2008 (decoy with replication caveats), Cialdini 7 principles + 2024 Springer mobile-app strength data, anchor / decoy / charm / per-day / PPP frameworks |
+| [pricing-psychology.md](modules/pricing-psychology.md) | Tversky & Kahneman 1981 (framing, *Science*), Anderson & Simester 2003 ($9 endings, field experiment), Thomas & Morwitz 2005 (left-digit), Ariely 2008 (decoy with replication caveats), Cialdini 7 principles + 2024 Springer mobile-app strength data, anchor / decoy / charm / per-day / PPP frameworks, **Hollow Middle** 2026 trend, **Apple SBP** explainer |
 | [decision-trees.md](modules/decision-trees.md) | 10 diagnostic flowcharts: access model choice, low-conversion triage, plan architecture, surface choice, when-to-test priority, compliance triage, refund diagnosis, vendor-data conflict resolution |
 | [category-deep-dives.md](modules/category-deep-dives.md) | Per-category economics for Health & Fitness, Gaming, Productivity, Lifestyle, Education, AI, Photo & Video, Travel, Shopping, B2B; geography cuts NA / Western Europe / IN-SEA |
 | [screen-anatomy.md](modules/screen-anatomy.md) | Visual hierarchy, F-pattern layout, thumb zone, spacing rhythm, pricing block anatomy, accessibility (WCAG AA, Dynamic Type, VoiceOver), dark mode, safe areas, loading and error states |
 | [localization.md](modules/localization.md) | Adapty 2026 4.4x pricing variance data, App Store auto-tier vs manual per-territory vs geo-tier strategy with cost/benefit, copy length expansion factors, formality, RTL, number formatting, cultural trust signals |
 | [android-parity.md](modules/android-parity.md) | Play Billing Library v6+ concepts (Base Plan + Offers), EU DMA alternative billing, Android refund reality (RC: 31% involuntary failures vs iOS 14%), AppsFlyer 2026 Android growth (4x faster than iOS) |
+| [unit-economics-calculator.md](modules/unit-economics-calculator.md) | Conversational LTV / ARPU / ROAS / breakeven calculator with default retention multipliers, performance grading thresholds, expert advice engine with 11 conditional recommendations, scenario modeling, full worked example |
+| [indie-dev-faq.md](modules/indie-dev-faq.md) | 35+ direct-answer Q&A: "Should I add weekly?", "Are my numbers good?", "Why is trial-to-paid low?", "What's a healthy LTV:CAC?" -- threshold + verdict + one action with cited source |
+| [cac-acquisition.md](modules/cac-acquisition.md) | CAC formula and variants, 2026 mobile CAC benchmarks (iOS / Android, premium and emerging markets), channel CPI table (ASA / Meta / TikTok / Google / Snap / Reddit), LTV:CAC thresholds, channel mix strategy by stage, MMP comparison (AppsFlyer / Adjust / Singular / RevenueCat), Apple Search Ads tactics, Web2App economics, common CAC mistakes |
 
 Plus a research brief:
 - [outputs/2026-paywall-research.md](outputs/2026-paywall-research.md) -- full source manifest with methodology, sample sizes, evidence class for every benchmark used

@@ -1,5 +1,21 @@
 # Changelog
 
+## [3.3.0] -- 2026-04-16
+
+Phase 1 of follow-up improvements after analyzing adaptyteam/growth-expert-skill. Closes the operational/numerical gap (we were strong on strategy, weak on calculator-style guidance and CAC).
+
+### Added
+- **`modules/unit-economics-calculator.md`** -- conversational LTV / ARPU / ROAS / breakeven calculator. Step-by-step input collection, default retention multipliers per plan type, performance grading thresholds (Excellent / Good / Average / Below / Critical), expert advice engine with 11 conditional recommendations, scenario modeling, full worked example. Inspired by adaptyteam/growth-expert-skill calculator pattern, extended with cross-vendor (RC + Superwall + AppsFlyer) thresholds.
+- **`modules/indie-dev-faq.md`** -- 35+ direct-answer Q&A grouped into Pricing & Plans, Trials, Conversion & Funnel, Retention & Churn, Markets & Geography, Acquisition & UA, Compliance & Apple, Strategy & Growth. Each answer = threshold + verdict + one action with cited source.
+- **`modules/cac-acquisition.md`** -- previously missing area. CAC formula + variants (CPI / CPR / CAC / eCAC), 2026 mobile CAC benchmarks for iOS / Android premium and emerging markets, channel CPI table (ASA / Meta / TikTok / Google / Snap / Reddit / Twitter / Influencer), LTV:CAC thresholds with verdicts, channel mix strategy by stage, MMP comparison (AppsFlyer / Adjust / Singular / RevenueCat), ASA campaign-type breakdown, Web2App economics, common CAC mistakes, when CAC doesn't apply.
+- **RESPONSE MODE: PICK ONE** section in SKILL.md -- explicit guidance to match response depth to question. Quick mode (single tactical Q) vs Calculator mode vs Pattern mode vs Full audit vs Compliance triage. Stops the skill from running 12-section audit when user asked one question.
+- **QUICK MODE FORMAT** in SKILL.md -- Verdict / Reason / Action template for single-question responses.
+- **The Hollow Middle** subsection in pricing-psychology.md -- 41% subscription fatigue, $5-10/mo dead zone, 2026 trend toward either $30+/mo measurable outcomes OR $5/wk + free tier.
+- **Apple Small Business Program** subsection in pricing-psychology.md -- 15% vs 30% commission at <$1M revenue, +17.6% net ARPU instantly. Highest-leverage zero-effort change for indie devs.
+
+### Changed
+- ANTI-PATTERNS expanded from 17 to 20 (added: Hollow middle pricing, Paying 30% when SBP-eligible, Optimizing without an MMP)
+
 ## [3.2.0] -- 2026-04-16
 
 ### Added
