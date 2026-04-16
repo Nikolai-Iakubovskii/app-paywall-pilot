@@ -11,11 +11,12 @@
     <a href="#contributing">Contributing</a>
   </p>
   <p align="center">
-    <img src="https://img.shields.io/badge/Version-3.4.0-brightgreen?style=flat-square" alt="Version">
+    <img src="https://img.shields.io/badge/Version-3.5.0-brightgreen?style=flat-square" alt="Version">
     <img src="https://img.shields.io/badge/Platform-iOS_%7C_Android-blue?style=flat-square" alt="Platform">
     <img src="https://img.shields.io/badge/Benchmarks-April_2026-green?style=flat-square" alt="Benchmarks">
-    <img src="https://img.shields.io/badge/Modules-14-purple?style=flat-square" alt="Modules">
-    <img src="https://img.shields.io/badge/Sources-50%2B-orange?style=flat-square" alt="Sources">
+    <img src="https://img.shields.io/badge/Modules-16-purple?style=flat-square" alt="Modules">
+    <img src="https://img.shields.io/badge/Sources-58%2B-orange?style=flat-square" alt="Sources">
+    <img src="https://github.com/Nikolai-Iakubovskii/app-paywall-pilot/actions/workflows/validate.yml/badge.svg" alt="Validate">
     <img src="https://img.shields.io/badge/License-MIT-yellow?style=flat-square" alt="License">
     <img src="https://img.shields.io/github/stars/Nikolai-Iakubovskii/app-paywall-pilot?style=flat-square" alt="Stars">
   </p>
@@ -58,7 +59,7 @@ App Paywall Pilot grounds every recommendation in published evidence and labels 
 
 ## Modules
 
-The skill is split into a core [SKILL.md](SKILL.md) plus 14 deep-dive modules under [`modules/`](modules/) and an executable Python calculator. Load on demand based on the task.
+The skill is split into a core [SKILL.md](SKILL.md) plus 16 deep-dive modules under [`modules/`](modules/), an executable Python calculator, worked examples, and migration playbooks. Load on demand based on the task.
 
 | Module | What's inside |
 |--------|---------------|
@@ -76,9 +77,16 @@ The skill is split into a core [SKILL.md](SKILL.md) plus 14 deep-dive modules un
 | [onboarding-paywall-handoff.md](modules/onboarding-paywall-handoff.md) | Continuity principle made concrete. 7 onboarding patterns linked to paywall (Noom quiz, Cal AI demo, Headspace segmented, Duolingo goal-first, Strava aha, Flo empathy, reverse trial). Loading-screen bridge templates. Decision rule for onboarding length by LTV. |
 | [notifications-lifecycle.md](modules/notifications-lifecycle.md) | Push + email sequences for trial (Blinkist Day-5 +1,200% opt-in), abandon recovery (Superwall 17% revenue), renewal-risk, billing-issue, win-back. Permission strategy, copy templates, tooling choice. |
 | [glossary.md](modules/glossary.md) | Canonical definitions: ARPU vs ARPPU, gross vs RLTV, CR variants, MRR/ARR, CAC variants (CPI/CPR/CAC/eCAC), ROAS, retention vs renewal vs churn. Plus 24-acronym quick reference. |
+| [refund-management.md](modules/refund-management.md) | Refund baselines per plan + region, prevention sequence (in-app + push), Apple Consumption API for refund decline (Swift example), Subscription Pause alternative, channel-level diagnostic flowchart. |
+| [cohort-analysis.md](modules/cohort-analysis.md) | Three cohort types (install / trial / calendar), how to read RC/Adapty/Apphud dashboards, 7 common cohort mistakes, healthy retention curve patterns, pre/post-change comparison setup. |
 
-Plus an executable tool and research brief:
-- **[tools/ltv-calculator.py](tools/ltv-calculator.py)** -- Python implementation of the unit-economics calculator. CLI + JSON I/O. Run from Bash to get LTV / ARPU / ROAS / breakeven / grading instantly. Output verified against worked example.
+Plus standalone documentation, executable tools, worked examples, and research:
+
+- **[docs/audit-checklist.md](docs/audit-checklist.md)** -- printable 50+ item checklist for manual review before App Store submission
+- **[docs/migrations/from-toggle-paywall.md](docs/migrations/from-toggle-paywall.md)** -- migration playbook for apps caught in Apple's Jan 2026 toggle ban, with 4 compliant alternatives
+- **[examples/](examples/)** -- worked audit examples: [H&F app](examples/audit-h-and-f-app.md), [AI app](examples/audit-ai-app.md), [Productivity app](examples/audit-productivity-app.md). Each shows full 12-section DEFAULT OUTPUT FORMAT.
+- **[tools/ltv-calculator.py](tools/ltv-calculator.py)** -- Python implementation of the unit-economics calculator. CLI + JSON I/O. Verified output matches worked example.
+- **[.github/workflows/validate.yml](.github/workflows/validate.yml)** -- CI: validates sources.json structure, all internal links resolve, calculator smoke tests, SKILL.md size guard
 - [outputs/2026-paywall-research.md](outputs/2026-paywall-research.md) -- full source manifest with methodology, sample sizes, evidence class for every benchmark used
 - [outputs/2026-paywall-research.provenance.md](outputs/2026-paywall-research.provenance.md) -- sources consulted vs accepted vs rejected, cross-references, weak-signal flags
 

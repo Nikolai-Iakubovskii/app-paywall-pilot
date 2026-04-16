@@ -1,5 +1,30 @@
 # Changelog
 
+## [3.5.0] -- 2026-04-16
+
+Phase 3 of follow-up improvements. Adds polish modules (refund management, cohort analysis), worked-audit examples, audit checklist, migration playbook, and CI validation.
+
+### Added
+- **`modules/refund-management.md`** -- 2026 refund baselines per plan/region, prevention sequence (in-app + push timeline), Apple Consumption API for refund decline (with Swift example), Subscription Pause as alternative, channel-level refund diagnostic flowchart.
+- **`modules/cohort-analysis.md`** -- three cohort types explained (install / trial / calendar), how to read RC/Adapty/Apphud dashboards correctly, 7 common cohort mistakes, healthy retention curve patterns by plan, pre/post-change comparison setup.
+- **`docs/audit-checklist.md`** -- standalone printable 50+ item checklist for manual review before App Store submission. 7 sections (Apple compliance, field reports, copy, pricing, localization, accessibility, implementation) plus quick triage of top 10 items.
+- **`docs/migrations/from-toggle-paywall.md`** -- migration playbook for apps caught in Apple's Jan 2026 toggle ban. Apple's exact cited reason. 4 compliant alternatives (separate plan cards, trial-on-annual-only, multi-plan comparison, personalized). Step-by-step migration, expected impact data.
+- **`examples/audit-h-and-f-app.md`** -- worked audit for fictional H&F app showing full 12-section DEFAULT OUTPUT FORMAT with calculator-predicted LTV impact.
+- **`examples/audit-ai-app.md`** -- worked audit for AI app emphasizing post-aha placement, ChatGPT $20 baseline, geo-tier pricing for emerging markets.
+- **`examples/audit-productivity-app.md`** -- worked audit for Productivity app showing the counter-intuitive trial economics (direct buyers > trial buyers per RC 2026), comparison-table presentation pattern, sophisticated audience pricing.
+- **`.github/workflows/validate.yml`** -- CI pipeline that runs on push and PR: validates sources.json structure (required fields, allowed evidence classes), checks all internal markdown links resolve, smoke-tests LTV calculator with both direct-CR and trial-funnel inputs, enforces SKILL.md size guard (1500 lines max).
+- **`.github/scripts/validate_sources.py`** -- standalone sources.json validator.
+- **`.github/scripts/validate_links.py`** -- standalone link validator (caught 3 broken links during initial run).
+
+### Changed
+- Module count: 14 -> 16
+- Added docs/ tree with audit-checklist + migrations/
+- Added examples/ tree with 3 worked audits
+- SKILL.md MODULES table updated with all Phase 3 entries
+
+### Fixed
+- 3 broken internal links in docs/migrations/from-toggle-paywall.md (off-by-one path depth)
+
 ## [3.4.0] -- 2026-04-16
 
 Phase 2 of follow-up improvements. Adds foundational modules that fill gaps identified after Phase 1: continuity onboarding-paywall, lifecycle messaging, canonical metric definitions, executable Python calculator.

@@ -32,7 +32,12 @@ This skill is split into a core file (this) plus deep-dive modules. Load on dema
 | [modules/onboarding-paywall-handoff.md](modules/onboarding-paywall-handoff.md) | Continuity principle (core principle 10) made concrete. 7 onboarding patterns linked to paywall (Noom quiz, Cal AI demo, Headspace segmented, Duolingo goal-first, Strava aha, Flo empathy, reverse trial). Loading screen bridge templates. |
 | [modules/notifications-lifecycle.md](modules/notifications-lifecycle.md) | Push + email sequences: trial reminders (Blinkist Day-5 +1,200% opt-in), abandon recovery, renewal-risk, win-back, billing-issue. Permission strategy, copy templates, tooling choice (OneSignal/FCM/Customer.io). |
 | [modules/glossary.md](modules/glossary.md) | Canonical definitions: ARPU vs ARPPU, gross vs RLTV, CR vs effective CR, MRR/ARR, CAC variants (CPI/CPR/CAC/eCAC), ROAS, retention/renewal/churn, plan architecture terms. Plus acronym quick-reference. |
+| [modules/refund-management.md](modules/refund-management.md) | Refund baselines per plan + region, prevention sequence, Apple Consumption API for refund decline, Subscription Pause as alternative, channel-level refund analysis, common mistakes |
+| [modules/cohort-analysis.md](modules/cohort-analysis.md) | Three cohort types (install / trial / calendar), how to read RC/Adapty/Apphud dashboards, common mistakes, healthy curve patterns, pre/post-change comparison setup |
 | [tools/ltv-calculator.py](tools/ltv-calculator.py) | Python implementation of unit-economics-calculator.md. CLI + JSON I/O. Run: `python3 tools/ltv-calculator.py --plan annual:59.99:0.5 --plan monthly:9.99:0.5 --installs 10000 --cr 0.06 --cpi 2.5` |
+| [docs/audit-checklist.md](docs/audit-checklist.md) | Standalone 50+ item checklist for manual review pass before App Store submission. 7 sections grouped by priority. |
+| [docs/migrations/from-toggle-paywall.md](docs/migrations/from-toggle-paywall.md) | Migration playbook for apps caught in Apple's Jan 2026 toggle paywall ban. 4 compliant alternatives, step-by-step migration, expected impact data. |
+| [examples/](examples/) | Worked audit examples for H&F, AI, and Productivity apps. Full 12-section output following SKILL.md DEFAULT OUTPUT FORMAT. |
 | [outputs/2026-paywall-research.md](outputs/2026-paywall-research.md) | Source manifest with methodology, sample sizes, evidence class for every benchmark used |
 
 ---

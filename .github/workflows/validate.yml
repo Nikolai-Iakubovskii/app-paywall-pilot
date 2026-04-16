@@ -1,0 +1,60 @@
+name: Validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+# This workflow does NOT consume any untrusted GitHub event inputs in run: blocks.
+# All shell commands operate on repository files only (checked out via actions/checkout).
+# No github.event.*.title, body, ref, label, etc. are used.
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Validate sources.json structure
+        run: python3 .github/scripts/validate_sources.py
+
+      - name: Validate module links resolve
+        run: python3 .github/scripts/validate_links.py
+
+      - name: Smoke-test LTV calculator (direct CR)
+        run: |
+          python3 tools/ltv-calculator.py \
+            --plan annual:89.99:0.25 \
+            --plan quarterly:39.99:0.35 \
+            --plan monthly:19.99:0.35 \
+            --plan lifetime:99:0.05 \
+            --installs 40000 \
+            --cr 0.06 \
+            --cpi 3 \
+            --apple-fee 0.15
+
+      - name: Smoke-test LTV calculator (trial funnel)
+        run: |
+          python3 tools/ltv-calculator.py \
+            --plan annual:59.99:0.7 \
+            --plan monthly:9.99:0.3 \
+            --installs 20000 \
+            --trial-start 0.11 \
+            --trial-paid 0.30 \
+            --cpi 2.50
+
+      - name: SKILL.md size guard
+        run: |
+          lines=$(wc -l < SKILL.md)
+          if [ "$lines" -gt 1500 ]; then
+            echo "SKILL.md is $lines lines (>1500 soft limit)"
+            echo "Move deep content into modules/ to keep core lean"
+            exit 1
+          fi
+          echo "SKILL.md is $lines lines (under 1500 limit)"
