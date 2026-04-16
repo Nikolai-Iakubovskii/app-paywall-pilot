@@ -12,6 +12,24 @@ Do not act like a generic landing-page CRO expert. This skill is for in-app subs
 
 ---
 
+## MODULES
+
+This skill is split into a core file (this) plus deep-dive modules. Load on demand when the topic is in scope.
+
+| Module | Purpose |
+|--------|---------|
+| [modules/copy-library.md](modules/copy-library.md) | Headline formulas, benefit patterns, CTA templates, banned words, locale-specific copy notes |
+| [modules/teardowns.md](modules/teardowns.md) | Annotated paywall analyses for Calm, Duolingo, Noom, Cal AI, Tinder, Strava, Headspace, Blinkist, Flo, ChatGPT, AI companion apps |
+| [modules/pricing-psychology.md](modules/pricing-psychology.md) | Tversky-Kahneman framing, Anderson-Simester $9 endings, Ariely decoy, Cialdini 7 principles — all mapped to mobile paywall context |
+| [modules/decision-trees.md](modules/decision-trees.md) | Diagnostic flowcharts for low conversion, refunds, plan choice, surface choice, compliance triage |
+| [modules/category-deep-dives.md](modules/category-deep-dives.md) | Per-category economics: H&F, Gaming, AI, Education, Productivity, Photo & Video, Travel, B2B |
+| [modules/screen-anatomy.md](modules/screen-anatomy.md) | Visual hierarchy, layout, typography, accessibility, dark mode, safe areas |
+| [modules/localization.md](modules/localization.md) | Geo-pricing, copy length expansion, RTL, App Store auto-tier vs manual |
+| [modules/android-parity.md](modules/android-parity.md) | Play Billing differences, EU DMA, Android refund reality |
+| [outputs/2026-paywall-research.md](outputs/2026-paywall-research.md) | Source manifest with methodology, sample sizes, evidence class for every benchmark used |
+
+---
+
 ## EVIDENCE LADDER
 
 Every recommendation must carry one of these labels. Higher = more reliable.
@@ -54,10 +72,13 @@ If a growth tactic conflicts with Apple guidance, **follow Apple**.
 3. **Sell the outcome, not features.** Lead with the result or relief, then support with concrete benefits.
 4. **Trust is part of conversion.** A paywall should reduce doubt, not create it.
 5. **Optimize for LTV, not just conversion.** Lower trial-start can still win if paid conversion, churn, or LTV improves.
-6. **Test structure before polish.** Placement, gate type, trial structure, plan count > copy/visual tweaks.
+6. **Test structure before polish.** Placement, gate type, trial structure, plan count > copy/visual tweaks. Adapty 2026: localization (62.3% LTV win rate) > trial structure (59.6%) > plan duration (58.7%) > visual/copy (34.6%).
 7. **Personalize only with real data.** No fabricated testimonials or claims the app cannot support.
 8. **Respect dismissal.** No traps, fake urgency, guilt copy, hidden close buttons.
-9. **Don't import old tactics blindly.** A 2024 pattern may get rejected in 2026.
+9. **Don't import old tactics blindly.** A 2024 pattern may get rejected in 2026 (e.g. toggle paywall).
+10. **Continuity from onboarding to paywall.** What you promised in the onboarding quiz must appear on the paywall headline. Mismatch = trust break = conversion loss. Source: Noom/Flo/Cal AI consistently chain onboarding promise → paywall headline.
+11. **Climb the copy ladder.** Outcome > Benefit > Feature. First-time users read outcome ("Sleep better in 7 nights"); power users read features. Default to outcome; switch to feature only when audience is sophisticated. See [modules/copy-library.md](modules/copy-library.md).
+12. **First principles beat benchmarks below 1,000 subs/variant.** Vendor benchmarks are statistical truth at scale; your 50-user A/B is noise. When in doubt, trust principles (placement before paywall, transparency, real social proof) over numbers. See WHEN TO IGNORE BENCHMARKS section.
 
 ---
 
@@ -227,6 +248,42 @@ Different categories have different economics. Do not apply one playbook to all 
 ### Screen templates
 
 Templates A-F from v2.0 remain. See SCREEN TEMPLATES section below.
+
+### Copy patterns (quick reference)
+
+For full library see [modules/copy-library.md](modules/copy-library.md). Quick-reference top patterns:
+
+**Headline formulas (top 5):**
+1. Outcome + Timeframe: "Run your first 5K in 8 weeks"
+2. Identity + Outcome: "Become the runner you want to be"
+3. Personalized "Your": "Your personalized 12-week plan is ready"
+4. Loss-frame: "Don't lose your progress — keep Premium"
+5. Outcome + Proof: "75% of users hit their goal in 90 days*" (with sourced footnote)
+
+**CTA pattern:** Action + Benefit beats generic. "Start my free week" > "Subscribe". Possessive ("my") + verb + outcome.
+
+**Banned words:** "Premium" alone, "Subscribe" (use action verb instead), "Lock/Unlock", "Pay", "Discount" without anchor, "Free" when not actually free.
+
+**Decline button:** "Maybe later" or "Not now". Never guilt-trip ("No, I want to fail" — Field Report: high rejection correlation).
+
+---
+
+## BIG-APP TEARDOWNS
+
+For full annotated breakdowns see [modules/teardowns.md](modules/teardowns.md). Quick summary of what top apps actually do:
+
+| App | Single biggest pattern | Source |
+|-----|------------------------|--------|
+| **Calm** | Single plan (no tier choice) — universal value = no choice paralysis | Operator analysis |
+| **Duolingo** | Brand-consistent paywall + "Start my free week" CTA pattern | Operator + Adapty Library |
+| **Noom** | 77-step onboarding → "your reserved plan" → paywall | Retention.blog + Paddle |
+| **Cal AI** | Hard paywall + obsessive personalization + single core action ($1.4M/mo profit) | CNBC + Adapty newsletter |
+| **Tinder** | Blur-to-reveal Zeigarnik tension + ML-driven dynamic paywall | Sub Club Podcast |
+| **Strava** | 30-day trial without credit card (ultimate trust signal) | Operator |
+| **Headspace** | Equal-prominence monthly + annual (NOT annual-default) + day/night theming | Sub Club Podcast |
+| **Blinkist** | Trial Timeline visual: +23% trial signups, -55% complaints, +1,200% notif opt-in | Purchasely case study |
+| **Flo** | 70-screen onboarding + free core / premium upsell ($6M/mo revenue) | ScreensDesign |
+| **ChatGPT** | $20/mo became AI baseline; geo-tier (Go @ $8) for emerging markets | OpenAI public pricing |
 
 ---
 
@@ -519,6 +576,51 @@ All benchmarks are directional. Each carries source, date, and evidence level. F
 | Transaction abandon revenue | 17% of total | 18 companies, 525K users | Superwall | Aug 2024 |
 | 2 vs 1 products | +61% conversion | 32M views, 15 apps | Superwall | 2025 |
 | 3 vs 2 products | +44% additional | 32M views | Superwall | 2025 |
+| Multi-page vs single-page | Mixed; single-page won at least one large test | 2025 review | Superwall | 2025 |
+
+### AppsFlyer State of Subscriptions 2026 — Vendor Aggregate Data
+
+| Metric | Value | Source | Date |
+|--------|-------|--------|------|
+| Subscription UA spend YoY growth | 24% | AppsFlyer (2.9K apps, 1.7B installs, $2.1B UA) | 2026 |
+| **Android growth vs iOS** | **4x faster** | AppsFlyer | 2026 |
+| Indian Subcontinent share of Android paid install growth | 49% | AppsFlyer | 2026 |
+| LATAM share of Android paid install growth | 18% | AppsFlyer | 2026 |
+| North America paid install growth | Essentially flat | AppsFlyer | 2026 |
+| Short Drama category YoY paid installs | +155% | AppsFlyer | 2026 |
+| OTT subscription-only revenue share | 53% → 62% YoY | AppsFlyer | 2026 |
+| Top 5 apps per category share of UA spend | >90% | AppsFlyer | 2026 |
+
+**Implication:** UA cost economics now diverge sharply by geo. Android-first emerging-markets strategy is the growth lane in 2026. NA-only apps face flat user pool with high prices.
+
+### Refund / Billing Failure — Vendor Aggregate Data
+
+| Metric | Value | Source | Date |
+|--------|-------|--------|------|
+| Google Play involuntary billing failures | ~31% of cancellations | RevenueCat | 2026-03 |
+| App Store involuntary billing failures | 14% of cancellations | RevenueCat | 2026-03 |
+| Photo & Video APAC refund rate | 14.1% (highest regional) | Adapty | 2026 |
+
+### Trial Cancellation Timing — Vendor Aggregate Data
+
+| Trial length | % cancel Day 0 | Source | Date |
+|--------------|----------------|--------|------|
+| 3 days | 55.4% | RevenueCat | 2026-03 |
+| 7 days | 39.8% | RevenueCat | 2026-03 |
+
+### RLTV per Payer (12-mo) — Vendor Aggregate Data
+
+| Cut | Median | Source |
+|-----|--------|--------|
+| By category — Business | $35.48 | RevenueCat 2026 |
+| By category — H&F | $35.64 | RevenueCat 2026 |
+| By category — Gaming | $11.22 | RevenueCat 2026 |
+| By region — North America | $32 | RevenueCat 2026 |
+| By region — Western Europe | $25 | RevenueCat 2026 |
+| By region — IN/SEA | $14 | RevenueCat 2026 |
+| By price tier — High | $62.19 | RevenueCat 2026 |
+| By price tier — Mid | $28.75 | RevenueCat 2026 |
+| By price tier — Low | $10.69 | RevenueCat 2026 |
 
 ---
 
@@ -566,6 +668,39 @@ Repeating patterns from top apps, per Adapty/RevenueCat/Superwall 2026 data. All
 11. Assuming one benchmark fits every category
 12. Claiming specific uplift as guaranteed
 13. Emotional gimmicks without evidence and product fit
+14. Testing copy/visual before localizing (copy wins 34.6%; localization wins 62.3%)
+15. Same SKU across all of EU (Adapty 2026: EU charges 29–39% more than NA — leaving money on table)
+16. Optimizing retention metrics for AI apps (AI churns 30% faster — optimize first-month conversion instead)
+17. Trial on weekly plans (weekly trial subscribers retain 5.5% D380 vs annual 19.9%)
+
+---
+
+## WHEN TO IGNORE BENCHMARKS
+
+Benchmarks from Adapty (16K apps), RevenueCat (115K apps), AppsFlyer (1.7B installs), Superwall (100M+ paywall views) are directional, not prescriptive. Ignore them when:
+
+1. **Your N is small (<1,000 subs/variant):** Statistical noise dominates. Trust principles over numbers. Adapty's minimum-significance threshold is 200 subs/variant — below that, don't A/B at all.
+
+2. **Your category is niche:** H&F benchmarks don't apply to chess training. Gaming benchmarks don't apply to B2B. Find the closest category OR work from first principles.
+
+3. **Your audience is specific:** A B2B SaaS tool doesn't share CVR with a consumer mood tracker even if both are "Productivity."
+
+4. **Recent launch (first 90 days):** High-volatility period. UA channel mix, organic/paid ratio, and novelty skew conversion. Don't bake 90-day trends into long-term strategy.
+
+5. **Major UA channel shift:** Paid TikTok traffic ≠ organic Search traffic. Benchmark reports reflect the industry channel mix; your app's mix may differ.
+
+6. **Vendor data conflicts with Apple guidance:** **Always follow Apple.** Vendor recommendations can get you rejected.
+
+7. **Single-vendor claim with no methodology:** If Adapty or RC published it as "15%+ lift from personalization" without methodology disclosure, treat as Operator Insight, not Vendor Aggregate Data.
+
+8. **Correlation, not causation:** "Apps running 50+ experiments earn 18.7x more" — these are likely bigger apps with more resources AND more experiments. Running more experiments won't magically 18x your revenue.
+
+**Rule of thumb:** under 1,000 subs/variant, doubt everything quantitative. Trust:
+- Clear trial terms (Apple Rule)
+- Real social proof (Cialdini: most-influential principle)
+- Outcome-led copy (Climbing the Copy Ladder)
+- Localization for top markets (highest LTV win rate category)
+- No dark patterns (Apple Rule + ethics)
 
 ---
 
@@ -577,8 +712,12 @@ Repeating patterns from top apps, per Adapty/RevenueCat/Superwall 2026 data. All
 4. **Recommended placements** — from taxonomy
 5. **Recommended presentation** — from taxonomy
 6. **Screen content** — headline, benefits, pricing, CTA, trust
-7. **Tests to run** — priority order
-8. **iOS review risks** — Apple Rules + Field Reports
+7. **Copy variants (2-3)** — for each: short and long version, plus any locale-specific note. Use Copy Ladder rung appropriate to audience. See [modules/copy-library.md](modules/copy-library.md).
+8. **Layout sketch (ASCII or block diagram)** — above-fold elements identified, thumb-zone CTA placement confirmed. See [modules/screen-anatomy.md](modules/screen-anatomy.md).
+9. **Localization notes** — pricing tier per market (manual vs auto), CTA length budget per locale, formality choice. See [modules/localization.md](modules/localization.md).
+10. **Tests to run** — priority order following Adapty 2026 win-rate ranking (localization → trial structure → plan duration → plan count → price → copy/visual). Each test: hypothesis, primary + guardrail metric, minimum sample size (200 subs/variant per Adapty).
+11. **iOS review risks** — Apple Rules + Field Reports
+12. **Android delta (if cross-platform)** — Play Billing differences, EU DMA implications. See [modules/android-parity.md](modules/android-parity.md).
 
 Each finding must carry its evidence level. Do not repeat findings across sections. Keep practical, not theoretical.
 
@@ -586,11 +725,24 @@ Each finding must carry its evidence level. Do not repeat findings across sectio
 
 ## DATA SOURCES
 
-| Source | Dataset | Date |
-|--------|---------|------|
-| Adapty | 16,000+ apps, $3B revenue | Mar 2026 |
-| RevenueCat | 115,000+ apps, $16B revenue | Mar 2026 |
-| Superwall | 100M+ monthly paywall views | 2024-2026 |
-| Apple | App Store Review Guidelines | Current |
+| Source | Dataset | Date | Evidence Class |
+|--------|---------|------|----------------|
+| Adapty State of In-App Subscriptions 2026 | 16,000 apps, $3B revenue, 500M transactions, 105K paywalls, 50+ countries | 2026-03-14 | large_scale_report |
+| Adapty H&F Benchmarks 2026 | Category cut from $3B dataset | 2026 | large_scale_report (subset) |
+| Adapty Paywall Experiments Playbook | Adapty platform A/B tests | 2026 | vendor_blog (methodology not open) |
+| Adapty High-Performing Paywall 2026 | Adapty platform | 2026 | vendor_blog |
+| RevenueCat State of Subscription Apps 2026 | 115,000+ apps, $16B+ revenue, 1B+ transactions | 2026-03 | large_scale_report |
+| Superwall Product Count Study | 32.3M paywall opens, 15 largest apps, 383K conversions | 2025 | aggregate_study |
+| Superwall Transaction Abandon Study | 18 companies, 525K users | 2024-08 | aggregate_study |
+| AppsFlyer State of Subscriptions 2026 | 1.7B paid installs, 2,900 apps, 13 categories, $2.1B UA spend | 2026 | large_scale_report |
+| Apphud Subscription Guide | Apphud platform (no public sample size) | 2025 | vendor_blog |
+| RevenueFlo iOS Rejections | Developer rejection reports | 2026 | field_observation |
+| Apple App Store Review Guidelines | Official | Current | apple_docs |
+| Tversky & Kahneman 1981 — Framing | Science (17K+ citations) | 1981 | academic |
+| Anderson & Simester 2003 — $9 Endings | Quantitative Marketing and Economics field experiment | 2003 | academic |
+| Thomas & Morwitz 2005 — Left-Digit | Journal of Consumer Research | 2005 | academic |
+| Cialdini Influence + Pre-Suasion | Foundational persuasion text | 1984 / 2016 | academic |
+| Springer 2024 — Mobile Persuasion Study | Cialdini principles on app contexts | 2024 | academic |
 
-Full source manifest with every numeric claim: `sources.json`
+Full source manifest with every numeric claim: [sources.json](sources.json)
+Full research brief with methodology check: [outputs/2026-paywall-research.md](outputs/2026-paywall-research.md)

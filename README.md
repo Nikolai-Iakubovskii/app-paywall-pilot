@@ -40,6 +40,28 @@ App Paywall Pilot gives your AI assistant real-world paywall expertise:
 | **7-level evidence ladder** | Every claim labeled from Apple Rule down to Hypothesis -- no unmarked assertions |
 | **Sourced data** | Every benchmark carries its source + date -- no unsourced claims |
 | **Full lifecycle** | 10 lifecycle stages from first purchase through win-back |
+| **Big-app teardowns** | Annotated paywall analyses for Calm, Duolingo, Noom, Cal AI, Tinder, Strava, Headspace, Blinkist, Flo, ChatGPT, AI companions |
+| **Academic foundations** | Pricing psychology grounded in Tversky-Kahneman, Anderson-Simester, Ariely, Cialdini -- not just blog posts |
+| **Modular** | 8 deep-dive modules loadable on demand: copy library, teardowns, pricing psychology, decision trees, category deep-dives, screen anatomy, localization, Android parity |
+
+---
+
+## Modules
+
+The skill is split into a core SKILL.md plus 8 deep-dive modules under `modules/`:
+
+| Module | Purpose |
+|--------|---------|
+| [copy-library.md](modules/copy-library.md) | 12 headline formulas, benefit patterns, CTA templates, banned words, 12+ locales |
+| [teardowns.md](modules/teardowns.md) | Annotated paywall breakdowns for 11 top apps |
+| [pricing-psychology.md](modules/pricing-psychology.md) | Academic foundations + mobile application |
+| [decision-trees.md](modules/decision-trees.md) | 10 diagnostic flowcharts for common paywall problems |
+| [category-deep-dives.md](modules/category-deep-dives.md) | Per-category economics for 10 categories + geo cuts |
+| [screen-anatomy.md](modules/screen-anatomy.md) | Visual hierarchy, accessibility, dark mode |
+| [localization.md](modules/localization.md) | Geo-pricing strategy + copy localization |
+| [android-parity.md](modules/android-parity.md) | Play Billing differences + EU DMA |
+
+Plus the [research brief](outputs/2026-paywall-research.md) with full source manifest and methodology cross-references.
 
 ---
 
