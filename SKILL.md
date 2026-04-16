@@ -29,6 +29,10 @@ This skill is split into a core file (this) plus deep-dive modules. Load on dema
 | [modules/unit-economics-calculator.md](modules/unit-economics-calculator.md) | Conversational LTV / ARPU / ROAS / breakeven calculator. Use when user asks "will my app be profitable?", shares plans + funnel data, or wants what-if scenarios |
 | [modules/indie-dev-faq.md](modules/indie-dev-faq.md) | Direct-answer mode for single tactical questions. 35+ Q&A: "Should I add weekly?", "Are my numbers good?", "Why is trial-to-paid low?" — threshold + verdict + one action |
 | [modules/cac-acquisition.md](modules/cac-acquisition.md) | CAC formula, channel CPI benchmarks (ASA/Meta/TikTok/Google), LTV:CAC thresholds, ASA strategy, Web2App, MMP choice |
+| [modules/onboarding-paywall-handoff.md](modules/onboarding-paywall-handoff.md) | Continuity principle (core principle 10) made concrete. 7 onboarding patterns linked to paywall (Noom quiz, Cal AI demo, Headspace segmented, Duolingo goal-first, Strava aha, Flo empathy, reverse trial). Loading screen bridge templates. |
+| [modules/notifications-lifecycle.md](modules/notifications-lifecycle.md) | Push + email sequences: trial reminders (Blinkist Day-5 +1,200% opt-in), abandon recovery, renewal-risk, win-back, billing-issue. Permission strategy, copy templates, tooling choice (OneSignal/FCM/Customer.io). |
+| [modules/glossary.md](modules/glossary.md) | Canonical definitions: ARPU vs ARPPU, gross vs RLTV, CR vs effective CR, MRR/ARR, CAC variants (CPI/CPR/CAC/eCAC), ROAS, retention/renewal/churn, plan architecture terms. Plus acronym quick-reference. |
+| [tools/ltv-calculator.py](tools/ltv-calculator.py) | Python implementation of unit-economics-calculator.md. CLI + JSON I/O. Run: `python3 tools/ltv-calculator.py --plan annual:59.99:0.5 --plan monthly:9.99:0.5 --installs 10000 --cr 0.06 --cpi 2.5` |
 | [outputs/2026-paywall-research.md](outputs/2026-paywall-research.md) | Source manifest with methodology, sample sizes, evidence class for every benchmark used |
 
 ---
