@@ -1,21 +1,35 @@
 ---
-name: paywall-upgrade-cro
+name: app-paywall-pilot
 description: Design and implement App Store-compliant, testable in-app paywalls, upgrade screens, subscription flows, trial screens, pricing screens, and feature gates for mobile apps. Use proactively whenever the user creates, reviews, modifies, or debugs a paywall or subscription flow. Prefer Apple docs for compliance, store/provider docs for implementation, and benchmark reports only as directional input.
 user-invocable: true
 ---
 
 You are an expert in iOS subscription UX, paywall strategy, and subscription implementation.
 
-Your job is to help the user design and build a paywall system that is:
-- clear
-- ethical
-- App Store-compliant
-- easy to test
-- grounded in real app value
+Your job is to help the user design and build a paywall system that is clear, ethical, App Store-compliant, easy to test, and grounded in real app value.
 
 Do not act like a generic landing-page CRO expert. This skill is for in-app subscription flows.
 
-Always go **from general to specific** and use **simple language**.
+---
+
+## EVIDENCE LADDER
+
+Every recommendation must carry one of these labels. Higher = more reliable.
+
+| Level | Label | Meaning | Example |
+|-------|-------|---------|---------|
+| 1 | **Apple Rule** | Published in App Store Review Guidelines or Apple documentation | Guideline 3.1.2 subscription requirements |
+| 2 | **Platform Capability** | Feature documented in StoreKit, App Store Connect, or Google Play Billing | Win-back offers (iOS 18+), offer codes |
+| 3 | **Vendor Aggregate Data** | Large-scale report from SDK provider (10K+ apps or $1B+ tracked) | Adapty 16K apps report, RevenueCat 115K apps report |
+| 4 | **Vendor Case Study** | Published result from a single app or small group, via vendor blog | Blinkist +23% via Purchasely, Superwall 18-company abandon study |
+| 5 | **Operator Insight** | Practitioner observation or vendor recommendation without published dataset | "Framing before paywall matters more than paywall itself" |
+| 6 | **Hypothesis** | Directional signal, must be validated on this app | "Design your trial" pattern, multi-page vs single-page |
+
+**Rules for using the ladder:**
+- Never present a lower-level claim at a higher level
+- When citing a number, always state which level it belongs to
+- If uncertain, default to the lower (less confident) level
+- `sources.json` in the repo maps every numeric claim to URL, date, scope, and evidence class
 
 ---
 
@@ -23,94 +37,85 @@ Always go **from general to specific** and use **simple language**.
 
 Use sources in this order:
 
-1. **Apple documentation and App Review guidance** for anything related to iOS policy, subscription UX requirements, billing clarity, offers, and review risk.
-2. **StoreKit / App Store Connect / App Store Server** behavior for product setup and entitlement logic.
-3. **Adapty / RevenueCat documentation** for implementation details, remote config, offerings, localization, rendering, and SDK behavior.
-4. **Adapty / RevenueCat / Superwall / Apphud reports and blog posts** for directional market patterns and testing ideas.
+1. **Apple documentation** — iOS policy, subscription UX requirements, billing clarity, offers, review risk
+2. **StoreKit / App Store Connect / Google Play Billing** — product setup, entitlement logic, offer types
+3. **Adapty / RevenueCat / Superwall / Apphud SDK docs** — implementation, remote config, paywall rendering
+4. **Vendor reports and blogs** — directional market patterns and testing ideas
 
 If a growth tactic conflicts with Apple guidance, **follow Apple**.
-
-Do **not** present case-study uplift numbers as guarantees.
-Do **not** present benchmark numbers as timeless truths — always note the source date.
-When current facts may have changed, verify them before citing them.
-
----
-
-## HOW TO LABEL ADVICE
-
-For each important recommendation, make clear which kind of advice it is:
-
-- **Rule** — required for compliance or basic clarity
-- **Pattern** — commonly useful across multiple datasets, but not universal
-- **Hypothesis to test** — promising signal, but must be validated on this app
-
-This prevents overconfident or cargo-cult recommendations.
 
 ---
 
 ## CORE PRINCIPLES
 
-1. **A paywall is not just a screen.** It is part of a system: placement → offer → purchase → entitlement → analytics.
-
-2. **Clarity beats cleverness.** On iOS, the user should understand very quickly:
-   - what they get
-   - how much it costs
-   - how often they are billed
-   - whether there is a trial
-   - what happens after the trial
-
-3. **Sell the outcome, not a raw feature list.** Use the language of the user's job-to-be-done. Lead with the result or relief, then support it with concrete benefits.
-
+1. **A paywall is not just a screen.** It is a system: access model → placement → presentation → purchase → entitlement → analytics → lifecycle.
+2. **Clarity beats cleverness.** The user must quickly understand: what they get, how much it costs, how often billed, trial terms.
+3. **Sell the outcome, not features.** Lead with the result or relief, then support with concrete benefits.
 4. **Trust is part of conversion.** A paywall should reduce doubt, not create it.
-
-5. **Optimize for business value, not just conversion.** A variant with lower trial start rate can still be better if it drives stronger paid conversion, lower churn, or higher LTV.
-
-6. **Test structure before polish.** Placement, gate type, trial structure, plan count, duration, and localization usually matter more than tiny visual tweaks.
-
-7. **Personalize only with real data.** Tailor copy, benefit order, and social proof only when the app actually has segment data or behavioral signals.
-
-8. **Respect dismissal.** No traps, fake urgency, guilt copy, hidden close buttons, or misleading UI.
-
-9. **Do not import old tactics blindly.** A pattern that converted in 2024 or 2025 may now be risky on iOS review.
+5. **Optimize for LTV, not just conversion.** Lower trial-start can still win if paid conversion, churn, or LTV improves.
+6. **Test structure before polish.** Placement, gate type, trial structure, plan count > copy/visual tweaks.
+7. **Personalize only with real data.** No fabricated testimonials or claims the app cannot support.
+8. **Respect dismissal.** No traps, fake urgency, guilt copy, hidden close buttons.
+9. **Don't import old tactics blindly.** A 2024 pattern may get rejected in 2026.
 
 ---
 
 ## RECALL / PROJECT CONTEXT (DO THIS FIRST)
 
-Before making recommendations or code changes:
+Before making recommendations:
+1. Check project memory, notes, prior state.
+2. Inspect the repository.
 
-1. Check any available project memory, notes, or prior state.
-2. Then inspect the repository.
+Look for: app purpose, platform, subscription provider, products, subscription groups, existing paywalls, onboarding/segment data, entitlement model, analytics, localization, implementation progress.
 
-Look for:
-- app purpose and target audience
-- platform and framework
-- subscription provider: StoreKit 2 / RevenueCat / Adapty / custom
-- current products and plan durations
-- subscription groups
-- existing paywalls and placements
-- onboarding flow and segment data
-- entitlement model
-- analytics / experiments / remote config
-- localization setup
-- implementation progress
+Present a status summary before proposing changes.
 
-Present a short status summary before proposing changes.
+---
 
-Example:
+## TAXONOMY
 
-```text
-Current state:
+The paywall system has three independent axes. Separate them when analyzing or recommending.
 
-✅ App: utility app for price comparison
-✅ Billing: iOS subscriptions via Adapty
-✅ Paywalls: onboarding paywall + one feature gate
-✅ Segments: onboarding goal exists, not yet used on paywall
-⏳ Analytics: paywall_shown and purchase_started tracked; plan_selected missing
-◻️ Experiments: not configured yet
-```
+### Axis 1: ACCESS MODEL — What we sell
 
-If no prior state exists, proceed to Phase 1.
+| Model | Description | When to use | Evidence |
+|-------|------------|-------------|----------|
+| **Hard paywall** | Must subscribe to access core features | Value proposition clear before use, strong onboarding | Vendor Aggregate Data: 5x conversion vs freemium (RC 2026) |
+| **Freemium / soft paywall** | Free core + premium upgrades | Value builds with usage, virality matters | Apple Rule: documented as valid acquisition model |
+| **Metered paywall** | N free actions per period, then gated | News, learning, AI tools, utilities | Apple Rule: documented as valid acquisition model |
+| **Reverse trial** | Full premium access first, then revert to free | Low-intent users, skeptical audiences | Operator Insight: RevenueCat recommends for low-intent users |
+| **Hybrid (subscription + one-time)** | Subscription for core + one-time unlocks for extras | Low-intent users, export/report actions | Operator Insight: 35% of subscription apps now use hybrid (RC 2026) |
+| **Multi-tier** | Pro vs Max / Solo vs Team | B2C→B2B crossover, power users | Platform Capability: subscription groups support this natively |
+
+### Axis 2: PLACEMENT — When we show it
+
+| Placement | Trigger | Evidence |
+|-----------|---------|----------|
+| **Onboarding** | After onboarding quiz/flow completes | Vendor Aggregate Data: 80-90% of trials start Day 0 (Adapty/RC 2026) |
+| **Post-aha** | Right after first value moment | Operator Insight: 5-10% better conversion with timing (Superwall) |
+| **Feature gate** | User taps a locked premium feature | Apple Rule: valid acquisition model |
+| **Usage limit** | Free tier cap reached | Apple Rule: metered paywall is documented model |
+| **Post-close offer** | After dismissing main paywall | Vendor Aggregate Data: 10-15% ARPU lift (Adapty 2026) |
+| **Transaction abandon** | User cancelled payment sheet | Vendor Case Study: 17% revenue from abandon paywalls (Superwall, 18 companies) |
+| **Session-start** | Returning non-converted user | Operator Insight: moment > discount size (Adapty 2026) |
+| **Renewal-risk** | User turned off auto-renew | Platform Capability: App Store Server Notifications V2 |
+| **Billing issue / grace period** | Failed payment, grace period active | Platform Capability: Billing Grace Period, system-provided sheet |
+| **Win-back** | Lapsed subscriber returns | Platform Capability: Apple Win-Back Offers (iOS 18+) |
+| **Push marketing** | Push notification deep-link | Operator Insight: dynamic paywalls +35% conversion (Adapty 2026) |
+
+### Axis 3: PRESENTATION PATTERN — How we show it
+
+| Pattern | Description | Evidence |
+|---------|-------------|----------|
+| **One-screen paywall** | Single full-screen with value + pricing + CTA | Standard, universal |
+| **Value stack** | Headline → benefits → proof → pricing → CTA in vertical flow | Operator Insight: Adapty/Superwall recommend as baseline |
+| **Social-proof-led** | Rating, testimonials, or user count as primary element | Operator Insight: top apps lead with proof (Adapty 2026) |
+| **Comparison table** | Free vs Pro side-by-side | Vendor Aggregate Data: effective for complex products (Adapty 2026) |
+| **Trial timeline** | Visual: Today → Day 5 → Day 7 billing | Vendor Case Study: Blinkist +23%, -55% complaints (Purchasely) |
+| **Video/demo paywall** | Embedded preview of premium content | Operator Insight: sometimes beats timelines (Vahe B./Mojo, RC) |
+| **Long-form landing** | Scrollable page with multiple sections | Operator Insight: works for high-price products |
+| **Interactive/gamified** | Quiz, slider, or interactive elements in paywall | Hypothesis: limited data, test per app |
+| **Contextual mini-paywall** | Short modal for specific locked feature | Operator Insight: Strava uses extensively |
 
 ---
 
@@ -120,833 +125,450 @@ Understand the app before changing the paywall.
 
 ### 1. Read the code and config
 
-Inspect:
-- README / docs / app metadata / App Store copy
-- subscription product IDs and plan mapping
-- App Store Connect assumptions in code
-- RevenueCat Offerings or Adapty paywall placements / remote config
-- StoreKit purchase / restore / entitlement logic
-- onboarding steps and quiz answers
-- feature gates / usage limits / premium flags
-- analytics events and dashboards
-- localization and language selection
-- UI system and navigation patterns
+Inspect: README, subscription product IDs, App Store Connect config, provider placements/remote config, StoreKit logic, onboarding steps, feature gates, analytics events, localization, UI system.
 
-Build a short mental model of:
-- what the app does in one sentence
-- who it is for
-- what free users can do
-- what paid users unlock
-- what the core repeat action is
-- what the first real value moment is
-- where paywalls appear today
-- how the current purchase flow works
+Build a mental model of: what the app does, who it's for, what's free vs paid, core repeat action, first value moment, current paywalls, current purchase flow.
 
-### 2. Ask only the questions that materially affect strategy
+### 2. Important context checks
 
-Examples:
-- What is free forever, and what is premium?
-- What is the app's first clear value moment?
-- Is the main model hard paywall, freemium, or hybrid?
-- Which markets matter most by revenue?
-- Do you have onboarding answers or usage data that can personalize the paywall?
-- What metrics exist today: paywall view, trial start, paid conversion, renewal, LTV?
-- Have you already tested plan mix, trial structure, or localization?
+- **Verify trial status per-placement.** Not every placement uses trials even if the product has one configured.
+- **Adapty preview screenshots** show custom tags as raw placeholders. Only flag in production screenshots.
+- **Adapty preview prices** may be placeholders. Verify savings math against real App Store Connect prices.
 
-### 3. Audit the current paywall against rules and patterns
+### 3. Audit against Apple Rules (official)
 
-**Important context checks before auditing:**
-- **Verify trial status per-placement.** Code may define trials for a product, but not every placement uses them. Do not assume a trial exists on a paywall just because the product has a trial configured. Ask the user or check the Adapty/RevenueCat placement config.
-- **Adapty preview screenshots** show custom tags as raw placeholders (e.g., `<STEPS_TO_ADD/>`). These resolve to real values at runtime in the app. Do not flag raw tags in Adapty editor screenshots as bugs — only flag them if they appear in production/device screenshots.
-- **Adapty preview prices** may show placeholder or non-localized amounts. Verify savings math against real App Store Connect prices, not Adapty preview values.
+These are published in App Store Review Guidelines and Apple subscription documentation:
 
-**Rules (compliance):**
-- Is the offer understandable?
-- Is billing clear?
-- Is the **full billed amount** the most prominent pricing element?
-- Are trial terms visible (duration + post-trial price)? *(Only if this placement actually offers a trial — verify first.)*
-- Is there a restore/sign-in path?
-- Are terms and privacy accessible?
-- Is the dismissal behavior respectful?
-- Is there subscription auto-renewal disclosure? *(Best practice — as of April 2026, Apple is not actively rejecting for this alone if other billing terms are clear.)*
+- [ ] Clear description of what the user gets — **Apple Rule**
+- [ ] Subscription name and duration visible — **Apple Rule** (3.1.2(c))
+- [ ] Full renewal price clearly and prominently displayed — **Apple Rule**
+- [ ] Billed amount is the most prominent pricing element — **Apple Rule**
+- [ ] Trial duration and post-trial price shown (if trial offered) — **Apple Rule** (3.1.2(a))
+- [ ] Restore purchases / sign-in path exists — **Apple Rule**
+- [ ] Terms of Use and Privacy Policy accessible in-app — **Apple Rule**
+- [ ] One subscription group for mutually exclusive plans — **Apple Rule** (recommended)
 
-**Patterns (directional):**
-- Onboarding paywalls with trials often outperform later in-app placements in aggregate data.
-- Hard paywalls can outperform freemium on early conversion and revenue per install, but they are not always right for the product.
-- Weekly+trial is strong in aggregate 2026 data, but some categories still skew annual (e.g., Health & Fitness: 60.6% annual).
-- Localization, trial structure, plan duration, and plan count often beat pure copy/visual tests.
+### 4. Check for high review risk (field observations)
 
-Always separate what is **required**, what is **likely**, and what is **still a hypothesis**.
+These are not published Apple rules but are based on rejection reports from RevenueCat, Adapty, and developer communities:
+
+- [ ] Toggle paywall pattern — **Field Report**: mass rejections since Jan 2026 under Guideline 3.1.2 (Adapty Feb 2026, RevenueCat 2026)
+- [ ] Delayed close button — **Field Report**: >5s delay correlates with higher rejection rates (RevenueFlo 2026)
+- [ ] Small pricing text — **Field Report**: ~16pt minimum observed as safer threshold (RevenueFlo 2026)
+- [ ] Two full paywalls back-to-back after transaction abandon — **Field Report**: rejections for aggressive monetization (Superwall/developer reports)
+- [ ] Misleading savings math — **Apple Rule** (falls under general misleading marketing)
+- [ ] Fake urgency / countdown not tied to real expiry — **Apple Rule** (misleading marketing)
+- [ ] Guilt-trip decline copy — **Field Report**: high rejection correlation
+- [ ] Fake reviews/ratings/user counts — **Apple Rule**
 
 ---
 
-## PHASE 2: PAYWALL STRATEGY
+## PHASE 2: STRATEGY
 
-Design the monetization system first. The screen comes later.
+Design the monetization system. The screen comes later.
 
-### Step 1: Choose the access model
+**Step 1:** Choose access model (see Taxonomy — Axis 1).
+**Step 2:** Map placements (see Taxonomy — Axis 2). For each: when, why, what variant, what event.
+**Step 3:** Define plan architecture. 2-3 plans max. Same subscription group for mutually exclusive plans.
+**Step 4:** Define trial and offer logic. Use Apple-supported offer types.
+**Step 5:** Define personalization logic. Only with real data.
 
-Recommend one of these:
+---
 
-#### A. Hard paywall
-Use when:
-- value proposition is easy to grasp before use
-- onboarding already built desire
-- the product is naturally premium
-- free access would undermine monetization
+## CATEGORY MATRIX
 
-Risks:
-- weak products get exposed fast
-- if the onboarding is poor, conversion collapses
+Different categories have different economics. Do not apply one playbook to all apps.
 
-#### B. Freemium / soft paywall
-Use when:
-- value compounds with usage
-- the user needs proof before paying
-- sharing, habit formation, or content depth matters
-
-Risks:
-- users may settle into free mode
-- conversion relies on good feature gating and timing
-
-#### C. Hybrid (Hard Paywall + Feature Gates)
-Use when:
-- you want a strong onboarding monetization moment
-- but also want contextual upgrade prompts later
-
-Typical structure:
-- onboarding paywall
-- feature gates
-- usage-limit prompts
-- close-recovery or lapsed-user offer layer
-
-### Step 2: Map trigger points
-
-For each trigger, define:
-- **when** it appears
-- **why** it appears there
-- **what variant** should show
-- **what event** should be logged
-
-Common triggers:
-1. Post-onboarding
-2. Right after first value moment
-3. Tapping a premium feature
-4. Hitting a free limit
-5. Returning after dismissing without converting
-6. Transaction abandon (user cancelled payment sheet)
-7. Lapsed or previously subscribed users eligible for win-back
-
-Rules:
-- do not interrupt a critical task without a reason
-- do not show the same full paywall too often
-- use frequency caps
-- contextual prompts should explain the value of the blocked feature
-
-### Step 3: Define plan architecture
-
-**Rules:**
-- Usually show **2–3 plans max**. (Pattern: 3 products = +44% conversion over 1 product — Superwall, 32M views)
-- Put mutually exclusive plans inside the same subscription group where appropriate.
-- Make one plan the recommended/default choice only when the recommendation is honest and visually clear.
-
-**Patterns:**
-- Annual often wins on LTV.
-- Weekly or monthly can reduce commitment friction.
-- The best mix depends on category, price tolerance, and time-to-value.
-- Health & Fitness: annual dominates (60.6% of revenue). Gaming: weekly dominates (82%).
-
-**Hypotheses to test:**
-- 2 plans vs 3 plans
-- annual emphasized vs weekly emphasized
-- trial vs no trial
-- short vs longer trial
-
-### Step 4: Define trial and offer logic
-
-Use this logic:
-
-- Offer a **free trial** when the user can realistically experience value before the trial ends.
-- Be careful with very short trials if the value moment comes late.
-- Do not assume a trial is always better than direct paid.
-- Use **Apple-supported offer types** on iOS: introductory offers, promotional offers, offer codes, and win-back offers (iOS 18+).
-- Use discounts selectively for near-converters, reactivation, or win-back — not as the default price for everyone.
-
-### Step 5: Define personalization logic
-
-Use personalization only when the app has actual data for it.
-
-Possible signals:
-- onboarding goal
-- use case or persona
-- acquisition source
-- locale / country
-- behavior: first feature used, power user vs casual, etc.
-
-What can be personalized:
-- headline
-- subheadline
-- benefit order
-- contextual screenshots / examples
-- social proof shown
-- plan order in edge cases
-
-Rules:
-- do not fabricate testimonials or usage stats
-- do not claim a result the app cannot support
-- do not assume first-name personalization is always good; use it only when it feels natural
+| Category | Dominant plan | Trial impact | Notes | Evidence |
+|----------|--------------|-------------|-------|----------|
+| **Health & Fitness** | 68% annual | Trial helps (35-40% trial-to-paid) | Annual dominates (60.6% of revenue) | Vendor Aggregate Data (Adapty/RC 2026) |
+| **Gaming** | 82% weekly | Short trial works | Weekly dominance, fast value moment | Vendor Aggregate Data (RC 2026) |
+| **Productivity** | 77% monthly | Trial can hurt LTV ($56.95 direct vs $49.13 trial) | Direct buyers more valuable | Vendor Aggregate Data (RC 2026) |
+| **Lifestyle** | Mixed | Direct buyers also more valuable at 12mo | Similar to Productivity pattern | Vendor Aggregate Data (RC 2026) |
+| **Utilities / Education** | Trial-friendly | Trial users generate 50.4% more 12-mo LTV (Education) | Trial strongly recommended | Vendor Aggregate Data (Adapty 2026) |
+| **AI apps** | 59.8% monthly | Higher pricing tolerated | $20/mo normalized by ChatGPT, churn 30% faster | Vendor Aggregate Data (RC 2026) |
+| **Photo & Video** | Mixed | Varies | Higher refund rates in APAC (14.1%) | Vendor Aggregate Data (Adapty 2026) |
 
 ---
 
 ## PHASE 3: SCREEN DESIGN
 
-Design the screen after the strategy is clear.
+### Screen framework (4 blocks)
 
-### Paywall screen framework
+**1. Value block:** headline + optional subheadline + 3-5 benefit bullets. Value-led > feature-led. Provide 2+ copy options including short (3-5 word) variants. Feature lists acceptable for settings/tech audiences.
 
-A strong paywall usually has 4 blocks:
+**2. Pricing block:** 2-3 plans, clear selected state, savings only if math is verifiable. Critical: billed amount most prominent (**Apple Rule**), billing period clear, trial terms if applicable, per-week breakdown subordinate to actual price.
 
-### 1. Value block
-Include:
-- headline
-- optional subheadline
-- 3–5 benefit bullets
+**3. CTA block:** matches the offer. "Start free trial", "Subscribe", "Unlock Premium". Visually dominant.
 
-Guidelines:
-- write in simple language
-- lead with the user outcome
-- keep bullets concrete and skimmable
-- prefer "what this helps you do" over technical feature names
+**4. Trust/legal block:** restore purchases, terms, privacy, auto-renewal terms, cancel instructions. Ratings must be real.
 
-Good (value-led, short):
-- Save time with instant analysis → or: "Instant analysis"
-- Spot the best option nearby → or: "Find the best nearby"
-- Keep your history synced → or: "Your data, always synced"
+### Screen templates
 
-Weak (feature-led):
-- Unlimited scans
-- Advanced engine
-- Premium toolkit
+Templates A-F from v2.0 remain. See SCREEN TEMPLATES section below.
 
-Note: feature lists can work for certain placements (e.g., settings upgrade prompt where the user already knows the app) and for technical audiences. But for most paywalls — especially onboarding and limit-hit — value-led copy outperforms. When recommending copy rewrites, provide **at least 2 options** per bullet, including a short variant (3–5 words).
+---
 
-### 2. Pricing block
-Include:
-- 2–3 selectable plans
-- clear selected state
-- recommended badge if justified
-- trial / no-trial state
-- savings text only if mathematically true
+## NEW PAYWALL TYPES
 
-Critical rules for iOS:
-- show the **full billed amount** clearly — this must be the **most prominent** pricing element
-- show the **billing period** clearly
-- show **what the user gets**
-- if there is a trial, show **trial length** and **price after trial** clearly
-- if you show an equivalent weekly/monthly price for an annual plan, keep it **subordinate** in size and position to the actual billed amount
-- minimum ~16pt font for price/billing *(field observation — not an official Apple rule, but apps with smaller pricing text see higher rejection rates per RevenueCat/RevenueFlo reports)*
+### Metered Paywall
+**Apple Rule:** documented as valid subscription-acquisition model.
+N free actions/period, then gated. Best for: news, learning, AI tools, utilities.
+```
+You've used 3 of 3 free [actions] this [period]
+[Progress bar at 100%]
 
-### 3. CTA block
-Guidelines:
-- CTA should clearly match the offer
-- examples: "Start free trial", "Continue", "Unlock Premium"
-- avoid vague hype unless it fits the brand
-- keep the CTA visually dominant
-- if the screen is long, use a fixed footer or sticky CTA area
+Unlimited [actions] with Premium
+[CTA: "Upgrade"]  [Wait until next period]
+```
 
-### 4. Trust and legal block
-Include:
-- restore purchases or sign-in path for existing subscribers
-- terms of use
-- privacy policy
-- subscription terms / trial terms / auto-renewal disclosure
-- how to cancel
-- optional trust signals: ratings, review count, support contact, "cancel anytime" when true
+### Reverse Trial
+**Operator Insight:** RevenueCat recommends for low-intent users.
+Full premium access for N days, then revert to free. Not a StoreKit free trial — the app manages it.
+```
+[Premium badge: "Your premium trial — 3 days left"]
 
-Guidelines:
-- keep it concise but visible
-- ratings/reviews must be real
-- badges like "Best Value" or "Most Popular" should not contradict the actual offer logic
-- concrete savings usually beat vague promotional language when truthful
+[Show premium features in use]
 
-### Optional social proof
-Use when it helps reduce doubt.
+[CTA: "Keep Premium"]  [Continue with Free when trial ends]
+```
 
-Examples:
-- real App Store rating and review count
-- real testimonial that matches the user's segment
-- credible proof of product quality or scale
+### One-Time Unlock / Pass
+**Operator Insight:** useful for low-intent users alongside subscription.
+Export, report, route, AI action, premium tool, 7-day pass.
+```
+[Feature preview]
 
-Avoid:
-- fake counters
-- stock testimonials that sound invented
-- proof that is unrelated to the product's real value
+Unlock [action] — one time
+[Price: $X.XX]
 
-### Contextual mini-paywalls / feature gates
-For premium features, the paywall can be shorter:
-- one headline
-- 2–3 bullets about the blocked value
-- one clear CTA
-- one dismiss action
+[Or: Subscribe for unlimited access]
+```
 
-Explain what unlocks **right now**, not the whole app.
+### Renewal-Risk / Churn-Save
+**Platform Capability:** App Store Server Notifications V2 provides `DID_CHANGE_RENEWAL_STATUS`.
+When user turns off auto-renew or enters grace period.
+```
+[Headline: "Your subscription ends [date]"]
+
+[What they'll lose]
+[Promotional offer to stay — use Apple Promotional Offers]
+
+[CTA: "Keep My Subscription"]  [Let it expire]
+```
+**Apple Rule:** Billing Grace Period and system-provided sheet available for failed renewals.
+
+### Intent-Tiered Paywall
+**Operator Insight:** RevenueCat "context is the hidden third dimension"; Superwall demand score.
+Show different paywalls to high-intent vs low-intent users.
+- High intent (tapped premium feature): full paywall, annual-first
+- Low intent (browsing, first session): soft prompt, weekly/one-time option
+- Returning non-converter: discount offer
 
 ---
 
 ## SCREEN TEMPLATES
 
-Use these as starting points. Adapt to each app's design system and context. Every template is a **Pattern** — test before assuming it works for your app.
-
-### Template A: Post-Onboarding Hard Paywall (Full Screen)
+### Template A: Post-Onboarding Hard Paywall
 ```
-[Close X — top-left or top-right, visible immediately]
-
-[Social proof: App Store rating + review count]
-
-[Personalized headline based on quiz/segment]
-[Subheadline with stat or timeframe]
-
-[3–5 personalized benefits with checkmarks]
-
+[Close X — visible immediately]
+[Social proof: rating + count]
+[Personalized headline]  [Subheadline]
+[3–5 benefits]
 [Plan cards — 2-3 options]
-  [Annual plan — "Best Value" badge — $XX.XX/year — trial if applicable]
-  [Weekly/Monthly plan — $XX.XX/period]
-
-[CTA: "Start Free Trial" or "Continue"]
-[Not now / Continue with Free]
-
-[Auto-renewal terms · Cancel anytime · Terms · Privacy · Restore Purchases]
+[CTA]  [Not now]
+[Terms · Privacy · Restore]
 ```
 
 ### Template B: Feature Gate (Contextual Modal)
 ```
-[Feature icon or preview image]
+[Feature icon/preview]
 [Headline: "Unlock [Feature] to [Benefit]"]
-
-[2–3 benefit bullets specific to THIS feature]
-
-[CTA: "Upgrade to Pro"]
-[Maybe Later]
+[2–3 bullets for THIS feature]
+[CTA]  [Maybe Later]
 ```
 
-### Template C: Usage Limit Paywall
+### Template C: Usage Limit / Metered
 ```
-[Progress indicator at 100%]
-You've reached your free limit
-
+[Progress at 100%]  You've reached your free limit
 Free: [limit] | Pro: Unlimited
-
-[Show what they've built — make it feel valuable]
-
 [CTA: "Keep Going — Upgrade"]
-[Alternative: delete/reset to continue free]
 ```
 
 ### Template D: Transaction Abandon Recovery
 ```
-[Shown when user cancels payment sheet]
-
-[Headline: "Still thinking it over?"]
-
-[Show what they almost got]
-[Alternative plan options or discount if appropriate]
-
-[CTA: "Try a Different Plan" or "Claim Offer"]
-[No thanks]
+[Soft prompt — banner/toast/half-sheet, NOT full paywall]
+[Alternative plan or discount]
+[CTA]  [No thanks]
 ```
+**Field Report:** two full paywalls back-to-back has led to rejections. Use intermediate screen.
 
-**Caution — transaction abandon review risk:**
-*(Field observation, not an official Apple rule. Based on rejection reports from RevenueCat, Superwall, and developer communities.)*
-- Showing two full paywalls back-to-back has led to rejections for aggressive monetization. Use an intermediate screen (banner, toast, half-sheet) rather than a second full-screen paywall.
-- Keep the experience respectful, do not show repeatedly.
-- Most apps that do this successfully use a soft prompt, not a full paywall.
-
-### Template E: Post-Close Welcome Offer (Banner/Toast)
+### Template E: Post-Close Welcome Offer
 ```
-[Appears after dismissing main paywall]
-
+[Banner after dismissing main paywall]
 Special offer: XX% off annual plan
 [See Offer]  [Dismiss]
 ```
 
-**Pattern:** Post-close welcome offers are common across every major category in 2026 (Adapty data). Easy to implement, often 10-20% revenue boost. **Hypothesis to test** per app.
-
-### Template F: Win-Back Paywall (Lapsed Subscribers)
+### Template F: Win-Back (Lapsed Subscribers)
 ```
-[Headline: "Welcome back"]
-
-[2–3 new features added since they left]
-[Special re-subscription offer — use Apple win-back offers on iOS 18+]
-
-[CTA: "Restart My Subscription"]
-[Not now]
+[Welcome back]  [New features since they left]
+[Apple win-back offer (iOS 18+)]
+[CTA: "Restart"]  [Not now]
 ```
+**Platform Capability:** use Apple's native Win-Back Offer type where possible.
 
-**Rule:** Use Apple's native win-back offer type (iOS 18+) where possible — Apple surfaces these automatically.
+---
+
+## LIFECYCLE MONETIZATION
+
+A paywall system doesn't end at first purchase. Cover the full subscription lifecycle.
+
+| Stage | Trigger | Action | Evidence |
+|-------|---------|--------|----------|
+| **First purchase** | Onboarding / feature gate / limit | Main paywall | See Placement taxonomy |
+| **Post-close recovery** | Dismissed without converting | Discounted offer (banner) | Vendor Aggregate Data: 10-15% ARPU lift (Adapty 2026) |
+| **Transaction abandon** | Cancelled payment sheet | Soft prompt with alternative | Vendor Case Study: 17% revenue (Superwall, 18 co.) |
+| **Trial-to-paid** | Trial ending | Reminder / value reinforcement | Platform Capability: StoreKit provides notifications |
+| **Renewal risk** | Auto-renew turned off | Promotional offer to retain | Platform Capability: Server Notifications V2 |
+| **Billing issue** | Failed payment | Grace period UX + retry | Platform Capability: Billing Grace Period |
+| **Price increase** | Price change pushed | Consent flow | Platform Capability: price increase consent sheet |
+| **Win-back** | Lapsed subscriber returns | Win-back offer | Platform Capability: Apple Win-Back (iOS 18+) |
+| **Refund/support** | Refund request or complaint | Support surface, consumption data | Platform Capability: consumption API, refund feedback |
 
 ---
 
 ## DISCOUNT & PROMOTIONAL OFFERS
 
-Discount offers are a distinct paywall type with their own rules. Do not conflate them with the main paywall.
-
-### When to use discount offers
-
-| Trigger | When | Who sees it |
-|---------|------|-------------|
-| **Post-close welcome offer** | After user dismisses main paywall | Non-converters only |
-| **Session-start offer** | Returning user who hasn't converted | Non-converters, N+1 session |
-| **Transaction abandon** | User cancelled payment sheet | High-intent non-converters |
-| **Win-back** | Lapsed subscriber returns | Former subscribers |
-| **Seasonal/holiday** | Black Friday, New Year, etc. | All or segmented |
-| **Push marketing** | Push notification deep-link | Targeted segment |
+Discount offers are a distinct paywall type. Do not conflate with the main paywall.
 
 ### Trial vs no-trial on discount offers
 
-**Key insight:** "Try for free" and "Get X% off" target different psychology.
-
-- **"Try for free"** — removes risk. Best for new users with low product awareness (onboarding).
-- **"Get X% off"** — creates urgency, anchors value. Best for users who already know the product but hesitated on price (post-close, returning users, win-back).
-
-**Data:**
-- Trial subscribers retain **1.4–1.7x better** than direct buyers (Adapty, Mar 2026). **Pattern.**
-- In Productivity and Lifestyle, direct buyers have higher 12-month LTV than trial users. **Pattern — category-dependent.**
-- Combining trial + discount ("3-day free trial, then 60% off first year") can work but requires careful compliance with Apple's Introductory Offer system. **Hypothesis to test.**
-- Removing trial from a discount offer removes friction-reduction. Only do this when the user already demonstrated high intent (e.g., returned after dismissal, power user). **Pattern.**
+- **"Try for free"** — removes risk. Best for new users with low product awareness. **Operator Insight.**
+- **"Get X% off"** — creates urgency, anchors value. Best for users who already know the product. **Operator Insight.**
+- Trial subscribers retain 1.4-1.7x better than direct buyers. **Vendor Aggregate Data** (Adapty 2026). Category-dependent — Productivity/Lifestyle direct buyers have higher 12-mo LTV.
 
 ### Discount depth
 
-| Depth | Use case | Risk |
-|-------|----------|------|
-| 20–30% | Seasonal, re-engagement | Low LTV risk |
-| 30–40% | Standard post-close, holiday | Moderate |
-| 50–60% | Annual welcome offer, win-back | Watch LTV erosion |
-| 60%+ | Aggressive win-back | High conversion but churn risk |
+| Depth | Use case | Risk | Evidence |
+|-------|----------|------|----------|
+| 20-30% | Seasonal, re-engagement | Low LTV risk | Operator Insight |
+| 30-40% | Standard post-close, holiday | Moderate | Operator Insight (RC holiday guide) |
+| 50-60% | Annual welcome, win-back | Watch LTV erosion | Operator Insight |
+| 60%+ | Aggressive win-back | High churn risk | Operator Insight |
 
-**Rule:** 90% of subscriptions sell at full price (Adapty, Mar 2026). Discounts work when timed to catch non-converters — not broadcast to everyone.
+**Vendor Aggregate Data:** 90% of subscriptions sell at full price (Adapty 2026).
 
 ### Compliance for discount offers
 
-**"X% OFF" with only one plan** — Apple doesn't explicitly forbid it, but the discount needs a **legitimate reference price**. If there's no higher-priced plan to compare against, "63% OFF" has no honest basis. Safer approaches:
-- Compare to a second plan you actually sell (monthly vs annual savings)
-- Use Apple's Introductory Offer system (handles original vs offer price natively)
-- Tie discount to a specific event ("Holiday offer: first year at $X")
+- **"X% OFF" needs legitimate reference price.** If no higher-priced plan visible, the discount has no honest basis. Show the reference product or tie to event. **Apple Rule** (misleading marketing).
+- **"LOWEST PRICE" / "LIMITED TIME"** — fake urgency if price doesn't change. **Apple Rule.**
+- **Savings math must be verifiable.** Both prices real, current, visible. **Apple Rule.**
 
-**"LOWEST PRICE" / "LIMITED TIME"** — if the price never changes, this is fake urgency. Apple can flag under misleading marketing. Say "best value" when comparing plans, not absolute price claims. **Rule.**
+---
 
-**Savings math** — must be verifiable. If showing "Save 63%", the math must work: `(reference_price - offer_price) / reference_price = 63%`. Both prices must be real, current, and visible. **Rule.**
+## APPLE OFFER TYPES (2026)
 
-### Post-close welcome offer implementation
+| Offer Type | Target | Limit | Min iOS | Evidence |
+|-----------|--------|-------|---------|----------|
+| Introductory Offer | New subscribers | 1 per group per customer | iOS 11.2 | Platform Capability |
+| Promotional Offer | Existing/former subscribers | Up to 10 per subscription | iOS 12.2 | Platform Capability |
+| Offer Codes | Anyone with a code | 1M codes/quarter | iOS 14 | Platform Capability |
+| Win-Back Offers | Lapsed subscribers | Multiple configurable | iOS 18 | Platform Capability |
 
-**Pattern** — standard across every major category in 2026 (Adapty). Expected impact: 10–15% ARPU lift.
-
-Structure:
-1. User dismisses main paywall → log `paywall_dismissed`
-2. Show banner/toast with time-limited discount (24h typical)
-3. Banner links to a separate discount paywall placement
-4. Do NOT put the discount on the main paywall — this trains all users to expect lower price
-
-### Win-back offers on iOS 18+
-
-**Rule:** Use Apple's native Win-Back Offer type where possible.
-- Displayed automatically in Settings > Subscriptions, App Store, and in-app
-- Built-in eligibility rules (unlike Promotional Offers where you build targeting logic)
-- "Wait Between Offers" setting controls frequency
-- StoreKit Message API (`.winBackOffer`) is the fastest implementation path
+WWDC 2025: Offer codes expanded to all IAP types. Promotional offers require JWS auth (back-deployed iOS 15).
 
 ---
 
 ## PHASE 4: TESTING PLAN
 
-Treat testing as part of the product, not decoration.
+Priority order: placement/gate type → plan count/duration → trial structure → localization → price → copy/visual.
 
-### What to test first
-
-Use this priority order unless the app context clearly suggests otherwise:
-
-1. **Placement / gate type**
-2. **Plan count and plan duration**
-3. **Trial structure**
-4. **Localization**
-5. **Price**
-6. **Copy and visual layout**
-
-Nuance:
-- If the app already sells in multiple languages or markets, localization moves much higher.
-- Price tests can lift revenue even when conversion does not improve.
-- Copy-only and visual-only tests are often overused.
-
-### Testing rules
-
-- Change one major thing at a time unless the test is intentionally structural.
-- Define one primary metric and at least one guardrail metric.
-- Choose winners by **revenue / LTV / renewal quality**, not just trial starts.
-- Run the test long enough to observe trial completion and at least the first renewal behavior when relevant.
-- Use category-specific benchmarks when available.
-
-### Useful metrics
-
-Track:
-- paywall impressions
-- impression rate by placement
-- plan selected
-- purchase started
-- purchase completed
-- restore started / restore completed
-- trial start
-- trial to paid
-- D7 / D30 / D90 revenue and LTV
-- refund / cancellation / early churn signals
-- dismiss rate
+- Change one major thing at a time.
+- Primary metric + guardrail metric.
+- Choose winners by revenue/LTV/renewal quality, not just trial starts.
+- Minimum 200 subscriptions per variant for significance. **Vendor Aggregate Data** (Adapty).
 
 ---
 
 ## PHASE 5: IMPLEMENTATION
 
-Build the strategy in the app using the app's existing architecture.
+Build using the app's existing architecture. Do not introduce new patterns unless necessary.
 
-### 1. Understand the technical setup first
-
-Identify:
-- framework: SwiftUI / UIKit / Flutter / React Native / Kotlin Multiplatform / etc.
-- billing layer: StoreKit 2 / RevenueCat / Adapty / custom
-- navigation system
-- state management
-- remote config / feature flag system
-- analytics provider
-
-Do not introduce a new architecture unless necessary.
-
-### 2. Validate the billing foundation
-
-Check:
-- product IDs match store configuration
-- plans are in the correct subscription group(s)
-- products are approved / submitted correctly for review
-- intro offers are configured properly
-- restore purchases works
-- entitlement refresh works after purchase and restore
-- already-subscribed users do not get stuck behind the paywall
-
-### 3. Implement the paywall layer
-
-For each paywall:
-- build the screen/component
-- load products and render pricing safely
-- handle purchase success / failure / cancel
-- handle restore
-- handle already-entitled users
-- handle network/product-loading failures
-- log analytics events
-- respect safe areas and smaller screens
-
-### 4. Use provider capabilities instead of hardcoding when possible
-
-#### RevenueCat
-Prefer:
-- **Offerings** to control which products show remotely
-- **Paywalls** or custom UI with Offering metadata where appropriate
-- preferred locale override if the app supports a language different from device locale
-- explicit default package selection and clear selected-state styling
-
-#### Adapty
-Prefer:
-- **paywalls / remote config** for mutable copy, media, and layout data
-- paywall localization instead of hardcoded strings when possible
-- store tag variables for localized product price / duration / offer text
-- custom tags only for data the app truly owns
-
-### 5. Subscription state handling
-
-Make sure the app correctly handles:
-- active subscription
-- grace period / billing retry if applicable
-- expired subscription
-- restore without entitlement
-- lapsed subscriber eligible for offer or win-back
-- purchase while already subscribed
-
-### 6. Analytics events
-
-At minimum log:
-- paywall_impression
-- paywall_dismissed
-- placement_id
-- variant_id
-- plan_selected
-- purchase_started
-- purchase_completed
-- purchase_failed
-- restore_started
-- restore_completed
-- trial_started
-- converted_to_paid
-
-Also capture where possible:
-- locale
-- acquisition source
-- onboarding segment
-- provider product / package id
+1. **Technical setup:** identify framework, billing layer, navigation, state management, remote config, analytics.
+2. **Billing foundation:** product IDs match store, correct subscription group, intro offers configured, restore works, entitlement refresh works.
+3. **Paywall layer:** load products, handle purchase/failure/cancel/restore, handle already-entitled users, handle network failures, log analytics, respect safe areas.
+4. **Provider capabilities:** use Adapty/RevenueCat remote config and paywall builders where possible.
+5. **Subscription state:** active, grace period, expired, restore without entitlement, lapsed, purchase while subscribed.
+6. **Analytics events:** paywall_impression, paywall_dismissed, placement_id, variant_id, plan_selected, purchase_started/completed/failed, restore_started/completed, trial_started, converted_to_paid.
 
 ---
 
-## PHASE 6: iOS COMPLIANCE CHECKLIST
+## iOS COMPLIANCE CHECKLIST
 
-Before shipping, verify all of this:
+### Apple Rules (published, rejection risk):
 
-### Must have (rejection risk if missing):
+- [ ] Clear description of what user gets (3.1.2(c))
+- [ ] Subscription name and duration visible (3.1.2(c))
+- [ ] Full renewal price prominent (most prominent pricing element)
+- [ ] Trial duration and post-trial price shown if trial offered (3.1.2(a))
+- [ ] Restore Purchases accessible
+- [ ] Terms of Use link in-app
+- [ ] Privacy Policy link in-app
+- [ ] No misleading savings math
+- [ ] No fake urgency/scarcity
+- [ ] No fake reviews/ratings
+- [ ] Existing paid users keep previously purchased access
 
-- [ ] Full subscription price displayed as the **most prominent** pricing element
-- [ ] Subscription name and duration visible
-- [ ] Billing frequency / renewal terms clearly stated
-- [ ] Free trial duration and post-trial price clearly shown (if trial offered)
-- [ ] How to cancel the subscription explained
-- [ ] Restore Purchases button visible (paywall or settings)
-- [ ] Terms of Use link accessible in-app
-- [ ] Privacy Policy link accessible in-app
-- [ ] Dismiss/close button visible and easily tappable (hard paywalls)
-- [ ] Auto-renewal disclosure text present *(Note: as of April 2026, Apple is not actively rejecting apps without this if other billing terms are clear. Include it as best practice, but it is not currently a guaranteed rejection trigger.)*
-- [ ] Existing paid users do not lose previously purchased core access if the model changed
+### Field Reports (not official Apple rules, high review risk):
 
-### Must NOT have (causes rejection or removal):
-
-- [ ] Toggle paywall pattern on iOS (killed Jan 2026, Guideline 3.1.2)
-- [ ] Fake countdown timer not tied to real offer expiry
-- [ ] Fake scarcity ("Only 2 spots left!" when false)
-- [ ] Misleading savings math
-- [ ] Weekly/monthly equivalent price shown larger than actual billed amount
-- [ ] Hidden or delayed close button *(field observation: >5s delay correlates with higher rejection rates per RevenueCat/RevenueFlo reports, not an official Apple threshold)*
-- [ ] Guilt-trip decline copy ("No, I don't want to be healthy")
-- [ ] Fake reviews, fake ratings, fake user counts
-- [ ] Preselecting the expensive plan deceptively
-- [ ] Missing restore and legal links
+- [ ] Toggle paywall — mass rejections since Jan 2026 (Adapty/RC reports)
+- [ ] Delayed close button >5s — higher rejection correlation (RevenueFlo 2026)
+- [ ] Pricing font too small — ~16pt threshold observed (RevenueFlo 2026)
+- [ ] Two full paywalls back-to-back — aggressive monetization flag (developer reports)
+- [ ] Guilt-trip decline copy — high rejection correlation
+- [ ] Auto-renewal disclosure missing — best practice, not currently guaranteed rejection (as of April 2026)
 
 ---
 
-## BENCHMARK REFERENCE (Updated April 2026)
+## BENCHMARK REFERENCE (April 2026)
 
-All benchmarks are **directional** — use as orientation, not promises. Verify current source before citing to users.
+All benchmarks are directional. Each carries source, date, and evidence level. Full source manifest: `sources.json`.
 
-### Conversion Rates
+### Conversion Rates — Vendor Aggregate Data
 
 | Metric | Value | Source | Date |
 |--------|-------|--------|------|
-| Install → Trial (global avg) | 10.9–11.2% | Adapty | Mar 2026 |
+| Install → Trial (global) | 10.9-11.2% | Adapty (16K apps) | Mar 2026 |
 | Install → Trial (North America) | 14.5% | Adapty | Mar 2026 |
-| Trial → Paid (global) | 25.6–27.8% | Adapty/RC | Mar 2026 |
-| Trial → Paid (Health & Fitness) | 35.0–39.9% | Adapty/RC | Mar 2026 |
-| Download → Paid, hard paywall (D35) | 10.7% | RevenueCat | Mar 2026 |
-| Download → Paid, freemium (D35) | 2.1% | RevenueCat | Mar 2026 |
-| Hard paywall vs freemium multiple | ~5x | RC/Adapty | Mar 2026 |
-| Day 0 share of all trial starts | 80–90% | Adapty/RC | Mar 2026 |
-| Day 0 share of all purchases | ~50% | RevenueCat | Mar 2026 |
+| Trial → Paid (global) | 25.6-27.8% | Adapty/RC | Mar 2026 |
+| Trial → Paid (H&F) | 35.0-39.9% | Adapty/RC | Mar 2026 |
+| Hard paywall D35 conversion | 10.7% | RC (115K apps) | Mar 2026 |
+| Freemium D35 conversion | 2.1% | RC | Mar 2026 |
+| Day 0 share of trial starts | 80-90% | Adapty/RC | Mar 2026 |
 
-### Trial Length Impact
+### Trial Length — Vendor Aggregate Data
 
-| Trial Length | Median Trial-to-Paid | Source | Date |
-|-------------|---------------------|--------|------|
-| Under 4 days | 25.5% | RevenueCat | Mar 2026 |
-| 5–9 days | 37.4% | RevenueCat | Mar 2026 |
-| 17–32 days | 42.5% | RevenueCat | Mar 2026 |
+| Length | Median Trial-to-Paid | Source | Date |
+|--------|---------------------|--------|------|
+| <4 days | 25.5% | RC | Mar 2026 |
+| 5-9 days | 37.4% | RC | Mar 2026 |
+| 17-32 days | 42.5% | RC | Mar 2026 |
 
-Note: short trials convert fewer people but weekly+short-trial produces highest 12-month LTV ($49–54). Both metrics are valid — depends on what you optimize for.
-
-### Revenue Per Install
+### Revenue Per Install — Vendor Aggregate Data
 
 | Metric | Value | Source | Date |
 |--------|-------|--------|------|
-| Hard paywall RPI (Day 14) | $2.32 | RevenueCat | Mar 2026 |
-| Hard paywall RPI (Day 60) | $3.09 | RevenueCat | Mar 2026 |
-| Freemium RPI (Day 60) | $0.38 | RevenueCat | Mar 2026 |
-| Hard paywall vs freemium RPI | ~8x | RevenueCat | Mar 2026 |
+| Hard paywall RPI (D14) | $2.32 | RC | Mar 2026 |
+| Hard paywall RPI (D60) | $3.09 | RC | Mar 2026 |
+| Freemium RPI (D60) | $0.38 | RC | Mar 2026 |
 
-### Pricing Medians (Global, 2025 data)
+### Pricing Medians — Vendor Aggregate Data
 
-| Period | Median | Dominant Range | Source | Date |
-|--------|--------|---------------|--------|------|
-| Weekly | $5.99–$7.48 | $4.99–$6.99 | Adapty/RC | Mar 2026 |
-| Monthly | $10.00–$12.99 | $7.99–$9.99 | Adapty/RC | Mar 2026 |
-| Annual | $34.80–$38.42 | $29.99–$39.99 | Adapty/RC | Mar 2026 |
+| Period | Median | Range | Source | Date |
+|--------|--------|-------|--------|------|
+| Weekly | $5.99-$7.48 | $4.99-$6.99 | Adapty/RC | Mar 2026 |
+| Monthly | $10.00-$12.99 | $7.99-$9.99 | Adapty/RC | Mar 2026 |
+| Annual | $34.80-$38.42 | $29.99-$39.99 | Adapty/RC | Mar 2026 |
 
-### Plan Architecture by Category
+### A/B Test Win Rates — Vendor Aggregate Data
 
-| Category | Dominant Plan Type | Source | Date |
-|----------|-------------------|--------|------|
-| Gaming | 82% weekly | RevenueCat | Mar 2026 |
-| Productivity | 77% monthly | RevenueCat | Mar 2026 |
-| Health & Fitness | 68% annual | RevenueCat | Mar 2026 |
-| AI apps | 59.8% monthly | RevenueCat | Mar 2026 |
-
-### Revenue Share by Plan Type
-
-| Plan Type | Revenue Share (2025) | vs 2023 | Source | Date |
-|-----------|---------------------|---------|--------|------|
-| Weekly | 55.5% | was 43.3% | Adapty | Mar 2026 |
-| Annual | declining share | was dominant | Adapty | Mar 2026 |
-| H&F exception | 60.6% annual | category outlier | Adapty | Mar 2026 |
-
-### Retention (12-Month)
-
-| Plan | Retention | Trend | Source | Date |
-|------|-----------|-------|--------|------|
-| Annual | 44.1% | down from 47.1% | RevenueCat | Mar 2026 |
-| Monthly | 17.0% | down from 18.8% | RevenueCat | Mar 2026 |
-| Weekly | 3.4% | down from 4.2% | RevenueCat | Mar 2026 |
-| Hard paywall vs freemium (annual) | ~equal (27-28%) | no advantage | RevenueCat | Mar 2026 |
-
-### LTV Data
-
-| Metric | Value | Source | Date |
-|--------|-------|--------|------|
-| Weekly + trial, 12-month LTV | $49–$54 | Adapty | Mar 2026 |
-| Weekly, no trial, 12-month LTV | $7.40 | Adapty | Mar 2026 |
-| Median RLTV per payer (1 year) | $23 | RevenueCat | Mar 2026 |
-| Top 10% RLTV per payer | >$74 | RevenueCat | Mar 2026 |
-| H&F install LTV | $1.21 | Adapty | Mar 2026 |
-
-### A/B Test Win Rates
-
-| Experiment Type | LTV Win Rate | Source | Date |
-|----------------|-------------|--------|------|
+| Experiment | LTV Win Rate | Source | Date |
+|-----------|-------------|--------|------|
 | Localization | 62.3% | Adapty | Mar 2026 |
 | Trial structure | 59.6% | Adapty | Mar 2026 |
 | Plan duration | 58.7% | Adapty | Mar 2026 |
 | Number of plans | 57.1% | Adapty | Mar 2026 |
 | Price changes | 45.5% | Adapty | Mar 2026 |
-| Visual/copy changes | 34.6% | Adapty | Mar 2026 |
+| Visual/copy | 34.6% | Adapty | Mar 2026 |
 
-### Superwall Aggregate Data
+### Retention (12-Month) — Vendor Aggregate Data
 
-| Metric | Value | Source | Date |
-|--------|-------|--------|------|
-| Transaction abandon revenue share | 17% of total (18 companies) | Superwall | Aug 2024 |
-| Transaction abandon conversion | 5–22% | Superwall | Aug 2024 |
-| 2 products vs 1 product on paywall | +61% conversion | Superwall (32M views, 15 apps) | 2025 |
-| 3 products vs 2 products | +44% additional | Superwall (32M views) | 2025 |
-| Annual plan pre-selection | +70% annual revenue (single app) | Superwall/Stormy | 2026 |
+| Plan | Retention | Source | Date |
+|------|-----------|--------|------|
+| Annual | 44.1% | RC | Mar 2026 |
+| Monthly | 17.0% | RC | Mar 2026 |
+| Weekly | 3.4% | RC | Mar 2026 |
 
-### Regional Data
+### Superwall Data — Vendor Case Study / Aggregate Study
 
-| Region | D35 Download-to-Paid | Day 60 RPI | Source | Date |
-|--------|---------------------|------------|--------|------|
-| North America | 2.6% | $0.57 | RevenueCat | Mar 2026 |
-| Western Europe | 2.0% | — | RevenueCat | Mar 2026 |
-| APAC | 1.7% | $0.42 | RevenueCat | Mar 2026 |
-| Latin America | 1.5% | — | RevenueCat | Mar 2026 |
-| India/SEA | 1.4% | — | RevenueCat | Mar 2026 |
-
-European apps charge **29–39% more** than North American apps. European subscribers accept higher prices AND stay longer.
-
-### Market Reality
-
-| Metric | Value | Source | Date |
-|--------|-------|--------|------|
-| Top 10% apps capture | 94.5% of all revenue | Adapty | Mar 2026 |
-| 57.7% of new apps | never cross $1,000 total | Adapty | Mar 2026 |
-| Apps with 50+ experiments | 18.7x more revenue | Adapty | Mar 2026 |
-| Animated vs static paywalls | 2.9x conversion | Adapty | Mar 2026 |
-| Full-price subscriptions | 90% of all subs | Adapty | Mar 2026 |
+| Metric | Value | Scope | Source | Date |
+|--------|-------|-------|--------|------|
+| Transaction abandon revenue | 17% of total | 18 companies, 525K users | Superwall | Aug 2024 |
+| 2 vs 1 products | +61% conversion | 32M views, 15 apps | Superwall | 2025 |
+| 3 vs 2 products | +44% additional | 32M views | Superwall | 2025 |
 
 ---
 
 ## DESIGN PATTERNS REFERENCE
 
-These patterns are documented from top-performing apps. Each is labeled by evidence level.
+| Pattern | Evidence Level | Claim | Source |
+|---------|---------------|-------|--------|
+| Trial Timeline | Vendor Case Study | +23% conversion, -55% complaints (Blinkist, single company) | Purchasely blog |
+| Personalized Headline | Vendor Aggregate Data | 15%+ lift (Adapty platform data, methodology not open) | Adapty 2026 |
+| Animated Paywall | Vendor Aggregate Data | 2.9x vs static (Adapty platform data, methodology not open) | Adapty 2026 |
+| "Building Your Plan" loader | Operator Insight | No published data, widely adopted by Noom/Flo/BoldVoice | Industry observation |
+| Contextual Feature Gate | Operator Insight | Strava uses extensively, no published conversion data | Industry observation |
+| Multi-Page Paywall | Hypothesis | +27% Speak4Me, but Stompers found single-page won. Conflicting. | Superwall |
+| "Design Your Trial" | Hypothesis | Superwall claims "winning nearly every time", methodology not published | Superwall 2025 |
+| Anchor Pricing | Operator Insight | Universal adoption, no isolated uplift data | Industry standard |
+| Trial-on-Annual Only | Operator Insight | "One of the most consistent patterns" (Adapty), no isolated data | Adapty 2026 |
 
-### "Building Your Plan" Loading Screen — Pattern
-After onboarding quiz, show 3–5s loading/analysis screen with social proof before paywall. Makes personalization feel earned. Used by Noom, Flo, BoldVoice.
+---
 
-### Trial Timeline / "Honest Paywall" — Pattern
-Show step-by-step visual timeline: "Today: Full Access → Day 5: Reminder → Day 7: You're Charged." Blinkist reported +23% conversion, -55% complaints (single company case study via Purchasely blog, not independently verified).
+## CURRENT MARKET PATTERNS (April 2026)
 
-### Personalized Headline from Quiz Data — Pattern
-Use onboarding answers to set headline and benefit order. Adapty 2026 report claims 15%+ lift (vendor data from their own app base, not open methodology). Used by Headspace, Flo, Noom.
+Repeating patterns from top apps, per Adapty/RevenueCat/Superwall 2026 data. All **Vendor Aggregate Data** unless noted.
 
-### Contextual Feature Gate — Pattern
-Short modal per gated feature with 1–3 value bullets and one CTA. Different copy per feature. Strava does this extensively.
-
-### Locked Feature Preview — Pattern
-Show blurred/partial preview of premium content behind modal. Calm pulls locked content into paywall header.
-
-### Multi-Page Paywall — Hypothesis to test
-Spread value proposition across 3–4 steps. Speak4Me: +27% (single app). But Stompers found single-page won for them. Test per app.
-
-### "Design Your Trial" — Hypothesis to test
-Let users choose trial terms. Superwall claims "winning nearly every single time" but methodology not published.
-
-### Anchor Pricing — Pattern
-Show 2–3 plans with annual displaying "Save X%" badge. Recommended plan visually dominant. Universal adoption.
-
-### Trial-on-Annual Only — Pattern
-Offer free trial exclusively on annual plan to shift behavior toward higher LTV. Adapty: "one of the most consistent patterns in top-performing apps."
+- Weekly plans = 55.5% of all app revenue (up from 43.3% in 2023). H&F exception: annual 60.6%.
+- Hard paywalls: ~5x conversion vs freemium, ~8x RPI. Same long-term retention.
+- 90% of subscriptions sell at full price. Discounts work for recovery, not as default.
+- Apps running 50+ experiments earn 18.7x more revenue (Adapty platform data — **Vendor Aggregate Data**, interpret with caution: correlation, not causation).
+- Top 10% of apps capture 94.5% of revenue.
+- European apps charge 29-39% more than North American. European subscribers stay longer.
 
 ---
 
 ## ANTI-PATTERNS
 
-Never recommend these as defaults:
-
-1. **Feature dump instead of value communication**
-2. **Long copy that repeats onboarding** when the user already understands the product
-3. **Testing only headline colors and CTA wording** before testing structure
-4. **Showing only a per-week breakdown** for an annual plan and hiding the actual billed amount
-5. **Fake urgency**
-6. **Countdown timers disconnected from real offer expiry**
-7. **Toggle paywalls on iOS**
-8. **Delayed or hidden close buttons**
-9. **Guilt-based decline text**
-10. **Fake reviews, fake ratings, fake user counts**
-11. **Preselecting the expensive plan deceptively**
-12. **Shipping without restore and legal links**
-13. **Assuming one benchmark fits every category**
-14. **Claiming a specific uplift as guaranteed**
-15. **Adding emotional "rituals" or gimmicks without evidence and product fit**
-
----
-
-## APPLE OFFER TYPES REFERENCE (2026)
-
-| Offer Type | Target | Payment Modes | Limit | Min iOS |
-|-----------|--------|---------------|-------|---------|
-| Introductory Offer | New subscribers only | Free trial, pay-as-you-go, pay-up-front | 1 per sub group per customer | iOS 11.2 |
-| Promotional Offer | Existing/former subscribers | Free trial, pay-as-you-go, pay-up-front | Up to 10 per subscription | iOS 12.2 |
-| Offer Codes | Anyone with a code | Free trial, pay-as-you-go, pay-up-front | 1M codes/quarter | iOS 14 |
-| Win-Back Offers | Lapsed subscribers | Free trial, pay-as-you-go, pay-up-front | Multiple configurable | iOS 18 |
-
-WWDC 2025: Offer codes expanded to all IAP types (consumables, non-consumables, non-renewing). Promotional offers now require JWS auth (back-deployed to iOS 15).
+1. Feature dump instead of value communication
+2. Testing copy/colors before testing structure
+3. Per-week breakdown larger than actual billed amount
+4. Fake urgency / countdown not tied to real expiry
+5. Toggle paywalls on iOS (Field Report: mass rejections Jan 2026)
+6. Delayed or hidden close buttons
+7. Guilt-based decline text
+8. Fake reviews/ratings/user counts
+9. Deceptive plan pre-selection
+10. Shipping without restore and legal links
+11. Assuming one benchmark fits every category
+12. Claiming specific uplift as guaranteed
+13. Emotional gimmicks without evidence and product fit
 
 ---
 
 ## DEFAULT OUTPUT FORMAT
 
-When helping the user, structure the answer like this:
-
 1. **Current state** — what the app is doing now
 2. **Main problem or opportunity** — plain language
-3. **Recommended monetization model** — hard / soft / hybrid
-4. **Recommended paywall structure** — what to show and where
-5. **Recommended screen content** — headline, benefits, pricing, CTA, trust block
-6. **Tests to run next** — in priority order
-7. **Implementation plan** — files, events, provider/config changes
-8. **iOS review risks** — anything that may trigger rejection
+3. **Recommended access model** — from taxonomy
+4. **Recommended placements** — from taxonomy
+5. **Recommended presentation** — from taxonomy
+6. **Screen content** — headline, benefits, pricing, CTA, trust
+7. **Tests to run** — priority order
+8. **iOS review risks** — Apple Rules + Field Reports
 
-Keep the answer practical.
-Do not drown the user in theory.
-Do not present a risky tactic as "best practice."
-**Do not repeat the same finding in multiple sections.** Each issue should appear once in the most relevant section, with a reference if needed elsewhere. Avoid duplicating content between the audit table, the tests section, and the recommendations.
+Each finding must carry its evidence level. Do not repeat findings across sections. Keep practical, not theoretical.
 
 ---
 
 ## DATA SOURCES
 
-Benchmark data and patterns are drawn from published reports and documentation by:
+| Source | Dataset | Date |
+|--------|---------|------|
+| Adapty | 16,000+ apps, $3B revenue | Mar 2026 |
+| RevenueCat | 115,000+ apps, $16B revenue | Mar 2026 |
+| Superwall | 100M+ monthly paywall views | 2024-2026 |
+| Apple | App Store Review Guidelines | Current |
 
-- **Adapty** — State of In-App Subscriptions 2026 (16,000+ apps, $3B revenue)
-- **RevenueCat** — State of Subscription Apps 2026 (115,000+ apps, $16B revenue)
-- **Superwall** — Paywall optimization data (100M+ monthly paywall views)
-- **Apphud** — Subscription analytics and A/B testing data
-- **Nami ML** — Paywall personalization and fatigue research
-- **Apple** — App Store Review Guidelines (Section 3.1), StoreKit documentation
-- **Sensor Tower** — State of Mobile 2025/2026 market data
-
-All benchmark data carries the source and date. Verify before citing as current.
+Full source manifest with every numeric claim: `sources.json`
