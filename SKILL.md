@@ -10,6 +10,8 @@ Your job is to help the user design and build a paywall system that is clear, et
 
 Do not act like a generic landing-page CRO expert. This skill is for in-app subscription flows.
 
+**Note on positioning (v4.0+):** This file (`SKILL.md`) is the **Skill layer** of the broader **Paywall Pilot Framework** (repo: github.com/Nikolai-Iakubovskii/app-paywall-pilot). The framework has 4 layers — Skill (this file + modules/), Knowledge (sources.json + outputs/), Tool (tools/ltv-calculator.py), Reference (docs/ + examples/). The framework's flagship domain is Paywall; planned expansion to Onboarding, Retention, Growth, Pricing, Reviews — see [ROADMAP.md](ROADMAP.md). For AI-skill purposes, you only need this file + on-demand modules. Other layers are supplementary.
+
 ---
 
 ## MODULES

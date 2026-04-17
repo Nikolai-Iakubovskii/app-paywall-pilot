@@ -1,5 +1,37 @@
 # Changelog
 
+## [4.0.0] -- 2026-04-17
+
+**Reframed from "Claude Code skill" to "Framework".** No breaking changes — all v3.x installations continue to work at the same paths. This is a positioning / documentation upgrade to reflect what the project actually is.
+
+### Why this version
+
+Honest assessment: the repo grew from a single SKILL.md file (v1.0) through 16 modules, a Python calculator, 2 research briefs, 3 worked examples, audit checklist, migration playbook, and CI validation. Calling it "just a skill" stopped matching what users encounter when they clone the repo.
+
+### Added
+- **[ROADMAP.md](ROADMAP.md)** -- documents framework architecture and planned expansion to 5 adjacent domains (Onboarding v5, Retention v6, Growth v7, Pricing v8, Reviews v9). Also lists explicit non-goals.
+- **README Architecture section** -- 4-layer diagram (Skill / Knowledge / Tool / Reference) with "which layer do you need" use-case mapping.
+- **README Roadmap section** -- summary table of planned domains with priority and release targets.
+- **Framework positioning** throughout README -- replacing "skill"-only framing where it was misleading.
+
+### Changed
+- Hero title: "App Paywall Pilot" -> "Paywall Pilot Framework"
+- Hero subtitle: "AI copilot... for paywalls" -> "A framework for designing paywalls. AI skill + knowledge base + executable tool."
+- Badges: added "Framework: Paywall" badge signaling flagship domain + future expansion
+- "Use this when..." section: "the skill activates" -> "the framework activates"
+- "Modules" section header: "The skill is split" -> "The Skill layer is split"
+
+### Unchanged (intentionally)
+- File structure stays flat; domain folders arrive in v5.0 with backward-compat symlinks
+- All module paths remain stable
+- `SKILL.md` frontmatter and behavior unchanged -- Claude Code / other AI tools read it identically
+- `sources.json` structure unchanged
+- Python calculator unchanged
+- Repo name stays `app-paywall-pilot` (SEO / link stability)
+
+### Migration
+No action required. Existing `git clone ~/.claude/skills/app-paywall-pilot/` installations continue to function. New users get the framework positioning; existing users get unchanged functionality.
+
 ## [3.8.0] -- 2026-04-16
 
 Layer 2 of academic foundations beyond v3.7.0 Kahneman base. Adds 9 rigorous behavioral-science concepts plus explicit replication-failure warning for ego depletion.
