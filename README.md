@@ -1,16 +1,16 @@
 <div align="center">
 
-# 📱 App Paywall Pilot
+# 📱 Paywall Pilot Framework
 
-### **The AI copilot indie devs use to ship subscription paywalls<br>that don't get rejected and actually convert.**
+### **A framework for designing App Store-compliant<br>subscription paywalls that convert.**
 
-<sub>For iOS + Android. Built on 79 sourced 2026 benchmarks (Adapty 16K apps · RevenueCat 115K apps · AppsFlyer 1.7B installs · Superwall 32M paywall views) plus a 20-concept academic foundation: Kahneman base (Prospect Theory, Anchoring, System 1/2, Endowment, Peak-End, Default, Mental Accounting, WYSIATI, Substitution, Planning Fallacy, Hedonic Adaptation) + Layer 2 (Fogg B=MAT, Iyengar Choice Overload, IKEA Effect, Hyperbolic Discounting, Goal-Gradient, Negativity Bias, Spence Costly Signaling, Reactance Theory, Sunk Cost) + Ariely + Cialdini. Includes ego-depletion replication-failure warning.</sub>
+<sub>AI skill + knowledge base + executable tool. For iOS + Android. Built on 79 sourced 2026 benchmarks (Adapty 16K apps · RevenueCat 115K apps · AppsFlyer 1.7B installs · Superwall 32M paywall views) and a 20-concept academic foundation (Kahneman + Layer 2). Flagship domain is **Paywall**; expansion to Onboarding / Retention / Growth / Pricing on the [roadmap](ROADMAP.md).</sub>
 
 <br>
 
-[![Version](https://img.shields.io/badge/Version-3.8.0-brightgreen?style=for-the-badge)](https://github.com/Nikolai-Iakubovskii/app-paywall-pilot/releases)
+[![Version](https://img.shields.io/badge/Version-4.0.0-brightgreen?style=for-the-badge)](https://github.com/Nikolai-Iakubovskii/app-paywall-pilot/releases)
 [![Platform](https://img.shields.io/badge/Platform-iOS_%7C_Android-blue?style=for-the-badge)](#)
-[![Benchmarks](https://img.shields.io/badge/Benchmarks-April_2026-green?style=for-the-badge)](outputs/2026-paywall-research.md)
+[![Framework](https://img.shields.io/badge/Framework-Paywall-black?style=for-the-badge)](ROADMAP.md)
 [![Modules](https://img.shields.io/badge/Modules-16-purple?style=for-the-badge)](modules/)
 [![Sources](https://img.shields.io/badge/Sources-79-orange?style=for-the-badge)](sources.json)
 [![Academic](https://img.shields.io/badge/Academic-20_concepts-darkblue?style=for-the-badge)](modules/pricing-psychology.md)
@@ -19,15 +19,54 @@
 [![Validate](https://github.com/Nikolai-Iakubovskii/app-paywall-pilot/actions/workflows/validate.yml/badge.svg)](https://github.com/Nikolai-Iakubovskii/app-paywall-pilot/actions/workflows/validate.yml)
 [![Stars](https://img.shields.io/github/stars/Nikolai-Iakubovskii/app-paywall-pilot?style=social)](https://github.com/Nikolai-Iakubovskii/app-paywall-pilot/stargazers)
 
-**[🚀 Get Started](#-how-to-use)** • **[🧩 Modules](#-modules)** • **[💡 Use Cases](#-use-this-when)** • **[📊 What You Get](#-what-you-get)** • **[📈 Benchmarks](#-benchmarks-april-2026)** • **[🤝 Contributing](#contributing)**
+**[🚀 Get Started](#-how-to-use)** • **[🏗️ Architecture](#%EF%B8%8F-architecture)** • **[🧩 Modules](#-modules)** • **[💡 Use Cases](#-use-this-when)** • **[📊 What You Get](#-what-you-get)** • **[🗺️ Roadmap](ROADMAP.md)** • **[🤝 Contributing](#contributing)**
 
 </div>
 
 ---
 
+## 🏗️ Architecture
+
+Paywall Pilot is **not just a Claude Code skill** (though it works as one). It's a 4-layer framework, designed to be used whole or per-layer.
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  🤖 SKILL LAYER          SKILL.md + modules/*.md            │
+│  Entry point for AI assistants (Claude / GPT / Cursor)      │
+│  Loads on demand by topic. ~16 modules.                     │
+├─────────────────────────────────────────────────────────────┤
+│  📚 KNOWLEDGE LAYER      sources.json + outputs/            │
+│  Every numeric claim sourced. Research briefs.              │
+│  Use standalone or referenced by Skill layer.               │
+├─────────────────────────────────────────────────────────────┤
+│  🔧 TOOL LAYER           tools/ltv-calculator.py            │
+│  Executable utilities. CLI + JSON I/O.                      │
+│  Callable by Skill layer OR from Bash.                      │
+├─────────────────────────────────────────────────────────────┤
+│  📘 REFERENCE LAYER      docs/ + examples/                  │
+│  Human-readable playbooks, checklists, migrations, examples │
+│  Works without any AI tool.                                 │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### Which layer do you need?
+
+| You want to… | Use layer |
+|--------------|-----------|
+| Get an AI paywall audit | **Skill** (install into Claude Code / paste into ChatGPT) |
+| Look up a specific benchmark with source | **Knowledge** ([`sources.json`](sources.json)) |
+| Calculate LTV / ROAS / breakeven | **Tool** (`python3 tools/ltv-calculator.py`) |
+| Read a printable pre-ship checklist | **Reference** ([`docs/audit-checklist.md`](docs/audit-checklist.md)) |
+| Migrate from a banned pattern | **Reference** ([`docs/migrations/`](docs/migrations/)) |
+| See a worked audit example | **Reference** ([`examples/`](examples/)) |
+
+---
+
+---
+
 ## ⚡ Use this when…
 
-Concrete jobs-to-be-done. Match your situation; the skill activates the relevant modules automatically.
+Concrete jobs-to-be-done. Match your situation; the framework activates the relevant modules automatically.
 
 | 👤 Your situation | 💬 Ask your AI… | 🧩 What activates |
 |------------------|-----------------|-------------------|
@@ -71,7 +110,7 @@ And most AI assistants compound the problem: they recommend whatever pattern the
 
 ## ✅ The fix
 
-App Paywall Pilot grounds every recommendation in **published evidence with confidence labels**, **never** invents data, and **explicitly states when to ignore benchmarks** (e.g., when N<1,000 subs/variant or when your category is niche).
+Paywall Pilot Framework grounds every recommendation in **published evidence with confidence labels**, **never** invents data, and **explicitly states when to ignore benchmarks** (e.g., when N<1,000 subs/variant or when your category is niche).
 
 | Principle | How |
 |-----------|-----|
@@ -89,7 +128,7 @@ App Paywall Pilot grounds every recommendation in **published evidence with conf
 
 ## Modules
 
-The skill is split into a core [SKILL.md](SKILL.md) plus 16 deep-dive modules under [`modules/`](modules/), an executable Python calculator, worked examples, and migration playbooks. Load on demand based on the task.
+The **Skill layer** is split into a core [SKILL.md](SKILL.md) plus 16 deep-dive modules under [`modules/`](modules/), an executable Python calculator, worked examples, and migration playbooks. Load on demand based on the task.
 
 | Module | What's inside |
 |--------|---------------|
@@ -498,9 +537,29 @@ Independent paywall screenshot libraries used for teardowns:
 
 ---
 
+## 🗺️ Roadmap — Framework Expansion
+
+Paywall is the **flagship domain**. Framework will expand into adjacent subscription-app domains. Full detail in [ROADMAP.md](ROADMAP.md).
+
+| Priority | Domain | Status | Release |
+|----------|--------|--------|---------|
+| — | **Paywall** | ✅ Production (v4.0, 16 modules) | Shipped |
+| 1 | **Onboarding** (patterns, copy, teardowns, compliance, metrics) | 📋 Planned | v5.0 |
+| 2 | **Retention & Lifecycle** (habit loops, streaks, churn prevention, dunning) | 📋 Planned | v6.0 |
+| 3 | **Growth & Acquisition** (ASO, ASA, paid UA, web2app, attribution) | 📋 Planned | v7.0 |
+| 4 | **Pricing Strategy** (as standalone domain; tier design, dynamic pricing) | 📋 Planned | v8.0 |
+| 5 | **Reviews & Reputation** (prompt timing, recovery flows) | 📋 Planned | v9.0 |
+
+The 20-concept academic foundation (Kahneman + Layer 2) already applies cross-domain — it's in the **shared** layer. Each new domain gets its own modules while inheriting the foundations.
+
+**Non-goals:** generic web CRO, enterprise B2B sales, original academic research, competing with vendor SDKs. See [ROADMAP.md](ROADMAP.md) for full scope.
+
+---
+
 ## What's New
 
-- **v3.8.0** (current): **Academic foundation Layer 2.** Added 9 additional rigorous behavioral-science concepts to pricing-psychology.md beyond the Kahneman base — Fogg B=MAT, Iyengar Choice Overload (jam study), IKEA Effect, Hyperbolic Discounting (Laibson), Goal-Gradient (Kivetz), Negativity Bias (Baumeister 2001), Costly Signaling (Spence/Nobel), Reactance Theory (Brehm), Sunk Cost (Arkes & Blumer). Plus explicit warning on ego-depletion replication failure (Hagger 2016 + Vohs 2016 multi-lab studies). 11 new sources.json academic entries. Total academic concepts: 20.
+- **v4.0.0** (current): **Reframed as Framework.** Positioning upgraded from "single Claude skill" to "4-layer framework" (Skill + Knowledge + Tool + Reference). New [ROADMAP.md](ROADMAP.md) documents planned expansion to Onboarding, Retention, Growth, Pricing, Reviews domains. No breaking changes — all v3.x installations continue to work.
+- **v3.8.0**: **Academic foundation Layer 2.** Added 9 additional rigorous behavioral-science concepts to pricing-psychology.md beyond the Kahneman base — Fogg B=MAT, Iyengar Choice Overload (jam study), IKEA Effect, Hyperbolic Discounting (Laibson), Goal-Gradient (Kivetz), Negativity Bias (Baumeister 2001), Costly Signaling (Spence/Nobel), Reactance Theory (Brehm), Sunk Cost (Arkes & Blumer). Plus explicit warning on ego-depletion replication failure (Hagger 2016 + Vohs 2016 multi-lab studies). 11 new sources.json academic entries. Total academic concepts: 20.
 - **v3.7.0**: **Kahneman foundation expansion.** Added 11 Kahneman concepts to pricing-psychology.md, each mapped to a specific paywall design choice: Prospect Theory & Loss Aversion, Anchoring (1974), System 1/2, Endowment Effect, Peak-End Rule, Default Effect, Mental Accounting, WYSIATI, Substitution Heuristic, Planning Fallacy, Hedonic Adaptation. Cross-referenced from copy-library, decision-trees, screen-anatomy, glossary. 11 new sources.json entries (academic class).
 - **v3.6.0**: Data refresh — ChatGPT teardown updated to current 6-tier pricing structure (Free/Go/Plus/Pro/Business/Enterprise) without model-version trivia. Redesigned README header with concrete jobs-to-be-done table.
 - **v3.5.0**: Phase 3 — refund management, cohort analysis, audit checklist, migration playbooks, worked examples (3 categories), CI validation.
