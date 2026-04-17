@@ -1,7 +1,9 @@
 # Roadmap
 
+<!-- meta:block roadmap_header -->
 **Version:** 4.0.0 (framework)
 **Last updated:** 2026-04-17
+<!-- /meta:block -->
 
 Paywall Pilot started as a single Claude Code skill for in-app paywalls (v1.0–v3.8). In v4.0 it becomes a **framework** — positioned to expand into adjacent subscription-app domains while keeping paywalls as the flagship domain.
 
@@ -10,11 +12,11 @@ Paywall Pilot started as a single Claude Code skill for in-app paywalls (v1.0–
 ## Current state (v4.0.0)
 
 ### Domain: Paywall (flagship, production-ready)
-- 16 modules under `modules/`
+- Validated deep-dive modules under `modules/`
 - Python calculator in `tools/`
 - Audit checklist + migration playbooks in `docs/`
 - 3 worked examples in `examples/`
-- 79 sourced benchmarks + 20-concept academic foundation
+- Sourced benchmark manifest + 20-concept academic foundation
 
 ### Shared (cross-domain)
 - `modules/pricing-psychology.md` — 20 academic concepts. **Applies to any subscription-app domain**, not just paywalls.
@@ -91,15 +93,16 @@ Currently pricing-psychology lives inside paywall context. Separate domain:
 
 ## Architecture evolution
 
-### Current (v4.0) — flat with domain prefixes in filenames where needed
+### Current (v4.0) — flat, root-first layout
 
 ```
 modules/
-  paywall-*.md          ← paywall-specific (most files)
+  *.md                  ← paywall modules today
   pricing-psychology.md ← shared foundations
   glossary.md           ← shared
 tools/
-  ltv-calculator.py
+  ltv-calculator.py     ← stable CLI path
+  ltv_calculator.py     ← importable module
 docs/
   audit-checklist.md    ← paywall-specific
   migrations/           ← paywall-specific
@@ -108,7 +111,7 @@ examples/
 outputs/                ← research briefs
 ```
 
-### Future (v5.0+) — domain folders
+### Future (v5.0+) — domain folders with stable root entrypoints
 
 ```
 domains/
@@ -129,13 +132,18 @@ shared/
   decision-trees/       ← cross-domain how-to-navigate
   evidence-ladder.md    ← canonical reference for all domains
 outputs/                ← cross-domain research briefs
+
+At repo root:
+  SKILL.md              ← stable runtime entrypoint
+  README.md             ← framework overview
+  framework-meta.json   ← single source of truth for repo facts
 ```
 
 ### Migration strategy
-- **v4.0 keeps current flat structure** — no breakage
-- **v5.0 introduces `domains/` folder** alongside existing files; symlinks or re-export for backward compat
-- **v6.0** completes migration; old paths deprecated with redirect notes
-- **v7.0** removes deprecation notices; fully migrated structure
+- **v4.x keeps current flat structure** — no breakage
+- **v5.0 introduces `domains/` only for new work** while `SKILL.md` and current root paths stay valid
+- **v6.0** may add compatibility index files if migration pressure is real; no symlink plan
+- **v7.0** only revisits full moves after real usage proves folder split is worth complexity
 
 Claude Code / ChatGPT / Cursor installations continue to work throughout — the core `SKILL.md` entry point stays stable at repo root.
 

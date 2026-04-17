@@ -4,6 +4,7 @@
 
 ### **A framework for designing App Store-compliant<br>subscription paywalls that convert.**
 
+<!-- meta:block readme_hero -->
 <sub>AI skill + knowledge base + executable tool. For iOS + Android. Built on 79 sourced 2026 benchmarks (Adapty 16K apps · RevenueCat 115K apps · AppsFlyer 1.7B installs · Superwall 32M paywall views) and a 20-concept academic foundation (Kahneman + Layer 2). Flagship domain is **Paywall**; expansion to Onboarding / Retention / Growth / Pricing on the [roadmap](ROADMAP.md).</sub>
 
 <br>
@@ -15,6 +16,7 @@
 [![Sources](https://img.shields.io/badge/Sources-79-orange?style=for-the-badge)](sources.json)
 [![Academic](https://img.shields.io/badge/Academic-20_concepts-darkblue?style=for-the-badge)](modules/pricing-psychology.md)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
+<!-- /meta:block -->
 
 [![Validate](https://github.com/Nikolai-Iakubovskii/app-paywall-pilot/actions/workflows/validate.yml/badge.svg)](https://github.com/Nikolai-Iakubovskii/app-paywall-pilot/actions/workflows/validate.yml)
 [![Stars](https://img.shields.io/github/stars/Nikolai-Iakubovskii/app-paywall-pilot?style=social)](https://github.com/Nikolai-Iakubovskii/app-paywall-pilot/stargazers)
@@ -33,7 +35,7 @@ Paywall Pilot is **not just a Claude Code skill** (though it works as one). It's
 ┌─────────────────────────────────────────────────────────────┐
 │  🤖 SKILL LAYER          SKILL.md + modules/*.md            │
 │  Entry point for AI assistants (Claude / GPT / Cursor)      │
-│  Loads on demand by topic. ~16 modules.                     │
+│  Loads on demand by topic. Focused, modular deep dives.     │
 ├─────────────────────────────────────────────────────────────┤
 │  📚 KNOWLEDGE LAYER      sources.json + outputs/            │
 │  Every numeric claim sourced. Research briefs.              │
@@ -75,7 +77,7 @@ Concrete jobs-to-be-done. Match your situation; the framework activates the rele
 | **You don't know if your numbers are good.** | "Install→trial 9%, trial→paid 22%, refund 6%. Are these OK?" | Indie Dev FAQ · category benchmarks · performance grading |
 | **You need to know if you'll be profitable.** | "I have 40k installs, $3 CPI, annual $79.99 / monthly $9.99 (50/50). Will I break even?" | Unit Economics Calculator (Python + module) · ROAS projection · what-if scenarios |
 | **You don't know what to test next.** | "I have 2 weeks before launch. What's the highest-leverage test?" | Decision-tree #7 (test priority) · Adapty 2026 win rates · sample-size minimums |
-| **You want to copy what big apps do.** | "How does Calm/Noom/Cal AI/Tinder structure their paywall?" | 11 annotated big-app teardowns with sources |
+| **You want to copy what big apps do.** | "How does Calm/Noom/Cal AI/Tinder structure their paywall?" | Annotated big-app teardowns with sources |
 | **Your trial-to-paid is low.** | "Trial-to-paid is 18% — why?" | Decision-tree #3 · Blinkist Trial Timeline pattern · notifications-lifecycle |
 | **You're expanding to new markets.** | "I'm US-only at $79.99/yr. Where should I expand and at what price?" | Localization · pricing index US=1.0 · AppsFlyer 2026 emerging-markets data |
 | **You need better paywall copy.** | "Write 3 headline variants for my running app paywall." | Copy library: 12 headline formulas · Copy Ladder · banned words · locale notes |
@@ -92,7 +94,7 @@ If your situation isn't on this list, just say *"Audit my paywall"* with a scree
 | **Full paywall audit (12 sections)** | Current state · main problem · access model + placement + presentation · screen content · 2-3 copy variants · layout sketch · localization notes · ranked test plan · iOS review risks · Android delta | SKILL.md DEFAULT OUTPUT FORMAT |
 | **Unit-economics projection** | LTV / ARPU / ROAS / breakeven across 8 horizons (7d → 4yr) · performance grading vs benchmarks · top-3 actions · what-if scenarios | [unit-economics-calculator.md](modules/unit-economics-calculator.md) + [Python script](tools/ltv-calculator.py) |
 | **Direct answers to single questions** | "Should I add a weekly plan?" → verdict + reason + one action. 35+ pre-answered scenarios. | [indie-dev-faq.md](modules/indie-dev-faq.md) |
-| **Big-app pattern reference** | 11 annotated teardowns with structure / copy / pricing / takeaway / source | [teardowns.md](modules/teardowns.md) |
+| **Big-app pattern reference** | Annotated teardowns with structure / copy / pricing / takeaway / source | [teardowns.md](modules/teardowns.md) |
 | **Compliance triage** | Apple Rule vs Field Report distinction · 7-level evidence ladder · printable 50+ item checklist | SKILL.md + [audit-checklist.md](docs/audit-checklist.md) |
 | **Migration playbooks** | Step-by-step migration from banned patterns (toggle paywall today; future bans tomorrow) | [docs/migrations/](docs/migrations/) |
 
@@ -116,11 +118,11 @@ Paywall Pilot Framework grounds every recommendation in **published evidence wit
 |-----------|-----|
 | **🛡️ Compliance first** | Every recommendation checked against Apple App Store Review Guidelines. Apple Rule > vendor data, always. |
 | **📊 7-level evidence ladder** | Every claim labeled from Apple Rule down to Hypothesis — no unmarked assertions. |
-| **🔗 Sourced data** | Every benchmark carries source + date + sample size. 58 entries in [`sources.json`](sources.json). |
+| **🔗 Sourced data** | Every benchmark carries source + date + sample size. Canonical manifest lives in [`sources.json`](sources.json) and is validated in CI. |
 | **🏛️ Big-app teardowns** | 11 annotated paywall analyses (Calm, Duolingo, Noom, Cal AI, Tinder, Strava, Headspace, Blinkist, Flo, ChatGPT, AI companions). |
 | **🎓 Academic foundations** | Pricing psychology grounded in Tversky-Kahneman 1981 (*Science*), Anderson-Simester 2003, Thomas-Morwitz 2005, Ariely 2008, Cialdini — not just blog posts. |
 | **♻️ Full lifecycle** | 10 stages from first purchase through win-back. Notifications, refunds, cohorts. |
-| **🧩 Modular** | Core SKILL.md plus 16 deep-dive modules loaded on demand by topic. |
+| **🧩 Modular** | Core SKILL.md plus deep-dive modules loaded on demand by topic. |
 | **🧠 Common-sense overrides** | Explicit "WHEN TO IGNORE BENCHMARKS" guidance for small N, niche category, recent launch. |
 | **🤖 LLM-agnostic** | Works with Claude Code, Codex, ChatGPT, Cursor, Windsurf, Gemini — any AI tool with custom instructions. |
 
@@ -128,7 +130,7 @@ Paywall Pilot Framework grounds every recommendation in **published evidence wit
 
 ## Modules
 
-The **Skill layer** is split into a core [SKILL.md](SKILL.md) plus 16 deep-dive modules under [`modules/`](modules/), an executable Python calculator, worked examples, and migration playbooks. Load on demand based on the task.
+The **Skill layer** is split into a core [SKILL.md](SKILL.md) plus deep-dive modules under [`modules/`](modules/), an executable Python calculator, worked examples, and migration playbooks. Load on demand based on the task.
 
 | Module | What's inside |
 |--------|---------------|
@@ -154,10 +156,14 @@ Plus standalone documentation, executable tools, worked examples, and research:
 - **[docs/audit-checklist.md](docs/audit-checklist.md)** -- printable 50+ item checklist for manual review before App Store submission
 - **[docs/migrations/from-toggle-paywall.md](docs/migrations/from-toggle-paywall.md)** -- migration playbook for apps caught in Apple's Jan 2026 toggle ban, with 4 compliant alternatives
 - **[examples/](examples/)** -- worked audit examples: [H&F app](examples/audit-h-and-f-app.md), [AI app](examples/audit-ai-app.md), [Productivity app](examples/audit-productivity-app.md). Each shows full 12-section DEFAULT OUTPUT FORMAT.
-- **[tools/ltv-calculator.py](tools/ltv-calculator.py)** -- Python implementation of the unit-economics calculator. CLI + JSON I/O. Verified output matches worked example.
+- **[tools/ltv-calculator.py](tools/ltv-calculator.py)** -- backward-compatible CLI wrapper for the calculator
+- **[tools/ltv_calculator.py](tools/ltv_calculator.py)** -- importable calculator library with validation + JSON-safe output helpers
 - **[.github/workflows/validate.yml](.github/workflows/validate.yml)** -- CI: validates sources.json structure, all internal links resolve, calculator smoke tests, SKILL.md size guard
-- [outputs/2026-paywall-research.md](outputs/2026-paywall-research.md) -- full source manifest with methodology, sample sizes, evidence class for every benchmark used
-- [outputs/2026-paywall-research.provenance.md](outputs/2026-paywall-research.provenance.md) -- sources consulted vs accepted vs rejected, cross-references, weak-signal flags
+<!-- meta:block readme_research_outputs -->
+- [outputs/2026-paywall-research-v2.md](outputs/2026-paywall-research-v2.md) -- canonical research brief with current methodology, sample sizes, and evidence class for every benchmark used
+- [outputs/2026-paywall-research.md](outputs/2026-paywall-research.md) -- legacy v1 research brief retained for historical references and changelog continuity
+- [outputs/2026-paywall-research-v2.provenance.md](outputs/2026-paywall-research-v2.provenance.md) -- provenance ledger: sources consulted vs accepted vs rejected, cross-references, weak-signal flags
+<!-- /meta:block -->
 
 ---
 
@@ -543,7 +549,7 @@ Paywall is the **flagship domain**. Framework will expand into adjacent subscrip
 
 | Priority | Domain | Status | Release |
 |----------|--------|--------|---------|
-| — | **Paywall** | ✅ Production (v4.0, 16 modules) | Shipped |
+| — | **Paywall** | ✅ Production (v4.0, flagship domain) | Shipped |
 | 1 | **Onboarding** (patterns, copy, teardowns, compliance, metrics) | 📋 Planned | v5.0 |
 | 2 | **Retention & Lifecycle** (habit loops, streaks, churn prevention, dunning) | 📋 Planned | v6.0 |
 | 3 | **Growth & Acquisition** (ASO, ASA, paid UA, web2app, attribution) | 📋 Planned | v7.0 |

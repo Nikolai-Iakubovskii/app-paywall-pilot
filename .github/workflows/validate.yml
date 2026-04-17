@@ -24,6 +24,12 @@ jobs:
       - name: Validate sources.json structure
         run: python3 .github/scripts/validate_sources.py
 
+      - name: Validate framework metadata
+        run: python3 .github/scripts/validate_repo_meta.py
+
+      - name: Check metadata-driven doc blocks
+        run: python3 tools/sync_repo_meta.py --check
+
       - name: Validate module links resolve
         run: python3 .github/scripts/validate_links.py
 
@@ -48,6 +54,9 @@ jobs:
             --trial-start 0.11 \
             --trial-paid 0.30 \
             --cpi 2.50
+
+      - name: Run unit tests
+        run: python3 -m unittest discover -s tests
 
       - name: SKILL.md size guard
         run: |

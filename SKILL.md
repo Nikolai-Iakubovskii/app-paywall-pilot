@@ -10,7 +10,7 @@ Your job is to help the user design and build a paywall system that is clear, et
 
 Do not act like a generic landing-page CRO expert. This skill is for in-app subscription flows.
 
-**Note on positioning (v4.0+):** This file (`SKILL.md`) is the **Skill layer** of the broader **Paywall Pilot Framework** (repo: github.com/Nikolai-Iakubovskii/app-paywall-pilot). The framework has 4 layers — Skill (this file + modules/), Knowledge (sources.json + outputs/), Tool (tools/ltv-calculator.py), Reference (docs/ + examples/). The framework's flagship domain is Paywall; planned expansion to Onboarding, Retention, Growth, Pricing, Reviews — see [ROADMAP.md](ROADMAP.md). For AI-skill purposes, you only need this file + on-demand modules. Other layers are supplementary.
+**Note on positioning (v4.0+):** This file (`SKILL.md`) is the **runtime Skill layer** of the broader **Paywall Pilot Framework** (repo: github.com/Nikolai-Iakubovskii/app-paywall-pilot). Framework layers: Skill (this file + modules/), Knowledge (`sources.json` + research briefs), Tool (`tools/ltv-calculator.py` CLI + `tools/ltv_calculator.py` importable module), Reference (`docs/` + `examples/`). For AI-skill use, prefer this file + on-demand modules. Use [ROADMAP.md](ROADMAP.md) only for domain-planning context.
 
 ---
 
@@ -36,11 +36,12 @@ This skill is split into a core file (this) plus deep-dive modules. Load on dema
 | [modules/glossary.md](modules/glossary.md) | Canonical definitions: ARPU vs ARPPU, gross vs RLTV, CR vs effective CR, MRR/ARR, CAC variants (CPI/CPR/CAC/eCAC), ROAS, retention/renewal/churn, plan architecture terms. Plus acronym quick-reference. |
 | [modules/refund-management.md](modules/refund-management.md) | Refund baselines per plan + region, prevention sequence, Apple Consumption API for refund decline, Subscription Pause as alternative, channel-level refund analysis, common mistakes |
 | [modules/cohort-analysis.md](modules/cohort-analysis.md) | Three cohort types (install / trial / calendar), how to read RC/Adapty/Apphud dashboards, common mistakes, healthy curve patterns, pre/post-change comparison setup |
-| [tools/ltv-calculator.py](tools/ltv-calculator.py) | Python implementation of unit-economics-calculator.md. CLI + JSON I/O. Run: `python3 tools/ltv-calculator.py --plan annual:59.99:0.5 --plan monthly:9.99:0.5 --installs 10000 --cr 0.06 --cpi 2.5` |
+| [tools/ltv-calculator.py](tools/ltv-calculator.py) | Backward-compatible CLI entrypoint. Run: `python3 tools/ltv-calculator.py --plan annual:59.99:0.5 --plan monthly:9.99:0.5 --installs 10000 --cr 0.06 --cpi 2.5` |
+| [tools/ltv_calculator.py](tools/ltv_calculator.py) | Importable calculator library with validation. Use from Python: `from tools.ltv_calculator import Plan, calculate` |
 | [docs/audit-checklist.md](docs/audit-checklist.md) | Standalone 50+ item checklist for manual review pass before App Store submission. 7 sections grouped by priority. |
 | [docs/migrations/from-toggle-paywall.md](docs/migrations/from-toggle-paywall.md) | Migration playbook for apps caught in Apple's Jan 2026 toggle paywall ban. 4 compliant alternatives, step-by-step migration, expected impact data. |
 | [examples/](examples/) | Worked audit examples for H&F, AI, and Productivity apps. Full 12-section output following SKILL.md DEFAULT OUTPUT FORMAT. |
-| [outputs/2026-paywall-research.md](outputs/2026-paywall-research.md) | Source manifest with methodology, sample sizes, evidence class for every benchmark used |
+| [outputs/2026-paywall-research-v2.md](outputs/2026-paywall-research-v2.md) | Canonical research brief with methodology, sample sizes, and evidence class for every benchmark used |
 
 ---
 
@@ -126,7 +127,7 @@ Present a status summary before proposing changes.
 
 ## TAXONOMY
 
-The paywall system has three independent axes. Separate them when analyzing or recommending.
+The paywall system has four independent axes. Separate them when analyzing or recommending.
 
 ### Axis 1: ACCESS MODEL — What we sell
 
@@ -774,42 +775,13 @@ Each finding must carry its evidence level. Do not repeat findings across sectio
 
 ## DATA SOURCES
 
-| Source | Dataset | Date | Evidence Class |
-|--------|---------|------|----------------|
-| Adapty State of In-App Subscriptions 2026 | 16,000 apps, $3B revenue, 500M transactions, 105K paywalls, 50+ countries | 2026-03-14 | large_scale_report |
-| Adapty H&F Benchmarks 2026 | Category cut from $3B dataset | 2026 | large_scale_report (subset) |
-| Adapty Paywall Experiments Playbook | Adapty platform A/B tests | 2026 | vendor_blog (methodology not open) |
-| Adapty High-Performing Paywall 2026 | Adapty platform | 2026 | vendor_blog |
-| RevenueCat State of Subscription Apps 2026 | 115,000+ apps, $16B+ revenue, 1B+ transactions | 2026-03 | large_scale_report |
-| Superwall Product Count Study | 32.3M paywall opens, 15 largest apps, 383K conversions | 2025 | aggregate_study |
-| Superwall Transaction Abandon Study | 18 companies, 525K users | 2024-08 | aggregate_study |
-| AppsFlyer State of Subscriptions 2026 | 1.7B paid installs, 2,900 apps, 13 categories, $2.1B UA spend | 2026 | large_scale_report |
-| Apphud Subscription Guide | Apphud platform (no public sample size) | 2025 | vendor_blog |
-| RevenueFlo iOS Rejections | Developer rejection reports | 2026 | field_observation |
-| Apple App Store Review Guidelines | Official | Current | apple_docs |
-| **Kahneman & Tversky 1979 — Prospect Theory** | **Econometrica, 65K+ citations, 2002 Nobel** | **1979** | **academic** |
-| Tversky & Kahneman 1974 — Heuristics & Biases (Anchoring) | Science | 1974 | academic |
-| Tversky & Kahneman 1981 — Framing | Science (17K+ citations) | 1981 | academic |
-| Kahneman, Knetsch, Thaler 1990 — Endowment Effect | Journal of Political Economy | 1990 | academic |
-| Kahneman, Knetsch, Thaler 1991 — Default / Status Quo Bias | Journal of Economic Perspectives | 1991 | academic |
-| Kahneman et al 1993 — Peak-End Rule | Psychological Science | 1993 | academic |
-| Kahneman, Diener, Schwarz 1999 — Hedonic Adaptation | Russell Sage volume | 1999 | academic |
-| Kahneman 2011 — Thinking, Fast and Slow (System 1/2, WYSIATI, Substitution) | FSG, synthesis of 40 years of research | 2011 | academic |
-| Anderson & Simester 2003 — $9 Endings | Quantitative Marketing and Economics field experiment | 2003 | academic |
-| Thomas & Morwitz 2005 — Left-Digit | Journal of Consumer Research | 2005 | academic |
-| Thaler 1980-1999 — Mental Accounting | Built on Kahneman foundation | 1980-1999 | academic |
-| Cialdini Influence + Pre-Suasion | Foundational persuasion text | 1984 / 2016 | academic |
-| Springer 2024 — Mobile Persuasion Study | Cialdini principles on app contexts | 2024 | academic |
-| **Fogg 2009 — Behavior Model B=MAT** | Persuasive Tech proceedings, 1,900+ pubs ref | 2009 | academic |
-| **Iyengar & Lepper 2000 — Choice Overload (Jam Study)** | JPSP, 6 vs 24 jams (~10x conv difference) | 2000 | academic |
-| **Norton, Mochon, Ariely 2012 — IKEA Effect** | JCP, 4 studies (IKEA / origami / Lego), replicated | 2012 | academic |
-| **Laibson 1997 — Hyperbolic Discounting** | QJE, present bias formalization | 1997 | academic |
-| **Kivetz, Urminsky, Zheng 2006 — Goal-Gradient** | JMR, café field experiments + bonus stamps | 2006 | academic |
-| **Baumeister et al 2001 — Negativity Bias ("Bad is Stronger than Good")** | RGP, 10K+ citations | 2001 | academic |
-| **Spence 1973 — Job Market Signaling** | QJE, Nobel 2001, 14K+ citations | 1973 | academic |
-| **Brehm 1966 — Psychological Reactance** | Foundational theory, 50+ years replication | 1966 | academic |
-| **Arkes & Blumer 1985 — Sunk Cost Fallacy** | OBHDP, foundational concept | 1985 | academic |
-| ⚠️ Baumeister 1998 — Ego Depletion (FAILED replication) | Hagger 2016 + Vohs 2016 multi-lab failures | 1998 / 2016 | academic — DO NOT cite as mechanism |
+Use this section as a routing map, not a duplicate database:
 
-Full source manifest with every numeric claim: [sources.json](sources.json)
-Full research brief with methodology check: [outputs/2026-paywall-research.md](outputs/2026-paywall-research.md)
+- **Policy / compliance:** Apple App Store Review Guidelines and StoreKit / App Store Connect docs
+- **Implementation / platform:** StoreKit, Google Play Billing, Adapty, RevenueCat, Superwall, Apphud docs
+- **Large-scale benchmarks:** Adapty 2026, RevenueCat 2026, AppsFlyer 2026, Superwall aggregate studies
+- **Academic foundation:** Kahneman / Tversky base + Layer 2 concepts in [modules/pricing-psychology.md](modules/pricing-psychology.md)
+
+Canonical manifest with stable source IDs and evidence classes: [sources.json](sources.json)
+Canonical research brief with methodology check: [outputs/2026-paywall-research-v2.md](outputs/2026-paywall-research-v2.md)
+Legacy brief retained for changelog continuity: [outputs/2026-paywall-research.md](outputs/2026-paywall-research.md)

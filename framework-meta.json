@@ -1,0 +1,14 @@
+{
+  "version": "4.0.0",
+  "last_updated": "2026-04-17",
+  "flagship_domain": "Paywall",
+  "module_count": 16,
+  "source_count": 79,
+  "academic_concept_count": 20,
+  "canonical_research_brief": "outputs/2026-paywall-research-v2.md",
+  "legacy_research_briefs": [
+    "outputs/2026-paywall-research.md"
+  ],
+  "tool_cli_path": "tools/ltv-calculator.py",
+  "tool_module_path": "tools/ltv_calculator.py"
+}

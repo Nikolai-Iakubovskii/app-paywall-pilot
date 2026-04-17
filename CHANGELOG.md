@@ -1,5 +1,19 @@
 # Changelog
 
+## [Unreleased]
+
+### Added
+- `framework-meta.json` as single source of truth for version, counts, canonical research brief, and calculator paths
+- `tools/sync_repo_meta.py` + `.github/scripts/validate_repo_meta.py` to keep top-level docs aligned with repo facts
+- `tools/ltv_calculator.py` as importable calculator module with strict validation
+- `tests/test_ltv_calculator.py` for calculator regression coverage
+
+### Changed
+- README / SKILL / ROADMAP now point to `outputs/2026-paywall-research-v2.md` as canonical brief; legacy brief kept for history
+- SKILL taxonomy corrected from "three axes" to four axes
+- SKILL data-source section slimmed down to routing guidance instead of duplicating source database
+- ROADMAP migration strategy simplified: no planned symlink / re-export layer
+
 ## [4.0.0] -- 2026-04-17
 
 **Reframed from "Claude Code skill" to "Framework".** No breaking changes — all v3.x installations continue to work at the same paths. This is a positioning / documentation upgrade to reflect what the project actually is.

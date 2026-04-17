@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "description": "Source manifest for every numeric claim in SKILL.md. Each entry maps a claim to its source URL, publication date, dataset scope, and evidence class.",
+    "description": "Canonical source manifest for every numeric claim in Paywall Pilot. Each entry has a stable id plus source URL, publication date, dataset scope, domain, and evidence class.",
     "evidence_classes": {
       "apple_docs": "Official Apple documentation or App Review Guidelines",
       "large_scale_report": "Published report from SDK provider or measurement platform covering 10K+ apps or $1B+ revenue",
@@ -11,7 +11,15 @@
       "academic": "Peer-reviewed academic paper or established behavioral economics finding",
       "platform_capability": "Documented feature in StoreKit, App Store Connect, Google Play Billing, or third-party platform"
     },
-    "last_updated": "2026-04-16"
+    "last_updated": "2026-04-17",
+    "schema_version": 2,
+    "domains": {
+      "paywall": "Current flagship domain for in-app subscription flows"
+    },
+    "status_values": {
+      "active": "Current source used by repo",
+      "legacy": "Retained for history but not default"
+    }
   },
   "benchmarks": [
     {
@@ -20,7 +28,12 @@
       "url": "https://adapty.io/state-of-in-app-subscriptions/",
       "date": "2026-03-14",
       "scope": "16,000+ apps, $3B gross subscription revenue, 500M transactions",
-      "evidence_class": "large_scale_report"
+      "evidence_class": "large_scale_report",
+      "id": "install-trial-global-average-10-9-11-2",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Install → Trial North America: 14.5%",
@@ -28,7 +41,12 @@
       "url": "https://adapty.io/state-of-in-app-subscriptions/",
       "date": "2026-03-14",
       "scope": "Regional cut from 16K+ apps",
-      "evidence_class": "large_scale_report"
+      "evidence_class": "large_scale_report",
+      "id": "install-trial-north-america-14-5",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Trial → Paid global: 25.6–27.8%",
@@ -37,7 +55,12 @@
       "url_alt": "https://www.revenuecat.com/state-of-subscription-apps/",
       "date": "2026-03",
       "scope": "Cross-referenced: Adapty 16K apps + RevenueCat 115K apps",
-      "evidence_class": "large_scale_report"
+      "evidence_class": "large_scale_report",
+      "id": "trial-paid-global-25-6-27-8",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Trial → Paid Health & Fitness: 35.0–39.9%",
@@ -45,7 +68,12 @@
       "url": "https://adapty.io/blog/health-fitness-app-subscription-benchmarks/",
       "date": "2026-03",
       "scope": "Category-specific cut",
-      "evidence_class": "large_scale_report"
+      "evidence_class": "large_scale_report",
+      "id": "trial-paid-health-fitness-35-0-39-9",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Hard paywall D35 download-to-paid: 10.7%",
@@ -53,7 +81,12 @@
       "url": "https://www.revenuecat.com/state-of-subscription-apps/",
       "date": "2026-03",
       "scope": "115,000+ apps, $16B tracked revenue",
-      "evidence_class": "large_scale_report"
+      "evidence_class": "large_scale_report",
+      "id": "hard-paywall-d35-download-to-paid-10-7",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Freemium D35 download-to-paid: 2.1%",
@@ -61,7 +94,12 @@
       "url": "https://www.revenuecat.com/state-of-subscription-apps/",
       "date": "2026-03",
       "scope": "115,000+ apps",
-      "evidence_class": "large_scale_report"
+      "evidence_class": "large_scale_report",
+      "id": "freemium-d35-download-to-paid-2-1",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Day 0 share of trial starts: 80–90%",
@@ -69,7 +107,12 @@
       "url": "https://adapty.io/state-of-in-app-subscriptions/",
       "date": "2026-03",
       "scope": "Cross-referenced from two independent platforms",
-      "evidence_class": "large_scale_report"
+      "evidence_class": "large_scale_report",
+      "id": "day-0-share-of-trial-starts-80-90",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Trial <4 days: 25.5% median conversion",
@@ -77,7 +120,12 @@
       "url": "https://www.revenuecat.com/state-of-subscription-apps/",
       "date": "2026-03",
       "scope": "115,000+ apps",
-      "evidence_class": "large_scale_report"
+      "evidence_class": "large_scale_report",
+      "id": "trial-4-days-25-5-median-conversion",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Trial 5–9 days: 37.4% median conversion",
@@ -85,7 +133,12 @@
       "url": "https://www.revenuecat.com/state-of-subscription-apps/",
       "date": "2026-03",
       "scope": "115,000+ apps",
-      "evidence_class": "large_scale_report"
+      "evidence_class": "large_scale_report",
+      "id": "trial-5-9-days-37-4-median-conversion",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Trial 17–32 days: 42.5% median conversion",
@@ -93,7 +146,12 @@
       "url": "https://www.revenuecat.com/state-of-subscription-apps/",
       "date": "2026-03",
       "scope": "115,000+ apps",
-      "evidence_class": "large_scale_report"
+      "evidence_class": "large_scale_report",
+      "id": "trial-17-32-days-42-5-median-conversion",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Hard paywall RPI Day 14: $2.32",
@@ -101,7 +159,12 @@
       "url": "https://www.revenuecat.com/state-of-subscription-apps/",
       "date": "2026-03",
       "scope": "115,000+ apps",
-      "evidence_class": "large_scale_report"
+      "evidence_class": "large_scale_report",
+      "id": "hard-paywall-rpi-day-14-2-32",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Hard paywall RPI Day 60: $3.09",
@@ -109,7 +172,12 @@
       "url": "https://www.revenuecat.com/state-of-subscription-apps/",
       "date": "2026-03",
       "scope": "115,000+ apps",
-      "evidence_class": "large_scale_report"
+      "evidence_class": "large_scale_report",
+      "id": "hard-paywall-rpi-day-60-3-09",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Weekly plans: 55.5% of all revenue",
@@ -117,7 +185,12 @@
       "url": "https://adapty.io/state-of-in-app-subscriptions/",
       "date": "2026-03-14",
       "scope": "16,000+ apps",
-      "evidence_class": "large_scale_report"
+      "evidence_class": "large_scale_report",
+      "id": "weekly-plans-55-5-of-all-revenue",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "H&F annual plans: 60.6% of revenue",
@@ -125,7 +198,12 @@
       "url": "https://adapty.io/blog/health-fitness-app-subscription-benchmarks/",
       "date": "2026",
       "scope": "Category-specific cut from $3B dataset",
-      "evidence_class": "large_scale_report"
+      "evidence_class": "large_scale_report",
+      "id": "h-f-annual-plans-60-6-of-revenue",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Weekly + trial 12-month LTV: $49–$54",
@@ -133,7 +211,12 @@
       "url": "https://adapty.io/state-of-in-app-subscriptions/",
       "date": "2026-03-14",
       "scope": "16,000+ apps",
-      "evidence_class": "large_scale_report"
+      "evidence_class": "large_scale_report",
+      "id": "weekly-trial-12-month-ltv-49-54",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "A/B test win rate — Localization: 62.3%",
@@ -141,7 +224,12 @@
       "url": "https://adapty.io/blog/paywall-experiments-playbook/",
       "date": "2026",
       "scope": "Adapty platform experiments",
-      "evidence_class": "vendor_blog"
+      "evidence_class": "vendor_blog",
+      "id": "a-b-test-win-rate-localization-62-3",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "A/B test win rate — Visual/copy: 34.6%",
@@ -149,7 +237,12 @@
       "url": "https://adapty.io/blog/paywall-experiments-playbook/",
       "date": "2026",
       "scope": "Adapty platform experiments",
-      "evidence_class": "vendor_blog"
+      "evidence_class": "vendor_blog",
+      "id": "a-b-test-win-rate-visual-copy-34-6",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Transaction abandon: 17% of total revenue (18 companies)",
@@ -157,7 +250,12 @@
       "url": "https://superwall.com/blog/17-revenue-boost-with-transaction-abandon-paywalls-a-case-study/",
       "date": "2024-08",
       "scope": "18 companies, 438K control + 87K variant users",
-      "evidence_class": "aggregate_study"
+      "evidence_class": "aggregate_study",
+      "id": "transaction-abandon-17-of-total-revenue-18-companies",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "2 products vs 1: +61% conversion",
@@ -165,7 +263,12 @@
       "url": "https://superwall.com/blog/how-many-products-should-you-offer-on-your-paywall",
       "date": "2025",
       "scope": "32.3M paywall opens, 15 largest apps, 383K conversions",
-      "evidence_class": "aggregate_study"
+      "evidence_class": "aggregate_study",
+      "id": "2-products-vs-1-61-conversion",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "3 products vs 2: +44% conversion",
@@ -173,7 +276,12 @@
       "url": "https://superwall.com/blog/how-many-products-should-you-offer-on-your-paywall",
       "date": "2025",
       "scope": "32.3M paywall opens, 15 largest apps",
-      "evidence_class": "aggregate_study"
+      "evidence_class": "aggregate_study",
+      "id": "3-products-vs-2-44-conversion",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Top 10% apps capture 94.5% of revenue",
@@ -181,7 +289,12 @@
       "url": "https://adapty.io/state-of-in-app-subscriptions/",
       "date": "2026-03-14",
       "scope": "16,000+ apps",
-      "evidence_class": "large_scale_report"
+      "evidence_class": "large_scale_report",
+      "id": "top-10-apps-capture-94-5-of-revenue",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Apps with 50+ experiments: 18.7x more revenue",
@@ -189,7 +302,12 @@
       "url": "https://adapty.io/state-of-in-app-subscriptions/",
       "date": "2026-03-14",
       "scope": "Adapty platform",
-      "evidence_class": "vendor_blog"
+      "evidence_class": "vendor_blog",
+      "id": "apps-with-50-experiments-18-7x-more-revenue",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Animated vs static paywalls: 2.9x conversion",
@@ -197,7 +315,12 @@
       "url": "https://adapty.io/blog/high-performing-paywall-2026/",
       "date": "2026",
       "scope": "Adapty platform, methodology not published",
-      "evidence_class": "vendor_blog"
+      "evidence_class": "vendor_blog",
+      "id": "animated-vs-static-paywalls-2-9x-conversion",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Trial Timeline: +23% conversion, -55% complaints",
@@ -205,7 +328,12 @@
       "url": "https://www.purchasely.com/blog/blinkist-paywall-transformation-revolutionizes-app-user-engagement",
       "date": "2025",
       "scope": "Single company (Blinkist)",
-      "evidence_class": "case_study"
+      "evidence_class": "case_study",
+      "id": "trial-timeline-23-conversion-55-complaints",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Personalized paywalls: 15%+ lift",
@@ -213,7 +341,12 @@
       "url": "https://adapty.io/blog/high-performing-paywall-2026/",
       "date": "2026",
       "scope": "Adapty platform, methodology not published",
-      "evidence_class": "vendor_blog"
+      "evidence_class": "vendor_blog",
+      "id": "personalized-paywalls-15-lift",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Toggle paywall rejections started mid-January 2026",
@@ -222,7 +355,12 @@
       "url_alt": "https://www.revenuecat.com/blog/growth/r-i-p-toggle-paywall-we-hardly-knew-ye/",
       "date": "2026-02",
       "scope": "Confirmed App Store rejections, multiple independent reports",
-      "evidence_class": "field_observation"
+      "evidence_class": "field_observation",
+      "id": "toggle-paywall-rejections-started-mid-january-2026",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "~16pt minimum font for pricing",
@@ -230,7 +368,12 @@
       "url": "https://revenueflo.com/blog/common-ios-paywall-rejections-and-the-fixes-that-work",
       "date": "2026",
       "scope": "Developer rejection reports, not official Apple rule",
-      "evidence_class": "field_observation"
+      "evidence_class": "field_observation",
+      "id": "16pt-minimum-font-for-pricing",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": ">5s delayed close button = high rejection risk",
@@ -238,7 +381,12 @@
       "url": "https://revenueflo.com/blog/common-ios-paywall-rejections-and-the-fixes-that-work",
       "date": "2026",
       "scope": "Developer rejection reports, not official Apple rule",
-      "evidence_class": "field_observation"
+      "evidence_class": "field_observation",
+      "id": "5s-delayed-close-button-high-rejection-risk",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "90% of subscriptions sell at full price",
@@ -246,7 +394,12 @@
       "url": "https://adapty.io/state-of-in-app-subscriptions/",
       "date": "2026-03-14",
       "scope": "16,000+ apps",
-      "evidence_class": "large_scale_report"
+      "evidence_class": "large_scale_report",
+      "id": "90-of-subscriptions-sell-at-full-price",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Trial subscribers retain 1.4–1.7x better than direct buyers",
@@ -254,7 +407,12 @@
       "url": "https://adapty.io/blog/free-trial-vs-direct-purchase-subscription-apps/",
       "date": "2026",
       "scope": "Adapty platform",
-      "evidence_class": "vendor_blog"
+      "evidence_class": "vendor_blog",
+      "id": "trial-subscribers-retain-1-4-1-7x-better-than-direct-buyers",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Post-close welcome offers: 10–15% ARPU lift",
@@ -262,7 +420,12 @@
       "url": "https://adapty.io/blog/high-performing-paywall-2026/",
       "date": "2026",
       "scope": "Adapty platform, directional",
-      "evidence_class": "vendor_blog"
+      "evidence_class": "vendor_blog",
+      "id": "post-close-welcome-offers-10-15-arpu-lift",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "12-month retention — Annual: 44.1%, Monthly: 17.0%, Weekly: 3.4%",
@@ -270,7 +433,12 @@
       "url": "https://www.revenuecat.com/state-of-subscription-apps/",
       "date": "2026-03",
       "scope": "115,000+ apps",
-      "evidence_class": "large_scale_report"
+      "evidence_class": "large_scale_report",
+      "id": "12-month-retention-annual-44-1-monthly-17-0-weekly-3-4",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "European apps charge 29–39% more than North American",
@@ -278,7 +446,12 @@
       "url": "https://adapty.io/state-of-in-app-subscriptions/",
       "date": "2026-03-14",
       "scope": "16,000+ apps, regional pricing comparison",
-      "evidence_class": "large_scale_report"
+      "evidence_class": "large_scale_report",
+      "id": "european-apps-charge-29-39-more-than-north-american",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Subscription UA spend grew 24% YoY; Android growing 4x faster than iOS",
@@ -286,7 +459,12 @@
       "url": "https://www.appsflyer.com/resources/reports/subscription-marketing/",
       "date": "2026",
       "scope": "1.7B paid installs, 2,900 subscription apps, 13 categories, $2.1B UA spend",
-      "evidence_class": "large_scale_report"
+      "evidence_class": "large_scale_report",
+      "id": "subscription-ua-spend-grew-24-yoy-android-growing-4x-faster-than-ios",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Indian Subcontinent: 49% of net Android paid install growth; LATAM: 18%",
@@ -294,7 +472,12 @@
       "url": "https://www.appsflyer.com/resources/reports/subscription-marketing/",
       "date": "2026",
       "scope": "Geographic cut from 1.7B installs",
-      "evidence_class": "large_scale_report"
+      "evidence_class": "large_scale_report",
+      "id": "indian-subcontinent-49-of-net-android-paid-install-growth-latam-18",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Short Drama category YoY paid installs: +155%",
@@ -302,7 +485,12 @@
       "url": "https://www.appsflyer.com/resources/reports/subscription-marketing/",
       "date": "2026",
       "scope": "Category-level data from 13 categories tracked",
-      "evidence_class": "large_scale_report"
+      "evidence_class": "large_scale_report",
+      "id": "short-drama-category-yoy-paid-installs-155",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Top 5 apps per category control >90% of UA spend",
@@ -310,7 +498,12 @@
       "url": "https://www.appsflyer.com/resources/reports/subscription-marketing/",
       "date": "2026",
       "scope": "13 categories tracked",
-      "evidence_class": "large_scale_report"
+      "evidence_class": "large_scale_report",
+      "id": "top-5-apps-per-category-control-90-of-ua-spend",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Google Play involuntary billing failures: ~31% of cancellations vs App Store 14%",
@@ -318,7 +511,12 @@
       "url": "https://www.revenuecat.com/state-of-subscription-apps/",
       "date": "2026-03",
       "scope": "115K+ apps cross-platform billing data",
-      "evidence_class": "large_scale_report"
+      "evidence_class": "large_scale_report",
+      "id": "google-play-involuntary-billing-failures-31-of-cancellations-vs-app-stor",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "3-day trials: 55.4% cancel Day 0; 7-day trials: 39.8% cancel Day 0",
@@ -326,7 +524,12 @@
       "url": "https://www.revenuecat.com/state-of-subscription-apps/",
       "date": "2026-03",
       "scope": "115,000+ apps trial-cancellation analysis",
-      "evidence_class": "large_scale_report"
+      "evidence_class": "large_scale_report",
+      "id": "3-day-trials-55-4-cancel-day-0-7-day-trials-39-8-cancel-day-0",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "12-mo RLTV by region: NA $32, WE $25, IN/SEA $14",
@@ -334,7 +537,12 @@
       "url": "https://www.revenuecat.com/state-of-subscription-apps/",
       "date": "2026-03",
       "scope": "115K+ apps regional cut",
-      "evidence_class": "large_scale_report"
+      "evidence_class": "large_scale_report",
+      "id": "12-mo-rltv-by-region-na-32-we-25-in-sea-14",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "12-mo RLTV by tier: High $62.19, Mid $28.75, Low $10.69",
@@ -342,7 +550,12 @@
       "url": "https://www.revenuecat.com/state-of-subscription-apps/",
       "date": "2026-03",
       "scope": "115K+ apps pricing-tier cut",
-      "evidence_class": "large_scale_report"
+      "evidence_class": "large_scale_report",
+      "id": "12-mo-rltv-by-tier-high-62-19-mid-28-75-low-10-69",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "H&F: 4.4x pricing variance across markets; install LTV $1.21 (highest of any category)",
@@ -350,7 +563,12 @@
       "url": "https://adapty.io/blog/health-fitness-app-subscription-benchmarks/",
       "date": "2026",
       "scope": "Category cut from 16K-app dataset",
-      "evidence_class": "large_scale_report"
+      "evidence_class": "large_scale_report",
+      "id": "h-f-4-4x-pricing-variance-across-markets-install-ltv-1-21-highest-of-any",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "H&F first renewal rate 67.7%; 86.1% Day 0 conversion; secondary peak Days 4-7",
@@ -358,7 +576,12 @@
       "url": "https://adapty.io/blog/health-fitness-app-subscription-benchmarks/",
       "date": "2026",
       "scope": "H&F category cut",
-      "evidence_class": "large_scale_report"
+      "evidence_class": "large_scale_report",
+      "id": "h-f-first-renewal-rate-67-7-86-1-day-0-conversion-secondary-peak-days-4",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Apple Guideline 3.1.2 toggle paywall reason: 'This design is confusing and may prevent users from understanding that they are committing to an auto-renewing subscription'",
@@ -367,7 +590,12 @@
       "url_alt": "https://developer.apple.com/app-store/review/guidelines/",
       "date": "2026-02",
       "scope": "Apple-cited rejection reason, multiple developer reports",
-      "evidence_class": "apple_docs"
+      "evidence_class": "apple_docs",
+      "id": "apple-guideline-3-1-2-toggle-paywall-reason-this-design-is-confusing-and",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Tversky & Kahneman framing effect — same problem framed gain vs loss produces preference reversal",
@@ -375,7 +603,12 @@
       "url": "https://www.science.org/doi/10.1126/science.7455683",
       "date": "1981-01-30",
       "scope": "Foundational behavioral economics paper, 17,000+ citations",
-      "evidence_class": "academic"
+      "evidence_class": "academic",
+      "id": "tversky-kahneman-framing-effect-same-problem-framed-gain-vs-loss-produce",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Anderson & Simester $9 endings — same shirt at $39 outsold same shirt at $34 in catalog field experiment",
@@ -383,7 +616,12 @@
       "url": "https://link.springer.com/article/10.1023/A:1023581927405",
       "date": "2003",
       "scope": "Field experiment in mail-order catalog",
-      "evidence_class": "academic"
+      "evidence_class": "academic",
+      "id": "anderson-simester-9-endings-same-shirt-at-39-outsold-same-shirt-at-34-in",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Thomas & Morwitz left-digit effect — consumers anchor on leftmost digit ($9.99 reads as 'nine-something' not '~$10')",
@@ -391,7 +629,12 @@
       "url": "https://academic.oup.com/jcr/article/32/1/54/1791749",
       "date": "2005",
       "scope": "Multiple cognition experiments",
-      "evidence_class": "academic"
+      "evidence_class": "academic",
+      "id": "thomas-morwitz-left-digit-effect-consumers-anchor-on-leftmost-digit-9-99",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Ariely decoy effect — adding inferior $125 print-only option shifted preference toward $125 combo by 52pp (16% to 84%)",
@@ -400,7 +643,12 @@
       "date": "2008",
       "scope": "n=100 MIT students, hypothetical purchase",
       "evidence_class": "academic",
-      "caveat": "Replication studies with real (non-hypothetical) money show weaker effect; treat as Operator Insight in mobile context"
+      "caveat": "Replication studies with real (non-hypothetical) money show weaker effect; treat as Operator Insight in mobile context",
+      "id": "ariely-decoy-effect-adding-inferior-125-print-only-option-shifted-prefer",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Cialdini 7 principles — Social Proof and Authority test as most influential persuaders in mobile app contexts",
@@ -408,7 +656,12 @@
       "url": "https://link.springer.com/chapter/10.1007/978-3-031-59465-6_17",
       "date": "2024",
       "scope": "Multi-cultural study on mobile app installation/risk-taking",
-      "evidence_class": "academic"
+      "evidence_class": "academic",
+      "id": "cialdini-7-principles-social-proof-and-authority-test-as-most-influentia",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Blinkist Trial Timeline paywall: +23% trial signups, -55% complaints, +4% trial retention, +1,200% notification opt-in (6%->74%)",
@@ -417,7 +670,12 @@
       "url_alt": "https://growth.design/case-studies/trial-paywall-challenge",
       "date": "2025",
       "scope": "Single company (Blinkist) before/after measurement",
-      "evidence_class": "case_study"
+      "evidence_class": "case_study",
+      "id": "blinkist-trial-timeline-paywall-23-trial-signups-55-complaints-4-trial-r",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Calm uses single-plan paywall: annual at £39.99, family at £40.99 for 6 accounts, monthly anchor strikethrough",
@@ -425,7 +683,12 @@
       "url": "https://kristenberman.substack.com/p/how-calm-uses-premium-to-motivate",
       "date": "2024-2026",
       "scope": "Production paywall observation",
-      "evidence_class": "field_observation"
+      "evidence_class": "field_observation",
+      "id": "calm-uses-single-plan-paywall-annual-at-39-99-family-at-40-99-for-6-acco",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Cal AI: $1.4M/month gross profit on 30M+ downloads, hard paywall + obsessive personalization model",
@@ -433,7 +696,12 @@
       "url": "https://adapty.io/blog/paywall-newsletter-22/",
       "date": "2025",
       "scope": "Public revenue disclosure + paywall observation",
-      "evidence_class": "case_study"
+      "evidence_class": "case_study",
+      "id": "cal-ai-1-4m-month-gross-profit-on-30m-downloads-hard-paywall-obsessive-p",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Tinder blur-to-reveal paywall: ~8% upgrade conversion specifically to unblur 'who liked you'",
@@ -442,7 +710,12 @@
       "url_alt": "https://subclub.com/episode/dynamic-paywalls-that-drove-millions-in-new-revenue-shawn-gong-tinder",
       "date": "2024-2025",
       "scope": "Operator disclosure on podcast + independent analysis",
-      "evidence_class": "field_observation"
+      "evidence_class": "field_observation",
+      "id": "tinder-blur-to-reveal-paywall-8-upgrade-conversion-specifically-to-unblu",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "ChatGPT pricing tiers (April 2026): Free, Go ($8 emerging-markets), Plus ($20, GPT-5.4), Pro ($200, GPT-5.4 Pro + Sora 2 Pro), Business, Enterprise",
@@ -450,7 +723,12 @@
       "url": "https://chatgpt.com/pricing/",
       "date": "2026-04",
       "scope": "Official OpenAI disclosure",
-      "evidence_class": "platform_capability"
+      "evidence_class": "platform_capability",
+      "id": "chatgpt-pricing-tiers-april-2026-free-go-8-emerging-markets-plus-20-gpt",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Flo: 70-screen onboarding, $6M/month subscription revenue from ~1M downloads/month, 60-80% purchases at first app use",
@@ -459,7 +737,12 @@
       "url_alt": "https://dev.to/paywallpro/effective-paywall-examples-in-health-fitness-apps-2025-3op9",
       "date": "2025",
       "scope": "Production paywall observation",
-      "evidence_class": "field_observation"
+      "evidence_class": "field_observation",
+      "id": "flo-70-screen-onboarding-6m-month-subscription-revenue-from-1m-downloads",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Noom: 77-step onboarding (~7 min), 'personalized plan reserved' framing, 15-min countdown, 7-day trial on 2-month plan",
@@ -468,7 +751,12 @@
       "url_alt": "https://www.retention.blog/p/the-longest-onboarding-ever",
       "date": "2025",
       "scope": "Production paywall observation",
-      "evidence_class": "field_observation"
+      "evidence_class": "field_observation",
+      "id": "noom-77-step-onboarding-7-min-personalized-plan-reserved-framing-15-min",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Strava: 30-day full-access trial without credit card; monthly $11.99 vs annual $79.99 anchoring",
@@ -477,7 +765,12 @@
       "url_alt": "https://dev.to/paywallpro/top-fitness-app-paywalls-ux-patterns-pricing-insights-2868",
       "date": "2025",
       "scope": "Production paywall observation",
-      "evidence_class": "field_observation"
+      "evidence_class": "field_observation",
+      "id": "strava-30-day-full-access-trial-without-credit-card-monthly-11-99-vs-ann",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Headspace: equal-prominence monthly and annual plans; 100% locked content with 1-2 free items per category retained as hook",
@@ -485,7 +778,12 @@
       "url": "https://subclub.com/episode/how-headspace-optimized-revenue-by-gating-content-shreya-oswal-and-keya-patel-headspace",
       "date": "2024-2025",
       "scope": "Operator disclosure on podcast",
-      "evidence_class": "field_observation"
+      "evidence_class": "field_observation",
+      "id": "headspace-equal-prominence-monthly-and-annual-plans-100-locked-content-w",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Kahneman & Tversky Prospect Theory — losses felt approximately 2x more painful than equivalent gains; foundational paper that won 2002 Nobel Memorial Prize in Economics",
@@ -493,7 +791,12 @@
       "url": "https://www.jstor.org/stable/1914185",
       "date": "1979",
       "scope": "Foundational behavioral economics paper, 65,000+ citations",
-      "evidence_class": "academic"
+      "evidence_class": "academic",
+      "id": "kahneman-tversky-prospect-theory-losses-felt-approximately-2x-more-painf",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Anchoring effect — even arbitrary numbers anchor subsequent estimates (spinner experiment: random number influenced estimates of unrelated facts)",
@@ -501,7 +804,12 @@
       "url": "https://www.science.org/doi/10.1126/science.185.4157.1124",
       "date": "1974",
       "scope": "Foundational paper introducing the heuristics and biases program",
-      "evidence_class": "academic"
+      "evidence_class": "academic",
+      "id": "anchoring-effect-even-arbitrary-numbers-anchor-subsequent-estimates-spin",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "System 1 / System 2 — fast intuitive decisions vs slow deliberate reasoning; 95%+ of decisions made by System 1 in under a few seconds",
@@ -509,7 +817,12 @@
       "url": "https://us.macmillan.com/books/9780374533557/thinkingfastandslow/",
       "date": "2011",
       "scope": "Best-selling synthesis of 40 years of Kahneman's research",
-      "evidence_class": "academic"
+      "evidence_class": "academic",
+      "id": "system-1-system-2-fast-intuitive-decisions-vs-slow-deliberate-reasoning",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Endowment Effect — once people own something, they value it ~2x more than before they owned it (coffee mug experiment: $5 mug demanded $7 to sell, only $3 to buy)",
@@ -517,7 +830,12 @@
       "url": "https://www.jstor.org/stable/2937761",
       "date": "1990",
       "scope": "Multiple controlled lab experiments",
-      "evidence_class": "academic"
+      "evidence_class": "academic",
+      "id": "endowment-effect-once-people-own-something-they-value-it-2x-more-than-be",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Peak-End Rule — people judge experiences by emotional peak + ending, not by average intensity (colonoscopy study: longer mild-pain ending rated less painful than shorter sharp-pain)",
@@ -525,7 +843,12 @@
       "url": "https://journals.sagepub.com/doi/10.1111/j.1467-9280.1993.tb00589.x",
       "date": "1993",
       "scope": "Lab + clinical studies on retrospective experience evaluation",
-      "evidence_class": "academic"
+      "evidence_class": "academic",
+      "id": "peak-end-rule-people-judge-experiences-by-emotional-peak-ending-not-by-a",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Default Effect / Status Quo Bias — organ donation rates 86% in opt-out countries vs 4% in opt-in countries (same population, only default flipped)",
@@ -533,7 +856,12 @@
       "url": "https://www.aeaweb.org/articles?id=10.1257/jep.5.1.193",
       "date": "1991",
       "scope": "Foundational paper on default-driven decision-making",
-      "evidence_class": "academic"
+      "evidence_class": "academic",
+      "id": "default-effect-status-quo-bias-organ-donation-rates-86-in-opt-out-countr",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Mental Accounting — people categorize money into mental accounts (daily expenses vs entertainment vs investment); same dollar feels different by account assignment",
@@ -541,7 +869,12 @@
       "url": "https://www.sciencedirect.com/science/article/abs/pii/0167268180900517",
       "date": "1980-1999",
       "scope": "Foundational behavioral economics; explains per-day vs per-year framing differences",
-      "evidence_class": "academic"
+      "evidence_class": "academic",
+      "id": "mental-accounting-people-categorize-money-into-mental-accounts-daily-exp",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "WYSIATI (What You See Is All There Is) — System 1 makes confident judgments based only on visible information; unseen does not register as uncertain, registers as nonexistent",
@@ -549,7 +882,12 @@
       "url": "https://us.macmillan.com/books/9780374533557/thinkingfastandslow/",
       "date": "2011",
       "scope": "Synthesis of decades of cognitive research",
-      "evidence_class": "academic"
+      "evidence_class": "academic",
+      "id": "wysiati-what-you-see-is-all-there-is-system-1-makes-confident-judgments",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Substitution Heuristic — when asked a hard question, the brain unconsciously substitutes an easier question and answers that instead",
@@ -557,7 +895,12 @@
       "url": "https://us.macmillan.com/books/9780374533557/thinkingfastandslow/",
       "date": "2011",
       "scope": "Explains why social proof beats feature lists in conversion contexts",
-      "evidence_class": "academic"
+      "evidence_class": "academic",
+      "id": "substitution-heuristic-when-asked-a-hard-question-the-brain-unconsciousl",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Planning Fallacy — people consistently underestimate how long tasks will take and how hard they will be; best-case scenarios feel more likely than they are",
@@ -565,7 +908,12 @@
       "url": "https://www.dtic.mil/sti/citations/ADA047747",
       "date": "1979",
       "scope": "Foundational paper on prediction biases; explains why trial users overestimate their cancellation discipline",
-      "evidence_class": "academic"
+      "evidence_class": "academic",
+      "id": "planning-fallacy-people-consistently-underestimate-how-long-tasks-will-t",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Hedonic Adaptation — people adapt to new conditions (positive or negative) faster than they expect; lottery winners and accident victims return toward baseline within months",
@@ -573,7 +921,12 @@
       "url": "https://www.russellsage.org/publications/well-being-1",
       "date": "1999",
       "scope": "Edited volume synthesizing well-being research; explains reverse trial mechanics + habit-forming feature design",
-      "evidence_class": "academic"
+      "evidence_class": "academic",
+      "id": "hedonic-adaptation-people-adapt-to-new-conditions-positive-or-negative-f",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Fogg Behavior Model — Behavior = Motivation × Ability × Trigger; all three must converge for behavior to occur; reduce ability friction to compensate for low motivation",
@@ -581,7 +934,12 @@
       "url": "https://behaviordesign.stanford.edu/resources/fogg-behavior-model",
       "date": "2009",
       "scope": "1,900+ academic publications reference the Fogg model; widely operationalized in product design",
-      "evidence_class": "academic"
+      "evidence_class": "academic",
+      "id": "fogg-behavior-model-behavior-motivation-ability-trigger-all-three-must-c",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Choice Overload — 6-jam supermarket display generated 30% purchase rate vs 24-jam display 3% (~10x conversion advantage); 3 experimental studies showing fewer choices increase satisfaction and conversion",
@@ -590,7 +948,12 @@
       "date": "2000",
       "scope": "Foundational JPSP paper; effect direction validated; magnitude challenged in Scheibehenne et al 2010 meta-analysis (50+ studies)",
       "evidence_class": "academic",
-      "caveat": "Effect is context-dependent; meta-analysis found near-zero average. Direction valid; do not bank on 10x lift in mobile A/B."
+      "caveat": "Effect is context-dependent; meta-analysis found near-zero average. Direction valid; do not bank on 10x lift in mobile A/B.",
+      "id": "choice-overload-6-jam-supermarket-display-generated-30-purchase-rate-vs",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "IKEA Effect — people value self-made products as much as expert-made products; effect dissipates if labor fails or product is destroyed (completion matters); 4 studies (IKEA boxes, origami, Lego)",
@@ -598,7 +961,12 @@
       "url": "https://myscp.onlinelibrary.wiley.com/doi/abs/10.1016/j.jcps.2011.08.002",
       "date": "2012",
       "scope": "Replicated in conceptual replication studies; psychological ownership identified as mediator. Explains long-onboarding paywalls (Noom, Flo, Cal AI).",
-      "evidence_class": "academic"
+      "evidence_class": "academic",
+      "id": "ikea-effect-people-value-self-made-products-as-much-as-expert-made-produ",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Hyperbolic Discounting — people apply disproportionately steep discount to future rewards (present bias); creates dynamically inconsistent preferences; explains why weekly plans dominate over annual in mobile subscriptions",
@@ -606,7 +974,12 @@
       "url": "https://academic.oup.com/qje/article-abstract/112/2/443/1870925",
       "date": "1997",
       "scope": "Foundational behavioral-economics paper; decades of replication across savings, addiction, health behavior",
-      "evidence_class": "academic"
+      "evidence_class": "academic",
+      "id": "hyperbolic-discounting-people-apply-disproportionately-steep-discount-to",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Goal-Gradient Effect — effort accelerates as users approach reward; café customers buy coffee more frequently near free-coffee threshold; bonus head-start (12-stamp card with 2 free) leads to faster completion than equivalent regular card",
@@ -614,7 +987,12 @@
       "url": "https://journals.sagepub.com/doi/abs/10.1509/jmkr.43.1.39",
       "date": "2006",
       "scope": "Multi-method field experiments + lab studies; robust replication base. Explains progress bars + bonus framing in onboarding.",
-      "evidence_class": "academic"
+      "evidence_class": "academic",
+      "id": "goal-gradient-effect-effort-accelerates-as-users-approach-reward-caf-cus",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Negativity Bias — psychological impact of bad events outweighs equivalent good events across all domains (everyday events, major life events, relationships, social networks, learning, feedback); the self is more motivated to avoid bad self-definitions than to pursue good",
@@ -622,7 +1000,12 @@
       "url": "https://journals.sagepub.com/doi/abs/10.1037/1089-2680.5.4.323",
       "date": "2001",
       "scope": "Comprehensive review; 10,000+ citations; most-cited paper in negativity bias literature",
-      "evidence_class": "academic"
+      "evidence_class": "academic",
+      "id": "negativity-bias-psychological-impact-of-bad-events-outweighs-equivalent",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Costly Signaling — buyers infer quality from observable costly signals; premium pricing signals quality when quality cannot be directly verified; foundational microeconomics",
@@ -630,7 +1013,12 @@
       "url": "https://academic.oup.com/qje/article-abstract/87/3/355/1909092",
       "date": "1973",
       "scope": "Nobel Memorial Prize in Economics (2001); 14,759+ citations per Semantic Scholar. Explains 3x LTV uplift of high-priced apps (Adapty 2026)",
-      "evidence_class": "academic"
+      "evidence_class": "academic",
+      "id": "costly-signaling-buyers-infer-quality-from-observable-costly-signals-pre",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Psychological Reactance — when freedom to choose is threatened, people are motivated to restore freedom by doing the opposite; explains why fake urgency, hard re-prompting, and forced defaults backfire",
@@ -638,7 +1026,12 @@
       "url": "https://psycnet.apa.org/record/1967-08061-000",
       "date": "1966",
       "scope": "50+ years of replication across health, marketing, politics, education domains; reviewed in Steindl et al 2015 Springer Nature",
-      "evidence_class": "academic"
+      "evidence_class": "academic",
+      "id": "psychological-reactance-when-freedom-to-choose-is-threatened-people-are",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Sunk Cost Fallacy — people irrationally continue commitments based on past investment of time/money/effort even when continuing is no longer rational; strongest when investment is recent and visible",
@@ -646,7 +1039,12 @@
       "url": "https://www.sciencedirect.com/science/article/abs/pii/0749597885900494",
       "date": "1985",
       "scope": "Foundational paper on sunk cost; widely accepted in academic literature. Explains commitment effect of long onboarding flows.",
-      "evidence_class": "academic"
+      "evidence_class": "academic",
+      "id": "sunk-cost-fallacy-people-irrationally-continue-commitments-based-on-past",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     },
     {
       "claim": "Ego Depletion / Decision Fatigue — REPLICATION FAILED. Original 1998 study claimed self-control is a limited resource that depletes with use. Hagger et al 2016 (24 labs, 2,141 participants) and Vohs et al 2016 (36 labs, 3,531 participants) both found no effect. The simple resource-based model is no longer scientifically tenable.",
@@ -655,7 +1053,12 @@
       "date": "1998 (original) / 2016 (replication failures)",
       "scope": "Cautionary tale: do NOT cite as mechanism for design rules. Use Choice Overload (Iyengar 2000) + System 1 (Kahneman 2011) instead.",
       "evidence_class": "academic",
-      "caveat": "REPLICATION FAILED. Include only as cautionary tale; do not use as design justification."
+      "caveat": "REPLICATION FAILED. Include only as cautionary tale; do not use as design justification.",
+      "id": "ego-depletion-decision-fatigue-replication-failed-original-1998-study-cl",
+      "domain": "paywall",
+      "status": "active",
+      "updated_at": "2026-04-17",
+      "tags": []
     }
   ]
 }
