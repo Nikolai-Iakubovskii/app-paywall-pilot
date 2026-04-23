@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "prompts": [
+    {
+      "id": "audit_missing_visual",
+      "prompt": "Audit my paywall.",
+      "expected_mode": "audit",
+      "max_references": 3,
+      "must_include": ["Missing data", "screenshot", "Safe next step"],
+      "must_not_include": ["12-section full audit"]
+    },
+    {
+      "id": "quick_trial_paid_low",
+      "prompt": "Trial-to-paid is 18%. Is this bad?",
+      "expected_mode": "quick",
+      "max_references": 1,
+      "must_include": ["Verdict", "Reason", "Action"],
+      "must_not_include": ["Current state", "Layout sketch"]
+    },
+    {
+      "id": "calculator_missing_cac",
+      "prompt": "Annual is $59.99, monthly is $9.99, conversion is 6%. Will I be profitable?",
+      "expected_mode": "calculator",
+      "max_references": 1,
+      "must_include": ["Missing data", "CPI", "CAC"],
+      "must_not_include": ["guaranteed"]
+    },
+    {
+      "id": "compliance_missing_terms",
+      "prompt": "Will Apple reject this paywall?",
+      "expected_mode": "compliance",
+      "max_references": 2,
+      "must_include": ["Missing data", "price", "duration", "restore"],
+      "must_not_include": ["approved"]
+    },
+    {
+      "id": "pattern_calm",
+      "prompt": "How does Calm structure its paywall?",
+      "expected_mode": "pattern",
+      "max_references": 1,
+      "must_include": ["Pattern", "Transfer rule"],
+      "must_not_include": ["12-section"]
+    }
+  ]
+}

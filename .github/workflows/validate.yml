@@ -27,6 +27,9 @@ jobs:
       - name: Validate framework metadata
         run: python3 .github/scripts/validate_repo_meta.py
 
+      - name: Validate runtime contracts
+        run: python3 .github/scripts/validate_runtime_contracts.py
+
       - name: Check metadata-driven doc blocks
         run: python3 tools/sync_repo_meta.py --check
 
@@ -61,9 +64,9 @@ jobs:
       - name: SKILL.md size guard
         run: |
           lines=$(wc -l < SKILL.md)
-          if [ "$lines" -gt 1500 ]; then
-            echo "SKILL.md is $lines lines (>1500 soft limit)"
-            echo "Move deep content into modules/ to keep core lean"
+          if [ "$lines" -gt 400 ]; then
+            echo "SKILL.md is $lines lines (>400 runtime limit)"
+            echo "Move deep content into runtime/ or modules/ to keep core lean"
             exit 1
           fi
-          echo "SKILL.md is $lines lines (under 1500 limit)"
+          echo "SKILL.md is $lines lines (under 400 limit)"

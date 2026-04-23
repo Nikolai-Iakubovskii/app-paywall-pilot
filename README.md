@@ -31,11 +31,13 @@
 
 Paywall Pilot is **not just a Claude Code skill** (though it works as one). It's a 4-layer framework, designed to be used whole or per-layer.
 
+Runtime behavior is intentionally smaller than this README: agents should start from [`SKILL.md`](SKILL.md), then use [`runtime/`](runtime/) for input contracts, routing, and source lookup rules.
+
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │  🤖 SKILL LAYER          SKILL.md + modules/*.md            │
 │  Entry point for AI assistants (Claude / GPT / Cursor)      │
-│  Loads on demand by topic. Focused, modular deep dives.     │
+│  Thin core + lazy modules + runtime contracts               │
 ├─────────────────────────────────────────────────────────────┤
 │  📚 KNOWLEDGE LAYER      sources.json + outputs/            │
 │  Every numeric claim sourced. Research briefs.              │
