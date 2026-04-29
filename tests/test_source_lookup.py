@@ -29,6 +29,18 @@ class SourceLookupTests(unittest.TestCase):
         ids = [entry["id"] for entry in results]
         self.assertIn("trial-paid-global-25-6-27-8", ids)
 
+    def test_alias_query_finds_refund_related_source(self) -> None:
+        results = lookup_sources(query="refund rate annual", limit=3)
+
+        ids = [entry["id"] for entry in results]
+        self.assertIn("google-play-involuntary-billing-failures-31-of-cancellations-vs-app-stor", ids)
+
+    def test_alias_query_finds_toggle_rejection_source(self) -> None:
+        results = lookup_sources(query="toggle rejection", limit=3)
+
+        ids = [entry["id"] for entry in results]
+        self.assertIn("toggle-paywall-rejections-started-mid-january-2026", ids)
+
     def test_cli_outputs_json(self) -> None:
         result = subprocess.run(
             [

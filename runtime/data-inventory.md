@@ -8,7 +8,7 @@ These inputs can be read from this repository.
 
 | Data | Location | Use |
 |------|----------|-----|
-| Runtime behavior | [SKILL.md](../SKILL.md), [input-contracts.md](input-contracts.md), [reference-routing.md](reference-routing.md) | Mode choice, required inputs, context budget |
+| Runtime behavior | [SKILL.md](../SKILL.md), [input-contracts.md](input-contracts.md), [reference-routing.md](reference-routing.md), [pareto-cards.json](pareto-cards.json) | Mode choice, required inputs, context budget, high-frequency task cards |
 | Benchmarks and source IDs | [sources.json](../sources.json), [tools/source_lookup.py](../tools/source_lookup.py) | Numeric claims with evidence class, date, URL, scope |
 | Category guidance | [modules/category-deep-dives.md](../modules/category-deep-dives.md) | Category-specific plan, trial, pricing, geography guidance |
 | Compliance guidance | [modules/decision-trees.md](../modules/decision-trees.md), [docs/audit-checklist.md](../docs/audit-checklist.md), [docs/migrations/from-toggle-paywall.md](../docs/migrations/from-toggle-paywall.md) | App Store review risk, migration from risky patterns |
@@ -39,6 +39,8 @@ These inputs usually do not exist in this repo. Ask for them or mark them missin
 ## Missing Data Rules
 
 - If a required field is missing, list it in `Missing data` before recommendations.
+- If a screenshot is present but context is missing, give screenshot-only findings first and mark missing context separately.
+- For paywall design, ask no more than 3 grouped questions before drafting when the missing fields would materially change the spec.
 - If the missing field changes the answer materially, do not produce a full recommendation. Give the smallest safe next step.
 - Never infer product IDs, prices, trial status, discounts, ratings, testimonials, geo split, provider config, or experiment results.
 - Benchmarks are fallback context. User/app data wins when it is real and current.

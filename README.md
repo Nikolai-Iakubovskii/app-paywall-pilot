@@ -85,7 +85,7 @@ Concrete jobs-to-be-done. Match your situation; the framework activates the rele
 | **You need better paywall copy.** | "Write 3 headline variants for my running app paywall." | Copy library: 12 headline formulas · Copy Ladder · banned words · locale notes |
 | **Your refund rate is high.** | "Annual refund rate is 7% — what's wrong?" | Refund management · Apple Consumption API · channel-level diagnostic |
 
-If your situation isn't on this list, just say *"Audit my paywall"* with a screenshot. You get a 12-section report.
+If your situation isn't on this list, just send a screenshot and say *"Audit my paywall"*. You get a concise screenshot-first audit by default; ask for a deep audit when you want the full breakdown.
 
 ---
 
@@ -93,7 +93,9 @@ If your situation isn't on this list, just say *"Audit my paywall"* with a scree
 
 | 🎯 Output | 📦 What's inside | 🔧 Powered by |
 |-----------|-----------------|----------------|
-| **Full paywall audit (12 sections)** | Current state · main problem · access model + placement + presentation · screen content · 2-3 copy variants · layout sketch · localization notes · ranked test plan · iOS review risks · Android delta | SKILL.md DEFAULT OUTPUT FORMAT |
+| **Pareto paywall audit (default)** | Observed issues · top 3 fixes · missing context · next test · short sources | SKILL.md + runtime Pareto cards |
+| **Deep paywall audit (on request)** | Current state · main problem · access model + placement + presentation · screen content · copy variants · localization notes · ranked test plan · iOS review risks · Android delta | SKILL.md deep output |
+| **Paywall design spec** | Recommended model · screen spec · copy draft · compliance watchouts · first A/B test · short sources | SKILL.md `design` mode + runtime Pareto cards |
 | **Unit-economics projection** | LTV / ARPU / ROAS / breakeven across 8 horizons (7d → 4yr) · performance grading vs benchmarks · top-3 actions · what-if scenarios | [unit-economics-calculator.md](modules/unit-economics-calculator.md) + [Python script](tools/ltv-calculator.py) |
 | **Direct answers to single questions** | "Should I add a weekly plan?" → verdict + reason + one action. 35+ pre-answered scenarios. | [indie-dev-faq.md](modules/indie-dev-faq.md) |
 | **Big-app pattern reference** | Annotated teardowns with structure / copy / pricing / takeaway / source | [teardowns.md](modules/teardowns.md) |
@@ -157,7 +159,7 @@ Plus standalone documentation, executable tools, worked examples, and research:
 
 - **[docs/audit-checklist.md](docs/audit-checklist.md)** -- printable 50+ item checklist for manual review before App Store submission
 - **[docs/migrations/from-toggle-paywall.md](docs/migrations/from-toggle-paywall.md)** -- migration playbook for apps caught in Apple's Jan 2026 toggle ban, with 4 compliant alternatives
-- **[examples/](examples/)** -- worked audit examples: [H&F app](examples/audit-h-and-f-app.md), [AI app](examples/audit-ai-app.md), [Productivity app](examples/audit-productivity-app.md). Each shows full 12-section DEFAULT OUTPUT FORMAT.
+- **[examples/](examples/)** -- worked audit examples: [H&F app](examples/audit-h-and-f-app.md), [AI app](examples/audit-ai-app.md), [Productivity app](examples/audit-productivity-app.md). Use as deep-output references; default runtime answers stay shorter.
 - **[tools/ltv-calculator.py](tools/ltv-calculator.py)** -- backward-compatible CLI wrapper for the calculator
 - **[tools/ltv_calculator.py](tools/ltv_calculator.py)** -- importable calculator library with validation + JSON-safe output helpers
 - **[.github/workflows/validate.yml](.github/workflows/validate.yml)** -- CI: validates sources.json structure, all internal links resolve, calculator smoke tests, SKILL.md size guard

@@ -8,6 +8,7 @@ Load the smallest set of references that answers the task. Do not load README or
 |------|----------------|---------------|
 | `quick` | 1 | [modules/indie-dev-faq.md](../modules/indie-dev-faq.md) or one task-specific module |
 | `audit` | 3 | [runtime/input-contracts.md](input-contracts.md), plus up to two modules selected by issue |
+| `design` | 2 | [runtime/pareto-cards.json](pareto-cards.json), plus copy/layout/category module as needed |
 | `calculator` | 1 + script | [modules/unit-economics-calculator.md](../modules/unit-economics-calculator.md), [tools/ltv-calculator.py](../tools/ltv-calculator.py) |
 | `compliance` | 2 | [modules/decision-trees.md](../modules/decision-trees.md), [docs/audit-checklist.md](../docs/audit-checklist.md) |
 | `pattern` | 1 | [modules/teardowns.md](../modules/teardowns.md) or one pattern module |
@@ -18,6 +19,7 @@ Load the smallest set of references that answers the task. Do not load README or
 | Need | Load |
 |------|------|
 | One tactical benchmark answer | [modules/indie-dev-faq.md](../modules/indie-dev-faq.md) |
+| Common screenshot/design task | [runtime/pareto-cards.json](pareto-cards.json) |
 | Source-backed numeric claim | Run [tools/source_lookup.py](../tools/source_lookup.py) |
 | Plan/pricing/category economics | [modules/category-deep-dives.md](../modules/category-deep-dives.md) |
 | LTV/ROAS/breakeven | [modules/unit-economics-calculator.md](../modules/unit-economics-calculator.md) and script |

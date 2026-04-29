@@ -26,6 +26,7 @@ Always use these as the operating contract:
 | [runtime/data-inventory.md](runtime/data-inventory.md) | What repo provides, what user/app must provide, missing-data rules |
 | [runtime/input-contracts.md](runtime/input-contracts.md) | Required fields per mode and blocking rules |
 | [runtime/reference-routing.md](runtime/reference-routing.md) | Which references to load and max references per mode |
+| [runtime/pareto-cards.json](runtime/pareto-cards.json) | High-frequency task cards with output shape, short intake, and source IDs |
 | [runtime/golden-prompts.json](runtime/golden-prompts.json) | Smoke prompts for behavior validation |
 | [tools/source_lookup.py](tools/source_lookup.py) | Deterministic lookup over [sources.json](sources.json) |
 
@@ -39,6 +40,7 @@ Pick exactly one mode first.
 |------|-------------|-------------|----------------|
 | `quick` | One tactical question: "Should I add weekly?", "trial-to-paid is low" | Core + 1 reference | Verdict, reason, one action |
 | `audit` | "Audit my paywall", screenshot/code/full review | Core + up to 3 references | Status summary, missing data, findings, ranked fixes |
+| `design` | "Make/design/write a paywall", enough app context | Core + Pareto card + up to 2 references | Concrete paywall spec, copy, compliance watchouts, first test |
 | `calculator` | Plans/prices/conversion/CPI/CAC/profitability | Core + calculator script + 1 reference | Run or guide LTV/ROAS projection |
 | `compliance` | Rejection risk, App Store review, Guideline 3.1.2 | Core + up to 2 references | Apple Rule vs field report triage |
 | `pattern` | "How does Calm/Noom/Tinder do it?" | Core + 1 reference | Pattern summary and transfer rule |
@@ -48,7 +50,7 @@ If the user asks for code changes, inspect the target app repository before reco
 
 ## Required Intake
 
-Before recommendations, check [runtime/input-contracts.md](runtime/input-contracts.md). Use this compact summary for `audit`, `calculator`, `compliance`, and `implementation`:
+Before recommendations, check [runtime/input-contracts.md](runtime/input-contracts.md). Use this compact summary for `audit`, `design`, `calculator`, `compliance`, and `implementation`:
 
 ```text
 Known: [facts]
@@ -59,6 +61,8 @@ Mode: [mode]
 
 Blocking rules:
 - `audit`: no full audit without screenshot, code, or detailed paywall description.
+- `audit` with screenshot but no context: do not block; give a screenshot-only audit and mark assumptions.
+- `design`: if context is too thin, ask up to 3 short grouped questions before creating a final spec.
 - `calculator`: no numeric projection without plans, prices, conversion/funnel input, and install/CPI/CAC basis.
 - `compliance`: no approval/rejection verdict without price, duration, trial terms, restore path, legal links, and screenshot/code.
 - `implementation`: no edits until target files and billing/provider framework are identified.
@@ -98,9 +102,15 @@ python3 tools/source_lookup.py --id trial-paid-global-25-6-27-8 --json
 
 When citing a number, include at least: `claim`, `evidence_class`, `source`, `date`, `id`.
 
+For normal answers, keep sources short:
+
+```text
+Sources: [id] claim — source, date, evidence_class.
+```
+
 ## Reference Routing
 
-Use [runtime/reference-routing.md](runtime/reference-routing.md) before loading extra files.
+Use [runtime/pareto-cards.json](runtime/pareto-cards.json) first for common tasks, then [runtime/reference-routing.md](runtime/reference-routing.md) before loading extra files.
 
 Common routes:
 
@@ -128,12 +138,13 @@ Common routes:
 
 1. Pick mode.
 2. Check required intake and missing data.
-3. Inspect target repository/config when implementation or audit depends on code.
-4. Load only routed references within budget.
-5. Use `tools/source_lookup.py` for numeric claims.
-6. Produce the smallest answer that solves the task.
-7. Label evidence and uncertainty.
-8. For code work, verify with tests or targeted smoke checks.
+3. Match a Pareto card if one exists.
+4. Inspect target repository/config when implementation or audit depends on code.
+5. Load only routed references within budget.
+6. Use `tools/source_lookup.py` for numeric claims.
+7. Produce the smallest answer that solves the task.
+8. Label evidence and uncertainty.
+9. For code work, verify with tests or targeted smoke checks.
 
 ## Paywall System Axes
 
@@ -156,6 +167,7 @@ Do not jump to screen design before access model, placement, products, and entit
 Verdict: [Excellent/Good/Average/Poor/Critical]
 Reason: [one source-backed sentence]
 Action: [single highest-leverage move]
+Sources: [2-4 short source notes when material claims are made]
 ```
 
 ### Missing Data
@@ -183,6 +195,19 @@ Use this compact shape unless user requests depth:
 
 Each finding needs evidence label. Do not repeat same issue across sections.
 
+For screenshot-only audits, start with what is visible, then list missing context that could change the recommendation.
+
+### Design
+
+Use this shape when the user asks to create a paywall:
+
+1. Recommended model: access, placement, presentation, surface
+2. Screen spec: hero, value/proof, plans, CTA, legal/restore
+3. Copy draft
+4. Compliance watchouts
+5. First A/B test and success metric
+6. Sources
+
 ### Calculator
 
 Prefer running:
@@ -207,6 +232,7 @@ Never promise approval.
 - Full audit without app data.
 - Benchmark defaults presented as app truth.
 - Loading benchmark tables when source lookup is enough.
+- Asking a long intake questionnaire before giving useful screenshot/design feedback.
 - Treating a paywall as only a visual screen.
 - Recommending fake urgency, fake proof, hidden close, guilt decline, misleading savings, or toggle paywall.
 - Optimizing copy/color before placement, product architecture, trial/offer logic, and localization.

@@ -1,0 +1,254 @@
+{
+  "version": 1,
+  "default_profile": "pareto",
+  "purpose": "Small runtime cards for the highest-frequency paywall tasks. Use before loading full modules.",
+  "shared_rules": {
+    "answer_depth": "Default to a concise Pareto answer. Expand only when the user asks for depth or implementation detail.",
+    "questions": "Ask at most 3 short grouped questions before work, and only when the missing answer can materially change the recommendation.",
+    "audience": "Write so a beginner can act immediately and a pro can see the assumptions, evidence class, and metric to watch.",
+    "sources": "Show 2-4 short source notes at the end for material claims. Prefer source IDs from this card plus source_lookup.py.",
+    "screenshot_without_context": "Do not block. Produce a screenshot-only audit, mark missing context, and separate observed issues from assumptions."
+  },
+  "response_profiles": {
+    "pareto": [
+      "Verdict",
+      "Top 3 moves",
+      "What to change on the screen or system",
+      "What to measure next",
+      "Sources"
+    ],
+    "deep": [
+      "Current state",
+      "Missing data and risk",
+      "System recommendation",
+      "Screen/content fixes",
+      "Compliance risks",
+      "Experiment plan",
+      "Sources"
+    ]
+  },
+  "cards": [
+    {
+      "id": "screenshot_audit_no_context",
+      "mode": "audit",
+      "use_when": [
+        "User sends a paywall screenshot with no context",
+        "User asks audit my paywall and provides only visual evidence"
+      ],
+      "ask_if_missing": [
+        "app category and core user goal",
+        "platform and subscription provider",
+        "products, prices, trial or offer terms"
+      ],
+      "question_template": "I can audit from the screenshot now. For a sharper version, send: 1) app category + user goal, 2) iOS/Android + provider, 3) plans/prices/trial.",
+      "default_action": "Give screenshot-only findings first. Do not invent prices, provider config, experiment results, testimonials, or compliance state.",
+      "output_contract": [
+        "Observed from screenshot",
+        "Top 3 fixes",
+        "Missing context that could change the answer",
+        "Next test",
+        "Sources"
+      ],
+      "source_ids": [
+        "2-products-vs-1-61-conversion",
+        "3-products-vs-2-44-conversion",
+        "trial-paid-global-25-6-27-8",
+        "apple-guideline-3-1-2-toggle-paywall-reason-this-design-is-confusing-and"
+      ],
+      "load_if_needed": [
+        "modules/screen-anatomy.md",
+        "modules/copy-library.md",
+        "docs/audit-checklist.md"
+      ]
+    },
+    {
+      "id": "design_paywall_with_context",
+      "mode": "design",
+      "use_when": [
+        "User asks to make, design, write, or spec a paywall",
+        "User gives app context and wants a concrete paywall direction"
+      ],
+      "ask_if_missing": [
+        "app category, audience, and main value moment",
+        "platform/provider plus products, prices, and trial terms",
+        "where the paywall appears and what happened immediately before it"
+      ],
+      "question_template": "Before I design it, send 3 things: 1) category + target user + promised outcome, 2) plans/prices/trial, 3) where paywall appears.",
+      "default_action": "If enough context exists, produce a concrete first version instead of a generic checklist.",
+      "output_contract": [
+        "Recommended model: access, placement, presentation, surface",
+        "Screen spec: hero, proof/value, plans, CTA, legal/restore",
+        "Copy draft: headline, bullets, CTA, secondary action",
+        "Compliance watchouts",
+        "First A/B test",
+        "Sources"
+      ],
+      "source_ids": [
+        "2-products-vs-1-61-conversion",
+        "3-products-vs-2-44-conversion",
+        "trial-paid-global-25-6-27-8",
+        "12-month-retention-annual-44-1-monthly-17-0-weekly-3-4"
+      ],
+      "load_if_needed": [
+        "modules/copy-library.md",
+        "modules/screen-anatomy.md",
+        "modules/category-deep-dives.md"
+      ]
+    },
+    {
+      "id": "quick_trial_to_paid_low",
+      "mode": "quick",
+      "use_when": [
+        "Trial-to-paid is low",
+        "User asks if trial conversion is good or bad"
+      ],
+      "default_action": "Compare to global and category benchmark, then give one highest-leverage fix.",
+      "output_contract": [
+        "Verdict",
+        "Reason",
+        "Action",
+        "Sources"
+      ],
+      "source_ids": [
+        "trial-paid-global-25-6-27-8",
+        "trial-paid-health-fitness-35-0-39-9",
+        "blinkist-trial-timeline-paywall-23-trial-signups-55-complaints-4-trial-r"
+      ],
+      "load_if_needed": [
+        "modules/indie-dev-faq.md",
+        "modules/notifications-lifecycle.md"
+      ]
+    },
+    {
+      "id": "weekly_plan_decision",
+      "mode": "quick",
+      "use_when": [
+        "User asks whether to add a weekly plan",
+        "User wants plan architecture advice"
+      ],
+      "default_action": "Do not say weekly is universally good. Separate cash conversion from retention quality and category fit.",
+      "output_contract": [
+        "Verdict",
+        "When yes",
+        "When no",
+        "One test",
+        "Sources"
+      ],
+      "source_ids": [
+        "weekly-plans-55-5-of-all-revenue",
+        "weekly-trial-12-month-ltv-49-54",
+        "12-month-retention-annual-44-1-monthly-17-0-weekly-3-4",
+        "hyperbolic-discounting-people-apply-disproportionately-steep-discount-to"
+      ],
+      "load_if_needed": [
+        "modules/indie-dev-faq.md",
+        "modules/pricing-psychology.md"
+      ]
+    },
+    {
+      "id": "toggle_paywall_compliance",
+      "mode": "compliance",
+      "use_when": [
+        "Toggle paywall",
+        "App Store Guideline 3.1.2 rejection",
+        "Apple rejection risk"
+      ],
+      "default_action": "Separate official Apple Rule from field reports. Never promise approval.",
+      "output_contract": [
+        "Risk level",
+        "Apple Rule vs Field Report",
+        "Compliant replacement",
+        "What to submit",
+        "Sources"
+      ],
+      "source_ids": [
+        "toggle-paywall-rejections-started-mid-january-2026",
+        "apple-guideline-3-1-2-toggle-paywall-reason-this-design-is-confusing-and"
+      ],
+      "load_if_needed": [
+        "docs/migrations/from-toggle-paywall.md",
+        "docs/audit-checklist.md"
+      ]
+    },
+    {
+      "id": "pricing_product_count",
+      "mode": "design",
+      "use_when": [
+        "User asks how many plans to show",
+        "User asks one plan vs two vs three"
+      ],
+      "default_action": "Recommend the smallest plan set that supports a clear choice. Avoid adding plans without product logic.",
+      "output_contract": [
+        "Recommendation",
+        "Plan layout",
+        "Risk",
+        "Test metric",
+        "Sources"
+      ],
+      "source_ids": [
+        "2-products-vs-1-61-conversion",
+        "3-products-vs-2-44-conversion",
+        "choice-overload-6-jam-supermarket-display-generated-30-purchase-rate-vs"
+      ],
+      "load_if_needed": [
+        "modules/screen-anatomy.md",
+        "modules/pricing-psychology.md"
+      ]
+    },
+    {
+      "id": "localization_geo_pricing",
+      "mode": "quick",
+      "use_when": [
+        "User asks where to expand",
+        "User asks whether to localize prices",
+        "User asks about geo pricing"
+      ],
+      "default_action": "Prioritize pricing/localization when market mix exists; avoid separate SKUs unless operationally necessary.",
+      "output_contract": [
+        "Verdict",
+        "Market priority",
+        "Pricing move",
+        "Sources"
+      ],
+      "source_ids": [
+        "a-b-test-win-rate-localization-62-3",
+        "h-f-4-4x-pricing-variance-across-markets-install-ltv-1-21-highest-of-any",
+        "12-mo-rltv-by-region-na-32-we-25-in-sea-14"
+      ],
+      "load_if_needed": [
+        "modules/localization.md",
+        "modules/category-deep-dives.md"
+      ]
+    },
+    {
+      "id": "profitability_projection",
+      "mode": "calculator",
+      "use_when": [
+        "User asks if paid acquisition or pricing will be profitable",
+        "User gives plans, prices, conversion, CPI, CAC, installs, or ROAS"
+      ],
+      "ask_if_missing": [
+        "plans, prices, and plan mix",
+        "install-to-paid or trial-start plus trial-to-paid",
+        "CPI or CAC basis"
+      ],
+      "default_action": "Run the calculator when inputs are complete. If not complete, ask only for the missing blocker fields.",
+      "output_contract": [
+        "Inputs",
+        "ROAS or breakeven",
+        "Sensitivity",
+        "Top action",
+        "Sources"
+      ],
+      "source_ids": [
+        "12-mo-rltv-by-region-na-32-we-25-in-sea-14",
+        "12-mo-rltv-by-tier-high-62-19-mid-28-75-low-10-69",
+        "trial-paid-global-25-6-27-8"
+      ],
+      "load_if_needed": [
+        "modules/unit-economics-calculator.md",
+        "tools/ltv-calculator.py"
+      ]
+    }
+  ]
+}

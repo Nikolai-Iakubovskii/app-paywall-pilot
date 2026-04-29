@@ -13,10 +13,11 @@ REQUIRED_FILES = [
     "runtime/data-inventory.md",
     "runtime/input-contracts.md",
     "runtime/reference-routing.md",
+    "runtime/pareto-cards.json",
     "runtime/golden-prompts.json",
     "tools/source_lookup.py",
 ]
-REQUIRED_MODES = ["quick", "audit", "calculator", "compliance", "pattern", "implementation"]
+REQUIRED_MODES = ["quick", "audit", "design", "calculator", "compliance", "pattern", "implementation"]
 
 
 def main() -> int:

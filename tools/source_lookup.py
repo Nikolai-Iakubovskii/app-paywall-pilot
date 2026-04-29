@@ -12,6 +12,33 @@ from typing import Any
 REPO = Path(__file__).resolve().parents[1]
 SOURCES = REPO / "sources.json"
 OUTPUT_FIELDS = ("id", "claim", "evidence_class", "source", "date", "url", "scope", "status", "tags")
+FIELD_WEIGHTS = {
+    "id": 5,
+    "claim": 4,
+    "tags": 4,
+    "source": 2,
+    "scope": 2,
+    "evidence_class": 1,
+    "date": 1,
+}
+ALIASES = {
+    "ab": ["a/b", "experiment", "test"],
+    "abtest": ["a/b", "experiment", "test"],
+    "apple": ["app store", "ios", "storekit"],
+    "complaint": ["complaints", "refund", "billing"],
+    "conversion": ["convert", "paid", "purchase"],
+    "design": ["paywall", "screen", "visual", "copy"],
+    "geo": ["region", "market", "localization", "pricing"],
+    "localize": ["localization", "locale", "market"],
+    "plan": ["plans", "product", "products"],
+    "plans": ["plan", "product", "products"],
+    "product": ["plan", "plans", "products"],
+    "products": ["plan", "plans", "product"],
+    "refund": ["billing", "failure", "failures", "cancellations", "complaint", "complaints"],
+    "rejection": ["reject", "rejected", "guideline", "3.1.2"],
+    "trial": ["free trial", "trial-to-paid", "trial paid"],
+    "weekly": ["week", "7-day"],
+}
 
 
 def load_sources(path: Path = SOURCES) -> list[dict[str, Any]]:
@@ -23,14 +50,29 @@ def normalize_entry(entry: dict[str, Any]) -> dict[str, Any]:
     return {field: entry.get(field) for field in OUTPUT_FIELDS}
 
 
+def expand_terms(query: str) -> list[str]:
+    raw_terms = [term.lower() for term in query.replace("-", " ").split() if term.strip()]
+    terms: list[str] = []
+    for term in raw_terms:
+        terms.append(term)
+        terms.extend(ALIASES.get(term, []))
+    if len(raw_terms) > 1:
+        terms.append(" ".join(raw_terms))
+    return list(dict.fromkeys(terms))
+
+
 def score_entry(entry: dict[str, Any], terms: list[str]) -> int:
-    haystack = " ".join(
-        str(entry.get(field, ""))
-        for field in ("id", "claim", "source", "scope", "evidence_class", "date")
-    ).lower()
-    tags = " ".join(str(tag) for tag in entry.get("tags", [])).lower()
-    haystack = f"{haystack} {tags}"
-    return sum(1 for term in terms if term in haystack)
+    score = 0
+    for field, weight in FIELD_WEIGHTS.items():
+        value = entry.get(field, "")
+        if isinstance(value, list):
+            haystack = " ".join(str(item) for item in value).lower()
+        else:
+            haystack = str(value).lower()
+        for term in terms:
+            if term in haystack:
+                score += weight
+    return score
 
 
 def lookup_sources(
@@ -51,7 +93,7 @@ def lookup_sources(
     if source_id:
         entries = [entry for entry in entries if entry.get("id") == source_id]
     if query:
-        terms = [term.lower() for term in query.split() if term.strip()]
+        terms = expand_terms(query)
         scored = [(score_entry(entry, terms), entry) for entry in entries]
         entries = [entry for score, entry in sorted(scored, key=lambda item: item[0], reverse=True) if score > 0]
 
