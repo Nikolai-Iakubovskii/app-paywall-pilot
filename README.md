@@ -18,7 +18,6 @@
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
 <!-- /meta:block -->
 
-[![Validate](https://github.com/Nikolai-Iakubovskii/app-paywall-pilot/actions/workflows/validate.yml/badge.svg)](https://github.com/Nikolai-Iakubovskii/app-paywall-pilot/actions/workflows/validate.yml)
 [![Stars](https://img.shields.io/github/stars/Nikolai-Iakubovskii/app-paywall-pilot?style=social)](https://github.com/Nikolai-Iakubovskii/app-paywall-pilot/stargazers)
 
 **[🚀 Get Started](#-how-to-use)** • **[🏗️ Architecture](#%EF%B8%8F-architecture)** • **[🧩 Modules](#-modules)** • **[💡 Use Cases](#-use-this-when)** • **[📊 What You Get](#-what-you-get)** • **[🗺️ Roadmap](ROADMAP.md)** • **[🤝 Contributing](#contributing)**
@@ -122,7 +121,7 @@ Paywall Pilot Framework grounds every recommendation in **published evidence wit
 |-----------|-----|
 | **🛡️ Compliance first** | Every recommendation checked against Apple App Store Review Guidelines. Apple Rule > vendor data, always. |
 | **📊 7-level evidence ladder** | Every claim labeled from Apple Rule down to Hypothesis — no unmarked assertions. |
-| **🔗 Sourced data** | Every benchmark carries source + date + sample size. Canonical manifest lives in [`sources.json`](sources.json) and is validated in CI. |
+| **🔗 Sourced data** | Every benchmark carries source + date + sample size. Canonical manifest lives in [`sources.json`](sources.json) and is validated locally. |
 | **🏛️ Big-app teardowns** | 11 annotated paywall analyses (Calm, Duolingo, Noom, Cal AI, Tinder, Strava, Headspace, Blinkist, Flo, ChatGPT, AI companions). |
 | **🎓 Academic foundations** | Pricing psychology grounded in Tversky-Kahneman 1981 (*Science*), Anderson-Simester 2003, Thomas-Morwitz 2005, Ariely 2008, Cialdini — not just blog posts. |
 | **♻️ Full lifecycle** | 10 stages from first purchase through win-back. Notifications, refunds, cohorts. |
@@ -162,7 +161,7 @@ Plus standalone documentation, executable tools, worked examples, and research:
 - **[examples/](examples/)** -- worked audit examples: [H&F app](examples/audit-h-and-f-app.md), [AI app](examples/audit-ai-app.md), [Productivity app](examples/audit-productivity-app.md). Use as deep-output references; default runtime answers stay shorter.
 - **[tools/ltv-calculator.py](tools/ltv-calculator.py)** -- backward-compatible CLI wrapper for the calculator
 - **[tools/ltv_calculator.py](tools/ltv_calculator.py)** -- importable calculator library with validation + JSON-safe output helpers
-- **[.github/workflows/validate.yml](.github/workflows/validate.yml)** -- CI: validates sources.json structure, all internal links resolve, calculator smoke tests, SKILL.md size guard
+- **Local validation** -- validates sources.json structure, all internal links resolve, calculator smoke tests, SKILL.md size guard
 <!-- meta:block readme_research_outputs -->
 - [outputs/2026-paywall-research-v2.md](outputs/2026-paywall-research-v2.md) -- canonical research brief with current methodology, sample sizes, and evidence class for every benchmark used
 - [outputs/2026-paywall-research.md](outputs/2026-paywall-research.md) -- legacy v1 research brief retained for historical references and changelog continuity
