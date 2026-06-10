@@ -29,8 +29,8 @@ def render_block(name: str) -> str:
     blocks = {
         "readme_hero": (
             f"<sub>AI skill + knowledge base + executable tool. For iOS + Android. "
-            f"Built on {source_count} sourced 2026 benchmarks (Adapty 16K apps · "
-            "RevenueCat 115K apps · AppsFlyer 1.7B installs · Superwall 32M paywall views) "
+            f"Built on {source_count} sourced 2026 benchmarks and platform changes (Adapty 16K apps · "
+            "RevenueCat 115K apps · AppsFlyer 1.7B installs · Superwall 32M paywall views · Apple/Google store updates) "
             f"and a {academic_count}-concept academic foundation (Kahneman + Layer 2). "
             f"Flagship domain is **{flagship}**; expansion to Onboarding / Retention / Growth / "
             "Pricing on the [roadmap](ROADMAP.md).</sub>\n\n"

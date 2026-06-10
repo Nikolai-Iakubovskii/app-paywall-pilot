@@ -7,7 +7,10 @@
     "questions": "Ask at most 3 short grouped questions before work, and only when the missing answer can materially change the recommendation.",
     "audience": "Write so a beginner can act immediately and a pro can see the assumptions, evidence class, and metric to watch.",
     "sources": "Show 2-4 short source notes at the end for material claims. Prefer source IDs from this card plus source_lookup.py.",
-    "screenshot_without_context": "Do not block. Produce a screenshot-only audit, mark missing context, and separate observed issues from assumptions."
+    "screenshot_without_context": "Do not block. Produce a screenshot-only audit, mark missing context, and separate observed issues from assumptions.",
+    "copy_brevity": "For user-facing paywall copy, reduce cognitive load first: one 3-7 word outcome headline, 3 bullets of 4-8 words, one 2-5 word CTA, and a compact trust line. Features should prove the outcome, not become the pitch.",
+    "trust_before_persuasion": "Before adding more copy, verify the screen answers: what changes, why trust, what price/when, and what single action.",
+    "evidence_hygiene": "Call official App Store requirements Apple Rule. Label rejection waves, provider posts, and practitioner observations as Field Report, Vendor Aggregate Data, Operator Insight, or Hypothesis."
   },
   "response_profiles": {
     "pareto": [

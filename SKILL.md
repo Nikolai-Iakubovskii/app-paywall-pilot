@@ -14,6 +14,8 @@ Optimize for exactness and low context cost:
 - Treat Apple/platform docs as higher authority than vendor growth advice.
 - Every numeric claim needs a source ID or an explicit lower-confidence label.
 - If required data is missing, say so before advice.
+- Default to compressed mobile copy: one clear outcome headline, 3 short bullets, one action+benefit CTA, one legal/trust line.
+- Treat free-trial toggle paywalls as a hard iOS no-go: replace with separate plan cards or trial-on-plan structure.
 
 This file is the thin runtime core. Deep content lives in modules and runtime references.
 
@@ -146,6 +148,43 @@ Common routes:
 8. Label evidence and uncertainty.
 9. For code work, verify with tests or targeted smoke checks.
 
+## Copy Compression Rules
+
+Mobile paywalls usually fail from unclear structure, not too little prose. When writing or auditing copy:
+
+| Element | Default limit |
+|---------|---------------|
+| Headline | 3-7 words, one outcome or concrete value |
+| Subheadline | 0-1 line; omit if bullets already explain value |
+| Benefits | 3 bullets by default, 5 only for settings/upgrade screens |
+| Bullet length | 4-8 words; no stacked clauses |
+| CTA | 2-5 words, action + benefit |
+| Trust line | Price, duration/trial, auto-renew/cancel, restore/legal links |
+
+Do not add behavioral-science explanations to user-facing copy unless the user asks why. In normal audits, translate mechanisms into concrete screen changes.
+
+Copywriting priority order:
+1. Reduce cognitive load: one decision, one selected plan, no math puzzle.
+2. Build trust: real proof, clear billing terms, visible restore/legal, dignified exit.
+3. State outcome: what gets better for this user now.
+4. Mention features only as proof of the outcome.
+
+Avoid feature dumps above the fold. If a feature list is needed, keep it below the primary decision or use it only on settings/upgrade screens.
+
+## Hard iOS No-Go
+
+Free-trial toggle paywalls are considered banned for iOS runtime guidance. Apple enforcement is under Guideline 3.1.2 subscription-confusion/misleading-design reasoning; RevenueCat and Adapty report the pattern as effectively dead on iOS since January 2026.
+
+Do not recommend:
+- a switch that turns trial on/off for the same subscription
+- a popup that asks whether to add/remove a trial
+- burying trial availability in a secondary plans screen
+
+Use instead:
+- separate plan cards
+- trial attached directly to the selected plan
+- trial-on-annual-only when it fits the economics
+
 ## Paywall System Axes
 
 Analyze paywalls across four independent axes:
@@ -235,6 +274,10 @@ Never promise approval.
 - Asking a long intake questionnaire before giving useful screenshot/design feedback.
 - Treating a paywall as only a visual screen.
 - Recommending fake urgency, fake proof, hidden close, guilt decline, misleading savings, or toggle paywall.
+- Treating free-trial toggle paywalls as acceptable on iOS.
+- Calling field reports or vendor advice an `Apple Rule`.
+- Rewriting short, clear paywall copy into longer "AI marketing" prose.
+- Writing feature dumps before reducing cognitive load and establishing trust.
 - Optimizing copy/color before placement, product architecture, trial/offer logic, and localization.
 - Choosing winners by trial starts only instead of paid conversion, renewal quality, refunds, and LTV.
 

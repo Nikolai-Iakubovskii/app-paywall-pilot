@@ -18,6 +18,67 @@ Three rungs. Always climb the ladder before writing copy.
 
 **Source for outcome priority:** RevenueCat "How top apps approach paywalls" + Adapty 2026 paywall guide (vendor_blog).
 
+## Copy Compression Defaults
+
+Most AI-generated paywall copy is too long. Start short, then add detail only when the placement needs it.
+
+| Element | Default | Expand only when |
+|---------|---------|------------------|
+| Headline | 3-7 words | Category is abstract or risk-sensitive |
+| Subheadline | 0-1 line | The headline cannot carry product value alone |
+| Bullets | 3 bullets | Settings/upgrade screen where user asked for details |
+| Bullet length | 4-8 words | Legal/trust wording requires more |
+| CTA | 2-5 words | Locale or trial terms need explicit duration |
+| Trust line | One compact line | Price/trial/renewal terms need separation for readability |
+
+When auditing, do not lengthen copy that is already clear. Prefer deleting, tightening, or moving detail below the fold.
+
+---
+
+## Copywriting Strategy: Load, Trust, Outcome
+
+Paywall copy is not a feature brochure. Its job is to make a subscription decision feel obvious, safe, and low-effort.
+
+### Priority order
+
+| Priority | What copy must do | Good signal | Bad signal |
+|----------|-------------------|-------------|------------|
+| 1 | Reduce cognitive load | One selected plan, one clear next action | User must compare 5 claims or calculate value |
+| 2 | Build trust | Real rating, clear billing, neutral exit | Fake proof, vague "best value", hidden terms |
+| 3 | State outcome | "Walk without limits" | "Premium features" |
+| 4 | Prove with features | 3 supporting bullets | Long feature dump above CTA |
+
+### Four questions the screen must answer
+
+1. What changes for me if I continue?
+2. Can I trust this app right now?
+3. What will I pay, when, and how do I cancel?
+4. What is the single next action?
+
+If copy does not answer one of these, delete it or move it below the fold.
+
+### Feature Copy Rule
+
+Features are proof, not the pitch. Use them only when they make the outcome believable.
+
+| Weak feature dump | Better decision copy |
+|-------------------|----------------------|
+| "12 characters, quests, streak shields, story chapters" | "Walk without limits" + 3 proof bullets |
+| "Advanced AI tools and exports" | "Turn every meeting into searchable notes" |
+| "Premium workouts and analytics" | "Train smarter every week" |
+
+### Trust beats persuasion
+
+When the user sees a paywall, the hard question is "Will this be worth the price?" Most users answer the easier question: "Do I trust this right now?" So prioritize:
+
+- clear full renewal price
+- real rating/review count or real authority
+- visible restore, terms, privacy
+- plain trial/renewal/cancel wording
+- neutral close/dismiss copy
+
+Do not replace trust with more adjectives.
+
 ---
 
 ## Headline Formulas
@@ -70,8 +131,8 @@ Three rungs. Always climb the ladder before writing copy.
 
 | Pattern | Why bad |
 |---------|---------|
-| "Premium [Feature]" | "Premium" is banned word — see below |
-| "Get access to X" | Passive; Apple Rule prefers active value statement |
+| "Premium [Feature]" | Generic; does not communicate outcome |
+| "Get access to X" | Passive; usually weaker than an active outcome |
 | "And much more!" | Vague; reduces trust |
 | "Unlimited everything" | Apple may flag as misleading if not literally true |
 
@@ -91,6 +152,8 @@ Three rungs. Always climb the ladder before writing copy.
 
 **Source:** Duolingo "Start my free week" pattern (operator) — works because it's possessive ("my") + action verb + benefit.
 
+Do not force this pattern when it makes the button too long. On small screens, "Continue" can be acceptable if the selected plan and trust line directly above/below it make the purchase terms unmistakable.
+
 ### CTA length rule
 
 - ≤5 words English
@@ -106,7 +169,7 @@ Three rungs. Always climb the ladder before writing copy.
 | Continue with limits | Not now |
 | I'll stay basic | Skip |
 
-**Apple Rule:** Guilt-trip decline copy correlates with rejections (RevenueFlo field_observation). Always offer dignified opt-out.
+**Field Report / Best Practice:** Guilt-trip decline copy correlates with rejections in practitioner reports and reduces trust. Always offer dignified opt-out.
 
 ---
 
@@ -128,7 +191,7 @@ Three rungs. Always climb the ladder before writing copy.
 | Testimonial | "—Sarah, lost 12kg in 6 months" | Real user, with consent |
 | Family | "Share with up to 6 family members" | Apple Family Sharing enabled |
 
-### Banned social proof patterns (Apple Rule)
+### Banned social proof patterns (Apple Rule risk)
 
 - Fake user counts ("Join 1B happy users" if not true)
 - Fake testimonials (made-up names + photos)
@@ -170,7 +233,9 @@ Restore Purchase · Terms · Privacy
 
 ---
 
-## Banned Words
+## Weak Words And Risky Defaults
+
+These are not literal App Store banned words. Treat them as weak defaults unless the surrounding copy makes the value and subscription terms clear.
 
 | Word | Why | Use instead |
 |------|-----|-------------|
@@ -307,10 +372,12 @@ Adapty's A/B win-rate data (vendor_blog):
 
 ## Checklist: Before Shipping Copy
 
+- [ ] Above-fold copy answers: what changes, why trust, what price/when, what action
 - [ ] Headline is on the right rung of the Copy Ladder for this audience
 - [ ] CTA is action+benefit, not generic
 - [ ] 3–5 benefits max, ≤8 words each
-- [ ] No banned words ("Premium" alone, "Unlock", "Subscribe")
+- [ ] No weak standalone words ("Premium" alone, "Unlock", "Subscribe")
+- [ ] Features prove the outcome instead of becoming the pitch
 - [ ] Trust block: trial terms + billed amount + restore + terms + privacy
 - [ ] Locale-specific length verified on real device
 - [ ] Decline CTA is neutral, not guilt-tripping

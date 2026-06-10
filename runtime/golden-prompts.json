@@ -31,7 +31,15 @@
       "expected_mode": "design",
       "max_references": 2,
       "must_include": ["Recommended model", "Copy draft", "Sources"],
-      "must_not_include": ["send 10 things", "12-section"]
+      "must_not_include": ["send 10 things", "12-section", "long manifesto"]
+    },
+    {
+      "id": "copy_compression",
+      "prompt": "Write paywall copy for an iOS walking game. Annual $49.99, weekly $5.99, no trial, settings screen.",
+      "expected_mode": "design",
+      "max_references": 2,
+      "must_include": ["headline", "bullets", "CTA", "trust"],
+      "must_not_include": ["6 benefits", "long subtitle", "behavioral science explanation", "feature dump"]
     },
     {
       "id": "calculator_missing_cac",

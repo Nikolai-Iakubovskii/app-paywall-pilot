@@ -5,7 +5,7 @@
 ### **A framework for designing App Store-compliant<br>subscription paywalls that convert.**
 
 <!-- meta:block readme_hero -->
-<sub>AI skill + knowledge base + executable tool. For iOS + Android. Built on 79 sourced 2026 benchmarks (Adapty 16K apps · RevenueCat 115K apps · AppsFlyer 1.7B installs · Superwall 32M paywall views) and a 20-concept academic foundation (Kahneman + Layer 2). Flagship domain is **Paywall**; expansion to Onboarding / Retention / Growth / Pricing on the [roadmap](ROADMAP.md).</sub>
+<sub>AI skill + knowledge base + executable tool. For iOS + Android. Built on 88 sourced 2026 benchmarks and platform changes (Adapty 16K apps · RevenueCat 115K apps · AppsFlyer 1.7B installs · Superwall 32M paywall views · Apple/Google store updates) and a 20-concept academic foundation (Kahneman + Layer 2). Flagship domain is **Paywall**; expansion to Onboarding / Retention / Growth / Pricing on the [roadmap](ROADMAP.md).</sub>
 
 <br>
 
@@ -13,7 +13,7 @@
 [![Platform](https://img.shields.io/badge/Platform-iOS_%7C_Android-blue?style=for-the-badge)](#)
 [![Framework](https://img.shields.io/badge/Framework-Paywall-black?style=for-the-badge)](ROADMAP.md)
 [![Modules](https://img.shields.io/badge/Modules-16-purple?style=for-the-badge)](modules/)
-[![Sources](https://img.shields.io/badge/Sources-79-orange?style=for-the-badge)](sources.json)
+[![Sources](https://img.shields.io/badge/Sources-88-orange?style=for-the-badge)](sources.json)
 [![Academic](https://img.shields.io/badge/Academic-20_concepts-darkblue?style=for-the-badge)](modules/pricing-psychology.md)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
 <!-- /meta:block -->
@@ -81,7 +81,7 @@ Concrete jobs-to-be-done. Match your situation; the framework activates the rele
 | **You want to copy what big apps do.** | "How does Calm/Noom/Cal AI/Tinder structure their paywall?" | Annotated big-app teardowns with sources |
 | **Your trial-to-paid is low.** | "Trial-to-paid is 18% — why?" | Decision-tree #3 · Blinkist Trial Timeline pattern · notifications-lifecycle |
 | **You're expanding to new markets.** | "I'm US-only at $79.99/yr. Where should I expand and at what price?" | Localization · pricing index US=1.0 · AppsFlyer 2026 emerging-markets data |
-| **You need better paywall copy.** | "Write 3 headline variants for my running app paywall." | Copy library: 12 headline formulas · Copy Ladder · banned words · locale notes |
+| **You need better paywall copy.** | "Write 3 headline variants for my running app paywall." | Copy library: 12 headline formulas · Copy Ladder · weak/risky words · locale notes |
 | **Your refund rate is high.** | "Annual refund rate is 7% — what's wrong?" | Refund management · Apple Consumption API · channel-level diagnostic |
 
 If your situation isn't on this list, just send a screenshot and say *"Audit my paywall"*. You get a concise screenshot-first audit by default; ask for a deep audit when you want the full breakdown.
@@ -99,7 +99,7 @@ If your situation isn't on this list, just send a screenshot and say *"Audit my 
 | **Direct answers to single questions** | "Should I add a weekly plan?" → verdict + reason + one action. 35+ pre-answered scenarios. | [indie-dev-faq.md](modules/indie-dev-faq.md) |
 | **Big-app pattern reference** | Annotated teardowns with structure / copy / pricing / takeaway / source | [teardowns.md](modules/teardowns.md) |
 | **Compliance triage** | Apple Rule vs Field Report distinction · 7-level evidence ladder · printable 50+ item checklist | SKILL.md + [audit-checklist.md](docs/audit-checklist.md) |
-| **Migration playbooks** | Step-by-step migration from banned patterns (toggle paywall today; future bans tomorrow) | [docs/migrations/](docs/migrations/) |
+| **Migration playbooks** | Step-by-step migration from banned patterns (trial-toggle paywall today; future bans tomorrow) | [docs/migrations/](docs/migrations/) |
 
 ---
 
@@ -109,7 +109,7 @@ Most paywall advice is one of three things, all of them broken in 2026:
 
 1. **Generic web CRO** — ignores App Store rules and gets your app rejected.
 2. **Hype-driven single-app case studies** — no methodology, no sample size, may not transfer.
-3. **Outdated tactics** — toggle paywalls were the 2024 gold standard; Apple started mass-rejecting them in January 2026.
+3. **Outdated tactics** — toggle paywalls were the 2024 gold standard; Apple started rejecting trial-toggle purchase screens under Guideline 3.1.2 in January 2026. Treat them as banned on iOS.
 
 And most AI assistants compound the problem: they recommend whatever pattern they saw most often in 2023 training data, with no source, no compliance check, and no awareness of category economics.
 
@@ -137,14 +137,14 @@ The **Skill layer** is split into a core [SKILL.md](SKILL.md) plus deep-dive mod
 
 | Module | What's inside |
 |--------|---------------|
-| [copy-library.md](modules/copy-library.md) | The Copy Ladder (Outcome > Benefit > Feature), 12 headline formulas, benefit-bullet patterns, CTA templates with action+benefit pattern, banned words list, length expansion factors and formality cheatsheet for 12+ locales, loading-screen copy, pricing-block templates |
+| [copy-library.md](modules/copy-library.md) | The Copy Ladder (Outcome > Benefit > Feature), 12 headline formulas, benefit-bullet patterns, CTA templates with action+benefit pattern, weak/risky words list, length expansion factors and formality cheatsheet for 12+ locales, loading-screen copy, pricing-block templates |
 | [teardowns.md](modules/teardowns.md) | Annotated paywall breakdowns for **Calm, Duolingo, Noom, Cal AI, Tinder, Strava, Headspace, Blinkist, Flo, ChatGPT, AI companions** -- structure, copy, pricing, takeaway, source for each |
-| [pricing-psychology.md](modules/pricing-psychology.md) | Tversky & Kahneman 1981 (framing, *Science*), Anderson & Simester 2003 ($9 endings, field experiment), Thomas & Morwitz 2005 (left-digit), Ariely 2008 (decoy with replication caveats), Cialdini 7 principles + 2024 Springer mobile-app strength data, anchor / decoy / charm / per-day / PPP frameworks, **Hollow Middle** 2026 trend, **Apple SBP** explainer |
+| [pricing-psychology.md](modules/pricing-psychology.md) | Tversky & Kahneman 1981 (framing, *Science*), Anderson & Simester 2003 ($9 endings, field experiment), Thomas & Morwitz 2005 (left-digit), Ariely 2008 (decoy with replication caveats), Cialdini 7 principles + 2024 Springer mobile-app strength data, anchor / decoy / charm / per-day / PPP frameworks, **Hollow Middle** 2026 trend, Apple monthly subscriptions with 12-month commitment, **Apple SBP** explainer |
 | [decision-trees.md](modules/decision-trees.md) | 10 diagnostic flowcharts: access model choice, low-conversion triage, plan architecture, surface choice, when-to-test priority, compliance triage, refund diagnosis, vendor-data conflict resolution |
 | [category-deep-dives.md](modules/category-deep-dives.md) | Per-category economics for Health & Fitness, Gaming, Productivity, Lifestyle, Education, AI, Photo & Video, Travel, Shopping, B2B; geography cuts NA / Western Europe / IN-SEA |
 | [screen-anatomy.md](modules/screen-anatomy.md) | Visual hierarchy, F-pattern layout, thumb zone, spacing rhythm, pricing block anatomy, accessibility (WCAG AA, Dynamic Type, VoiceOver), dark mode, safe areas, loading and error states |
-| [localization.md](modules/localization.md) | Adapty 2026 4.4x pricing variance data, App Store auto-tier vs manual per-territory vs geo-tier strategy with cost/benefit, copy length expansion factors, formality, RTL, number formatting, cultural trust signals |
-| [android-parity.md](modules/android-parity.md) | Play Billing Library v6+ concepts (Base Plan + Offers), EU DMA alternative billing, Android refund reality (RC: 31% involuntary failures vs iOS 14%), AppsFlyer 2026 Android growth (4x faster than iOS) |
+| [localization.md](modules/localization.md) | Adapty 2026 4.4x pricing variance data, App Store auto-tier vs manual per-territory vs geo-tier strategy with cost/benefit, Apple 2026 metadata languages, copy length expansion factors, formality, RTL, number formatting, cultural trust signals |
+| [android-parity.md](modules/android-parity.md) | Play Billing Library v9 concepts (Base Plan + Offers), EU DMA alternative billing, Android refund reality (RC: 31% involuntary failures vs iOS 14%), AppsFlyer 2026 Android growth (4x faster than iOS), Play Age Signals watchouts |
 | [unit-economics-calculator.md](modules/unit-economics-calculator.md) | Conversational LTV / ARPU / ROAS / breakeven calculator with default retention multipliers, performance grading thresholds, expert advice engine with 11 conditional recommendations, scenario modeling, full worked example |
 | [indie-dev-faq.md](modules/indie-dev-faq.md) | 35+ direct-answer Q&A: "Should I add weekly?", "Are my numbers good?", "Why is trial-to-paid low?", "What's a healthy LTV:CAC?" -- threshold + verdict + one action with cited source |
 | [cac-acquisition.md](modules/cac-acquisition.md) | CAC formula and variants, 2026 mobile CAC benchmarks (iOS / Android, premium and emerging markets), channel CPI table (ASA / Meta / TikTok / Google / Snap / Reddit), LTV:CAC thresholds, channel mix strategy by stage, MMP comparison (AppsFlyer / Adjust / Singular / RevenueCat), Apple Search Ads tactics, Web2App economics, common CAC mistakes |
@@ -152,7 +152,7 @@ The **Skill layer** is split into a core [SKILL.md](SKILL.md) plus deep-dive mod
 | [notifications-lifecycle.md](modules/notifications-lifecycle.md) | Push + email sequences for trial (Blinkist Day-5 +1,200% opt-in), abandon recovery (Superwall 17% revenue), renewal-risk, billing-issue, win-back. Permission strategy, copy templates, tooling choice. |
 | [glossary.md](modules/glossary.md) | Canonical definitions: ARPU vs ARPPU, gross vs RLTV, CR variants, MRR/ARR, CAC variants (CPI/CPR/CAC/eCAC), ROAS, retention vs renewal vs churn. Plus 24-acronym quick reference. |
 | [refund-management.md](modules/refund-management.md) | Refund baselines per plan + region, prevention sequence (in-app + push), Apple Consumption API for refund decline (Swift example), Subscription Pause alternative, channel-level diagnostic flowchart. |
-| [cohort-analysis.md](modules/cohort-analysis.md) | Three cohort types (install / trial / calendar), how to read RC/Adapty/Apphud dashboards, 7 common cohort mistakes, healthy retention curve patterns, pre/post-change comparison setup. |
+| [cohort-analysis.md](modules/cohort-analysis.md) | Three cohort types (install / trial / calendar), how to read App Store Connect Analytics + RC/Adapty/Apphud dashboards, 7 common cohort mistakes, healthy retention curve patterns, pre/post-change comparison setup. |
 
 Plus standalone documentation, executable tools, worked examples, and research:
 
@@ -201,8 +201,8 @@ The paywall system has four independent axes. Separate them when analyzing or re
 | Model | Evidence |
 |-------|----------|
 | Hard paywall | Vendor Aggregate Data |
-| Freemium / soft paywall | Apple Rule |
-| Metered paywall | Apple Rule |
+| Freemium / soft paywall | Apple Guidance |
+| Metered paywall | Apple Guidance |
 | Reverse trial | Operator Insight |
 | Hybrid (subscription + one-time) | Operator Insight |
 | Multi-tier | Platform Capability |

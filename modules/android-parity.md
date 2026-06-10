@@ -8,7 +8,9 @@ Per AppsFlyer 2026: **Android subscription UA spend grew 4x faster than iOS YoY*
 
 ## Play Billing Library Concepts
 
-| iOS | Android (Play Billing v6+) |
+Use Play Billing Library 9.0.0+ for new Android implementation work when possible. PBL 9 was released May 19, 2026, adds richer error context through sub-response codes, and removes previously deprecated APIs. If an app is on PBL 7/8, check the PBL 9 migration guide before touching billing code.
+
+| iOS | Android (Play Billing v9) |
 |-----|---------------------------|
 | Subscription Group | Base Plan + Offers |
 | Introductory Offer | Offer eligibility (NEW_SUBSCRIBER, etc.) |
@@ -53,10 +55,11 @@ Subscription
 - **EU Digital Markets Act (DMA):** Android in EU must allow alternative billing systems for in-app purchases. Different from US/global.
 - **Play Console "Subscription Center":** users can manage subs from Play Store, not just in-app.
 - **Grace Period + Account Hold:** Play has 30-day grace period for failed payments by default. Implement notifications for both.
+- **Age Signals / in-app product age ratings:** Google Play is adding support for applicable US state app-store bills. If the app targets minors or sells age-sensitive IAP/subscriptions, check Play Age Signals API and in-app product age rating requirements.
 
 ### Toggle paywall (Play stance)
 
-**Apple banned toggle paywalls in Jan 2026 (Guideline 3.1.2). Play has not issued an equivalent rejection wave.** Toggle paywalls remain technically allowed on Android — but for cross-platform consistency, removing them everywhere is recommended.
+**Apple banned free-trial toggle paywalls on iOS in Jan 2026 through Guideline 3.1.2 enforcement. Play has not issued an equivalent rejection wave.** Toggle paywalls remain technically allowed on Android, but for cross-platform clarity and lower support risk, replacing them everywhere is recommended.
 
 ---
 
@@ -105,11 +108,11 @@ Apple has native Win-Back Offers (iOS 18+) shown on the App Store product page.
 
 ## Web Checkout (Cross-Platform)
 
-Apple allows external web checkout in US (post Epic v. Apple, May 2025).
+Apple allows external purchase flows in more region-specific ways than it did before: US changes followed the Epic v. Apple court decision, EU changes follow DMA terms, and Japan adds alternative payments/distribution options under MSCA beginning with iOS 26.2. Treat this as a regional compliance surface, not a global paywall default.
 Play allows external web checkout globally (post Google v. Epic settlement) with restrictions.
 
 **Best practice:**
-- Show web option only on Android in EU/US where law allows
+- Show web option only in storefronts where the current Apple/Google terms allow it
 - Apple Pay / Google Pay buttons prominent
 - Disclose: "External purchase — handled by [your company], not Apple/Google."
 
@@ -141,7 +144,11 @@ All major SDKs unify the API. Use one — don't write Play Billing or StoreKit b
 ## Source Pointers
 
 - Play Billing Library: https://developer.android.com/google/play/billing
+- Play Billing Library 9 release notes: https://developer.android.com/google/play/billing/release-notes
+- PBL 9 migration guide: https://developer.android.com/google/play/billing/migrate-gpblv9
+- Google Play age signals / in-app product age ratings: https://support.google.com/googleplay/android-developer/answer/16569691
 - Play subscription policies: https://support.google.com/googleplay/android-developer/answer/12089935
 - AppsFlyer 2026 (Android growth): https://www.appsflyer.com/resources/reports/subscription-marketing/
 - RevenueCat Play vs Apple cancellation rates: https://www.revenuecat.com/state-of-subscription-apps/
 - EU DMA on alternative billing: https://digital-markets-act.ec.europa.eu/
+- Apple Japan iOS changes: https://developer.apple.com/news/

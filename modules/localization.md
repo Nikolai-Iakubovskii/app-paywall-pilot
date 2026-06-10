@@ -80,6 +80,14 @@ Re-review pricing annually.
 
 ## Copy Localization
 
+### App Store metadata languages added in 2026
+
+**Platform Capability:** App Store Connect added 11 localized metadata languages in March 2026: Bangla, Gujarati, Kannada, Malayalam, Marathi, Odia, Punjabi, Slovenian, Tamil, Telugu, and Urdu. Total supported localizations increased to 50.
+
+**Why it matters:** This lines up with AppsFlyer 2026 showing Indian Subcontinent as the largest Android paid-install growth driver. If India/South Asia is >5% of installs or a strategic expansion target, treat App Store metadata + paywall localization as a real growth lever, not a nice-to-have.
+
+**Action:** Add these locales to the localization backlog before testing geo-tier SKUs for India/South Asia. Localize screenshots/paywall trust lines, not only app name/description.
+
 ### Length expansion factors (vs English)
 
 | Locale | Expansion | Implication |
@@ -219,5 +227,6 @@ iOS handles much of this via UIKit/SwiftUI semanticContentAttribute, but custom 
 - Adapty 2026 paywall experiments win rates: https://adapty.io/blog/paywall-experiments-playbook/
 - Adapty H&F regional pricing: https://adapty.io/blog/health-fitness-app-subscription-benchmarks/
 - AppsFlyer 2026 (geo growth): https://www.appsflyer.com/resources/reports/subscription-marketing/
+- Apple App Store new metadata languages: https://developer.apple.com/news/
 - Apple App Store Connect pricing: https://developer.apple.com/help/app-store-connect/manage-subscriptions/
 - iOS internationalization: https://developer.apple.com/design/human-interface-guidelines/inclusion

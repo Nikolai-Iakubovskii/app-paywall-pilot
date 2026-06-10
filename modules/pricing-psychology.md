@@ -589,6 +589,35 @@ Trigger → Action → Variable Reward → Investment loop. Practitioner synthes
 
 ---
 
+### Monthly Subscription With 12-Month Commitment (Apple 2026)
+
+**Platform Capability:** Apple introduced monthly subscriptions with a 12-month commitment on April 27, 2026. Users pay monthly, can cancel anytime, and cancellation prevents renewal after the agreed payments are complete. Apple shows completed/remaining payments in the Apple Account and sends renewal reminders. Availability excludes the United States and Singapore and requires iOS/platform 26.4+ with broad rollout tied to the 26.5 releases.
+
+**What problem it solves:** Annual plans have strong LTV but high upfront friction. This product shape gives annual-like commitment while keeping the first charge monthly-sized.
+
+**Use when:**
+- Annual conversion is weak because upfront price feels too high.
+- Your product delivers recurring value and can justify a year-long commitment.
+- You monetize outside the US/Singapore and can segment eligible storefronts/OS versions.
+- You can explain the commitment without adding cognitive load.
+
+**Avoid when:**
+- Your app is impulse/novelty-driven and churns fast.
+- You rely on transparent "cancel anytime, stop immediately" expectations.
+- You cannot localize the commitment language clearly.
+- You do not have support flows for users confused by remaining committed payments.
+
+**Paywall copy pattern:**
+
+```
+[Large] $4.99/month
+[Small] 12 monthly payments · cancel anytime after commitment
+```
+
+**Test against:** annual upfront and monthly no-commitment. Primary metric is cohort LTV / refund rate, not trial start.
+
+---
+
 ### Reverse Trial
 
 **Concept:** Full premium access for N days, then revert to free.
@@ -682,3 +711,4 @@ Trigger → Action → Variable Reward → Investment loop. Practitioner synthes
 - Adapty State 2026 — https://adapty.io/state-of-in-app-subscriptions/
 - RevenueCat State 2026 — https://www.revenuecat.com/state-of-subscription-apps/
 - Apple Review Guidelines — https://developer.apple.com/app-store/review/guidelines/
+- Apple monthly subscriptions with a 12-month commitment — https://developer.apple.com/news/?id=agq42lxe

@@ -30,6 +30,7 @@ When trials are used: `Effective CR = Trial Start Rate × Trial-to-Paid Rate`. T
 
 ### Apple / Play fee
 - **Apple fee:** 15% (Small Business Program <$1M revenue) or 30%. Default: 15%
+- **China mainland App Store fee:** use 25% standard / 12% SBP, Mini Apps Partner Program, or year-2 subscription renewal rate after Apple's March 2026 China storefront change.
 - **Play fee:** 15% (sub year 2+) or 30% (sub year 1, all IAP). Default: 15% if subscriber-mix-heavy
 
 ---

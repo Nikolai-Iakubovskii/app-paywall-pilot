@@ -68,6 +68,18 @@ Group users by calendar period (week or month). Track total revenue earned per c
 
 ## Reading RC / Adapty / Apphud Dashboards
 
+### App Store Connect Analytics (Apple 2026)
+
+Apple added In-App Purchase and subscription data to App Store Connect Analytics in March 2026, including:
+- 100+ new monetization/subscription metrics
+- cohort capabilities by attributes such as download date, source, and offer start date
+- peer monetization benchmarks: download-to-paid conversion and proceeds per download
+- two subscription reports via the Analytics Reports API
+
+**Use it for:** first-party iOS sanity checks, App Store source cohorts, offer-start cohorts, and peer benchmark context.
+
+**Do not use it for:** cross-platform LTV, Android comparisons, or channel-level paid UA truth without MMP/backend joins.
+
 ### RevenueCat
 - **Cohorts** tab → install cohorts by month
 - **Charts** tab → blended (use cautiously)
@@ -200,6 +212,7 @@ Wait at least N days post-change before drawing conclusions. For trial impact: N
 
 | Tool | Best for cohorts | Pricing |
 |------|------------------|---------|
+| App Store Connect Analytics | iOS subscription/IAP cohorts + peer benchmarks | Free |
 | RevenueCat | Subscription cohorts, D30/D90/D365 | Free tier generous |
 | Adapty | A/B + cohort cuts | Free <$5K MRR |
 | Apphud | Calendar cohort revenue (signature feature) | Free tier |
@@ -225,4 +238,5 @@ For most indie devs: RC or Adapty as primary, Amplitude/Mixpanel for behavioral 
 - Adapty cohort analysis: https://adapty.io/blog/customer-cohort-analysis/
 - Apphud calendar cohort revenue: https://apphud.com/blog (search "Calendar Cohort Revenue Analysis")
 - AppsFlyer cohort guide: https://www.appsflyer.com/glossary/cohort-analysis/
+- App Store Connect Analytics 2026 subscription data: https://developer.apple.com/news/
 - See also [glossary.md](glossary.md) for cohort term definitions

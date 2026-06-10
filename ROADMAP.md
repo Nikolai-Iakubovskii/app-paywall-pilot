@@ -2,7 +2,7 @@
 
 <!-- meta:block roadmap_header -->
 **Version:** 4.0.0 (framework)
-**Last updated:** 2026-04-17
+**Last updated:** 2026-06-10
 <!-- /meta:block -->
 
 Paywall Pilot started as a single Claude Code skill for in-app paywalls (v1.0–v3.8). In v4.0 it becomes a **framework** — positioned to expand into adjacent subscription-app domains while keeping paywalls as the flagship domain.

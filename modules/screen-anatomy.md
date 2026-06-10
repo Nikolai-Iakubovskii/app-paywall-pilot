@@ -2,6 +2,8 @@
 
 Visual hierarchy, layout, accessibility for mobile paywalls. SKILL.md covers what blocks to include; this covers how to lay them out.
 
+Use the behavioral-science notes as internal rationale. In normal audits, output the concrete screen implication first and omit the theory unless the user asks for the reasoning.
+
 ---
 
 ## Visual Hierarchy Principles

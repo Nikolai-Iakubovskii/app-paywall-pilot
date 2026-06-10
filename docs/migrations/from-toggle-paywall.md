@@ -1,6 +1,6 @@
 # Migration: From Toggle Paywall to Compliant Pattern
 
-Apple started rejecting toggle paywalls under Guideline 3.1.2 in mid-January 2026. If your app was caught in this wave, this is the migration playbook.
+Apple started rejecting free-trial toggle paywalls under Guideline 3.1.2 in mid-January 2026. Treat this as a hard iOS ban for runtime guidance. If your app was caught in this wave, this is the migration playbook.
 
 For taxonomy of paywall types, see SKILL.md PRESENTATION PATTERN. For specific rejection triage, see [decision-trees.md](../../modules/decision-trees.md) Tree 8.
 
@@ -18,7 +18,7 @@ For taxonomy of paywall types, see SKILL.md PRESENTATION PATTERN. For specific r
 - Adapty: https://adapty.io/blog/your-toggle-paywall-is-about-to-get-rejected/
 - Multiple developer reports starting mid-January 2026
 
-**Scope:** iOS only. Android Play Store and web checkouts are unaffected.
+**Scope:** iOS. Android Play Store and web checkouts have not shown the same rejection wave, but cross-platform consistency usually argues for replacing the pattern everywhere.
 
 ---
 
@@ -160,32 +160,33 @@ If switching to **trial-on-annual-only**:
 ### Step 6: Monitor
 
 For first 30 days post-launch, watch:
-- Trial start rate (may drop slightly without toggle)
-- Trial-to-paid rate (may rise — users who chose trial truly wanted it)
-- Direct purchase rate (segment of users who DON'T want trial)
-- Refund rate (should drop — fewer surprise charges)
+- Trial start rate
+- Trial-to-paid rate
+- Direct purchase rate
+- Refund rate and support complaints
+- Renewal quality by plan
 
 ---
 
 ## Expected Impact
 
-Per Adapty / RevenueCat / RevenueFlo data:
+Directional expectation from Adapty / RevenueCat / RevenueFlo reports:
 
 | Metric | Pre-toggle-removal | Post-toggle-removal | Why |
 |--------|--------------------|--------------------|-----|
-| Trial start rate | ~14% (NA) | ~12-13% | Some "accidental" trial-skippers now skip the whole funnel |
-| Trial-to-paid rate | ~28% | ~30-32% | Users who pick trial actually want trial |
-| Direct purchase | high | drops | Some buyers actually wanted the trial they were missing |
-| Refund rate | elevated | drops 10-30% | Fewer surprise charges |
-| **Net LTV** | baseline | **roughly flat to +5%** | Lower revenue offset by lower refunds |
+| Trial start rate | often inflated or unclear | may normalize | Users see trial terms directly instead of toggling |
+| Trial-to-paid rate | mixed | may improve | Trial users are less accidental |
+| Direct purchase | can be artificially high | may drop | Some direct buyers likely missed trial availability |
+| Refund/support complaints | can be elevated | should improve if surprise billing falls | Terms are clearer |
+| **Net LTV** | app-specific | unknown until cohort read | Lower surprise revenue can be offset by quality and fewer refunds |
 
-**Caveat:** Single-vendor data, your mileage may vary. Run cohort comparison post-launch (see [cohort-analysis.md](../../modules/cohort-analysis.md)).
+**Caveat:** Do not model this as a guaranteed lift. Run a cohort comparison post-launch (see [cohort-analysis.md](../../modules/cohort-analysis.md)).
 
 ---
 
 ## What NOT to Do
 
-- ❌ **Don't ship a "subtle" toggle hoping Apple won't notice.** They will.
+- ❌ **Don't ship a "subtle" trial toggle hoping Apple won't notice.** Treat it as banned on iOS.
 - ❌ **Don't bury the trial in a "Plans" submenu.** Apple wants trial visible at the same level as the plan.
 - ❌ **Don't replace toggle with a popup that asks "do you want a trial?"** Same UX problem rebranded.
 - ❌ **Don't remove the trial entirely as a "fix."** Trial-acquired subscribers retain 1.4-1.7x better.

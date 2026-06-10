@@ -2,7 +2,7 @@
 
 Printable / standalone checklist version of the SKILL.md audit. Use when you don't have AI access or want a manual review pass before submitting an App Store update.
 
-50+ items grouped into 7 sections. Each item references the SKILL.md / module section that explains why.
+50+ items grouped into 8 sections. Each item references the SKILL.md / module section that explains why.
 
 ---
 
@@ -21,7 +21,7 @@ These are Apple Rules. Failing any = likely rejection.
 - [ ] No fake urgency / countdown not tied to real expiry
 - [ ] No fake reviews / ratings / user counts
 - [ ] Existing paid users keep previously purchased access (no entitlement breakage)
-- [ ] **No toggle paywall** (Apple Guideline 3.1.2 mass rejections since Jan 2026)
+- [ ] **No free-trial toggle paywall on iOS** (Guideline 3.1.2 enforcement; treat as banned)
 - [ ] No deceptive plan pre-selection
 - [ ] Auto-renewal terms disclosed clearly
 
@@ -49,7 +49,7 @@ References: [decision-trees.md](../modules/decision-trees.md) Tree 8.
 - [ ] CTA uses action+benefit pattern ("Start my free week", not "Subscribe")
 - [ ] 3-5 benefit bullets max
 - [ ] Each bullet ≤8 words
-- [ ] No banned words: "Premium" alone, "Subscribe" generic, "Unlock", "Pay"
+- [ ] No weak standalone copy: "Premium", "Subscribe", "Unlock", "Pay" without clear outcome/terms
 - [ ] Real social proof above the fold (rating + count, real testimonial, or authority)
 - [ ] Trust line includes trial terms + billed amount + restore + terms + privacy
 - [ ] Onboarding promise referenced in paywall headline (continuity check)
@@ -124,11 +124,25 @@ References: [notifications-lifecycle.md](../modules/notifications-lifecycle.md),
 
 ---
 
+## 8. 2026 Store Policy Watch
+
+- [ ] If using Apple monthly subscriptions with a 12-month commitment, gate by supported storefront/OS and explain completed/remaining payments clearly
+- [ ] If Health & Fitness / Medical or medical-treatment references, provide regulated medical device status in App Store Connect where required
+- [ ] If raising Apple subscription prices in Austria, Germany, or Poland, account for customer consent requirements
+- [ ] If marketing offers on Apple, use offer codes for IAP; don't plan new IAP promo codes after March 26, 2026
+- [ ] If shipping Android in applicable US states, check Play Age Signals / in-app product age rating requirements
+- [ ] If monetizing China mainland on iOS, use the 2026 commission rates in unit economics
+- [ ] If using external purchase flows, gate them by storefront/OS (US, EU, Japan rules differ)
+
+References: Apple Developer News 2026 + [android-parity.md](../modules/android-parity.md).
+
+---
+
 ## Quick Triage
 
 If you can only check 10 items, check these:
 
-1. ✅ Toggle paywall removed (post Jan 2026 ban)
+1. ✅ Trial-toggle paywall removed or replaced with separate plan cards
 2. ✅ Billed amount most prominent
 3. ✅ Trial terms + post-trial price visible
 4. ✅ Restore Purchase / Terms / Privacy links
