@@ -1,0 +1,3 @@
+## Task delivery
+
+The owner authorizes commit, push, and routine deployment of the current requested task after required checks, without a separate confirmation. Stage only your explicit paths or hunks and preserve other work. Follow existing deployment runbooks, environment routing, release gates, and higher-priority tool confirmations. Documentation-only tasks do not require manual app or service deployment; existing Git-triggered pipelines retain their checks and release gates. New remotes, prices, access, secrets, third-party messages, destructive operations, and store publication outside the current requested task remain separately authorized.
