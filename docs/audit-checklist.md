@@ -133,8 +133,14 @@ References: [notifications-lifecycle.md](../modules/notifications-lifecycle.md),
 - [ ] If shipping Android in applicable US states, check Play Age Signals / in-app product age rating requirements
 - [ ] If monetizing China mainland on iOS, use the 2026 commission rates in unit economics
 - [ ] If using external purchase flows, gate them by storefront/OS (US, EU, Japan rules differ)
+- [ ] Multiseat purchases decided per auto-renewable subscription in App Store Connect (on by default since 2026-09-16)
+- [ ] Android: Play Billing Library 8+; `PendingRefundReviewNotification` handled (developer pays chargebacks since 2026-08-03)
+- [ ] Android eligibility discounts (student etc.): criteria, verification, post-eligibility price on the paywall (from 2027-01-27)
+- [ ] EU web subscriptions: visible withdrawal function for 14 days (Directive 2023/2673, since 2026-06-19)
+- [ ] UK: renewal reminders + post-trial cooling-off copy ready for DMCCA (provisional 2027-01-01)
+- [ ] Code scans R1-R6 run, hits triaged
 
-References: Apple Developer News 2026 + [android-parity.md](../modules/android-parity.md).
+References: Apple Developer News 2026 + [android-parity.md](../modules/android-parity.md) + [compliance-watchlist-2026.md](compliance-watchlist-2026.md).
 
 ---
 

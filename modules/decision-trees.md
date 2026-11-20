@@ -244,9 +244,14 @@ Q: Apple cited Guideline 3.1.2?
 │   └── Check: fake "X% off" without reference, fake countdown timer,
 │       fake user counts, fake testimonials
 │
-└── Q: "Aggressive monetization" cited?
-    └── Check: two full paywalls back-to-back, multiple paywalls per session,
-        forced re-entry to dismiss
+├── Q: "Aggressive monetization" cited?
+│   └── Check: two full paywalls back-to-back, multiple paywalls per session,
+│       forced re-entry to dismiss
+│
+└── Q: 3.1.1 cited (payments)?
+    └── Check: restore path, external SDK for digital goods,
+        external link shown outside US storefront
+        Run: docs/compliance-watchlist-2026.md scans R1-R3
 ```
 
 **Don't fix-and-resubmit if pattern is structural.** A toggle paywall with cosmetic tweaks will likely re-reject. Replace the pattern.

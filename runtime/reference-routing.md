@@ -24,6 +24,7 @@ Load the smallest set of references that answers the task. Do not load README or
 | Plan/pricing/category economics | [modules/category-deep-dives.md](../modules/category-deep-dives.md) |
 | LTV/ROAS/breakeven | [modules/unit-economics-calculator.md](../modules/unit-economics-calculator.md) and script |
 | App Store risk | [modules/decision-trees.md](../modules/decision-trees.md), [docs/audit-checklist.md](../docs/audit-checklist.md) |
+| 2026 store/law changes (EU withdrawal, UK DMCCA, multiseat, Play Billing 8, chargebacks), pre-submission code scans | [docs/compliance-watchlist-2026.md](../docs/compliance-watchlist-2026.md) |
 | Toggle-paywall migration | [docs/migrations/from-toggle-paywall.md](../docs/migrations/from-toggle-paywall.md) |
 | Copy variants | [modules/copy-library.md](../modules/copy-library.md) |
 | Layout/accessibility | [modules/screen-anatomy.md](../modules/screen-anatomy.md) |

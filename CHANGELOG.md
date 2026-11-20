@@ -3,6 +3,7 @@
 ## [Unreleased]
 
 ### Added
+- `docs/compliance-watchlist-2026.md`: dated 2026 store/law changes for subscriptions (EU withdrawal function, UK DMCCA, Apple multiseat, Play Billing 8, Play chargebacks, eligibility discounts, Digital Fairness Act) and six pre-submission code scans; routed from `compliance` mode, Tree 8 and the audit checklist
 - `framework-meta.json` as single source of truth for version, counts, canonical research brief, and calculator paths
 - `tools/sync_repo_meta.py` + `.github/scripts/validate_repo_meta.py` to keep top-level docs aligned with repo facts
 - `tools/ltv_calculator.py` as importable calculator module with strict validation
